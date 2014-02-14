@@ -1,6 +1,8 @@
 package ar.com.overflowdt.minekkit;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,11 +10,15 @@ import android.view.MenuItem;
 import android.view.View;
 
 public class MainActivity extends Activity {
+	
+	AlertDialog.Builder dialogo1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		setearAlertDialog();
 	}
 
 	@Override
@@ -26,7 +32,7 @@ public class MainActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
         case R.id.mapa:
-        	verMapa();
+        	dialogo1.show();
             break;
         case R.id.salir:
             finish();
@@ -42,7 +48,7 @@ public class MainActivity extends Activity {
 	
 	public void mapa(View view)
 	{
-		verMapa();
+		dialogo1.show();
 	}
 
 	private void verMapa() {
@@ -50,5 +56,32 @@ public class MainActivity extends Activity {
 		i.putExtra("direccion", "minekkit.com:8123");
 		startActivity(i);
 	}
-
+	
+	private void aceptar()
+	{
+		verMapa();
+	}
+	
+	private void cancelar()
+	{
+		//Nothing
+	}
+	
+	private void setearAlertDialog()
+	{  
+		dialogo1 = new AlertDialog.Builder(this);
+        dialogo1.setTitle("Aviso");  
+        dialogo1.setMessage("Necesitarás una buena conexión a internet para visualizar el mapa correctamente, ¿deseas continuar?");            
+        dialogo1.setCancelable(false);  
+        dialogo1.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {  
+            public void onClick(DialogInterface dialogo1, int id) {  
+                aceptar();  
+            }  
+        });  
+        dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {  
+            public void onClick(DialogInterface dialogo1, int id) {  
+                cancelar();
+            }  
+        });
+	}
 }
