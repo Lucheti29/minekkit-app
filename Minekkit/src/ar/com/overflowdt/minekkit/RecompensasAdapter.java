@@ -65,7 +65,9 @@ public class RecompensasAdapter extends BaseAdapter {
 			newurl = new URL(p.logo);
 			mIcon_val = BitmapFactory.decodeStream(newurl.openConnection().getInputStream());
 			 name.setText(p.Name);
-			 cost.setText(String.valueOf(p.Cost));
+			 String t=String.valueOf(p.Cost);
+			 t=t.concat(" Recoplas");
+			 cost.setText(t);
 			 logo.setImageBitmap(mIcon_val);
 		} catch (IOException e) {
 
