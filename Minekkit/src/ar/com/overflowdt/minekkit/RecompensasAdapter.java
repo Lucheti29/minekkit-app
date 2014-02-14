@@ -1,14 +1,9 @@
 package ar.com.overflowdt.minekkit;
 
-import java.io.IOException;
-
-import java.net.URL;
 import java.util.List;
 
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +38,6 @@ public class RecompensasAdapter extends BaseAdapter {
 
 	@Override
 	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
 		return arg0;
 	}
 
@@ -65,9 +59,6 @@ public class RecompensasAdapter extends BaseAdapter {
 		 cost.setText(t);
 		 logo.setImageBitmap(p.logo);
 		
-       
-       
-
         return arg1;
 	}
 
