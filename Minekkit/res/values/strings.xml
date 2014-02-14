@@ -7,5 +7,7 @@
     <string name="acercade1">Esta aplicación fue hecha por Overflow DT</string>
     <string name="acercade2">Todos los derechos reservados 2014</string>
     <string name="acercade_titulo">Acerca de</string>
+    <string name="mapa">Ver Mapa</string>
+    <string name="exit">Salir</string>
 
 </resources>
