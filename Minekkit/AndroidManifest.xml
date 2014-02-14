@@ -25,6 +25,12 @@
         </activity>
         <activity android:name="AcercaDe"></activity>
         <activity android:name="Mapa"></activity>
+                <!-- All Product Activity -->
+        <activity
+            android:name=".AllRecompensasActivity"
+            android:label="All Recompensas" >
+        </activity>
+ 
     </application>
 
 </manifest>

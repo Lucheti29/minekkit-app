@@ -8,15 +8,34 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends Activity {
 	
 	AlertDialog.Builder dialogo1;
+	Button btnRecompensas;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		// Buttons
+	    btnRecompensas = (Button) findViewById(R.id.btnRecom);
+
+
+	    // view products click event
+	    btnRecompensas.setOnClickListener(new View.OnClickListener() {
+
+	        @Override
+	        public void onClick(View view) {
+	            // Launching All products Activity
+	            Intent i = new Intent(getApplicationContext(), AllRecompensasActivity.class);
+	            startActivity(i);
+
+	        }
+	    });
+		
 		
 		setearAlertDialog();
 	}
