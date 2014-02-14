@@ -4,5 +4,8 @@
     <string name="app_name">Minekkit</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="acercade1">Esta aplicación fue hecha por Overflow DT</string>
+    <string name="acercade2">Todos los derechos reservados 2014</string>
+    <string name="acercade_titulo">Acerca de</string>
 
 </resources>

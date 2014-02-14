@@ -1,17 +1,17 @@
 package ar.com.overflowdt.minekkit;
 
-import android.os.Bundle;
 import android.app.Activity;
-import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 
-public class MainActivity extends Activity {
+public class AcercaDe extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_acercade);
 	}
 
 	@Override
@@ -21,17 +21,9 @@ public class MainActivity extends Activity {
 		return true;
 	}
 	
-	public void acercaDe(View view)
+	public void cerrar(View view)
 	{
-		Intent i = new Intent(this,AcercaDe.class);
-		startActivity(i);
-	}
-	
-	public void mapa(View view)
-	{
-		Intent i = new Intent(this,Mapa.class);
-		i.putExtra("direccion", "minekkit.com:8123");
-		startActivity(i);
+		finish();
 	}
 
 }
