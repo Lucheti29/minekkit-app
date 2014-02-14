@@ -27,7 +27,7 @@
         <activity android:name="Mapa"></activity>
                 <!-- All Product Activity -->
         <activity
-            android:name=".AllRecompensasActivity"
+            android:name="ar.com.overflowdt.minekkit.AllRecompensasActivity"
             android:label="All Recompensas" >
         </activity>
  

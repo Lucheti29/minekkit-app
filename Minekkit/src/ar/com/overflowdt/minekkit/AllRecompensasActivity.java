@@ -31,8 +31,8 @@ public class AllRecompensasActivity extends ListActivity {
     // Creating JSON Parser object
     JSONParser jParser = new JSONParser();
  
-    ArrayList<HashMap<String, String>> productsList;
- 
+
+    List<PackRecompensas> packRecompensasList;
     // url to get all products list
     private static String url_all_products = "http://minekkit.com/api/listRecompensas.php";
  
@@ -40,6 +40,8 @@ public class AllRecompensasActivity extends ListActivity {
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_PRODUCTS = "items";
     private static final String TAG_NAME = "Nombre";
+    private static final String TAG_LOGO = "Logo";
+    private static final String TAG_COSTO = "Costo";
  
     // products JSONArray
     JSONArray products = null;
@@ -49,9 +51,7 @@ public class AllRecompensasActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.all_recompensas);
  
-        // Hashmap for ListView
-        productsList = new ArrayList<HashMap<String, String>>();
- 
+
         // Loading products in Background Thread
         new LoadAllProducts().execute();
  
@@ -124,8 +124,8 @@ public class AllRecompensasActivity extends ListActivity {
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             // getting JSON string from URL
             JSONObject json = jParser.makeHttpRequest(url_all_products, "GET", params);
- 
-            // Check your log cat for JSON reponse
+            packRecompensasList= new ArrayList<PackRecompensas>();
+            // Check your log cat for JSON response
             Log.d("All Products: ", json.toString());
  
             try {
@@ -142,18 +142,14 @@ public class AllRecompensasActivity extends ListActivity {
                         JSONObject c = products.getJSONObject(i);
  
                         // Storing each json item in variable
+                        PackRecompensas item = new PackRecompensas();
+                        item.Name = c.getString(TAG_NAME);
+                        item.Cost = c.getInt(TAG_COSTO);
+                        item.logo = c.getString(TAG_LOGO);
                         
-                        String name = c.getString(TAG_NAME);
- 
-                        // creating new HashMap
-                        HashMap<String, String> map = new HashMap<String, String>();
- 
-                        // adding each child node to HashMap key => value
-                        
-                        map.put(TAG_NAME, name);
- 
-                        // adding HashList to ArrayList
-                        productsList.add(map);
+                        packRecompensasList.add(item);	
+
+                    Log.d("Arryay count:",String.valueOf(packRecompensasList.size()));
                     }
                 } else {
                     // no products found
@@ -183,10 +179,9 @@ public class AllRecompensasActivity extends ListActivity {
                     /**
                      * Updating parsed JSON data into ListView
                      * */
-                    ListAdapter adapter = new SimpleAdapter(
-                            AllRecompensasActivity.this, productsList,
-                            R.layout.list_item, new String[] { TAG_NAME},
-                            new int[] { R.id.name });
+                    RecompensasAdapter adapter = new RecompensasAdapter(); 
+                    adapter.aRA=AllRecompensasActivity.this;
+                    adapter.packRecompensasList=packRecompensasList;
                     // updating listview
                     setListAdapter(adapter);
                 }

@@ -26,15 +26,17 @@ public final class R {
         public static final int logo_mk=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000a;
+        public static final int action_settings=0x7f08000c;
         public static final int btnRecom=0x7f080007;
         public static final int button1=0x7f080003;
         public static final int button2=0x7f080006;
+        public static final int costo=0x7f08000b;
         public static final int imageView1=0x7f080004;
-        public static final int mapa=0x7f08000b;
+        public static final int logo=0x7f080009;
+        public static final int mapa=0x7f08000d;
         public static final int mapa_id=0x7f080008;
-        public static final int name=0x7f080009;
-        public static final int salir=0x7f08000c;
+        public static final int name=0x7f08000a;
+        public static final int salir=0x7f08000e;
         public static final int textView1=0x7f080000;
         public static final int textView2=0x7f080001;
         public static final int textView3=0x7f080002;
