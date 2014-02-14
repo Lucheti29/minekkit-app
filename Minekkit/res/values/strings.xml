@@ -10,5 +10,6 @@
     <string name="mapa">Ver Mapa</string>
     <string name="exit">Salir</string>
     <string name="recompensas">Recompensas</string>
+    <string name="version">Ver 0.2 Alpha</string>
 
 </resources>

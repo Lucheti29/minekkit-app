@@ -1,5 +1,7 @@
 package ar.com.overflowdt.minekkit;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,6 +14,8 @@ import org.json.JSONObject;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -145,11 +149,16 @@ public class AllRecompensasActivity extends ListActivity {
                         PackRecompensas item = new PackRecompensas();
                         item.Name = c.getString(TAG_NAME);
                         item.Cost = c.getInt(TAG_COSTO);
-                        item.logo = c.getString(TAG_LOGO);
                         
+                		try {
+		                    URL newurl = new URL(c.getString(TAG_LOGO));
+		        			item.logo = BitmapFactory.decodeStream(newurl.openConnection().getInputStream());
+                		} catch (IOException e) {
+
+                			e.printStackTrace();
+                		} 
                         packRecompensasList.add(item);	
 
-                    Log.d("Arryay count:",String.valueOf(packRecompensasList.size()));
                     }
                 } else {
                     // no products found

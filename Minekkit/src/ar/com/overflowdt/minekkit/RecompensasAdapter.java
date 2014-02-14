@@ -58,21 +58,13 @@ public class RecompensasAdapter extends BaseAdapter {
         TextView cost = (TextView)arg1.findViewById(R.id.costo);
         ImageView logo = (ImageView)arg1.findViewById(R.id.logo);
         PackRecompensas p = packRecompensasList.get(arg0);
-        
-        URL newurl;
-        Bitmap mIcon_val;
-		try {
-			newurl = new URL(p.logo);
-			mIcon_val = BitmapFactory.decodeStream(newurl.openConnection().getInputStream());
-			 name.setText(p.Name);
-			 String t=String.valueOf(p.Cost);
-			 t=t.concat(" Recoplas");
-			 cost.setText(t);
-			 logo.setImageBitmap(mIcon_val);
-		} catch (IOException e) {
 
-			e.printStackTrace();
-		} 
+		 name.setText(p.Name);
+		 String t=String.valueOf(p.Cost);
+		 t=t.concat(" Recoplas");
+		 cost.setText(t);
+		 logo.setImageBitmap(p.logo);
+		
        
        
 

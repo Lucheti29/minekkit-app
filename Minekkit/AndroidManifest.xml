@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ar.com.overflowdt.minekkit"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="@string/version" >
 
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="18" />
+        android:targetSdkVersion="19" />
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
