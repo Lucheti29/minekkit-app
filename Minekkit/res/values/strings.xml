@@ -11,6 +11,8 @@
     <string name="exit">Salir</string>
     <string name="recompensas">Recompensas</string>
     <string name="version">Ver 0.2 Alpha</string>
+    <string name="menu_perfil">Perfil</string>
+    <string name="menu_pm">PM</string>
 	<color name="black">#000000</color>
 	<color name="white">#FFFFFF</color>
 </resources>

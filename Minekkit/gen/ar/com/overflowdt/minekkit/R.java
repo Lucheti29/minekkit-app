@@ -26,8 +26,10 @@ public final class R {
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
-        public static final int logo_app=0x7f020001;
-        public static final int logo_mk=0x7f020002;
+        public static final int ic_perfil=0x7f020001;
+        public static final int ic_pms=0x7f020002;
+        public static final int logo_app=0x7f020003;
+        public static final int logo_mk=0x7f020004;
     }
     public static final class id {
         public static final int action_settings=0x7f090017;
@@ -43,7 +45,9 @@ public final class R {
         public static final int mapa=0x7f090018;
         public static final int mapa_id=0x7f090011;
         public static final int name=0x7f090015;
+        public static final int perfil=0x7f09001a;
         public static final int pid=0x7f090013;
+        public static final int pm=0x7f09001b;
         public static final int salir=0x7f090019;
         public static final int single_logo=0x7f09000c;
         public static final int tab1=0x7f090004;
@@ -78,6 +82,8 @@ public final class R {
         public static final int exit=0x7f050007;
         public static final int hello_world=0x7f050002;
         public static final int mapa=0x7f050006;
+        public static final int menu_perfil=0x7f05000a;
+        public static final int menu_pm=0x7f05000b;
         public static final int recompensas=0x7f050008;
         public static final int version=0x7f050009;
     }
