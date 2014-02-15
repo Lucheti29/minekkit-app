@@ -9,6 +9,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import ar.com.overflowdt.minekkit.acercade.AcercaDe;
+import ar.com.overflowdt.minekkit.denuncia.Denuncia;
+import ar.com.overflowdt.minekkit.mapa.Mapa;
+import ar.com.overflowdt.minekkit.recompensas.AllRecompensasActivity;
 
 public class MainActivity extends Activity {
 	

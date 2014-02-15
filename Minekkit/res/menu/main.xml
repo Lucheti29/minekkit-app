@@ -4,26 +4,26 @@
         android:id="@+id/action_settings"
         android:orderInCategory="1"
         android:showAsAction="never"
-        android:title="@string/action_settings"/>
+        android:title="@string/actionbar_settings"/>
     <item 
         android:id="@+id/mapa" 
-        android:title="@string/mapa" 
+        android:title="@string/actionbar_mapa" 
         android:orderInCategory="2"/>
     <item 
         android:id="@+id/salir"
-        android:title="@string/exit"
+        android:title="@string/actionbar_exit"
         android:orderInCategory="3" />
 
     <item
         android:id="@+id/perfil"
         android:showAsAction="ifRoom|withText"
         android:icon="@drawable/ic_perfil"
-        android:title="@string/menu_perfil"/>
+        android:title="@string/actionbar_perfil"/>
  
     <item
         android:id="@+id/pm"
         android:showAsAction="ifRoom|withText"
         android:icon="@drawable/ic_pms"
-        android:title="@string/menu_pm"/>
+        android:title="@string/actionbar_pm"/>
 
 </menu>

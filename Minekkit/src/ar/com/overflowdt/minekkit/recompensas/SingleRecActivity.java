@@ -1,4 +1,4 @@
-package ar.com.overflowdt.minekkit;
+package ar.com.overflowdt.minekkit.recompensas;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +20,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
+import ar.com.overflowdt.minekkit.R;
+import ar.com.overflowdt.minekkit.util.JSONParser;
 
 public class SingleRecActivity extends Activity {
 	
@@ -78,7 +80,7 @@ public class SingleRecActivity extends Activity {
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(SingleRecActivity.this);
-            pDialog.setMessage("Cargando Pack. Espera por favor...");
+            pDialog.setMessage("Cargando Pack...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();

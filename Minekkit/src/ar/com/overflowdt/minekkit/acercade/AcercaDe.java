@@ -1,9 +1,10 @@
-package ar.com.overflowdt.minekkit;
+package ar.com.overflowdt.minekkit.acercade;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import ar.com.overflowdt.minekkit.R;
 
 public class AcercaDe extends Activity {
 

@@ -25,7 +25,7 @@
         android:layout_below="@+id/single_logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="41dp"
-        android:text="Versión Alpha 0.1"
+        android:text="@string/subtitulo"
         android:textColor="@color/white" />
 
     <Button
@@ -37,7 +37,7 @@
         android:layout_marginBottom="24dp"
         android:background="@android:drawable/btn_default_small"
         android:onClick="acercaDe"
-        android:text="Acerca de" />
+        android:text="@string/label_acercade" />
 
     <Button
         android:id="@+id/button2"
@@ -49,7 +49,7 @@
         android:layout_marginTop="24dp"
         android:background="@android:drawable/btn_default"
         android:onClick="mapa"
-        android:text="Mapa Online" />
+        android:text="@string/label_mapa" />
 
     <Button
         android:id="@+id/btnRecom"
@@ -73,6 +73,6 @@
         android:layout_below="@+id/btnRecom"
         android:background="@android:drawable/btn_default"
         android:onClick="hacerDenuncia"
-        android:text="Denuncias" />
+        android:text="@string/label_denuncias" />
 
 </RelativeLayout>

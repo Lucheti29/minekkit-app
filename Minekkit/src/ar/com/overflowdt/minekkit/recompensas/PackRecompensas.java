@@ -1,4 +1,4 @@
-package ar.com.overflowdt.minekkit;
+package ar.com.overflowdt.minekkit.recompensas;
 
 import android.graphics.Bitmap;
 

@@ -2,17 +2,32 @@
 <resources>
 
     <string name="app_name">Minekkit</string>
-    <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    
+    <string name="subtitulo">Version Alpha 0.2</string>
+    
     <string name="acercade1">Esta aplicación fue hecha por Overflow DT</string>
     <string name="acercade2">Todos los derechos reservados 2014</string>
-    <string name="acercade_titulo">Acerca de</string>
-    <string name="mapa">Ver Mapa</string>
-    <string name="exit">Salir</string>
+    
     <string name="recompensas">Recompensas</string>
     <string name="version">Ver 0.2 Alpha</string>
-    <string name="menu_perfil">Perfil</string>
-    <string name="menu_pm">PM</string>
+    
+    <string name="actionbar_perfil">Perfil</string>
+    <string name="actionbar_pm">PM</string>
+    <string name="actionbar_settings">Settings</string>
+    <string name="actionbar_mapa">Ver Mapa</string>
+    <string name="actionbar_exit">Salir</string>
+    
+    <string name="label_acercade">Acerca de</string>
+    <string name="label_recompensas">Recompensas</string>
+    <string name="label_denuncias">Denuncia</string>
+    <string name="label_mapa">Mapa Online</string>
+    <string name="label_menuinicial"></string>
+    
+    <string name="boton_atras">Atrás</string>
+    <string name="boton_enviar">Enviar</string>
+    
 	<color name="black">#000000</color>
 	<color name="white">#FFFFFF</color>
+	
 </resources>

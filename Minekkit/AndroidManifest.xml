@@ -23,18 +23,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="AcercaDe"></activity>
-        <activity android:name="Mapa"></activity>
+        <activity 
+            android:name="ar.com.overflowdt.minekkit.acercade.AcercaDe"
+            android:label="@string/label_acercade" >
+        </activity>
+        <activity
+            android:name="ar.com.overflowdt.minekkit.mapa.Mapa"
+            android:label="@string/label_mapa" ></activity>
                 <!-- All Product Activity -->
         <activity
-            android:name="ar.com.overflowdt.minekkit.AllRecompensasActivity"
-            android:label="All Recompensas" >
+            android:name="ar.com.overflowdt.minekkit.recompensas.AllRecompensasActivity"
+            android:label="@string/label_recompensas" >
         </activity>
         <activity
-            android:name="ar.com.overflowdt.minekkit.SingleRecActivity"
-            android:label="All Recompensas" >
+            android:name="ar.com.overflowdt.minekkit.recompensas.SingleRecActivity"
+            android:label="@string/label_recompensas" >
         </activity>
-        <activity android:name="Denuncia"></activity>
+        <activity 
+            android:name="ar.com.overflowdt.minekkit.denuncia.Denuncia"
+            android:label="@string/label_denuncias">
+        </activity>
  
     </application>
 

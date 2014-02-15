@@ -1,4 +1,4 @@
-package ar.com.overflowdt.minekkit;
+package ar.com.overflowdt.minekkit.mapa;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import ar.com.overflowdt.minekkit.R;
 
 public class Mapa extends Activity {
 	

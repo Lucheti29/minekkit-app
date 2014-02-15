@@ -1,4 +1,4 @@
-package ar.com.overflowdt.minekkit;
+package ar.com.overflowdt.minekkit.recompensas;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,6 +22,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
+import ar.com.overflowdt.minekkit.R;
+import ar.com.overflowdt.minekkit.util.JSONParser;
 
 //import android.widget.ListView;
 
@@ -116,7 +118,7 @@ public class AllRecompensasActivity extends ListActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(AllRecompensasActivity.this);
-            pDialog.setMessage("Loading products. Please wait...");
+            pDialog.setMessage("Cargando recompensas. Por favor, espere...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();

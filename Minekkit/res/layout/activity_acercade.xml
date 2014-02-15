@@ -5,20 +5,9 @@
     android:onClick="cerrar" >
 
     <TextView
-        android:id="@+id/titulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
-        android:text="@string/acercade_titulo"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/titulo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:text="@string/acercade1" />
@@ -40,6 +29,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
         android:onClick="cerrar"
-        android:text="Atrás" />
+        android:text="@string/boton_atras" />
 
 </RelativeLayout>

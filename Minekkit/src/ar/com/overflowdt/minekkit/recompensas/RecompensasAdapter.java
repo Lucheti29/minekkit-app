@@ -1,4 +1,4 @@
-package ar.com.overflowdt.minekkit;
+package ar.com.overflowdt.minekkit.recompensas;
 
 import java.util.List;
 
@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import ar.com.overflowdt.minekkit.R;
 
 public class RecompensasAdapter extends BaseAdapter {
 
