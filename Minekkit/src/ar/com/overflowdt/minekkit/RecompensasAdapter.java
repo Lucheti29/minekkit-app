@@ -15,15 +15,7 @@ public class RecompensasAdapter extends BaseAdapter {
 
 	List<PackRecompensas> packRecompensasList;
 	AllRecompensasActivity aRA;
-//	public RecompensasAdapter(List<PackRecompensas> pL,AllRecompensasActivity a) {
-//		RecompensasAdapter r=new RecompensasAdapter();
-//		 r.packRecompensasList=pL;
-//		 r.aRA=a;
-//		 
-//    }
-//	public RecompensasAdapter() {
-//		
-//	}
+
 	@Override
 	public int getCount() {
 		
@@ -50,6 +42,7 @@ public class RecompensasAdapter extends BaseAdapter {
         }
 		TextView name = (TextView)arg1.findViewById(R.id.name);
         TextView cost = (TextView)arg1.findViewById(R.id.costo);
+        TextView id = (TextView)arg1.findViewById(R.id.pid);
         ImageView logo = (ImageView)arg1.findViewById(R.id.logo);
         PackRecompensas p = packRecompensasList.get(arg0);
 
@@ -58,7 +51,7 @@ public class RecompensasAdapter extends BaseAdapter {
 		 t=t.concat(" Recoplas");
 		 cost.setText(t);
 		 logo.setImageBitmap(p.logo);
-		
+		id.setText(String.valueOf(p.id));
         return arg1;
 	}
 

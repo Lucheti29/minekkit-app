@@ -30,6 +30,10 @@
             android:name="ar.com.overflowdt.minekkit.AllRecompensasActivity"
             android:label="All Recompensas" >
         </activity>
+        <activity
+            android:name="ar.com.overflowdt.minekkit.SingleRecActivity"
+            android:label="All Recompensas" >
+        </activity>
  
     </application>
 

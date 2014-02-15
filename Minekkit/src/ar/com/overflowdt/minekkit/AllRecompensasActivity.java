@@ -3,7 +3,6 @@ package ar.com.overflowdt.minekkit;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-
 import java.util.List;
 
 import org.apache.http.NameValuePair;
@@ -14,11 +13,15 @@ import org.json.JSONObject;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
+import android.widget.TextView;
 
 //import android.widget.ListView;
 
@@ -42,6 +45,8 @@ public class AllRecompensasActivity extends ListActivity {
     private static final String TAG_NAME = "Nombre";
     private static final String TAG_LOGO = "Logo";
     private static final String TAG_COSTO = "Costo";
+    private static final String TAG_ID = "Id";
+    private static final String TAG_DESC = "Descripcion";
  
     // products JSONArray
     JSONArray products = null;
@@ -56,29 +61,30 @@ public class AllRecompensasActivity extends ListActivity {
         new LoadAllProducts().execute();
  
         // Get listview
-        //ListView lv = getListView();
+        ListView lv = getListView();
  
-        // on seleting single product
-        // launching Edit Product Screen
-//        lv.setOnItemClickListener(new OnItemClickListener() {
+//         on seleting single product
+//         launching Edit Product Screen
+        lv.setOnItemClickListener(new OnItemClickListener() {
  
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view,
-//                    int position, long id) {
-//                // getting values from selected ListItem
-//                String pid = ((TextView) view.findViewById(R.id.pid)).getText()
-//                        .toString();
-// 
-//                // Starting new intent
-//                Intent in = new Intent(getApplicationContext(),
-//                        EditProductActivity.class);
-//                // sending pid to next activity
-//                in.putExtra(TAG_PID, pid);
-// 
-//                // starting new activity and expecting some response back
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                    int position, long id) {
+                // getting values from selected ListItem
+                String pid = ((TextView) view.findViewById(R.id.pid)).getText()
+                        .toString();
+ 
+                // Starting new intent
+                Intent in = new Intent(AllRecompensasActivity.this,
+                        SingleRecActivity.class);
+                // sending pid to next activity
+                in.putExtra(TAG_ID, pid);
+ 
+                startActivity(in);
+                // starting new activity and expecting some response back
 //                startActivityForResult(in, 100);
-//            }
-//        });
+            }
+        });
  
     }
  
@@ -145,14 +151,16 @@ public class AllRecompensasActivity extends ListActivity {
                         PackRecompensas item = new PackRecompensas();
                         item.Name = c.getString(TAG_NAME);
                         item.Cost = c.getInt(TAG_COSTO);
-                        
-                		try {
+                        item.id = c.getInt(TAG_ID);
+                        item.descripcion = c.getString(TAG_DESC);
+                        try {
 		                    URL newurl = new URL(c.getString(TAG_LOGO));
 		        			item.logo = BitmapFactory.decodeStream(newurl.openConnection().getInputStream());
                 		} catch (IOException e) {
 
                 			e.printStackTrace();
                 		} 
+                        
                         packRecompensasList.add(item);	
 
                     }
