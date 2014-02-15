@@ -25,7 +25,7 @@
         android:layout_below="@+id/single_logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="41dp"
-        android:text="La magia comienza"
+        android:text="Versión Alpha 0.1"
         android:textColor="@color/white" />
 
     <Button
@@ -63,5 +63,16 @@
         android:background="@android:drawable/btn_default"
         android:fadingEdge="none"
         android:text="@string/recompensas" />
+
+    <Button
+        android:id="@+id/btnDenuncias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnRecom"
+        android:layout_alignRight="@+id/btnRecom"
+        android:layout_below="@+id/btnRecom"
+        android:background="@android:drawable/btn_default"
+        android:onClick="hacerDenuncia"
+        android:text="Denuncias" />
 
 </RelativeLayout>

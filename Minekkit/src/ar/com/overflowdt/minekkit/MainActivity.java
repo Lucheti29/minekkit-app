@@ -65,6 +65,12 @@ public class MainActivity extends Activity {
 		startActivity(i);
 	}
 	
+	public void hacerDenuncia(View view)
+	{
+		Intent i = new Intent(this,Denuncia.class);
+		startActivity(i);
+	}
+	
 	public void mapa(View view)
 	{
 		dialogo1.show();
