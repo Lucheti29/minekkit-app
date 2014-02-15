@@ -21,3 +21,8 @@
 
 ============
 
+<h3>TODOS:</h3>
+
+<ul>
+  <li>La App creashea al acceder a la sección recompensas cuando estas en modo avión</li>
+</ul>
