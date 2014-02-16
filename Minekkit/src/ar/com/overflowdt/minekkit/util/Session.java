@@ -19,8 +19,8 @@ public class Session implements Enviable{
 	@Override
 	public ArrayList<Parametro> armarArrayDeParametros() {
 		ArrayList<Parametro> list = new ArrayList<Parametro>();
-		list.add(new Parametro().setValores("user", user)
-								.setValores("pass", pass));
+		list.add(new Parametro().setValores("user", user));
+		list.add(new Parametro().setValores("pass", pass));
 		return list;		
 	}
 }
