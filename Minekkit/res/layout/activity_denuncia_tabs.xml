@@ -20,19 +20,191 @@
          <FrameLayout android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:id="@android:id/tabcontent" >
- 
-            <LinearLayout android:id="@+id/tab1"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent" >
- 
-                <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Fecha/Hora/Mundo/Usuarios involucrados" />
 
-	        </LinearLayout>
+             <LinearLayout
+                 android:id="@+id/tab1"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:orientation="vertical" >
+
+                 <TextView
+                     android:id="@+id/tv_formulario"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/denuncia_formulario"
+                     android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:orientation="vertical" >
+
+                     <TextView
+                         android:id="@+id/tv_titulo"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="@string/denuncia_titulo" />
+
+                     <EditText
+                         android:id="@+id/et_titulo"
+                         android:maxLength="30"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:ems="10" >
+
+                         <requestFocus />
+                     </EditText>
+                 </LinearLayout>
+
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:orientation="vertical" >
+
+                     <TextView
+                         android:id="@+id/tv_fecha"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="@string/denuncia_fecha" />
+
+                     <TableLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content" >
+
+                         <TableRow
+                             android:id="@+id/tableRow1"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content" >
+
+                             <EditText
+                                 android:id="@+id/et_dia"
+                                 android:maxLength="2"
+                                 android:inputType="numberDecimal"
+                                 android:layout_width="60dp"
+                                 android:layout_height="wrap_content"
+                                 android:ems="10" />
+
+                             <TextView
+                                 android:id="@+id/tv_barra1"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:text="@string/otros_barra" />
+
+                             <EditText
+                                 android:id="@+id/et_mes"
+                                 android:maxLength="2"
+                                 android:inputType="numberDecimal"
+                                 android:layout_width="60dp"
+                                 android:layout_height="wrap_content"
+                                 android:ems="10" />
+
+                             <TextView
+                                 android:id="@+id/tv_barra2"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:text="@string/otros_barra" />
+
+                             <EditText
+                                 android:id="@+id/et_anio"
+                                 android:maxLength="4"
+                                 android:inputType="numberDecimal"
+                                 android:layout_width="60dp"
+                                 android:layout_height="wrap_content"
+                                 android:ems="10" />
+                         </TableRow>
+                     </TableLayout>
+                 </LinearLayout>
+
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:orientation="vertical" >
+
+                     <TextView
+                         android:id="@+id/tv_hora"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="@string/denuncia_horario" />
+
+                     <TableLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content" >
+
+                         <TableRow
+                             android:id="@+id/tableRow2"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content" >
+
+                             <EditText
+                                 android:id="@+id/et_hora"
+                                 android:maxLength="2"
+                                 android:inputType="numberDecimal"
+                                 android:layout_width="60dp"
+                                 android:layout_height="wrap_content"
+                                 android:ems="10" />
+
+                             <TextView
+                                 android:id="@+id/tv_dospuntos"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:text="@string/otros_dospuntos" />
+
+                             <EditText
+                                 android:id="@+id/et_minutos"
+                                 android:maxLength="2"
+                                 android:inputType="numberDecimal"
+                                 android:layout_width="60dp"
+                                 android:layout_height="wrap_content"
+                                 android:ems="10" />
+
+                             <TextView
+                                 android:id="@+id/tv_horario_gmt"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:text="@string/denuncia_horario_gmt" />
+
+                         </TableRow>
+                     </TableLayout>
+                 </LinearLayout>
+
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:orientation="vertical" >
+
+                     <TextView
+                         android:id="@+id/tv_mundo"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="@string/denuncia_mundo" />
+
+                     <EditText
+                         android:id="@+id/et_mundo"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:ems="10" />
+
+                 </LinearLayout>
+
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:orientation="vertical" >
+
+                     <TextView
+                         android:id="@+id/tv_ciudad"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="@string/denuncia_ciudad" />
+
+                     <EditText
+                         android:id="@+id/et_ciudad"
+                         android:maxLength="15"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:ems="10" />
+                 </LinearLayout>
+             </LinearLayout>
 	 
 	        <LinearLayout android:id="@+id/tab2"
 	              android:orientation="vertical"
@@ -44,6 +216,7 @@
 	                  android:layout_width="wrap_content"
 	                  android:layout_height="wrap_content" />
 	        </LinearLayout>
+
 	        <LinearLayout android:id="@+id/tab3"
 	              android:orientation="vertical"
 	              android:layout_width="match_parent"

@@ -24,8 +24,19 @@
     <string name="label_mapa">Mapa Online</string>
     <string name="label_menuinicial"></string>
     
+    <string name="denuncia_formulario">Formulario de denuncia</string>
+    <string name="denuncia_titulo">Título de la denuncia</string>
+    <string name="denuncia_fecha">Fecha del acontecimiento (Día-Mes-Año)</string>
+    <string name="denuncia_horario">Horario de lo sucedido (Hora:Minutos)</string>
+    <string name="denuncia_horario_gmt">(ARG)</string>
+    <string name="denuncia_mundo">Mundo</string>
+    <string name="denuncia_ciudad">Ciudad</string>
+    
     <string name="boton_atras">Atrás</string>
     <string name="boton_enviar">Enviar</string>
+    
+    <string name="otros_barra">/</string>
+    <string name="otros_dospuntos">:</string>
     
 	<color name="black">#000000</color>
 	<color name="white">#FFFFFF</color>
