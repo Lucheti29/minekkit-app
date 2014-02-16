@@ -25,18 +25,20 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int ic_perfil=0x7f020001;
-        public static final int ic_pms=0x7f020002;
-        public static final int logo_app=0x7f020003;
-        public static final int logo_mk=0x7f020004;
+        public static final int back_mk1=0x7f020000;
+        public static final int back_mk2=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int ic_perfil=0x7f020003;
+        public static final int ic_pms=0x7f020004;
+        public static final int logo_app=0x7f020005;
+        public static final int logo_mk=0x7f020006;
     }
     public static final class id {
-        public static final int action_settings=0x7f09002a;
+        public static final int action_settings=0x7f09002d;
         public static final int btnDenuncias=0x7f090022;
         public static final int btnRecom=0x7f090021;
+        public static final int btn_aceptar_login=0x7f09001d;
         public static final int btn_compra=0x7f090002;
-        public static final int button1=0x7f09001d;
         public static final int button2=0x7f090020;
         public static final int cost=0x7f090001;
         public static final int costo=0x7f090029;
@@ -49,14 +51,16 @@ public final class R {
         public static final int et_minutos=0x7f090012;
         public static final int et_mundo=0x7f090015;
         public static final int et_titulo=0x7f090006;
+        public static final int login_pass=0x7f09002a;
+        public static final int login_user=0x7f09002b;
         public static final int logo=0x7f090027;
-        public static final int mapa=0x7f09002b;
+        public static final int mapa=0x7f09002e;
         public static final int mapa_id=0x7f090023;
         public static final int name=0x7f090028;
-        public static final int perfil=0x7f09002d;
+        public static final int perfil=0x7f090030;
         public static final int pid=0x7f090026;
-        public static final int pm=0x7f09002e;
-        public static final int salir=0x7f09002c;
+        public static final int pm=0x7f090031;
+        public static final int salir=0x7f09002f;
         public static final int single_logo=0x7f09001e;
         public static final int tab1=0x7f090003;
         public static final int tab2=0x7f090018;
@@ -64,6 +68,7 @@ public final class R {
         public static final int tab4=0x7f09001b;
         public static final int tableRow1=0x7f090008;
         public static final int tableRow2=0x7f09000f;
+        public static final int textView1=0x7f09002c;
         public static final int textView2=0x7f090000;
         public static final int textView3=0x7f09001a;
         public static final int textView4=0x7f09001c;
@@ -88,6 +93,7 @@ public final class R {
         public static final int activity_single_recompensa=0x7f030004;
         public static final int all_recompensas=0x7f030005;
         public static final int list_item=0x7f030006;
+        public static final int login_activity=0x7f030007;
     }
     public static final class menu {
         public static final int main=0x7f080000;

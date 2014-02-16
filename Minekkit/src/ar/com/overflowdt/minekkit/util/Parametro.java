@@ -15,21 +15,25 @@ public class Parametro {
 	public String getValor()
 	{
 		return _valor;
+		
 	}
 	
-	public void setId(String value)
+	public Parametro setId(String value)
 	{
 		_id = value;
+		return this;
 	}
 	
-	public void setValor(String value)
+	public Parametro setValor(String value)
 	{
 		_valor = value;
+		return this;
 	}
 	
-	public void setValores(String id, String value)
+	public Parametro setValores(String id, String value)
 	{
 		_id = id;
 		_valor = value;
+		return this;
 	}
 }

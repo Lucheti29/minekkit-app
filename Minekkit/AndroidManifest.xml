@@ -43,6 +43,9 @@
             android:name="ar.com.overflowdt.minekkit.denuncia.Denuncia"
             android:label="@string/label_denuncias">
         </activity>
+        <activity 
+            android:name="ar.com.overflowdt.minekkit.login.LoginActivity">
+        </activity>
  
     </application>
 
