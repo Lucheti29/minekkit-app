@@ -17,6 +17,8 @@
   <li>Crear denuncias </li>
   <li>Ver quien esta online / quien esta online de la faction </li>
   <li>Consultar wiki </li>
+  <li>Acceder al canal de YouTube de Minekkit </li>
+  <li>Botones de acceso a la página de Facebook y a la cuenta de Twitter</li>
 </ul>
 
 ============
