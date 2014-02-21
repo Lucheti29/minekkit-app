@@ -25,7 +25,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		// Buttons
-	    btnRecompensas = (Button) findViewById(R.id.btnRecom);
+	    btnRecompensas = (Button) findViewById(R.id.btn_recom);
 
 
 	    // view products click event
@@ -100,7 +100,7 @@ public class MainActivity extends Activity {
 	{  
 		dialogo1 = new AlertDialog.Builder(this);
         dialogo1.setTitle("Aviso");  
-        dialogo1.setMessage("Necesitarás una buena conexión a internet para visualizar el mapa correctamente, ¿deseas continuar?");            
+        dialogo1.setMessage("Necesitarï¿½s una buena conexiï¿½n a internet para visualizar el mapa correctamente, ï¿½deseas continuar?");            
         dialogo1.setCancelable(false);  
         dialogo1.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {  
             public void onClick(DialogInterface dialogo1, int id) {  

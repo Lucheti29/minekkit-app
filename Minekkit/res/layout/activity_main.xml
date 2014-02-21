@@ -10,26 +10,27 @@
     tools:context=".MainActivity" >
 
     <ImageView
-        android:id="@+id/single_logo"
+        android:id="@+id/img_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:src="@drawable/logo_mk" />
+        android:src="@drawable/logo_mk"
+        android:focusableInTouchMode="false" />
 
     <TextView
-        android:id="@+id/tv1"
+        android:id="@+id/tv_versionAlpha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/single_logo"
+        android:layout_below="@+id/img_logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="41dp"
         android:text="@string/subtitulo"
         android:textColor="@color/white" />
 
     <Button
-        android:id="@+id/btn_compra"
+        android:id="@+id/btn_acercaDe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -40,24 +41,24 @@
         android:text="@string/label_acercade" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_mapa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btnRecom"
-        android:layout_alignRight="@+id/btnRecom"
-        android:layout_below="@+id/tv1"
+        android:layout_alignLeft="@+id/btn_recom"
+        android:layout_alignRight="@+id/btn_recom"
+        android:layout_below="@+id/tv_versionAlpha"
         android:layout_marginTop="24dp"
         android:background="@android:drawable/btn_default"
         android:onClick="mapa"
         android:text="@string/label_mapa" />
 
     <Button
-        android:id="@+id/btnRecom"
+        android:id="@+id/btn_recom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/single_logo"
-        android:layout_alignRight="@+id/single_logo"
-        android:layout_below="@+id/button2"
+        android:layout_alignLeft="@+id/img_logo"
+        android:layout_alignRight="@+id/img_logo"
+        android:layout_below="@+id/btn_mapa"
         android:layout_marginLeft="48dp"
         android:layout_marginRight="47dp"
         android:background="@android:drawable/btn_default"
@@ -65,12 +66,12 @@
         android:text="@string/recompensas" />
 
     <Button
-        android:id="@+id/btnDenuncias"
+        android:id="@+id/btn_denuncias"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btnRecom"
-        android:layout_alignRight="@+id/btnRecom"
-        android:layout_below="@+id/btnRecom"
+        android:layout_alignLeft="@+id/btn_recom"
+        android:layout_alignRight="@+id/btn_recom"
+        android:layout_below="@+id/btn_recom"
         android:background="@android:drawable/btn_default"
         android:onClick="hacerDenuncia"
         android:text="@string/label_denuncias" />
