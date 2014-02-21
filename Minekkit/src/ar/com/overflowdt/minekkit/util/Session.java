@@ -6,11 +6,11 @@ import ar.com.overflowdt.minekkit.interfaces.Enviable;
 
 public class Session implements Enviable{
 
-	String user;
-	String pass;
+	public String user;
+	public String pass;
 	static Session instance;
 	
-	static Session getInstance(){
+	public static Session getInstance(){
 		if(instance == null )
 			instance=new Session();			
 		return instance;
