@@ -100,7 +100,7 @@ public class MainActivity extends Activity {
 	{  
 		dialogo1 = new AlertDialog.Builder(this);
         dialogo1.setTitle("Aviso");  
-        dialogo1.setMessage("Necesitarás una buena conexión a internet para visualizar el mapa correctamente, ¿deseas continuar?");            
+        dialogo1.setMessage("NecesitarÃ¡s una buena conexiÃ³n a internet para visualizar el mapa correctamente, Â¿deseas continuar?");
         dialogo1.setCancelable(false);  
         dialogo1.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {  
             public void onClick(DialogInterface dialogo1, int id) {  
