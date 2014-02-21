@@ -25,7 +25,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		// Buttons
-	    btnRecompensas = (Button) findViewById(R.id.btnRecom);
+	    btnRecompensas = (Button) findViewById(R.id.btn_recom);
 
 
 	    // view products click event
