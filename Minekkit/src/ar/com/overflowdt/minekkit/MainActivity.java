@@ -8,9 +8,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
+
 import ar.com.overflowdt.minekkit.acercade.AcercaDe;
-import ar.com.overflowdt.minekkit.denuncia.Denuncia;
 import ar.com.overflowdt.minekkit.recompensas.AllRecompensasActivity;
 import ar.com.overflowdt.minekkit.util.Browser;
 import ar.com.overflowdt.minekkit.wiki.WikiMain;
@@ -18,7 +18,7 @@ import ar.com.overflowdt.minekkit.wiki.WikiMain;
 public class MainActivity extends Activity {
 	
 	AlertDialog.Builder dialogo1;
-	Button btnRecompensas;
+	ImageButton btnRecompensas;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		// Buttons
-	    btnRecompensas = (Button) findViewById(R.id.btn_recom);
+	    btnRecompensas = (ImageButton) findViewById(R.id.btn_recom);
 
 
 	    // view products click event
@@ -115,7 +115,7 @@ public class MainActivity extends Activity {
 	{  
 		dialogo1 = new AlertDialog.Builder(this);
         dialogo1.setTitle("Aviso");  
-        dialogo1.setMessage("Necesitarás una buena conexión a internet para visualizar el mapa correctamente, ¿deseas continuar?");
+        dialogo1.setMessage("Necesitarï¿½s una buena conexiï¿½n a internet para visualizar el mapa correctamente, ï¿½deseas continuar?");
         dialogo1.setCancelable(false);  
         dialogo1.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {  
             public void onClick(DialogInterface dialogo1, int id) {  
