@@ -11,8 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import ar.com.overflowdt.minekkit.acercade.AcercaDe;
 import ar.com.overflowdt.minekkit.denuncia.Denuncia;
-import ar.com.overflowdt.minekkit.mapa.Mapa;
 import ar.com.overflowdt.minekkit.recompensas.AllRecompensasActivity;
+import ar.com.overflowdt.minekkit.util.Browser;
+import ar.com.overflowdt.minekkit.wiki.WikiMain;
 
 public class MainActivity extends Activity {
 	
@@ -68,12 +69,26 @@ public class MainActivity extends Activity {
 		Intent i = new Intent(this,AcercaDe.class);
 		startActivity(i);
 	}
+
+    /*public void verWiki(View view)
+    {
+        Intent i = new Intent(this,WikiMain.class);
+        startActivity(i);
+    }
+    */
 	
-	public void hacerDenuncia(View view)
+	/*public void hacerDenuncia(View view)
 	{
 		Intent i = new Intent(this,Denuncia.class);
 		startActivity(i);
 	}
+	*/
+
+    public void hacerDenuncia(View view)
+    {
+        Intent i = new Intent(this,WikiMain.class);
+        startActivity(i);
+    }
 	
 	public void mapa(View view)
 	{
@@ -81,7 +96,7 @@ public class MainActivity extends Activity {
 	}
 
 	private void verMapa() {
-		Intent i = new Intent(this,Mapa.class);
+        Intent i = new Intent(this,Browser.class);
 		i.putExtra("direccion", "minekkit.com:8123");
 		startActivity(i);
 	}

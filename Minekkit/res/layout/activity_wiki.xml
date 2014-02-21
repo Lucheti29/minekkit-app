@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/wiki_titulo"
+        android:id="@+id/tvWiki"
+        android:layout_marginTop="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/etWiki"
+        android:layout_marginTop="51dp"
+        android:layout_below="@+id/tvWiki"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/boton_enviar"
+        android:id="@+id/buttonWiki"
+        android:onClick="buscarEnWiki"
+        android:layout_below="@+id/etWiki"
+        android:layout_alignRight="@+id/tvWiki"
+        android:layout_alignEnd="@+id/tvWiki"
+        android:layout_marginTop="67dp" />
+
+</RelativeLayout>
