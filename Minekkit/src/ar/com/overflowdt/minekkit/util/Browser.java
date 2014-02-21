@@ -2,7 +2,10 @@ package ar.com.overflowdt.minekkit.util;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -13,6 +16,7 @@ import ar.com.overflowdt.minekkit.R;
 public class Browser extends Activity {
 
     private WebView webView;
+    private static final String TAG = "Minekkit APP:";
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -44,7 +48,21 @@ public class Browser extends Activity {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url)
         {
-            view.loadUrl(url);
+            //Matchea si la url contiene la palabra youtube.com
+            //En caso de que si, permite elegir abrirla con la app de Youtube
+            //En caso que no, abre el url en el WebView
+            if(url.indexOf("youtube.com") > -1)
+            {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                startActivity(intent);
+            }
+            else
+            {
+               view.loadUrl(url);
+            }
+
             return true;
         }
     }

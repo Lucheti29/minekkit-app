@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import ar.com.overflowdt.minekkit.acercade.AcercaDe;
+import ar.com.overflowdt.minekkit.denuncia.Denuncia;
 import ar.com.overflowdt.minekkit.recompensas.AllRecompensasActivity;
 import ar.com.overflowdt.minekkit.util.Browser;
 import ar.com.overflowdt.minekkit.wiki.WikiMain;
@@ -70,25 +71,19 @@ public class MainActivity extends Activity {
 		startActivity(i);
 	}
 
-    /*public void verWiki(View view)
+    public void verWiki(View view)
     {
         Intent i = new Intent(this,WikiMain.class);
         startActivity(i);
     }
-    */
+
 	
-	/*public void hacerDenuncia(View view)
+	public void hacerDenuncia(View view)
 	{
 		Intent i = new Intent(this,Denuncia.class);
 		startActivity(i);
 	}
-	*/
 
-    public void hacerDenuncia(View view)
-    {
-        Intent i = new Intent(this,WikiMain.class);
-        startActivity(i);
-    }
 	
 	public void mapa(View view)
 	{
