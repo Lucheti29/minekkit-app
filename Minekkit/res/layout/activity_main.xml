@@ -10,53 +10,85 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/img_logo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/logo_mk"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="30dp" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_mapa"
-        android:src="@drawable/btn_mapa"
-        android:background="#00000000"
-        android:onClick="mapa" />
+        <ImageView
+            android:id="@+id/img_logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logo_mk"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="30dp" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_recom"
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/img_logo"
-        android:layout_alignRight="@+id/img_logo"
-        android:layout_below="@+id/btn_mapa"
-        android:background="@android:drawable/btn_default"
-        android:fadingEdge="none"
-        android:text="@string/recompensas" />
+        android:layout_marginBottom="30dp">
 
-    <Button
-        android:id="@+id/btn_denuncias"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btn_recom"
-        android:layout_alignRight="@+id/btn_recom"
-        android:layout_below="@+id/btn_recom"
-        android:background="@android:drawable/btn_default"
-        android:onClick="hacerDenuncia"
-        android:text="@string/label_denuncias" />
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-    <TextView
-        android:id="@+id/tv_versionAlpha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/img_logo"
-        android:layout_centerHorizontal="true"
-        android:text="@string/subtitulo"
-        android:textColor="@color/white" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_mapa"
+                android:src="@drawable/btn_mapa"
+                android:background="#00000000"
+                android:onClick="mapa"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_inventario"
+                android:src="@drawable/btn_inventario"
+                android:background="#00000000"
+                android:layout_weight="1" />
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_recom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/img_logo"
+            android:layout_alignRight="@+id/img_logo"
+            android:layout_below="@+id/btn_mapa"
+            android:background="@android:drawable/btn_default"
+            android:fadingEdge="none"
+            android:text="@string/recompensas" />
+
+        <Button
+            android:id="@+id/btn_denuncias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/btn_recom"
+            android:layout_alignRight="@+id/btn_recom"
+            android:layout_below="@+id/btn_recom"
+            android:background="@android:drawable/btn_default"
+            android:onClick="hacerDenuncia"
+            android:text="@string/label_denuncias" />
+
+        <TextView
+            android:id="@+id/tv_versionAlpha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_logo"
+            android:layout_centerHorizontal="true"
+            android:text="@string/subtitulo"
+            android:textColor="@color/white" />
+    </LinearLayout>
 
 </LinearLayout>
