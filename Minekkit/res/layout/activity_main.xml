@@ -1,56 +1,32 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@drawable/bg_cube"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/img_logo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
         android:src="@drawable/logo_mk"
-        android:focusableInTouchMode="false" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="30dp" />
 
-    <TextView
-        android:id="@+id/tv_versionAlpha"
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/img_logo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="41dp"
-        android:text="@string/subtitulo"
-        android:textColor="@color/white" />
-
-    <Button
-        android:id="@+id/btn_acercaDe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp"
-        android:background="@android:drawable/btn_default_small"
-        android:onClick="acercaDe"
-        android:text="@string/label_acercade" />
-
-    <Button
         android:id="@+id/btn_mapa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btn_recom"
-        android:layout_alignRight="@+id/btn_recom"
-        android:layout_below="@+id/tv_versionAlpha"
-        android:layout_marginTop="24dp"
-        android:background="@android:drawable/btn_default"
-        android:onClick="mapa"
-        android:text="@string/label_mapa" />
+        android:src="@drawable/btn_mapa"
+        android:background="#00000000"
+        android:onClick="mapa" />
 
     <Button
         android:id="@+id/btn_recom"
@@ -59,8 +35,6 @@
         android:layout_alignLeft="@+id/img_logo"
         android:layout_alignRight="@+id/img_logo"
         android:layout_below="@+id/btn_mapa"
-        android:layout_marginLeft="48dp"
-        android:layout_marginRight="47dp"
         android:background="@android:drawable/btn_default"
         android:fadingEdge="none"
         android:text="@string/recompensas" />
@@ -76,4 +50,13 @@
         android:onClick="hacerDenuncia"
         android:text="@string/label_denuncias" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/tv_versionAlpha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_logo"
+        android:layout_centerHorizontal="true"
+        android:text="@string/subtitulo"
+        android:textColor="@color/white" />
+
+</LinearLayout>
