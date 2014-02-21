@@ -2,9 +2,11 @@ package ar.com.overflowdt.minekkit.util;
 
 import ar.com.overflowdt.minekkit.interfaces.Enviable;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import android.util.Log;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -14,6 +16,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import org.apache.http.util.EntityUtils;
@@ -23,8 +26,8 @@ public class HttpHandler {
 	private List<NameValuePair> params = new ArrayList<NameValuePair>();
 
 	//public String post(String posturl){
-	public JSONObject post(String posturl, Enviable instancia){
-
+	public JSONObject post(String posturl, Enviable instancia) throws IOException, JSONException {
+        JSONObject result;
 	  try {
 
 		  HttpClient httpclient = new DefaultHttpClient();
@@ -48,17 +51,18 @@ public class HttpHandler {
 
           // Parsing JSON
 		  String retSrc = EntityUtils.toString(ent);
-
+          Log.d("response",retSrc);
           //Convertir String a JSON Object
-          JSONObject result = new JSONObject(retSrc);
+          result = new JSONObject(retSrc);
 
-		  return result;
+          return  result;
 
 	  }
 	  catch(Exception e)
       {
-          return null;
+        e.printStackTrace();
       }
+      return null;
 	}
   
   private void setearParametros(ArrayList<Parametro> arrayInstancia)
