@@ -11,8 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import ar.com.overflowdt.minekkit.acercade.AcercaDe;
 import ar.com.overflowdt.minekkit.denuncia.Denuncia;
-import ar.com.overflowdt.minekkit.mapa.Mapa;
 import ar.com.overflowdt.minekkit.recompensas.AllRecompensasActivity;
+import ar.com.overflowdt.minekkit.util.Browser;
+import ar.com.overflowdt.minekkit.wiki.WikiMain;
 
 public class MainActivity extends Activity {
 	
@@ -25,7 +26,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		// Buttons
-	    btnRecompensas = (Button) findViewById(R.id.btnRecom);
+	    btnRecompensas = (Button) findViewById(R.id.btn_recom);
 
 
 	    // view products click event
@@ -68,12 +69,26 @@ public class MainActivity extends Activity {
 		Intent i = new Intent(this,AcercaDe.class);
 		startActivity(i);
 	}
+
+    /*public void verWiki(View view)
+    {
+        Intent i = new Intent(this,WikiMain.class);
+        startActivity(i);
+    }
+    */
 	
-	public void hacerDenuncia(View view)
+	/*public void hacerDenuncia(View view)
 	{
 		Intent i = new Intent(this,Denuncia.class);
 		startActivity(i);
 	}
+	*/
+
+    public void hacerDenuncia(View view)
+    {
+        Intent i = new Intent(this,WikiMain.class);
+        startActivity(i);
+    }
 	
 	public void mapa(View view)
 	{
@@ -81,7 +96,7 @@ public class MainActivity extends Activity {
 	}
 
 	private void verMapa() {
-		Intent i = new Intent(this,Mapa.class);
+        Intent i = new Intent(this,Browser.class);
 		i.putExtra("direccion", "minekkit.com:8123");
 		startActivity(i);
 	}
@@ -100,7 +115,7 @@ public class MainActivity extends Activity {
 	{  
 		dialogo1 = new AlertDialog.Builder(this);
         dialogo1.setTitle("Aviso");  
-        dialogo1.setMessage("Necesitarás una buena conexión a internet para visualizar el mapa correctamente, ¿deseas continuar?");            
+        dialogo1.setMessage("Necesitarï¿½s una buena conexiï¿½n a internet para visualizar el mapa correctamente, ï¿½deseas continuar?");            
         dialogo1.setCancelable(false);  
         dialogo1.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {  
             public void onClick(DialogInterface dialogo1, int id) {  

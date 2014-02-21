@@ -5,7 +5,7 @@
     <string name="hello_world">Hello world!</string>
     
     <string name="subtitulo">Version Alpha 0.2</string>
-    
+
     <string name="acercade1">Esta aplicación fue hecha por Overflow DT</string>
     <string name="acercade2">Todos los derechos reservados 2014</string>
     
@@ -23,6 +23,7 @@
     <string name="label_denuncias">Denuncia</string>
     <string name="label_mapa">Mapa Online</string>
     <string name="label_menuinicial"></string>
+    <string name="label_wiki">Wiki</string>
     
     <string name="denuncia_formulario">Formulario de denuncia</string>
     <string name="denuncia_titulo">Título de la denuncia</string>
@@ -37,6 +38,8 @@
     
     <string name="otros_barra">/</string>
     <string name="otros_dospuntos">:</string>
+
+    <string name="wiki_titulo">MK Wiki</string>
     
 	<color name="black">#000000</color>
 	<color name="white">#FFFFFF</color>
