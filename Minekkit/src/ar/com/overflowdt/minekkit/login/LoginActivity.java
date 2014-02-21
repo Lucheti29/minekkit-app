@@ -94,7 +94,7 @@ public class LoginActivity extends Activity {
 
 
             try {
-                if (resp.getInt("success") == 1) {
+                if (resp.getInt("success") == 1 || true) { //TODO delete true bypass when session persistance is added
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(i);
                 }else{
