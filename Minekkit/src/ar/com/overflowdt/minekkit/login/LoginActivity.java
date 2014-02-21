@@ -1,4 +1,4 @@
-package login;
+package ar.com.overflowdt.minekkit.login;
 
 import android.app.Activity;
 import android.content.Intent;
