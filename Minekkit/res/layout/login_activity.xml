@@ -10,87 +10,93 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:weightSum="1">
 
-    <ImageView
+    <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/img_logo"
-        android:src="@drawable/logo_mk" />
+        android:id="@+id/scrollView" >
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/textView1"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:text="Bienvenido!"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/white"
-            android:layout_marginTop="20dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:singleLine="false"
-            android:textSize="40dp" />
-    </LinearLayout>
+            android:layout_height="fill_parent">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/img_bloque"
-        android:src="@drawable/img_bloque_grass"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp" />
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/img_logo"
+                android:src="@drawable/logo_mk" />
 
-    <EditText
-        android:id="@+id/login_user"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:text="Usuario"
-        android:textColor="@color/white"
-        android:layout_marginBottom="10dp"
-        android:background="#92c53e"
-        android:padding="10dp"
-        android:maxLines="1"
-        android:minLines="1">
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="Bienvenido!"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/white"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:singleLine="false"
+                android:textSize="40dp" />
 
-        <requestFocus />
-    </EditText>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/img_bloque"
+                android:src="@drawable/img_bloque_grass"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp" />
 
-    <EditText
-        android:id="@+id/login_pass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/login_user"
-        android:layout_alignRight="@+id/login_user"
-        android:layout_below="@+id/login_user"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:text="password"
-        android:textColor="@color/white"
-        android:layout_marginBottom="10dp"
-        android:padding="10dp"
-        android:background="#92c53e"
-        android:minLines="1"
-        android:maxLines="1" />
+            <EditText
+                android:id="@+id/login_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:ems="10"
+                android:text="Usuario"
+                android:textColor="@color/white"
+                android:layout_marginBottom="10dp"
+                android:background="#92c53e"
+                android:padding="10dp"
+                android:maxLines="1"
+                android:minLines="1">
 
-    <Button
-        android:id="@+id/btn_aceptar_login"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="Iniciar sesión"
-        android:background="#33b5e5"
-        android:textColor="#ffffff"
-        android:padding="10dp"
-        android:textStyle="bold"
-        android:shadowColor="#000000" />
+                <requestFocus />
+            </EditText>
+
+            <EditText
+                android:id="@+id/login_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/login_user"
+                android:layout_alignRight="@+id/login_user"
+                android:layout_below="@+id/login_user"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:text="password"
+                android:textColor="@color/white"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                android:background="#92c53e"
+                android:minLines="1"
+                android:maxLines="1" />
+
+            <Button
+                android:id="@+id/btn_aceptar_login"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:text="Iniciar sesión"
+                android:background="#33b5e5"
+                android:textColor="#ffffff"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:shadowColor="#000000" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
