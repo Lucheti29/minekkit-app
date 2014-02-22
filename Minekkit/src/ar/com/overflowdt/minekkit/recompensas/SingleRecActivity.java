@@ -1,16 +1,5 @@
 package ar.com.overflowdt.minekkit.recompensas;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.graphics.BitmapFactory;
@@ -20,6 +9,18 @@ import android.util.Log;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.util.JSONParser;
 
@@ -145,7 +146,7 @@ public class SingleRecActivity extends Activity {
             // dismiss the dialog after getting all products
             pDialog.dismiss();
             titulo.setText(pack.Name);
-            costo.setText(String.valueOf(pack.Cost));
+            costo.setText(String.valueOf(pack.Cost) + " Recoplas");
             desc.setText(pack.descripcion);
             logo.setImageBitmap(pack.logo);
         }
