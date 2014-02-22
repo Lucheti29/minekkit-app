@@ -60,7 +60,7 @@ public class LoginActivity extends Activity {
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(LoginActivity.this);
-            pDialog.setMessage("Logeando...");
+            pDialog.setMessage("Conectando...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();
@@ -100,9 +100,9 @@ public class LoginActivity extends Activity {
                 }else{
                     AlertDialog.Builder notlogged = new AlertDialog.Builder(LoginActivity.this);
                     notlogged.setTitle("Aviso");
-                    notlogged.setMessage("El usuario o la contraseña no son correctos. Por favor, vuelva a intentar.");
+                    notlogged.setMessage("Usuario o contrase\u00f1a incorrectos. Int\u00e9ntalo otra vez.");
                     notlogged.setCancelable(false);
-                    notlogged.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    notlogged.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialogo1, int id) {}
                     });
                     notlogged.show();
