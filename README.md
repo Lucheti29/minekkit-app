@@ -35,4 +35,5 @@
 
 <ul>
   <li>La App creashea al acceder a la sección recompensas cuando estas en modo avión</li>
+  <li>En la activity de ver recompensas, si la pantalla se pone horizontal vuelve a cargar todo</li>
 </ul>
