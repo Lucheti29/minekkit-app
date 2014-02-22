@@ -27,11 +27,14 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:text="Inicia sesión"
+            android:text="Bienvenido!"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/white"
             android:layout_marginTop="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:gravity="center"
+            android:singleLine="false"
+            android:textSize="40dp" />
     </LinearLayout>
 
     <ImageView
@@ -83,7 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Aceptar"
+        android:text="Iniciar sesión"
         android:background="#33b5e5"
         android:textColor="#ffffff"
         android:padding="10dp"

@@ -110,14 +110,14 @@ public class MainActivity extends Activity {
 	{  
 		dialogo1 = new AlertDialog.Builder(this);
         dialogo1.setTitle("Aviso");  
-        dialogo1.setMessage("Necesitar�s una buena conexi�n a internet para visualizar el mapa correctamente, �deseas continuar?");
+        dialogo1.setMessage("El mapa puede consumir muchos datos, se recomienda usar WiFi");
         dialogo1.setCancelable(false);  
-        dialogo1.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {  
+        dialogo1.setPositiveButton("Entendido!", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {  
                 aceptar();  
             }  
         });  
-        dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {  
+        dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {  
                 cancelar();
             }  
