@@ -43,5 +43,9 @@
     
 	<color name="black">#000000</color>
 	<color name="white">#FFFFFF</color>
+    <color name="mk_azul_1">#33b5e5</color>
+    <color name="mk_verde_1">#92c53e</color>
+    <color name="mk_amarillo_1">#f6e737</color>
+    <color name="mk_blanco_1">#FFFFFF</color>
 	
 </resources>

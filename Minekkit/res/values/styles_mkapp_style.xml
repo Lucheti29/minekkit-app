@@ -78,5 +78,11 @@
         <item name="android:popupMenuStyle">@style/PopupMenu.Mkapp_style</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Mkapp_style</item>
     </style>
-
+	
+	<!-- Estilos custom de Minekkit-->
+    <style name="Boton.Mkapp_style" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/mk_azul_1</item>
+		<item name="android:textColor">@color/mk_blanco_1</item>
+    </style>
+	
 </resources>
