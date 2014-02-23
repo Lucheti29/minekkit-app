@@ -51,4 +51,7 @@
 <ul>
   <li>La App creashea al acceder a la sección recompensas cuando estas en modo avión</li>
   <li>En la activity de ver recompensas, si la pantalla se pone horizontal vuelve a cargar todo</li>
+  <li>En el logeo, el servidor tiene que comprobar que la app esta actualizada a la última versión. <br>
+      Esto es así porque si en algún momento un update genera una vulnerabilidad, podemos evitar que los<br>
+      usuarios sigan logeando con la versión insegura o usando un xploit</li>
 </ul>
