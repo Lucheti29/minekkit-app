@@ -4,16 +4,26 @@ import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
+import android.widget.Spinner;
 import android.widget.TabHost;
+
 import ar.com.overflowdt.minekkit.R;
 
 public class Denuncia extends Activity {
+
+    private Spinner spiTipoDenuncia;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_denuncia_tabs);
+
+//        //Cargamos las categorías del spinner
+//        spiTipoDenuncia = (Spinner) findViewById(R.id.spi_tipoDenuncia);
+//        String []opcionesTipoDenuncia = {"Griefing", "Robo", "LAG", "Estafa", "Propiepdad privada", "Ciudad", "Otros"};
+//        ArrayAdapter<String> adapterSpinner = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, opcionesTipoDenuncia);
+//        spiTipoDenuncia.setAdapter(adapterSpinner);
 		
 		Resources res = getResources();
 		
@@ -25,7 +35,7 @@ public class Denuncia extends Activity {
 		spec.setContent(R.id.tab1);
 		//Le pone un icono a la primer tab
 		spec.setIndicator("Paso 1",
-		    res.getDrawable(android.R.drawable.ic_btn_speak_now));
+                res.getDrawable(android.R.drawable.ic_btn_speak_now));
 		tabs.addTab(spec);
 		
 		//Setea la segunda tab
@@ -33,7 +43,7 @@ public class Denuncia extends Activity {
 		spec.setContent(R.id.tab2);
 		//Le pone un icono a la segunda tab
 		spec.setIndicator("Paso 2",
-		    res.getDrawable(android.R.drawable.ic_dialog_map));
+                res.getDrawable(android.R.drawable.ic_dialog_map));
 		tabs.addTab(spec);
 		
 		//Setea la segunda tab
@@ -41,7 +51,7 @@ public class Denuncia extends Activity {
 		spec.setContent(R.id.tab3);
 		//Le pone un icono a la segunda tab
 		spec.setIndicator("Paso 3",
-		    res.getDrawable(android.R.drawable.ic_dialog_map));
+                res.getDrawable(android.R.drawable.ic_dialog_map));
 		tabs.addTab(spec);
 		
 		//Setea la segunda tab
@@ -49,7 +59,7 @@ public class Denuncia extends Activity {
 		spec.setContent(R.id.tab4);
 		//Le pone un icono a la segunda tab
 		spec.setIndicator("Paso 4",
-		    res.getDrawable(android.R.drawable.ic_dialog_map));
+                res.getDrawable(android.R.drawable.ic_dialog_map));
 		tabs.addTab(spec);
 		
 		//Setea la primer tab como default
