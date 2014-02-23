@@ -27,9 +27,9 @@
     
     <string name="denuncia_formulario">Formulario de denuncia</string>
     <string name="denuncia_titulo">Título de la denuncia</string>
-    <string name="denuncia_fecha">Fecha del acontecimiento (Día-Mes-Año)</string>
+    <string name="denuncia_fecha">Fecha del acontecimiento (Día/Mes/Año)</string>
     <string name="denuncia_horario">Horario de lo sucedido (Hora:Minutos)</string>
-    <string name="denuncia_horario_gmt">(ARG)</string>
+    <string name="denuncia_horario_gmt">(ARGENTINA)</string>
     <string name="denuncia_mundo">Mundo</string>
     <string name="denuncia_ciudad">Ciudad</string>
     
