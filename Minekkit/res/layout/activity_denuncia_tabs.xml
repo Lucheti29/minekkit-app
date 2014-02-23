@@ -35,143 +35,155 @@
                  android:layout_height="match_parent"
                  android:orientation="vertical" >
 
-                 <TextView
-                     android:id="@+id/tv_formulario"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:text="@string/denuncia_formulario"
-                     android:textAppearance="?android:attr/textAppearanceMedium"
-                     android:layout_gravity="center"
-                     android:textColor="@color/white"
-                     android:textSize="25dp"
-                     android:textStyle="bold" />
-
-                 <TextView
-                     android:id="@+id/tv_titulo"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:text="@string/denuncia_titulo"
-                     android:layout_marginTop="15dp"
-                     android:textColor="@color/white" />
-
-                 <EditText
-                     android:id="@+id/et_titulo"
-                     android:maxLength="50"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:ems="10"
-                     android:textColor="@color/white"
-                     android:background="#92c53e"
-                     android:padding="10dp"
-                     android:maxLines="1"
-                     android:minLines="1"
-                     android:layout_marginTop="3dp">
-
-                     <requestFocus />
-                 </EditText>
-
-                 <TextView
-                     android:id="@+id/tv_fecha"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:text="@string/denuncia_fecha"
-                     android:layout_marginTop="15dp"
-                     android:textColor="@color/white" />
-
-                 <LinearLayout
-                     android:orientation="horizontal"
+                 <ScrollView
                      android:layout_width="fill_parent"
                      android:layout_height="wrap_content"
-                     android:layout_marginTop="3dp">
+                     android:id="@+id/scrollView" >
 
-                     <EditText
-                         android:layout_width="wrap_content"
-                         android:layout_height="match_parent"
-                         android:inputType="date"
-                         android:ems="10"
-                         android:id="@+id/editText2"
-                         android:textColor="@color/white"
-                         android:background="#92c53e"
-                         android:padding="10dp"
-                         android:maxLines="1"
-                         android:minLines="1" />
-                 </LinearLayout>
+                     <LinearLayout
+                         android:orientation="vertical"
+                         android:layout_width="fill_parent"
+                         android:layout_height="fill_parent">
 
-                 <TextView
-                     android:id="@+id/tv_hora"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:text="@string/denuncia_horario"
-                     android:layout_marginTop="15dp"
-                     android:textColor="@color/white" />
+                         <TextView
+                             android:id="@+id/tv_formulario"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="@string/denuncia_formulario"
+                             android:textAppearance="?android:attr/textAppearanceMedium"
+                             android:layout_gravity="center"
+                             android:textColor="@color/white"
+                             android:textSize="25dp"
+                             android:textStyle="bold" />
 
-                 <LinearLayout
-                     android:orientation="horizontal"
-                     android:layout_width="fill_parent"
-                     android:layout_height="wrap_content"
-                     android:layout_marginTop="3dp">
+                         <TextView
+                             android:id="@+id/tv_titulo"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="@string/denuncia_titulo"
+                             android:layout_marginTop="15dp"
+                             android:textColor="@color/white" />
 
-                     <EditText
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:inputType="time"
-                         android:ems="10"
-                         android:id="@+id/editText"
-                         android:textColor="@color/white"
-                         android:background="#92c53e"
-                         android:padding="10dp"
-                         android:maxLines="1"
-                         android:minLines="1"/>
+                         <EditText
+                             android:id="@+id/et_titulo"
+                             android:maxLength="50"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:ems="10"
+                             android:textColor="@color/white"
+                             android:background="#92c53e"
+                             android:padding="10dp"
+                             android:maxLines="1"
+                             android:minLines="1"
+                             android:layout_marginTop="3dp">
 
-                     <TextView
-                         android:id="@+id/tv_horario_gmt"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:text="@string/denuncia_horario_gmt"
-                         android:textColor="@color/white"
-                         android:layout_marginLeft="5dp" />
-                 </LinearLayout>
+                             <requestFocus />
+                         </EditText>
 
-                 <TextView
-                     android:id="@+id/tv_mundo"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:text="@string/denuncia_mundo"
-                     android:layout_marginTop="15dp"
-                     android:textColor="@color/white" />
+                         <TextView
+                             android:id="@+id/tv_fecha"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="@string/denuncia_fecha"
+                             android:layout_marginTop="15dp"
+                             android:textColor="@color/white" />
 
-                 <EditText
-                     android:id="@+id/et_mundo"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:ems="10"
-                     android:textColor="@color/white"
-                     android:background="#92c53e"
-                     android:padding="10dp"
-                     android:maxLines="1"
-                     android:minLines="1"
-                     android:layout_marginTop="3dp" />
+                         <LinearLayout
+                             android:orientation="horizontal"
+                             android:layout_width="fill_parent"
+                             android:layout_height="wrap_content"
+                             android:layout_marginTop="3dp">
 
-                 <TextView
-                     android:id="@+id/tv_ciudad"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:text="@string/denuncia_ciudad"
-                     android:layout_marginTop="15dp"
-                     android:textColor="@color/white" />
+                             <EditText
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="match_parent"
+                                 android:inputType="date"
+                                 android:ems="10"
+                                 android:id="@+id/editText2"
+                                 android:textColor="@color/white"
+                                 android:background="#92c53e"
+                                 android:padding="10dp"
+                                 android:maxLines="1"
+                                 android:minLines="1" />
+                         </LinearLayout>
 
-                 <EditText
-                     android:id="@+id/et_ciudad"
-                     android:maxLength="15"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:ems="10"
-                     android:textColor="@color/white"
-                     android:background="#92c53e"
-                     android:padding="10dp"
-                     android:maxLines="1"
-                     android:minLines="1"
-                     android:layout_marginTop="3dp" />
+                         <TextView
+                             android:id="@+id/tv_hora"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="@string/denuncia_horario"
+                             android:layout_marginTop="15dp"
+                             android:textColor="@color/white" />
+
+                         <LinearLayout
+                             android:orientation="horizontal"
+                             android:layout_width="fill_parent"
+                             android:layout_height="wrap_content"
+                             android:layout_marginTop="3dp">
+
+                             <EditText
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:inputType="time"
+                                 android:ems="10"
+                                 android:id="@+id/editText"
+                                 android:textColor="@color/white"
+                                 android:background="#92c53e"
+                                 android:padding="10dp"
+                                 android:maxLines="1"
+                                 android:minLines="1"/>
+
+                             <TextView
+                                 android:id="@+id/tv_horario_gmt"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:text="@string/denuncia_horario_gmt"
+                                 android:textColor="@color/white"
+                                 android:layout_marginLeft="5dp" />
+                         </LinearLayout>
+
+                         <TextView
+                             android:id="@+id/tv_mundo"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="@string/denuncia_mundo"
+                             android:layout_marginTop="15dp"
+                             android:textColor="@color/white" />
+
+                         <EditText
+                             android:id="@+id/et_mundo"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:ems="10"
+                             android:textColor="@color/white"
+                             android:background="#92c53e"
+                             android:padding="10dp"
+                             android:maxLines="1"
+                             android:minLines="1"
+                             android:layout_marginTop="3dp" />
+
+                         <TextView
+                             android:id="@+id/tv_ciudad"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="@string/denuncia_ciudad"
+                             android:layout_marginTop="15dp"
+                             android:textColor="@color/white" />
+
+                         <EditText
+                             android:id="@+id/et_ciudad"
+                             android:maxLength="15"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:ems="10"
+                             android:textColor="@color/white"
+                             android:background="#92c53e"
+                             android:padding="10dp"
+                             android:maxLines="1"
+                             android:minLines="1"
+                             android:layout_marginTop="3dp" />
+                     </LinearLayout>
+                 </ScrollView>
 
              </LinearLayout>
 
