@@ -3,14 +3,14 @@
 
     <string name="app_name">Minekkit</string>
     <string name="hello_world">Hello world!</string>
-    
-    <string name="subtitulo">Version Alpha 0.2</string>
 
-    <string name="acercade1">Esta aplicación fue hecha por Overflow DT</string>
-    <string name="acercade2">Todos los derechos reservados 2014</string>
+    <string name="acercade1">
+        Esta aplicación fue diseñada, desarrollada y distribuida por droidkkit, un equipo de Overflow DT.
+    </string>
+    <string name="copyright">Minekkit - Todos los derechos reservados 2012-2014</string>
     
     <string name="recompensas">Recompensas</string>
-    <string name="version">Ver 0.2 Alpha</string>
+    <string name="version">Ver 0.3 Alpha</string>
     
     <string name="actionbar_perfil">Perfil</string>
     <string name="actionbar_pm">PM</string>
@@ -29,7 +29,7 @@
     <string name="denuncia_titulo">Título de la denuncia</string>
     <string name="denuncia_fecha">Fecha del acontecimiento (Día/Mes/Año)</string>
     <string name="denuncia_horario">Horario de lo sucedido (Hora:Minutos)</string>
-    <string name="denuncia_horario_gmt">(ARGENTINA)</string>
+    <string name="denuncia_horario_gmt">(ARG)</string>
     <string name="denuncia_mundo">Mundo</string>
     <string name="denuncia_ciudad">Ciudad</string>
     

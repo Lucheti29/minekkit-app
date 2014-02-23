@@ -56,10 +56,10 @@ public class MainActivity extends Activity {
 	@Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-        case R.id.mapa:
-        	dialogo1.show();
+        case R.id.menu_acercaDe:
+        	acercaDe(findViewById(R.id.menu_salir));
             break;
-        case R.id.salir:
+        case R.id.menu_salir:
             finish();
         }
         return true;

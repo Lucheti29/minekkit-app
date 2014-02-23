@@ -71,7 +71,7 @@
                              android:layout_height="wrap_content"
                              android:ems="10"
                              android:textColor="@color/white"
-                             android:background="#92c53e"
+                             android:background="#800099cc"
                              android:padding="10dp"
                              android:maxLines="1"
                              android:minLines="1"
@@ -192,102 +192,114 @@
 	              android:layout_width="match_parent"
 	              android:layout_height="match_parent" >
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/denuncia_formulario"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_gravity="center"
-                    android:textColor="@color/white"
-                    android:textSize="25dp"
-                    android:textStyle="bold" />
-
-                <TextView android:id="@+id/textView2"
-	                  android:text="Tipo de denuncia"
-	                  android:layout_width="wrap_content"
-	                  android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:textIsSelectable="false" />
-
-                <RadioGroup
+                <ScrollView
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_marginTop="15dp">
+                    android:layout_height="wrap_content"
+                    android:id="@+id/scrollView2" >
 
-                    <RadioButton
+                    <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Griefing"
-                        android:id="@+id/rb_denuncia1"
-                        android:textColor="@color/white"
-                        android:background="#92c53e"
-                        android:padding="10dp"
-                        android:layout_marginTop="3dp"/>
+                        android:layout_height="fill_parent">
 
-                    <RadioButton
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Robo"
-                        android:id="@+id/rb_denuncia2"
-                        android:textColor="@color/white"
-                        android:background="#92c53e"
-                        android:padding="10dp"
-                        android:layout_marginTop="3dp"/>
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/denuncia_formulario"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:layout_gravity="center"
+                            android:textColor="@color/white"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
 
-                    <RadioButton
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="LAG"
-                        android:id="@+id/rb_denuncia3"
-                        android:textColor="@color/white"
-                        android:background="#92c53e"
-                        android:padding="10dp"
-                        android:layout_marginTop="3dp"/>
+                        <TextView android:id="@+id/textView2"
+                              android:text="Tipo de denuncia"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textIsSelectable="false" />
 
-                    <RadioButton
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Estafa en el comercio"
-                        android:id="@+id/rb_denuncia4"
-                        android:textColor="@color/white"
-                        android:background="#92c53e"
-                        android:padding="10dp"
-                        android:layout_marginTop="3dp"/>
+                        <RadioGroup
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_marginTop="15dp">
 
-                    <RadioButton
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Destrucción en plot"
-                        android:id="@+id/rb_denuncia5"
-                        android:textColor="@color/white"
-                        android:background="#92c53e"
-                        android:padding="10dp"
-                        android:layout_marginTop="3dp"/>
+                            <RadioButton
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Griefing"
+                                android:id="@+id/rb_denuncia1"
+                                android:textColor="@color/white"
+                                android:background="#92c53e"
+                                android:padding="10dp"
+                                android:layout_marginTop="3dp"/>
 
-                    <RadioButton
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Ciudad"
-                        android:id="@+id/rb_denuncia6"
-                        android:textColor="@color/white"
-                        android:background="#92c53e"
-                        android:padding="10dp"
-                        android:layout_marginTop="3dp"/>
+                            <RadioButton
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Robo"
+                                android:id="@+id/rb_denuncia2"
+                                android:textColor="@color/white"
+                                android:background="#92c53e"
+                                android:padding="10dp"
+                                android:layout_marginTop="3dp"/>
 
-                    <RadioButton
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Otro tipo"
-                        android:id="@+id/rb_denuncia7"
-                        android:textColor="@color/white"
-                        android:background="#92c53e"
-                        android:padding="10dp"
-                        android:layout_marginTop="3dp"/>
+                            <RadioButton
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:text="LAG"
+                                android:id="@+id/rb_denuncia3"
+                                android:textColor="@color/white"
+                                android:background="#92c53e"
+                                android:padding="10dp"
+                                android:layout_marginTop="3dp"/>
 
-                </RadioGroup>
+                            <RadioButton
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Estafa en el comercio"
+                                android:id="@+id/rb_denuncia4"
+                                android:textColor="@color/white"
+                                android:background="#92c53e"
+                                android:padding="10dp"
+                                android:layout_marginTop="3dp"/>
+
+                            <RadioButton
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Destrucción en plot"
+                                android:id="@+id/rb_denuncia5"
+                                android:textColor="@color/white"
+                                android:background="#92c53e"
+                                android:padding="10dp"
+                                android:layout_marginTop="3dp"/>
+
+                            <RadioButton
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Ciudad"
+                                android:id="@+id/rb_denuncia6"
+                                android:textColor="@color/white"
+                                android:background="#92c53e"
+                                android:padding="10dp"
+                                android:layout_marginTop="3dp"/>
+
+                            <RadioButton
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Otro tipo"
+                                android:id="@+id/rb_denuncia7"
+                                android:textColor="@color/white"
+                                android:background="#92c53e"
+                                android:padding="10dp"
+                                android:layout_marginTop="3dp"/>
+
+                        </RadioGroup>
+                    </LinearLayout>
+                </ScrollView>
 
             </LinearLayout>
 
@@ -297,11 +309,39 @@
 	              android:layout_width="match_parent"
 	              android:layout_height="match_parent" >
 
-	           <TextView android:id="@+id/textView3"
-	                  android:text="Normas no cumplidas"
-	                  android:layout_width="wrap_content"
-	                  android:layout_height="wrap_content" />
-	        </LinearLayout>
+                 <ScrollView
+                     android:layout_width="fill_parent"
+                     android:layout_height="wrap_content"
+                     android:id="@+id/scrollView3" >
+
+                     <LinearLayout
+                         android:orientation="vertical"
+                         android:layout_width="fill_parent"
+                         android:layout_height="fill_parent">
+
+                         <TextView
+                             android:id="@+id/textView5"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="@string/denuncia_formulario"
+                             android:textAppearance="?android:attr/textAppearanceMedium"
+                             android:layout_gravity="center"
+                             android:textColor="@color/white"
+                             android:textSize="25dp"
+                             android:textStyle="bold" />
+
+                         <TextView android:id="@+id/textView3"
+                              android:text="Normas no cumplidas"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                             android:layout_marginTop="15dp"
+                             android:textColor="@color/white"
+                             android:textSize="20sp" />
+
+                     </LinearLayout>
+                 </ScrollView>
+
+             </LinearLayout>
 	        <LinearLayout android:id="@+id/tab4"
 	              android:orientation="vertical"
 	              android:layout_width="match_parent"
