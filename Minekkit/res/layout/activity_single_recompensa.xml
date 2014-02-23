@@ -34,7 +34,9 @@
         android:scaleType="fitXY"
         android:src="@drawable/img_chest"
         android:layout_weight="10"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:maxHeight="125dp"
+        android:maxWidth="250dp" />
 
     <TextView
         android:id="@+id/descripcion"

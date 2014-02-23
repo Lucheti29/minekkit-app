@@ -20,6 +20,31 @@
 			android:maxWidth="50dp"
 			android:adjustViewBounds="true"
             android:src="@drawable/ic_launcher" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp">
+
+            <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/logo"
+                    android:text="CodeLearn Chapter 1"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/costo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/logo"
+                    android:layout_alignLeft="@+id/name"
+                    android:text="Description"
+                android:paddingTop="2dp" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <TextView
@@ -27,21 +52,5 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:visibility="gone" />
-
-    <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/logo"
-            android:text="CodeLearn Chapter 1"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/costo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/logo"
-            android:layout_alignLeft="@+id/name"
-            android:text="Description" />
 
 </LinearLayout>
