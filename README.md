@@ -13,7 +13,7 @@
   <li>Canjear codigo </li>
   <li>Inventario </li>
   <li>Listado de items e ID</li>
-  <li>Perfil: avatar del foro, jobs, nick, cargo, dias restantes de donador, recoplas de la cuenta</li>
+  <li>Perfil: avatar del foro, jobs, nick, cargo, dias restantes de donador, recoplas de la cuenta, achivements del foro</li>
   <li>Crear denuncias </li>
   <li>Ver quien esta online / quien esta online de la faction </li>
   <li>Consultar wiki </li>
