@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,6 +24,7 @@ import java.util.List;
 
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.util.JSONParser;
+import ar.com.overflowdt.minekkit.util.MenuHandler;
 
 public class SingleRecActivity extends Activity {
 	
@@ -70,6 +72,12 @@ public class SingleRecActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        MenuHandler menuHandler = new MenuHandler();
+        return menuHandler.bindearLogica(item, this);
+    }
 
 	
 	class LoadAProducts extends AsyncTask<String, String, String> {

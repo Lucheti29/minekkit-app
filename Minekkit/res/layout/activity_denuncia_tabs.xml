@@ -71,11 +71,11 @@
                              android:layout_height="wrap_content"
                              android:ems="10"
                              android:textColor="@color/white"
-                             android:background="#800099cc"
                              android:padding="10dp"
                              android:maxLines="1"
                              android:minLines="1"
-                             android:layout_marginTop="3dp">
+                             android:layout_marginTop="3dp"
+                             style="@style/Campo.Verde.Mkapp_style">
 
                              <requestFocus />
                          </EditText>
@@ -101,10 +101,10 @@
                                  android:ems="10"
                                  android:id="@+id/editText2"
                                  android:textColor="@color/white"
-                                 android:background="#92c53e"
                                  android:padding="10dp"
                                  android:maxLines="1"
-                                 android:minLines="1" />
+                                 android:minLines="1"
+                                 style="@style/Campo.Verde.Mkapp_style" />
                          </LinearLayout>
 
                          <TextView
@@ -128,10 +128,10 @@
                                  android:ems="10"
                                  android:id="@+id/editText"
                                  android:textColor="@color/white"
-                                 android:background="#92c53e"
                                  android:padding="10dp"
                                  android:maxLines="1"
-                                 android:minLines="1"/>
+                                 android:minLines="1"
+                                 style="@style/Campo.Verde.Mkapp_style" />
 
                              <TextView
                                  android:id="@+id/tv_horario_gmt"
@@ -156,11 +156,11 @@
                              android:layout_height="wrap_content"
                              android:ems="10"
                              android:textColor="@color/white"
-                             android:background="#92c53e"
                              android:padding="10dp"
                              android:maxLines="1"
                              android:minLines="1"
-                             android:layout_marginTop="3dp" />
+                             android:layout_marginTop="3dp"
+                             style="@style/Campo.Verde.Mkapp_style" />
 
                          <TextView
                              android:id="@+id/tv_ciudad"
@@ -177,11 +177,11 @@
                              android:layout_height="wrap_content"
                              android:ems="10"
                              android:textColor="@color/white"
-                             android:background="#92c53e"
                              android:padding="10dp"
                              android:maxLines="1"
                              android:minLines="1"
-                             android:layout_marginTop="3dp" />
+                             android:layout_marginTop="3dp"
+                             style="@style/Campo.Verde.Mkapp_style" />
                      </LinearLayout>
                  </ScrollView>
 

@@ -1,15 +1,5 @@
 package ar.com.overflowdt.minekkit.recompensas;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.http.NameValuePair;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -17,13 +7,27 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import org.apache.http.NameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.util.JSONParser;
+import ar.com.overflowdt.minekkit.util.MenuHandler;
 
 //import android.widget.ListView;
 
@@ -88,6 +92,19 @@ public class AllRecompensasActivity extends ListActivity {
             }
         });
  
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        MenuHandler menuHandler = new MenuHandler();
+        return menuHandler.bindearLogica(item, this);
     }
  
     // Response from Edit Product Activity

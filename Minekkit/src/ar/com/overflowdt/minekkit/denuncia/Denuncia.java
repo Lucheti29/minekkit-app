@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TabHost;
 
 import ar.com.overflowdt.minekkit.R;
+import ar.com.overflowdt.minekkit.util.MenuHandler;
 
 public class Denuncia extends Activity {
 
@@ -64,4 +66,9 @@ public class Denuncia extends Activity {
 		return true;
 	}
 
+    @Override
+    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+        MenuHandler menuHandler = new MenuHandler();
+        return menuHandler.bindearLogica(item, this);
+    }
 }

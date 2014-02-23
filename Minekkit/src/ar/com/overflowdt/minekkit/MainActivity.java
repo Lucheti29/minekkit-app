@@ -14,6 +14,7 @@ import ar.com.overflowdt.minekkit.acercade.AcercaDe;
 import ar.com.overflowdt.minekkit.denuncia.Denuncia;
 import ar.com.overflowdt.minekkit.recompensas.AllRecompensasActivity;
 import ar.com.overflowdt.minekkit.util.Browser;
+import ar.com.overflowdt.minekkit.util.MenuHandler;
 import ar.com.overflowdt.minekkit.wiki.WikiMain;
 
 public class MainActivity extends Activity {
@@ -55,17 +56,11 @@ public class MainActivity extends Activity {
 	
 	@Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-        case R.id.menu_acercaDe:
-        	acercaDe(findViewById(R.id.menu_salir));
-            break;
-        case R.id.menu_salir:
-            finish();
-        }
-        return true;
+        MenuHandler menuHandler = new MenuHandler();
+        return menuHandler.bindearLogica(item, this);
     }
 	
-	public void acercaDe(View view)
+	public void acercaDe()
 	{
 		Intent i = new Intent(this,AcercaDe.class);
 		startActivity(i);
