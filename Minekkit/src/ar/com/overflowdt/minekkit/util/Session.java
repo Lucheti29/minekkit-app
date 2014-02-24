@@ -9,8 +9,9 @@ public class Session implements Enviable{
 	public String user;
 	public String pass;
 	static Session instance;
-	
-	public static Session getInstance(){
+    public String ver;
+
+    public static Session getInstance(){
 		if(instance == null )
 			instance=new Session();			
 		return instance;
@@ -21,6 +22,7 @@ public class Session implements Enviable{
 		ArrayList<Parametro> list = new ArrayList<Parametro>();
 		list.add(new Parametro().setValores("user", user));
 		list.add(new Parametro().setValores("pass", pass));
+        list.add(new Parametro().setValores("version", ver));
 		return list;		
 	}
 }

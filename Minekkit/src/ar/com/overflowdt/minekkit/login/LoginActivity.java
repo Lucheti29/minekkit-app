@@ -39,7 +39,8 @@ public class LoginActivity extends Activity {
 		user= (EditText) findViewById(R.id.login_user);
 		pass = (EditText) findViewById(R.id.login_pass);
 		aceptar = (Button)  findViewById(R.id.btn_aceptar_login);
-		
+
+		Session.getInstance().ver=this.getString(R.string.version);
 		aceptar.setOnClickListener(new View.OnClickListener() {
 
 	        @Override
@@ -104,28 +105,37 @@ public class LoginActivity extends Activity {
 
 
             try {
-                if (resp.getInt("success") == 1 ) {
-                    SharedPreferences preferencias=getSharedPreferences("logindata", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor=preferencias.edit();
-                    editor.putString("user", Session.getInstance().user);
-                    editor.putString("pass", Session.getInstance().pass);
-                    editor.commit();
-                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(i);
-                }else{
-                    AlertDialog.Builder notlogged = new AlertDialog.Builder(LoginActivity.this);
-                    notlogged.setTitle("Aviso");
-                    notlogged.setMessage("Usuario o contrase\u00f1a incorrectos. Int\u00e9ntalo otra vez.");
-                    notlogged.setCancelable(false);
-                    notlogged.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialogo1, int id) {}
-                    });
-                    notlogged.show();
-
+                switch(resp.getInt("success")) {
+                    case -1:
+                        showMessage("Versión desactualizada, por favor actualice la aplicación y vuelva a intentar.");
+                        break;
+                    case 0:
+                        showMessage("Usuario o contrase\u00f1a incorrectos. Int\u00e9ntalo otra vez.");
+                        break;
+                    case 1:
+                        SharedPreferences preferencias=getSharedPreferences("logindata", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor=preferencias.edit();
+                        editor.putString("user", Session.getInstance().user);
+                        editor.putString("pass", Session.getInstance().pass);
+                        editor.commit();
+                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(i);
+                        break;
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void showMessage(String message) {
+        AlertDialog.Builder notlogged = new AlertDialog.Builder(this);
+        notlogged.setTitle("Aviso");
+        notlogged.setMessage(message);
+        notlogged.setCancelable(false);
+        notlogged.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogo1, int id) {}
+        });
+        notlogged.show();
     }
 }

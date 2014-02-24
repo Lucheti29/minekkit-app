@@ -10,8 +10,8 @@
     <string name="copyright">Minekkit - Todos los derechos reservados 2012-2014</string>
     
     <string name="recompensas">Recompensas</string>
-    <string name="version">Ver 0.3 Alpha</string>
-    
+    <string name="versionComplete">Versión 0.3 Alpha</string>
+    <string name="version">0.3alpha</string>
     <string name="actionbar_perfil">Perfil</string>
     <string name="actionbar_pm">PM</string>
     <string name="actionbar_settings">Opciones</string>
