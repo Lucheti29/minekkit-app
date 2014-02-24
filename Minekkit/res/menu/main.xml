@@ -9,10 +9,14 @@
         android:id="@+id/menu_acercaDe"
         android:title="@string/label_acercade"
         android:orderInCategory="2"/>
+    <item
+        android:id="@+id/menu_logout"
+        android:title="@string/actionbar_logout"
+        android:orderInCategory="3" />
     <item 
         android:id="@+id/menu_salir"
         android:title="@string/actionbar_exit"
-        android:orderInCategory="3" />
+        android:orderInCategory="4" />
 
     <item
         android:id="@+id/menu_perfil"

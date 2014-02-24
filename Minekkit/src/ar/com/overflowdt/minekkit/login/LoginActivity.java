@@ -3,8 +3,10 @@ package ar.com.overflowdt.minekkit.login;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -50,7 +52,15 @@ public class LoginActivity extends Activity {
 
 	        }
 	    });
-	}
+
+        SharedPreferences prefe=getSharedPreferences("logindata",Context.MODE_PRIVATE);
+        if(!prefe.getString("user", "").equals("") && !prefe.getString("pass", "").equals(""))
+        {
+            Session.getInstance().user=prefe.getString("user", "");
+            Session.getInstance().pass=prefe.getString("pass", "");
+            new Login().execute();
+        }
+    }
     class Login extends AsyncTask<String, String, String> {
 
         /**
@@ -94,7 +104,12 @@ public class LoginActivity extends Activity {
 
 
             try {
-                if (resp.getInt("success") == 1 || true) { //TODO delete true bypass when session persistance is added
+                if (resp.getInt("success") == 1 ) {
+                    SharedPreferences preferencias=getSharedPreferences("logindata", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor=preferencias.edit();
+                    editor.putString("user", Session.getInstance().user);
+                    editor.putString("pass", Session.getInstance().pass);
+                    editor.commit();
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(i);
                 }else{

@@ -40,8 +40,9 @@
     <string name="otros_dospuntos">:</string>
 
     <string name="wiki_titulo">MK Wiki</string>
-    
-	<color name="black">#000000</color>
+    <string name="actionbar_logout">Logout</string>
+
+    <color name="black">#000000</color>
 	<color name="white">#FFFFFF</color>
     <color name="mk_azul_1">#33b5e5</color>
     <color name="mk_verde_1">#92c53e</color>
