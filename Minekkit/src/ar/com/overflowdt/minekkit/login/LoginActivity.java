@@ -27,6 +27,7 @@ public class LoginActivity extends Activity {
 	EditText user;
 	EditText pass;
 	Button aceptar;
+    Boolean iniciado=false;
     String url = "http://minekkit.com/api/login.php";
     JSONObject resp;
     ProgressDialog pDialog;
@@ -42,28 +43,33 @@ public class LoginActivity extends Activity {
             new Login().execute();
 
         }else{
-
-            setContentView(R.layout.login_activity);
-
-            user= (EditText) findViewById(R.id.login_user);
-            pass = (EditText) findViewById(R.id.login_pass);
-            aceptar = (Button)  findViewById(R.id.btn_aceptar_login);
-
-
-            aceptar.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View view) {
-
-                    Session.getInstance().user= String.valueOf(user.getText());
-                    Session.getInstance().pass= String.valueOf(pass.getText());
-
-                    new Login().execute();
-
-                }
-            });
+            iniciado=true;
+            iniciate();
         }
     }
+
+    private void iniciate() {
+        setContentView(R.layout.login_activity);
+
+        user= (EditText) findViewById(R.id.login_user);
+        pass = (EditText) findViewById(R.id.login_pass);
+        aceptar = (Button)  findViewById(R.id.btn_aceptar_login);
+
+
+        aceptar.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Session.getInstance().user= String.valueOf(user.getText());
+                Session.getInstance().pass= String.valueOf(pass.getText());
+
+                new Login().execute();
+
+            }
+        });
+    }
+
     class Login extends AsyncTask<String, String, String> {
 
         /**
@@ -73,15 +79,12 @@ public class LoginActivity extends Activity {
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(LoginActivity.this);
-            pDialog.setMessage("Conectando...");
+            pDialog.setMessage("Conectando con el servidor...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();
         }
 
-        /**
-         * getting All products from url
-         * */
         protected String doInBackground(String... args) {
             HttpHandler handler = new HttpHandler();
 
@@ -109,9 +112,11 @@ public class LoginActivity extends Activity {
             try {
                 switch(resp.getInt("success")) {
                     case -1:
+                        if(!iniciado) iniciate();
                         showMessage("Versión desactualizada, por favor actualice la aplicación y vuelva a intentar.");
                         break;
                     case 0:
+                        if(!iniciado) iniciate();
                         showMessage("Usuario o contrase\u00f1a incorrectos. Int\u00e9ntalo otra vez.");
                         break;
                     case 1:
