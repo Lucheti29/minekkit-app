@@ -32,34 +32,35 @@ public class LoginActivity extends Activity {
     ProgressDialog pDialog;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.login_activity);
-
-		user= (EditText) findViewById(R.id.login_user);
-		pass = (EditText) findViewById(R.id.login_pass);
-		aceptar = (Button)  findViewById(R.id.btn_aceptar_login);
-
-		Session.getInstance().ver=this.getString(R.string.version);
-		aceptar.setOnClickListener(new View.OnClickListener() {
-
-	        @Override
-	        public void onClick(View view) {
-
-                Session.getInstance().user= String.valueOf(user.getText());
-                Session.getInstance().pass= String.valueOf(pass.getText());
-
-                new Login().execute();
-
-	        }
-	    });
-
+        super.onCreate(savedInstanceState);
+        Session.getInstance().ver=this.getString(R.string.version);
         SharedPreferences prefe=getSharedPreferences("logindata",Context.MODE_PRIVATE);
         if(!prefe.getString("user", "").equals("") && !prefe.getString("pass", "").equals(""))
         {
             Session.getInstance().user=prefe.getString("user", "");
             Session.getInstance().pass=prefe.getString("pass", "");
             new Login().execute();
+        }else{
+
+            setContentView(R.layout.login_activity);
+
+            user= (EditText) findViewById(R.id.login_user);
+            pass = (EditText) findViewById(R.id.login_pass);
+            aceptar = (Button)  findViewById(R.id.btn_aceptar_login);
+
+
+            aceptar.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View view) {
+
+                    Session.getInstance().user= String.valueOf(user.getText());
+                    Session.getInstance().pass= String.valueOf(pass.getText());
+
+                    new Login().execute();
+
+                }
+            });
         }
     }
     class Login extends AsyncTask<String, String, String> {
@@ -101,7 +102,7 @@ public class LoginActivity extends Activity {
          * **/
         protected void onPostExecute(String file_url) {
             // dismiss the dialog after getting all products
-            pDialog.dismiss();
+
 
 
             try {
@@ -122,6 +123,7 @@ public class LoginActivity extends Activity {
                         startActivity(i);
                         break;
                 }
+                pDialog.dismiss();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
