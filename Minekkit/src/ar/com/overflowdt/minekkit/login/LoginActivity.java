@@ -40,6 +40,7 @@ public class LoginActivity extends Activity {
             Session.getInstance().user=prefe.getString("user", "");
             Session.getInstance().pass=prefe.getString("pass", "");
             new Login().execute();
+
         }else{
 
             setContentView(R.layout.login_activity);
@@ -121,6 +122,7 @@ public class LoginActivity extends Activity {
                         editor.commit();
                         Intent i = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(i);
+                        finish();
                         break;
                 }
                 pDialog.dismiss();
