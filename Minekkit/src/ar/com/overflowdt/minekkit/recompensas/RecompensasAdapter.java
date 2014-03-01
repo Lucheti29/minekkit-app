@@ -14,7 +14,7 @@ import ar.com.overflowdt.minekkit.R;
 
 public class RecompensasAdapter extends BaseAdapter {
 
-	List<PackRecompensas> packRecompensasList;
+	public List<PackRecompensas> packRecompensasList;
 	AllRecompensasActivity aRA;
 
 	@Override

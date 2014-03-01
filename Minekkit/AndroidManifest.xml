@@ -45,6 +45,10 @@
             android:name="ar.com.overflowdt.minekkit.wiki.WikiMain"
             android:label="@string/label_wiki">
         </activity>
+        <activity
+            android:name="ar.com.overflowdt.minekkit.pms.AllPmsActivity"
+            android:label="@string/label_pms">
+        </activity>
         <activity 
             android:name="ar.com.overflowdt.minekkit.login.LoginActivity">
             <intent-filter>

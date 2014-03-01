@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 
 import ar.com.overflowdt.minekkit.acercade.AcercaDe;
 import ar.com.overflowdt.minekkit.denuncia.Denuncia;
+import ar.com.overflowdt.minekkit.pms.AllPmsActivity;
 import ar.com.overflowdt.minekkit.recompensas.AllRecompensasActivity;
 import ar.com.overflowdt.minekkit.util.Browser;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
@@ -78,8 +79,12 @@ public class MainActivity extends Activity {
 		Intent i = new Intent(this,Denuncia.class);
 		startActivity(i);
 	}
+    public void verPms(View view)
+    {
+        Intent i = new Intent(this,AllPmsActivity.class);
+        startActivity(i);
+    }
 
-	
 	public void mapa(View view)
 	{
 		dialogo1.show();
