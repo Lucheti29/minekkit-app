@@ -44,6 +44,7 @@ public class SinglePMActivity extends Activity {
     private static final String TAG_LOGO = "Logo";
     private static final String TAG_FROM = "from";
     private static final String TAG_ID = "pmid";
+    private static final String TAG_DATE = "date";
     private static final String TAG_READ = "read";
     private static final String TAG_CONTENIDO = "content";
 

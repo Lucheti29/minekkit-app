@@ -1,6 +1,8 @@
 package ar.com.overflowdt.minekkit.pms;
 
 import android.content.Context;
+import android.graphics.PorterDuff;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,11 +52,22 @@ public class PmListAdapter extends BaseAdapter{
         PM p = packPms.get(arg0);
 
         title.setText(p.titulo);
+
         String t="De: ";
         t=t.concat(p.from);
         from.setText(t);
         logo.setImageDrawable(arg1.getResources().getDrawable(R.drawable.ic_pms));
         idpm.setText(String.valueOf(p.idpm));
+        if (p.read==1){
+           title.setTypeface(null, Typeface.NORMAL);
+           logo.setColorFilter(R.color.black, PorterDuff.Mode.MULTIPLY);
+        }else{
+            title.setTypeface(null, Typeface.BOLD);
+            logo.clearColorFilter();
+            //logo.setColorFilter(R.color.mk_azul_1, PorterDuff.Mode.MULTIPLY);
+        }
+
+
         return arg1;
     }
 }
