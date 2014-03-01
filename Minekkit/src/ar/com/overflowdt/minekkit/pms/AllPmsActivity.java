@@ -77,11 +77,11 @@ public class AllPmsActivity extends ListActivity{
                 String pid = ((TextView) view.findViewById(R.id.pid)).getText().toString();
 
                 // Starting new intent
-                //Intent in = new Intent(AllPmsActivity.this, SinglePmActivity.class);
+                Intent in = new Intent(AllPmsActivity.this, SinglePMActivity.class);
                 // sending pid to next activity
-                //in.putExtra(TAG_ID, pid);
+                in.putExtra(TAG_ID, pid);
 
-                //startActivity(in);
+                startActivity(in);
                 // starting new activity and expecting some response back
 //                startActivityForResult(in, 100);
             }

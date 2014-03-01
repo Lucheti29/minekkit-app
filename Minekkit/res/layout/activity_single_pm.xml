@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ab_stacked_solid_mkapp_style">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Título"
+            android:id="@+id/txt_pm_title" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="From:"
+            android:id="@+id/txt_pm_from" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Contenido"
+            android:id="@+id/txt_pm_contenido" />
+    </LinearLayout>
+</LinearLayout>
