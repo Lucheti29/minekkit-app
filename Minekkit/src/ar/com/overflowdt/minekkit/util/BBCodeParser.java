@@ -23,6 +23,7 @@ public class BBCodeParser {
         bbMap.put("\\[h5\\](.+?)\\[/h5\\]", "<h5>$1</h5>");
         bbMap.put("\\[h6\\](.+?)\\[/h6\\]", "<h6>$1</h6>");
         bbMap.put("\\[quote\\](.+?)\\[/quote\\]", "<blockquote>$1</blockquote>");
+        bbMap.put("\\[quote='(.+?)'\\](.+?)\\[/quote\\]", "[$1]: $2");
         bbMap.put("\\[p\\](.+?)\\[/p\\]", "<p>$1</p>");
         bbMap.put("\\[p=(.+?),(.+?)\\](.+?)\\[/p\\]", "<p style='text-indent:$1px;line-height:$2%;'>$3</p>");
         bbMap.put("\\[center\\](.+?)\\[/center\\]", "<div align='center'>$1");

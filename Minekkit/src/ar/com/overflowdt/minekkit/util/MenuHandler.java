@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.acercade.AcercaDe;
 import ar.com.overflowdt.minekkit.login.LoginActivity;
+import ar.com.overflowdt.minekkit.pms.AllPmsActivity;
 
 /**
  * Created by Juan on 23/02/14.
@@ -16,9 +17,14 @@ import ar.com.overflowdt.minekkit.login.LoginActivity;
 public class MenuHandler {
 
     public boolean bindearLogica (MenuItem item, Activity activity) {
+        Intent nuevaActivity;
         switch (item.getItemId()) {
+            case R.id.menu_pm:
+                nuevaActivity = new Intent(activity, AllPmsActivity.class);
+                activity.startActivity(nuevaActivity);
+                break;
             case R.id.menu_acercaDe:
-                Intent nuevaActivity = new Intent(activity, AcercaDe.class);
+                nuevaActivity = new Intent(activity, AcercaDe.class);
                 activity.startActivity(nuevaActivity);
                 break;
             case R.id.menu_salir:

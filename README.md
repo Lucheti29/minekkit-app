@@ -29,7 +29,7 @@
   <li>Login: [GUI] [CODIGO]</li> 
   <li>Ruleta (2 o 3 veces al día) y contador de tiempo hasta que se puede volver a jugar (envía notificación cuando ya  puedas hacerlo): </li>
   <li>Obtener un reco al día: [ICO]</li> 
-  <li>PMs / Chat: [ICO]</li> 
+  <li>PMs / Chat: [ICO] [CODIGO]</li>
   <li>Mapa: [ICO] [CODIGO] [LISTO]</li> 
   <li>Comprar recompensas: [ICO]</li> 
   <li>Donar: [ICO]</li> 

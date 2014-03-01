@@ -29,6 +29,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Contenido"
-            android:id="@+id/txt_pm_contenido" />
+            android:id="@+id/txt_pm_contenido"
+            android:background="@drawable/ab_bottom_solid_mkapp_style"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium" />
     </LinearLayout>
 </LinearLayout>
