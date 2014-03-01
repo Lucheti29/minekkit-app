@@ -45,6 +45,7 @@ public class AllPmsActivity extends ListActivity{
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_PRODUCTS = "pms";
     private static final String TAG_TITLE = "title";
+    private static final String TAG_DATE = "date";
     private static final String TAG_LOGO = "Logo";
     private static final String TAG_FROM = "from";
     private static final String TAG_ID = "pmid";
@@ -173,7 +174,7 @@ public class AllPmsActivity extends ListActivity{
                         item.from = c.getString(TAG_FROM);
                         item.idpm = c.getInt(TAG_ID);
                         item.read = c.getInt(TAG_READ);
-
+                        item.date= c.getLong(TAG_DATE);
                         packPMs.add(item);
                     }
                 }

@@ -15,6 +15,7 @@ public class PM implements Enviable {
     String from;
     String content;
     int read;
+    public long date;
 
     @Override
     public ArrayList<Parametro> armarArrayDeParametros() {
