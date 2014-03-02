@@ -32,6 +32,7 @@ public class Browser extends Activity {
         webView.setWebViewClient(new myWebViewClient());
 
         Bundle bundle = getIntent().getExtras();
+        setTitle(bundle.getString("title"));
         webView.loadUrl("http://" + bundle.getString("direccion"));
 
     }

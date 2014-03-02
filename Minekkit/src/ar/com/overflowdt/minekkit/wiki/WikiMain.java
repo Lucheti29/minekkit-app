@@ -44,6 +44,7 @@ public class WikiMain extends Activity {
     public void buscarEnWiki(View view)
     {
         Intent i = new Intent(this,Browser.class);
+        i.putExtra("title","Wiki");
         i.putExtra("direccion", WIKI_URL_PART_1 + etWiki.getText() + WIKI_URL_PART_2);
         startActivity(i);
     }

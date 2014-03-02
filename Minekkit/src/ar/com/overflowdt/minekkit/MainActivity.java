@@ -17,6 +17,7 @@ import ar.com.overflowdt.minekkit.recompensas.AllRecompensasActivity;
 import ar.com.overflowdt.minekkit.recoxdia.ClaimRecoplasActivity;
 import ar.com.overflowdt.minekkit.util.Browser;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
+import ar.com.overflowdt.minekkit.util.Session;
 import ar.com.overflowdt.minekkit.wiki.WikiMain;
 
 public class MainActivity extends Activity {
@@ -91,6 +92,12 @@ public class MainActivity extends Activity {
         Intent i = new Intent(this,ClaimRecoplasActivity.class);
         startActivity(i);
     }
+    public void verInventorio(View view) {
+        Intent i = new Intent(this,Browser.class);
+        i.putExtra("title","Inventory");
+        i.putExtra("direccion", "minekkit.com/api/inventory.php?user="+ Session.getInstance().user+"&pass="+Session.getInstance().pass);
+        startActivity(i);
+    }
 	public void mapa(View view)
 	{
 		dialogo1.show();
@@ -98,6 +105,7 @@ public class MainActivity extends Activity {
 
 	private void verMapa() {
         Intent i = new Intent(this,Browser.class);
+        i.putExtra("title","Mapa");
 		i.putExtra("direccion", "minekkit.com:8123");
 		startActivity(i);
 	}
