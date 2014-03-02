@@ -14,6 +14,7 @@ import ar.com.overflowdt.minekkit.acercade.AcercaDe;
 import ar.com.overflowdt.minekkit.denuncia.Denuncia;
 import ar.com.overflowdt.minekkit.pms.AllPmsActivity;
 import ar.com.overflowdt.minekkit.recompensas.AllRecompensasActivity;
+import ar.com.overflowdt.minekkit.recoxdia.ClaimRecoplasActivity;
 import ar.com.overflowdt.minekkit.util.Browser;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
 import ar.com.overflowdt.minekkit.wiki.WikiMain;
@@ -85,6 +86,11 @@ public class MainActivity extends Activity {
         startActivity(i);
     }
 
+    public void verClaimCoin(View view)
+    {
+        Intent i = new Intent(this,ClaimRecoplasActivity.class);
+        startActivity(i);
+    }
 	public void mapa(View view)
 	{
 		dialogo1.show();

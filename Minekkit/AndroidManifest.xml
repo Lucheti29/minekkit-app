@@ -53,6 +53,10 @@
             android:name="ar.com.overflowdt.minekkit.pms.SinglePMActivity"
             android:label="@string/label_pms">
         </activity>
+        <activity
+            android:name="ar.com.overflowdt.minekkit.recoxdia.ClaimRecoplasActivity"
+            android:label="@string/label_recoxdia">
+        </activity>
         <activity 
             android:name="ar.com.overflowdt.minekkit.login.LoginActivity">
             <intent-filter>

@@ -42,6 +42,7 @@
     <string name="wiki_titulo">MK Wiki</string>
     <string name="actionbar_logout">Logout</string>
     <string name="label_pms">PMs</string>
+    <string name="label_recoxdia">Recoplas por día</string>
 
     <color name="black">#000000</color>
 	<color name="white">#FFFFFF</color>
