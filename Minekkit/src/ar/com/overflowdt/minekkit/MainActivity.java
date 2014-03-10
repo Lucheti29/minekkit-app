@@ -5,10 +5,13 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+
+import java.io.UnsupportedEncodingException;
 
 import ar.com.overflowdt.minekkit.acercade.AcercaDe;
 import ar.com.overflowdt.minekkit.denuncia.Denuncia;
@@ -95,7 +98,13 @@ public class MainActivity extends Activity {
     public void verInventorio(View view) {
         Intent i = new Intent(this,Browser.class);
         i.putExtra("title","Inventory");
-        i.putExtra("direccion", "minekkit.com/api/inventory.php?user="+ Session.getInstance().user+"&pass="+Session.getInstance().pass);
+        String encodedPass="";
+        try {
+            encodedPass=new String( Base64.encode(Session.getInstance().pass.getBytes("CP1252"), Base64.DEFAULT), "CP1252");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        i.putExtra("direccion", "minekkit.com/api/inventory.php?user="+ Session.getInstance().user+"&pass="+encodedPass);
         startActivity(i);
     }
 	public void mapa(View view)
