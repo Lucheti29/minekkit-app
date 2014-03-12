@@ -1,10 +1,8 @@
 package ar.com.overflowdt.minekkit.login;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -21,6 +19,7 @@ import ar.com.overflowdt.minekkit.MainActivity;
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.util.HttpHandler;
 import ar.com.overflowdt.minekkit.util.Session;
+import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 
 public class LoginActivity extends Activity {
 	
@@ -111,13 +110,17 @@ public class LoginActivity extends Activity {
 
             try {
                 switch(resp.getInt("success")) {
+                    case -100:
+                        if(!iniciado) iniciate();
+                        ShowAlertMessage.showMessage("No se puede conectar con el servidor. Intente más tarde.",LoginActivity.this);
+                        break;
                     case -1:
                         if(!iniciado) iniciate();
-                        showMessage("Versión desactualizada, por favor actualice la aplicación y vuelva a intentar.");
+                        ShowAlertMessage.showMessage("Versión desactualizada, por favor actualice la aplicación y vuelva a intentar.",LoginActivity.this);
                         break;
                     case 0:
                         if(!iniciado) iniciate();
-                        showMessage("Usuario o contrase\u00f1a incorrectos. Int\u00e9ntalo otra vez.");
+                        ShowAlertMessage.showMessage("Usuario o contrase\u00f1a incorrectos. Int\u00e9ntalo otra vez.",LoginActivity.this);
                         break;
                     case 1:
                         SharedPreferences preferencias=getSharedPreferences("logindata", Context.MODE_PRIVATE);
@@ -137,14 +140,5 @@ public class LoginActivity extends Activity {
         }
     }
 
-    public void showMessage(String message) {
-        AlertDialog.Builder notlogged = new AlertDialog.Builder(this);
-        notlogged.setTitle("Aviso");
-        notlogged.setMessage(message);
-        notlogged.setCancelable(false);
-        notlogged.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialogo1, int id) {}
-        });
-        notlogged.show();
-    }
+
 }

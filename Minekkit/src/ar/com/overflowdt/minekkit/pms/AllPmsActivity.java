@@ -25,6 +25,7 @@ import ar.com.overflowdt.minekkit.util.HttpHandler;
 import ar.com.overflowdt.minekkit.util.JSONParser;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
 import ar.com.overflowdt.minekkit.util.Session;
+import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 
 /**
  * Created by Fede on 01/03/14.
@@ -32,9 +33,6 @@ import ar.com.overflowdt.minekkit.util.Session;
 public class AllPmsActivity extends ListActivity{
     // Progress Dialog
     private ProgressDialog pDialog;
-
-    // Creating JSON Parser object
-    JSONParser jParser = new JSONParser();
 
 
     List<PM> packPMs;
@@ -159,25 +157,31 @@ public class AllPmsActivity extends ListActivity{
                 // Checking for SUCCESS TAG
                 int success = json.getInt(TAG_SUCCESS);
 
-                if (success == 1) {
-                    // pms found
-                    // Getting Array of Products
-                    pms = json.getJSONArray(TAG_PRODUCTS);
+                switch(success) {
+                    case -100:
+                        ShowAlertMessage.showMessage("No se puede conectar con el servidor. Intente más tarde.",AllPmsActivity.this);
+                        break;
+                    case 1:
+                        // pms found
+                        // Getting Array of Products
+                        pms = json.getJSONArray(TAG_PRODUCTS);
 
-                    // looping through All Products
-                    for (int i = 0; i < pms.length(); i++) {
-                        JSONObject c = pms.getJSONObject(i);
+                        // looping through All Products
+                        for (int i = 0; i < pms.length(); i++) {
+                            JSONObject c = pms.getJSONObject(i);
 
-                        // Storing each json item in variable
-                        PM item = new PM();
-                        item.titulo = c.getString(TAG_TITLE);
-                        item.from = c.getString(TAG_FROM);
-                        item.idpm = c.getInt(TAG_ID);
-                        item.read = c.getInt(TAG_READ);
-                        item.date= c.getLong(TAG_DATE);
-                        packPMs.add(item);
-                    }
+                            // Storing each json item in variable
+                            PM item = new PM();
+                            item.titulo = c.getString(TAG_TITLE);
+                            item.from = c.getString(TAG_FROM);
+                            item.idpm = c.getInt(TAG_ID);
+                            item.read = c.getInt(TAG_READ);
+                            item.date= c.getLong(TAG_DATE);
+                            packPMs.add(item);
+                        }
+                        break;
                 }
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }

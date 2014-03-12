@@ -58,6 +58,11 @@ public class HttpHandler {
           return  result;
 
 	  }
+      catch (IOException e) {
+          result = new JSONObject();
+          result.put("success", -100);
+          return  result;
+      }
 	  catch(Exception e)
       {
         e.printStackTrace();

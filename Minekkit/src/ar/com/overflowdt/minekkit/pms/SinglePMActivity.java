@@ -2,7 +2,6 @@ package ar.com.overflowdt.minekkit.pms;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
@@ -22,15 +21,13 @@ import ar.com.overflowdt.minekkit.util.BBCodeParser;
 import ar.com.overflowdt.minekkit.util.HttpHandler;
 import ar.com.overflowdt.minekkit.util.JSONParser;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
+import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 
 /**
  * Created by Fede on 01/03/14.
  */
 public class SinglePMActivity extends Activity {
 
-    // Creating JSON Parser object
-    JSONParser jParser = new JSONParser();
-    ImageView logo;
     TextView titulo;
     TextView from;
     TextView contenido;
@@ -59,7 +56,6 @@ public class SinglePMActivity extends Activity {
         contenido =(TextView) findViewById(R.id.txt_pm_contenido);
         from =(TextView) findViewById(R.id.txt_pm_from);
         titulo=(TextView) findViewById(R.id.txt_pm_title);
-        //logo=(ImageView) findViewById(R.id.single_logo);
 
         new LoadAPM().execute();
 
@@ -118,32 +114,33 @@ public class SinglePMActivity extends Activity {
             try {
                 // Checking for SUCCESS TAG
                 int success = json.getInt(TAG_SUCCESS);
+                switch(success) {
+                    case -100:
+                        ShowAlertMessage.showMessage("No se puede conectar con el servidor. Intente más tarde.", SinglePMActivity.this);
+                        break;
+                    case 0:
+                        ShowAlertMessage.showMessage("Hubo un error en la solicitud del mensaje.", SinglePMActivity.this);
+                        break;
+                    case 1:
+                        // products found
+                        // Getting Array of Products
+                        JSONArray products = json.getJSONArray(TAG_PRODUCTS);
 
-                if (success == 1) {
-                    // products found
-                    // Getting Array of Products
-                    JSONArray products = json.getJSONArray(TAG_PRODUCTS);
+                        // looping through All Products
 
-                    // looping through All Products
-
-                    JSONObject c = products.getJSONObject(0);
-                    message = pm;
-                    // Storing each json item in variable
-                    message.titulo= c.getString(TAG_TITLE);
-                    message.from= c.getString(TAG_FROM);
-                    message.content=c.getString(TAG_CONTENIDO);
-                    message.read=c.getInt(TAG_READ);
-//                    try {
-//                        URL newurl = new URL(c.getString(TAG_LOGO));
-//                        message.logo=(BitmapFactory.decodeStream(newurl.openConnection().getInputStream()));
-//                    } catch (IOException e) {
-//
-//                        e.printStackTrace();
-//                    }
-
+                        JSONObject c = products.getJSONObject(0);
+                        message = pm;
+                        // Storing each json item in variable
+                        message.titulo= c.getString(TAG_TITLE);
+                        message.from= c.getString(TAG_FROM);
+                        message.content=c.getString(TAG_CONTENIDO);
+                        message.read=c.getInt(TAG_READ);
 
 
-
+                        titulo.setText(message.titulo);
+                        from.setText("De: " + message.from );
+                        contenido.setText(Html.fromHtml(BBCodeParser.bbcode(message.content)));
+                        break;
                 }
 
             } catch (JSONException e) {
@@ -159,10 +156,8 @@ public class SinglePMActivity extends Activity {
         protected void onPostExecute(String file_url) {
             // dismiss the dialog after getting all products
             pDialog.dismiss();
-            titulo.setText(message.titulo);
-            from.setText("De: " + message.from );
-            contenido.setText(Html.fromHtml(BBCodeParser.bbcode(message.content)));
-            //logo.setImageBitmap(message.logo);
+
+
         }
     }
 }
