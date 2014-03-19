@@ -21,7 +21,7 @@ public class PM implements Enviable {
     public ArrayList<Parametro> armarArrayDeParametros() {
         ArrayList<Parametro> list = new ArrayList<Parametro>();
         list.add(new Parametro().setValores("user", Session.getInstance().user));
-        list.add(new Parametro().setValores("pass", Session.getInstance().pass));
+        list.add(new Parametro().setValores("pass", Session.getInstance().pass64()));
         list.add(new Parametro().setValores("idpm", String.valueOf(idpm)));
         return list;
     }

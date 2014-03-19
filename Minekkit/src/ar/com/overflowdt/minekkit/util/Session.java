@@ -20,6 +20,15 @@ public class Session implements Enviable{
 		return instance;
 	}
 
+    public String pass64(){
+        try {
+            return new String( Base64.encode(pass.getBytes("CP1252"), Base64.DEFAULT), "CP1252");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        };
+        return null;
+    }
+
 	@Override
 	public ArrayList<Parametro> armarArrayDeParametros() {
 		ArrayList<Parametro> list = new ArrayList<Parametro>();

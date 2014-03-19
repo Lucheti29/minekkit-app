@@ -102,16 +102,16 @@ public class ClaimRecoplasActivity extends Activity{
 
                 switch (success){
                     case -1:
-                        showMessage("Tienes m·s de 50 Recoplas. Gasta unos cuantos en la tienda y volvÈ a solicitar tu Reco Gratis!");
+                        showMessage("Tienes m√°s de 50 Recoplas. Gasta unos cuantos en la tienda y volv√© a solicitar tu Reco Gratis!");
                         break;
                     case 0:
                         showMessage("Ha habido un error en la solicitud.");
                         break;
                     case 1:
-                        showMessage("Has obtenido 1 Recoplas. VolvÈ maÒana para pedir otro!");
+                        showMessage("Has obtenido 1 Recoplas. Volv√© ma√±ana para pedir otro!");
                         break;
                     default:
-                        showMessage("TodavÌa no pasaron 24 horas. VolvÈ m·s tarde!");
+                        showMessage("Todav√≠a no pasaron 24 horas. Volv√© m√°s tarde!");
                         if(segundosRestantes==0){
                             segundosRestantes=success;
                             final Timer T=new Timer();

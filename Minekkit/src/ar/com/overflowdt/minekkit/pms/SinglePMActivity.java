@@ -56,7 +56,7 @@ public class SinglePMActivity extends Activity {
         contenido =(TextView) findViewById(R.id.txt_pm_contenido);
         from =(TextView) findViewById(R.id.txt_pm_from);
         titulo=(TextView) findViewById(R.id.txt_pm_title);
-
+        Log.d("PMID", id.toString());
         new LoadAPM().execute();
 
 
@@ -116,7 +116,7 @@ public class SinglePMActivity extends Activity {
                 int success = json.getInt(TAG_SUCCESS);
                 switch(success) {
                     case -100:
-                        ShowAlertMessage.showMessage("No se puede conectar con el servidor. Intente más tarde.", SinglePMActivity.this);
+                        ShowAlertMessage.showMessage("No se puede conectar con el servidor. Intente mï¿½s tarde.", SinglePMActivity.this);
                         break;
                     case 0:
                         ShowAlertMessage.showMessage("Hubo un error en la solicitud del mensaje.", SinglePMActivity.this);
@@ -136,10 +136,16 @@ public class SinglePMActivity extends Activity {
                         message.content=c.getString(TAG_CONTENIDO);
                         message.read=c.getInt(TAG_READ);
 
-
-                        titulo.setText(message.titulo);
-                        from.setText("De: " + message.from );
-                        contenido.setText(Html.fromHtml(BBCodeParser.bbcode(message.content)));
+                        runOnUiThread(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                titulo.setText(message.titulo);
+                                from.setText("De: " + message.from );
+                                contenido.setText(Html.fromHtml(BBCodeParser.bbcode(message.content)));
+                            }
+                        });
                         break;
                 }
 
