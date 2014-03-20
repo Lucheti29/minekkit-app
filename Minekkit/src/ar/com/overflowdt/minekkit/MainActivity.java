@@ -115,13 +115,13 @@ public class MainActivity extends Activity {
     {
         Intent intent = new Intent(Intent.ACTION_SEARCH);
         intent.setPackage("com.google.android.youtube");
-        intent.putExtra("query", "Linekkit");
+        intent.putExtra("query", "Minekkit");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 
     public  void verFacebook(View view) {
-        String pageid= "120398051461967";
+        String pageid= "343114349116781";
         final String urlFb = "fb://page/"+pageid;
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(urlFb));
@@ -141,7 +141,7 @@ public class MainActivity extends Activity {
 
 
     public  void verTwitter(View view) {
-        String twitter_user_name="Linekkit";
+        String twitter_user_name="Minekkit";
         try {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=" + twitter_user_name)));
         }catch (Exception e) {
