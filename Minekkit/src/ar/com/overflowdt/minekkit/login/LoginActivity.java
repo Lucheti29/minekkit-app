@@ -78,7 +78,7 @@ public class LoginActivity extends Activity {
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(LoginActivity.this);
-            pDialog.setMessage("Conectando con el servidor...");
+            pDialog.setMessage(getString(R.string.login_conectando));
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();
@@ -112,15 +112,15 @@ public class LoginActivity extends Activity {
                 switch(resp.getInt("success")) {
                     case -100:
                         if(!iniciado) iniciate();
-                        ShowAlertMessage.showMessage("No se puede conectar con el servidor. Intente más tarde.",LoginActivity.this);
+                        ShowAlertMessage.showMessage(getString(R.string.login_fallo_timeout),LoginActivity.this);
                         break;
                     case -1:
                         if(!iniciado) iniciate();
-                        ShowAlertMessage.showMessage("Versión desactualizada, por favor actualice la aplicación y vuelva a intentar.",LoginActivity.this);
+                        ShowAlertMessage.showMessage(getString(R.string.login_fallo_version),LoginActivity.this);
                         break;
                     case 0:
                         if(!iniciado) iniciate();
-                        ShowAlertMessage.showMessage("Usuario o contrase\u00f1a incorrectos. Int\u00e9ntalo otra vez.",LoginActivity.this);
+                        ShowAlertMessage.showMessage(getString(R.string.login_fallo_auth),LoginActivity.this);
                         break;
                     case 1:
                         SharedPreferences preferencias=getSharedPreferences("logindata", Context.MODE_PRIVATE);
