@@ -11,11 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:weightSum="1"
-        android:background="#8092c53e"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin">
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:background="#80000000">
 
         <ScrollView
             android:layout_width="fill_parent"
@@ -31,24 +31,30 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="match_parent"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Título"
-                    android:id="@+id/txt_pm_title" />
+                    android:id="@+id/txt_pm_title"
+                    android:textSize="25sp"
+                    android:textColor="@color/mk_amarillo_1" />
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="46dp"
+                    android:layout_height="match_parent"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="From:"
-                    android:id="@+id/txt_pm_from" />
+                    android:id="@+id/txt_pm_from"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/mk_amarillo_1" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Contenido"
                     android:id="@+id/txt_pm_contenido"
-                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium" />
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                    android:textColor="@color/mk_blanco_1"
+                    android:layout_marginTop="10dp" />
             </LinearLayout>
         </ScrollView>
 
