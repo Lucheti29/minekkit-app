@@ -1,13 +1,16 @@
 package ar.com.overflowdt.minekkit.denuncia;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TabHost;
 
 import ar.com.overflowdt.minekkit.R;
+import ar.com.overflowdt.minekkit.util.Browser;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
 
 public class Denuncia extends Activity {
@@ -70,5 +73,12 @@ public class Denuncia extends Activity {
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
         MenuHandler menuHandler = new MenuHandler();
         return menuHandler.bindearLogica(item, this);
+    }
+
+    public void verReglas(View view) {
+        Intent i = new Intent(this,Browser.class);
+        i.putExtra("title","Reglas");
+        i.putExtra("direccion", "minekkit.com/foro/showthread.php?tid=2371");
+        startActivity(i);
     }
 }
