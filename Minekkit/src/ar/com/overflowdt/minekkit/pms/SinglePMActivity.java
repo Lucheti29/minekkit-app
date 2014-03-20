@@ -2,6 +2,7 @@ package ar.com.overflowdt.minekkit.pms;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
@@ -45,6 +46,7 @@ public class SinglePMActivity extends Activity {
     private static final String TAG_READ = "read";
     private static final String TAG_CONTENIDO = "content";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -87,11 +89,12 @@ public class SinglePMActivity extends Activity {
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(SinglePMActivity.this);
-            pDialog.setMessage("Cargando Pack...");
+            pDialog.setMessage("Cargando Mensaje...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();
         }
+
 
         /**
          * getting a products from url
@@ -116,7 +119,7 @@ public class SinglePMActivity extends Activity {
                 int success = json.getInt(TAG_SUCCESS);
                 switch(success) {
                     case -100:
-                        ShowAlertMessage.showMessage("No se puede conectar con el servidor. Intente m�s tarde.", SinglePMActivity.this);
+                        ShowAlertMessage.showMessage("No se puede conectar con el servidor. Intente más tarde.", SinglePMActivity.this);
                         break;
                     case 0:
                         ShowAlertMessage.showMessage("Hubo un error en la solicitud del mensaje.", SinglePMActivity.this);

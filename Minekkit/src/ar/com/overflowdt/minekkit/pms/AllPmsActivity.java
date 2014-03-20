@@ -80,7 +80,8 @@ public class AllPmsActivity extends ListActivity{
                 // sending pid to next activity
                 in.putExtra(TAG_ID, pid);
 
-                startActivity(in);
+
+                startActivityForResult(in, 100);
                 // starting new activity and expecting some response back
 //                startActivityForResult(in, 100);
             }
@@ -106,7 +107,7 @@ public class AllPmsActivity extends ListActivity{
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         // if result code 100
-        if (resultCode == 100) {
+        if (requestCode == 100) {
             // if result code 100 is received
             // means user edited/deleted product
             // reload this screen again
@@ -135,6 +136,8 @@ public class AllPmsActivity extends ListActivity{
             pDialog.show();
         }
 
+
+
         /**
          * getting All pms from url
          * */
@@ -159,7 +162,7 @@ public class AllPmsActivity extends ListActivity{
 
                 switch(success) {
                     case -100:
-                        ShowAlertMessage.showMessage("No se puede conectar con el servidor. Intente más tarde.",AllPmsActivity.this);
+                        ShowAlertMessage.showMessage("No se puede conectar con el servidor. Intente mï¿½s tarde.",AllPmsActivity.this);
                         break;
                     case 1:
                         // pms found
