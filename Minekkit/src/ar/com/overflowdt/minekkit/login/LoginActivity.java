@@ -112,11 +112,11 @@ public class LoginActivity extends Activity {
                 switch(resp.getInt("success")) {
                     case -100:
                         if(!iniciado) iniciate();
-                        ShowAlertMessage.showMessage("No se puede conectar con el servidor. Intente m·s tarde.",LoginActivity.this);
+                        ShowAlertMessage.showMessage("No se puede conectar con el servidor. Intente m√°s tarde.",LoginActivity.this);
                         break;
                     case -1:
                         if(!iniciado) iniciate();
-                        ShowAlertMessage.showMessage("VersiÛn desactualizada, por favor actualice la aplicaciÛn y vuelva a intentar.",LoginActivity.this);
+                        ShowAlertMessage.showMessage("Versi√≥n desactualizada, por favor actualice la aplicaci√≥n y vuelva a intentar.",LoginActivity.this);
                         break;
                     case 0:
                         if(!iniciado) iniciate();

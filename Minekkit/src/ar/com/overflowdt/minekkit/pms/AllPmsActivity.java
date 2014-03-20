@@ -162,7 +162,7 @@ public class AllPmsActivity extends ListActivity{
 
                 switch(success) {
                     case -100:
-                        ShowAlertMessage.showMessage("No se puede conectar con el servidor. Intente m�s tarde.",AllPmsActivity.this);
+                        ShowAlertMessage.showMessage("No se puede conectar con el servidor. Intente más tarde.",AllPmsActivity.this);
                         break;
                     case 1:
                         // pms found
