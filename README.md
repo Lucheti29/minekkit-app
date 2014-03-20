@@ -49,9 +49,10 @@
 <h3>TODOS:</h3>
 
 <ul>
-  <li>La App creashea al acceder a la sección recompensas cuando estas en modo avión</li>
+  <li><b>DONE</b>La App creashea al acceder a la sección recompensas cuando estas en modo avión</li>
   <li>En la activity de ver recompensas, si la pantalla se pone horizontal vuelve a cargar todo</li>
   <li><b>DONE</b> <s>En el logeo, el servidor tiene que comprobar que la app esta actualizada a la última versión. </s><br>
       <s>Esto es así porque si en algún momento un update genera una vulnerabilidad, podemos evitar que los</s><br>
       <s>usuarios sigan logeando con la versión insegura o usando un xploit</s></li>
+  <li>Hay que hacer una clase singleton para que no se puedan duplicar las activities de all PMs y perfil</li>
 </ul>
