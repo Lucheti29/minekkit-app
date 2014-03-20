@@ -65,6 +65,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name="ar.com.overflowdt.minekkit.notification.NotificationService"
+            android:enabled="true" />
         <receiver android:name="ar.com.overflowdt.minekkit.notification.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -72,5 +74,7 @@
         </receiver>
     </application>
 <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
 
 </manifest>

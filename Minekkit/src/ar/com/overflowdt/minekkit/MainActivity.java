@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.util.Base64;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -61,7 +62,6 @@ public class MainActivity extends Activity {
 	        }
 	    });
 
-        setAlarmNotis();
 		setearAlertDialog();
 	}
 
@@ -87,6 +87,7 @@ public class MainActivity extends Activity {
         am.cancel(pi);
         // by my own convention, minutes <= 0 means notifications are disabled
         if (minutes > 0) {
+            Log.d("Alarm", "Set");
             am.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
                     SystemClock.elapsedRealtime() + minutes*60*1000,
                     minutes*60*1000, pi);

@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.IBinder;
@@ -51,6 +52,7 @@ public class NotificationService extends Service {
      * probably won't, either.
      */
     private void handleIntent(Intent intent) {
+        Log.d("NotificationService ","Entro");
         // obtain the wake lock
         PowerManager pm = (PowerManager) getSystemService(POWER_SERVICE);
         mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "Minekkit");
@@ -59,8 +61,8 @@ public class NotificationService extends Service {
         // check the global background data setting
         ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         if (!cm.getBackgroundDataSetting()) {
-            //stopSelf();
-            //return;
+            stopSelf();
+            return;
         }
 
         // do the actual work, in a separate thread
@@ -78,6 +80,7 @@ public class NotificationService extends Service {
         int i=0;
         String titles="";
         String bigMessage="";
+
         @Override
         protected Void doInBackground(Void... params) {
 
@@ -105,6 +108,7 @@ public class NotificationService extends Service {
                         JSONArray pms = json.getJSONArray(TAG_PRODUCTS);
 
                         // looping through All Pm
+
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(NotificationService.this);
                         int lastPM = prefs.getInt("lastPM",0);
 
@@ -113,7 +117,7 @@ public class NotificationService extends Service {
                         }
 
                         if(pms.length()>1 && pms.getJSONObject(0).getInt(TAG_READ)==0){
-                            bigMessage=pms.getJSONObject(i).getString(TAG_CONTENIDO);
+                            //bigMessage=pms.getJSONObject(i).getString(TAG_CONTENIDO);
                             SharedPreferences.Editor editor=prefs.edit();
                             editor.putInt("lastPM", pms.getJSONObject(0).getInt(TAG_ID));
                             editor.commit();
@@ -143,11 +147,11 @@ public class NotificationService extends Service {
          */
         @Override
         protected void onPostExecute(Void result) {
-            notiTest();
             if(i>0)
                 setNotification();
             stopSelf();
         }
+        //todo delete
         public void notiTest(){
             // prepare intent which is triggered if the
             // notification is selected
@@ -185,11 +189,12 @@ public class NotificationService extends Service {
             // the addAction re-use the same intent to keep the example short
             Notification n  = new Notification.Builder(NotificationService.this)
                     .setContentTitle(String.valueOf(i) + " Nuevos Mensajes Privados")
-                    .setContentText("Ya puedes reclamar tu Recoplas del día")
+                    .setContentText(titles)
                     .setSmallIcon(R.drawable.ic_mkapp)
                     .setContentIntent(pIntent)
                     .setAutoCancel(true)
                     .setStyle(new Notification.BigTextStyle().bigText(bigMessage))
+                    .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                     .build();
 
 
