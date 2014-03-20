@@ -80,7 +80,7 @@ public class MainActivity extends Activity {
 
     private void setAlarmNotis() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        int minutes = prefs.getInt("interval",2);
+        int minutes = prefs.getInt("interval",1);
         AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
         Intent i = new Intent(this, NotificationService.class);
         PendingIntent pi = PendingIntent.getService(this, 0, i, 0);
