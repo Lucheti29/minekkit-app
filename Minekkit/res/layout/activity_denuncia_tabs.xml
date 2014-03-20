@@ -376,10 +376,10 @@
 	              android:layout_height="match_parent" >
 
                  <TextView
-                     android:id="@+id/tv_explicacion"
+                     android:id="@+id/tv_usuarios"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
-                     android:text="@string/denuncia_explicacion"
+                     android:text="@string/denuncia_usuarios"
                      android:layout_marginTop="15dp"
                      android:textColor="@color/white" />
 

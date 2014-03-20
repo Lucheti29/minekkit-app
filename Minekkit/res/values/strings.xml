@@ -33,6 +33,7 @@
     <string name="denuncia_mundo">Mundo</string>
     <string name="denuncia_ciudad">Ciudad</string>
     <string name="denuncia_explicacion">Explicación del hecho</string>
+    <string name="denuncia_usuarios">Usuarios involucrados</string>
     <string name="denuncia_solucion">Solución propuesta</string>
     
     <string name="boton_atras">Atrás</string>
