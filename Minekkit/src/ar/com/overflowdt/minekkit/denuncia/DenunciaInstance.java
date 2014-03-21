@@ -4,9 +4,10 @@ import java.util.ArrayList;
 
 import ar.com.overflowdt.minekkit.util.Parametro;
 import ar.com.overflowdt.minekkit.interfaces.Enviable;
+import ar.com.overflowdt.minekkit.util.Session;
 
 public class DenunciaInstance implements Enviable {
-	
+
 	//Atributos que setea la Activity
 	private String _titulo = "";
 	private String _fecha = "";
@@ -20,6 +21,8 @@ public class DenunciaInstance implements Enviable {
 	private String _solucion = "";
 	
 	//Id de atributos que se envian por http
+    private static String USER_VAR = "user";
+    private static String PASS_VAR = "pass";
 	private static String TITULO_VAR = "titulo";
 	private static String FECHA_VAR = "fecha";
 	private static String HORARIO_VAR = "horario";
@@ -35,7 +38,15 @@ public class DenunciaInstance implements Enviable {
 	public ArrayList<Parametro> armarArrayDeParametros() {
 		
 		ArrayList<Parametro> arrayParametros = new ArrayList<Parametro>();
-		
+
+        Parametro parametroUser = new Parametro();
+        parametroUser.setValores(Session.getInstance().user, USER_VAR);
+        arrayParametros.add(parametroUser);
+
+        Parametro parametroPass = new Parametro();
+        parametroPass.setValores(Session.getInstance().pass64(), PASS_VAR);
+        arrayParametros.add(parametroPass);
+
 		Parametro parametroTitulo = new Parametro();
 		parametroTitulo.setValores(_titulo, TITULO_VAR);
 		arrayParametros.add(parametroTitulo);
