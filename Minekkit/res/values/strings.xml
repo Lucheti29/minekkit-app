@@ -51,12 +51,23 @@
     <string name="login_fallo_version">Versión desactualizada, por favor actualice la aplicación y vuelva a intentar.</string>
     <string name="login_fallo_auth">Usuario o contraseña incorrectos. Inténtalo otra vez.</string>
     <string name="single_pm_responder">Responder</string>
+    <string name="reco_x_dia_cargando">Cargando...</string>
+    <string name="reco_x_dia_obtenerReco">Obtener Recoplas</string>
 
     <color name="black">#000000</color>
 	<color name="white">#FFFFFF</color>
     <color name="mk_azul_1">#33b5e5</color>
+    <color name="mk_azul_2">#0099cc</color>
     <color name="mk_verde_1">#92c53e</color>
+    <color name="mk_verde_2">#669900</color>
     <color name="mk_amarillo_1">#f6e737</color>
+    <color name="mk_naranja_1">#ffbb33</color>
+    <color name="mk_naranja_2">#ff8800</color>
     <color name="mk_blanco_1">#FFFFFF</color>
+    <color name="mk_rojo_1">#cc0000</color>
+    <color name="mk_rojo_2">#ff4444</color>
+    <color name="mk_violeta_1">#aa66cc</color>
+    <color name="mk_violeta_2">#9933cc</color>
+    <color name="mk_negro_50p">#80000000</color>
 	
 </resources>
