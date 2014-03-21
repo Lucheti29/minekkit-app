@@ -3,6 +3,7 @@ package ar.com.overflowdt.minekkit.recompensas;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -62,7 +63,18 @@ public class SingleRecActivity extends Activity {
 		logo=(ImageView) findViewById(R.id.single_logo);
 		
 		new LoadAProducts().execute();
-		
+
+        //Fuentes custom
+        Typeface mecha_Condensed_Bold = Typeface.createFromAsset(getAssets(),
+                "fonts/Mecha_Condensed_Bold.ttf");
+
+
+        TextView titulo = (TextView)findViewById(R.id.titulo);
+        titulo.setTypeface(mecha_Condensed_Bold);
+        TextView cost = (TextView)findViewById(R.id.cost);
+        cost.setTypeface(mecha_Condensed_Bold);
+        TextView btn_compra = (TextView)findViewById(R.id.btn_compra);
+        btn_compra.setTypeface(mecha_Condensed_Bold);
 		
 	}
 

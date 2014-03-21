@@ -2,11 +2,13 @@ package ar.com.overflowdt.minekkit.wiki;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.util.Browser;
@@ -25,6 +27,16 @@ public class WikiMain extends Activity {
         setContentView(R.layout.activity_wiki);
 
         etWiki = (EditText) findViewById(R.id.etWiki);
+
+        //Fuentes custom
+        Typeface mecha_Condensed_Bold = Typeface.createFromAsset(getAssets(),
+                "fonts/Mecha_Condensed_Bold.ttf");
+        TextView mtxt_buscarEN = (TextView)findViewById(R.id.mtxt_buscarEN);
+        mtxt_buscarEN.setTypeface(mecha_Condensed_Bold);
+        TextView ltxt_mkWiki = (TextView)findViewById(R.id.ltxt_mkWiki);
+        ltxt_mkWiki.setTypeface(mecha_Condensed_Bold);
+        TextView buttonWiki = (TextView)findViewById(R.id.buttonWiki);
+        buttonWiki.setTypeface(mecha_Condensed_Bold);
 
     }
 
