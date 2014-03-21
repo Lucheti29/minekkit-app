@@ -1,9 +1,12 @@
 package ar.com.overflowdt.minekkit.denuncia;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,16 +15,31 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TabHost;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 import ar.com.overflowdt.minekkit.R;
+import ar.com.overflowdt.minekkit.pms.PM;
+import ar.com.overflowdt.minekkit.pms.PmListAdapter;
 import ar.com.overflowdt.minekkit.util.Browser;
+import ar.com.overflowdt.minekkit.util.HttpHandler;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
+import ar.com.overflowdt.minekkit.util.Session;
+import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 
 public class Denuncia extends Activity {
-
+    // url to get all pms list
+    private static String url = "http://minekkit.com/api/crearDenuncia.php";
+    // JSON Node names
+    private static final String TAG_SUCCESS = "success";
+    // Progress Dialog
+    private ProgressDialog pDialog;
     private EditText et_titulo, et_fecha, et_hora, et_mundo, et_ciudad, et_normas, et_solucion, et_explicacion, et_usuarios;
     private RadioButton rb_denuncia1, rb_denuncia2, rb_denuncia3, rb_denuncia4, rb_denuncia5, rb_denuncia6, rb_denuncia7;
+
+    private DenunciaInstance denuncia = new DenunciaInstance();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +93,9 @@ public class Denuncia extends Activity {
         et_hora=(EditText)findViewById(R.id.et_hora);
         et_mundo=(EditText)findViewById(R.id.et_mundo);
         et_ciudad=(EditText)findViewById(R.id.et_ciudad);
+        et_explicacion=(EditText)findViewById(R.id.et_explicacion);
+        et_solucion=(EditText)findViewById(R.id.et_solucion);
+        et_usuarios=(EditText)findViewById(R.id.et_usuarios);
         rb_denuncia1=(RadioButton)findViewById(R.id.rb_denuncia1);
         rb_denuncia2=(RadioButton)findViewById(R.id.rb_denuncia2);
         rb_denuncia3=(RadioButton)findViewById(R.id.rb_denuncia3);
@@ -107,9 +128,7 @@ public class Denuncia extends Activity {
         startActivity(i);
     }
 
-    public void crearDenuncia() {
-        DenunciaInstance denuncia = new DenunciaInstance();
-
+    public void crearDenuncia(View view) {
         denuncia.setTitulo(et_titulo.getText().toString());
         denuncia.setCiudad(et_ciudad.getText().toString());
         denuncia.setExplicacion(et_explicacion.getText().toString());
@@ -156,6 +175,85 @@ public class Denuncia extends Activity {
         }
 
         denuncia.setTipoDenuncia(tipo);
+        Log.d("INFO", "Paso 1");
+        new subirDenuncia().execute();
+    }
+
+    /**
+     * Background Async Task to Load all product by making HTTP Request
+     * */
+    class subirDenuncia extends AsyncTask<String, String, String> {
+
+        /**
+         * Before starting background thread Show Progress Dialog
+         * */
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(Denuncia.this);
+            pDialog.setMessage("Enviando denuncia. Por favor, espere...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(false);
+            pDialog.show();
+        }
+
+        /**
+         * getting All pms from url
+         * */
+        protected String doInBackground(String... args) {
+            HttpHandler handler = new HttpHandler();
+            JSONObject json = null;
+
+            try{
+                json = handler.post(url, denuncia);
+                //Log.d("PMs", json.toString());
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+
+            // Check your log cat for JSON response
+            //Log.d("All Products: ", json.toString());
+
+            try {
+                // Checking for SUCCESS TAG
+                int success = json.getInt(TAG_SUCCESS);
+
+                switch(success) {
+                    case -100:
+                        ShowAlertMessage.showMessage("No se puede conectar con el servidor. Intente más tarde.", Denuncia.this);
+                        break;
+                    case 0:
+                        ShowAlertMessage.showMessage("No se pudo crear la denuncia. Intentalo más tarde.", Denuncia.this);
+                        break;
+                    case 1:
+                        ShowAlertMessage.showMessage("La denuncia fue creada con éxito. Revisá el foro para ver el estado de la misma.", Denuncia.this);
+                        break;
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        /**
+         * After completing background task Dismiss the progress dialog
+         * **/
+        protected void onPostExecute(String file_url) {
+            // dismiss the dialog after getting all pms
+            pDialog.dismiss();
+            // updating UI from Background Thread
+            /*
+            runOnUiThread(new Runnable() {
+                public void run() {
+                    (Denuncia.this).finish();
+                }
+            });
+            */
+
+        }
 
     }
+
 }

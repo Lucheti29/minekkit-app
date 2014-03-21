@@ -95,9 +95,10 @@ public class NotificationService extends Service {
 
 
             // Check your log cat for JSON response
-            Log.d("All PMs: ", json.toString());
+
 
             try {
+                Log.d("All PMs: ", json.toString());
                 // Checking for SUCCESS TAG
                 int success = json.getInt(TAG_SUCCESS);
 
