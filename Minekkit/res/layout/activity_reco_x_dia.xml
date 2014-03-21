@@ -54,12 +54,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/reco_x_dia_obtenerReco"
-                android:id="@+id/button"
+                android:id="@+id/btn_obtenerReco"
                 android:layout_below="@+id/imageView"
                 android:layout_centerHorizontal="true"
                 android:onClick="claim"
                 style="@style/Boton.Mkapp_style"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="20dp"
+                android:textSize="25sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 
