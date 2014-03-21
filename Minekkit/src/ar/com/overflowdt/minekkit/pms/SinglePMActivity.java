@@ -2,25 +2,22 @@ package ar.com.overflowdt.minekkit.pms;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.util.BBCodeParser;
 import ar.com.overflowdt.minekkit.util.HttpHandler;
-import ar.com.overflowdt.minekkit.util.JSONParser;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
 import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 
@@ -60,6 +57,13 @@ public class SinglePMActivity extends Activity {
         titulo=(TextView) findViewById(R.id.txt_pm_title);
         Log.d("PMID", id.toString());
         new LoadAPM().execute();
+
+        //Fuentes custom
+        Typeface mecha_Condensed_Bold = Typeface.createFromAsset(getAssets(),
+                "fonts/Mecha_Condensed_Bold.ttf");
+
+        TextView btn_responder = (TextView)findViewById(R.id.btn_responder);
+        btn_responder.setTypeface(mecha_Condensed_Bold);
 
 
     }
