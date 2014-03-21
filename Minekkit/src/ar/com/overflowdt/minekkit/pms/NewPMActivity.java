@@ -2,16 +2,13 @@ package ar.com.overflowdt.minekkit.pms;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -19,15 +16,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import ar.com.overflowdt.minekkit.R;
-import ar.com.overflowdt.minekkit.util.BBCodeParser;
 import ar.com.overflowdt.minekkit.util.HttpHandler;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
 import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 
 /**
- * Created by Fede on 01/03/14.
+ * Created by Fede on 21/03/14.
  */
-public class SinglePMActivity extends Activity {
+public class NewPMActivity extends Activity {
 
     TextView titulo;
     TextView from;
@@ -35,11 +31,11 @@ public class SinglePMActivity extends Activity {
     String id;
     PM message;
     private static String url = "http://minekkit.com/api/listPms.php";
+    private static String urlSend = "http://minekkit.com/api/enviarPM.php";
     // JSON Node names
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_PRODUCTS = "pms";
     private static final String TAG_TITLE = "title";
-    private static final String TAG_LOGO = "Logo";
     private static final String TAG_FROM = "from";
     private static final String TAG_ID = "pmid";
     private static final String TAG_DATE = "date";
@@ -51,22 +47,25 @@ public class SinglePMActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_single_pm);
+        setContentView(R.layout.activity_edit_new_pm);
 
         Bundle bundle = getIntent().getExtras();
         id= bundle.getString(TAG_ID);
-        contenido =(TextView) findViewById(R.id.txt_pm_contenido);
-        from =(TextView) findViewById(R.id.txt_pm_from);
-        titulo=(TextView) findViewById(R.id.txt_pm_title);
-        Log.d("PMID", id);
-        new LoadAPM().execute();
-
+        contenido =(EditText) findViewById(R.id.edit_newpm_contenido);
+        from =(EditText) findViewById(R.id.editnewpm_to);
+        titulo=(EditText) findViewById(R.id.editnewpm_title);
+        setTitle("Enviar PM");
+        if(id!=null){
+            setTitle("Responder PM");
+            Log.d("PMID", id);
+            new LoadAPM().execute();
+        }
         //Fuentes custom
         Typeface mecha_Condensed_Bold = Typeface.createFromAsset(getAssets(),
                 "fonts/Mecha_Condensed_Bold.ttf");
 
-        TextView btn_responder = (TextView)findViewById(R.id.btn_responder);
-        btn_responder.setTypeface(mecha_Condensed_Bold);
+       // TextView btn_responder = (TextView)findViewById(R.id.btn_enviarPM);
+       // btn_responder.setTypeface(mecha_Condensed_Bold);
 
 
     }
@@ -83,11 +82,6 @@ public class SinglePMActivity extends Activity {
         MenuHandler menuHandler = new MenuHandler();
         return menuHandler.bindearLogica(item, this);
     }
-    public void responder(View view){
-        Intent i = new Intent(this,NewPMActivity.class);
-        i.putExtra(TAG_ID,id);
-        startActivity(i);
-    }
 
 
     class LoadAPM extends AsyncTask<String, String, String> {
@@ -100,7 +94,7 @@ public class SinglePMActivity extends Activity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pDialog = new ProgressDialog(SinglePMActivity.this);
+            pDialog = new ProgressDialog(NewPMActivity.this);
             pDialog.setMessage("Cargando Mensaje...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
@@ -123,18 +117,16 @@ public class SinglePMActivity extends Activity {
             }catch(Exception ex){
                 ex.printStackTrace();
             }
-            // Check your log cat for JSON response
-            Log.d("PM: ", json.toString());
 
             try {
                 // Checking for SUCCESS TAG
                 int success = json.getInt(TAG_SUCCESS);
                 switch(success) {
                     case -100:
-                        ShowAlertMessage.showMessage("No se puede conectar con el servidor. Intente más tarde.", SinglePMActivity.this);
+                        ShowAlertMessage.showMessage("No se puede conectar con el servidor. Intente más tarde.", NewPMActivity.this);
                         break;
                     case 0:
-                        ShowAlertMessage.showMessage("Hubo un error en la solicitud del mensaje.", SinglePMActivity.this);
+                        ShowAlertMessage.showMessage("Hubo un error en la solicitud del mensaje.", NewPMActivity.this);
                         break;
                     case 1:
                         // products found
@@ -157,8 +149,8 @@ public class SinglePMActivity extends Activity {
                             public void run()
                             {
                                 titulo.setText(message.titulo);
-                                from.setText("De: " + message.from );
-                                contenido.setText(Html.fromHtml(BBCodeParser.bbcode(message.content)));
+                                from.setText( message.from );
+                               // contenido.setText(Html.fromHtml(BBCodeParser.bbcode(message.content)));
                             }
                         });
                         break;

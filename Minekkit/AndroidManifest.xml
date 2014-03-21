@@ -25,6 +25,10 @@
             android:label="@string/label_acercade" >
         </activity>
         <activity
+            android:name="ar.com.overflowdt.minekkit.pms.NewPMActivity"
+            android:label="@string/newPM" >
+        </activity>
+        <activity
             android:name="ar.com.overflowdt.minekkit.util.Browser"
             android:label="@string/label_wiki">
         </activity>

@@ -193,7 +193,7 @@ public class NotificationService extends Service {
                     .setSmallIcon(R.drawable.ic_mkapp)
                     .setContentIntent(pIntent)
                     .setAutoCancel(true)
-                    .setStyle(new Notification.BigTextStyle().bigText(bigMessage))
+                    //.setStyle(new Notification.BigTextStyle().bigText(bigMessage))
                     .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                     .build();
 

@@ -51,9 +51,10 @@
     <string name="login_fallo_timeout">No se puede conectar con el servidor. Intente más tarde.</string>
     <string name="login_fallo_version">Versión desactualizada, por favor actualice la aplicación y vuelva a intentar.</string>
     <string name="login_fallo_auth">Usuario o contraseña incorrectos. Inténtalo otra vez.</string>
-    <string name="single_pm_responder">Responder</string>
+    <string name="single_pm_responder">Responder</string><string name="editnewpm_enviar">Enviar</string>
     <string name="reco_x_dia_cargando">Cargando...</string>
     <string name="reco_x_dia_obtenerReco">Obtener Recoplas</string>
+    <string name="newPM">Nuevo PM</string>
 
     <color name="black">#000000</color>
 	<color name="white">#FFFFFF</color>
