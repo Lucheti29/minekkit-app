@@ -100,7 +100,7 @@
                                  android:layout_height="match_parent"
                                  android:inputType="date"
                                  android:ems="10"
-                                 android:id="@+id/editText2"
+                                 android:id="@+id/et_fecha"
                                  android:textColor="@color/white"
                                  android:padding="10dp"
                                  android:maxLines="1"
@@ -127,7 +127,7 @@
                                  android:layout_height="wrap_content"
                                  android:inputType="time"
                                  android:ems="10"
-                                 android:id="@+id/editText"
+                                 android:id="@+id/et_hora"
                                  android:textColor="@color/white"
                                  android:padding="10dp"
                                  android:maxLines="1"
@@ -374,6 +374,30 @@
 	              android:orientation="vertical"
 	              android:layout_width="match_parent"
 	              android:layout_height="match_parent" >
+
+                 <TextView
+                     android:id="@+id/tv_usuarios"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/denuncia_usuarios"
+                     android:layout_marginTop="15dp"
+                     android:textColor="@color/white" />
+
+                 <EditText
+                     android:id="@+id/et_usuarios"
+                     android:maxLength="50"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:ems="10"
+                     android:textColor="@color/white"
+                     android:padding="10dp"
+                     android:maxLines="1"
+                     android:minLines="1"
+                     android:layout_marginTop="3dp"
+                     style="@style/Campo.Verde.Mkapp_style">
+
+                     <requestFocus />
+                 </EditText>
 
                  <TextView
                      android:id="@+id/tv_explicacion"

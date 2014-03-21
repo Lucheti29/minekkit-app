@@ -23,7 +23,7 @@
         android:textSize="25dp"
         android:textStyle="bold" />
 
-    <ImageView
+    <ar.com.overflowdt.minekkit.util.SquareImageView
         android:id="@+id/single_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,8 +35,9 @@
         android:src="@drawable/img_chest"
         android:layout_weight="10"
         android:layout_gravity="center_horizontal"
-        android:maxHeight="30dp"
-        android:maxWidth="250dp" />
+        android:minHeight="160dp"
+        android:minWidth="200dp"
+        android:maxWidth="200dp" />
 
     <TextView
         android:id="@+id/descripcion"

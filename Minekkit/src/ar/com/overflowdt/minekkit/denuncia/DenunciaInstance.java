@@ -88,11 +88,21 @@ public class DenunciaInstance implements Enviable {
 	{
 		_fecha = dia + "/" +  mes + "/" + anio;
 	}
+
+    public void setFecha(String fecha)
+    {
+        _fecha = fecha;
+    }
 	
 	public void setHora(String hora, String minutos)
 	{
 		_hora = hora + ":" + minutos;
 	}
+
+    public void setHora(String hora)
+    {
+        _hora = hora;
+    }
 	
 	public void setMundo(String mundo)
 	{
