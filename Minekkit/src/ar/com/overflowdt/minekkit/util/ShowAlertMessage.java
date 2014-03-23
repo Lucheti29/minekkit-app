@@ -16,12 +16,30 @@ public class ShowAlertMessage {
         notlogged.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {}
         });
+        show(act, notlogged);
+
+    }
+
+    public static void showMessageAndFinishActivity(String message, final Activity act) {
+        final AlertDialog.Builder notlogged = new AlertDialog.Builder(act);
+        notlogged.setTitle("Aviso");
+        notlogged.setMessage(message);
+        notlogged.setCancelable(false);
+        notlogged.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogo1, int id) {
+                act.finish();
+            }
+        });
+        show(act, notlogged);
+
+    }
+
+    private static void show(Activity act, final AlertDialog.Builder notlogged) {
         act.runOnUiThread(new Runnable() {
 
             public void run() {
                 notlogged.show();
             }
         });
-
     }
 }

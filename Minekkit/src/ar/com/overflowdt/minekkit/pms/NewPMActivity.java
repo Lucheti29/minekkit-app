@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -70,6 +71,10 @@ public class NewPMActivity extends Activity {
         btn_responder.setTypeface(mecha_Condensed_Bold);
 
 
+    }
+
+    public void enviarMensaje(View view){
+        new SendPM().execute();
     }
 
     @Override
@@ -151,7 +156,7 @@ public class NewPMActivity extends Activity {
                             public void run()
                             {
                                 titulo.setText("RE: "+message.titulo);
-                                from.setText( message.from );
+                                from.setText(message.from);
                                 contenido.setText("[quote='"+ message.from +"']" + message.content + "[/quote]");
                             }
                         });
@@ -159,6 +164,79 @@ public class NewPMActivity extends Activity {
                 }
 
             } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        /**
+         * After completing background task Dismiss the progress dialog
+         * **/
+        protected void onPostExecute(String file_url) {
+            // dismiss the dialog after getting all products
+            pDialog.dismiss();
+
+
+        }
+    }
+
+    class SendPM extends AsyncTask<String, String, String> {
+
+        /**
+         * Before starting background thread Show Progress Dialog
+         * */
+
+        ProgressDialog pDialog;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(NewPMActivity.this);
+            pDialog.setMessage("Enviando Mensaje...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(false);
+            pDialog.show();
+        }
+
+
+        /**
+         * getting a products from url
+         * */
+        protected String doInBackground(String... args) {
+
+            PM pm=new PM();
+            //pm.idpm= Integer.parseInt(id);
+            pm.titulo=(String)String.valueOf(titulo.getText());
+            pm.to=(String)String.valueOf(from.getText());
+            pm.content=(String)String.valueOf(contenido.getText());
+
+            JSONObject json=null;
+            try{
+                json = new HttpHandler().post(urlSend, pm);
+                Log.d("Send PM answer", json.toString());
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+
+            try {
+                // Checking for SUCCESS TAG
+                int success = json.getInt(TAG_SUCCESS);
+                switch(success) {
+                    case -2:
+                        ShowAlertMessage.showMessage("El usuario ingresado no es valido.", NewPMActivity.this);
+                        break;
+                    case 0:
+                        ShowAlertMessage.showMessage("Hubo un error en el envío del mensaje. Intente más tarde.", NewPMActivity.this);
+                        break;
+                    case 1:
+                        ShowAlertMessage.showMessageAndFinishActivity("El mensaje se ha enviado correctamente.", NewPMActivity.this);
+                        break;
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            catch (Exception e){
                 e.printStackTrace();
             }
 

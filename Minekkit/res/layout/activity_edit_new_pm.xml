@@ -85,7 +85,8 @@
             style="@style/Boton.Mkapp_style"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="15dp"
-            android:textSize="25dp" />
+            android:textSize="25dp"
+            android:onClick="enviarMensaje" />
 
     </RelativeLayout>
 
