@@ -26,22 +26,22 @@
 <h3>Estado del proyecto:</h3>
 
 <ul>
-  <li>Login: [GUI] [CODIGO]</li> 
+  <li>Login: [GUI] [CODIGO] [LISTO]</li>
   <li>Ruleta (2 o 3 veces al día) y contador de tiempo hasta que se puede volver a jugar (envía notificación cuando ya  puedas hacerlo): </li>
   <li>Obtener un reco al día: [ICO][CODIGO] [HALF-GUI]</li>
-  <li>PMs / Chat: [ICO] [CODIGO]</li>
+  <li>PMs Leer/Responder/Enviar: [ICO] [CODIGO] [LISTO]</li>
   <li>Mapa: [ICO] [CODIGO] [LISTO]</li> 
   <li>Comprar recompensas: [ICO]</li> 
   <li>Donar: [ICO]</li> 
   <li>Canjear codigo: </li>
-  <li>Inventario: [ICO]</li> 
+  <li>Inventario: [ICO] [CODIGO] [HALF-GUI]</li>
   <li>Listado de items e ID: </li>
   <li>Perfil: avatar del foro, jobs, nick, cargo, dias restantes de donador, recoplas de la cuenta: </li>
   <li>Crear denuncias: [ICO]</li> 
   <li>Ver quien esta online / quien esta online de la faction: </li>
   <li>Consultar wiki: [ICO] [CODIGO]</li>
-  <li>Acceder al canal de YouTube de Minekkit: [ICO] </li>
-  <li>Botones de acceso a la página de Facebook y a la cuenta de Twitter: [ICO]</li>
+  <li>Acceder al canal de YouTube de Minekkit: [ICO][CODIGO][LISTO] </li>
+  <li>Botones de acceso a la página de Facebook y a la cuenta de Twitter: [ICO][CODIGO][LISTO]</li>
 </ul>
 
 ============
@@ -55,4 +55,7 @@
       <s>Esto es así porque si en algún momento un update genera una vulnerabilidad, podemos evitar que los</s><br>
       <s>usuarios sigan logeando con la versión insegura o usando un xploit</s></li>
   <li>Hay que hacer una clase singleton para que no se puedan duplicar las activities de all PMs y perfil</li>
+  <li>Terminar GUI de Inventory.php en la api</li>
+  <li>Debuggear Servicio de notificaciones que crashea en momentos randoms.
+  <li>Desactivar notificaciones si el usuario no esta loggeado
 </ul>

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ar.com.overflowdt.minekkit"
     android:versionCode="1"
-    android:versionName="@string/versionComplete" >
+    android:versionName="@string/version" >
 
     <uses-sdk
         android:minSdkVersion="8"
