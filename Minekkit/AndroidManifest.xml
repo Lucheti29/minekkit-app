@@ -41,6 +41,10 @@
             android:name="ar.com.overflowdt.minekkit.recompensas.SingleRecActivity"
             android:label="@string/label_recompensas" >
         </activity>
+        <activity
+            android:name="ar.com.overflowdt.minekkit.profile.ProfileActivity"
+            android:label="@string/profile" >
+        </activity>
         <activity 
             android:name="ar.com.overflowdt.minekkit.denuncia.Denuncia"
             android:label="@string/label_denuncias">

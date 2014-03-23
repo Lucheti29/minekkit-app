@@ -11,6 +11,7 @@ import ar.com.overflowdt.minekkit.acercade.AcercaDe;
 import ar.com.overflowdt.minekkit.login.LoginActivity;
 import ar.com.overflowdt.minekkit.pms.AllPmsActivity;
 import ar.com.overflowdt.minekkit.pms.NewPMActivity;
+import ar.com.overflowdt.minekkit.profile.ProfileActivity;
 
 /**
  * Created by Juan on 23/02/14.
@@ -34,6 +35,10 @@ public class MenuHandler {
                 break;
             case R.id.menu_salir:
                 activity.finish();
+                break;
+            case R.id.menu_perfil:
+                nuevaActivity = new Intent(activity, ProfileActivity.class);
+                activity.startActivity(nuevaActivity);
                 break;
             case R.id.menu_logout:
 

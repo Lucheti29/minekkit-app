@@ -59,6 +59,8 @@
     <string name="claimReco_ok_entregado">Has obtenido 1 Recoplas. Regresa mañana para pedir otro!</string>
     <string name="claimReco_error_regresaMasTarde">Todavía no pasaron 24 horas. Regresa más tarde!</string>
     <string name="newPM">Nuevo PM</string>
+    <string name="profile">Perfil</string>
+    <string name="CantConnect">No se puede conectar con el servidor. Intente más tarde.</string>
 
     <color name="black">#000000</color>
 	<color name="white">#FFFFFF</color>

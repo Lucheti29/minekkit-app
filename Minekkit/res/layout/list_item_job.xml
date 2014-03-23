@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+    android:orientation="vertical">
+	<!-- Product id (pid) - will be HIDDEN - used to pass to other activity -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="71dp"
+        android:weightSum="1">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:id="@+id/linearLayout"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1">
+
+                    <TextView
+                            android:id="@+id/itemJob_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="41dp"
+                        android:layout_toRightOf="@+id/logo"
+                            android:text="NombreJob"
+                            android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/mk_amarillo_1"
+                        android:gravity="center_vertical|left" />
+
+                    <TextView
+                        android:id="@+id/itemJob_upper_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical|center_horizontal|left"
+                        android:text="Lv. 40"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/mk_azul_2"
+                        android:layout_gravity="right"
+                        android:layout_weight="1.00"
+                        android:layout_marginLeft="10dp" />
+
+                    <TextView
+                        android:id="@+id/itemJob_bottom_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical|center_horizontal|right"
+                        android:text="16000000/16000000"
+                        android:paddingTop="2dp"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginRight="5dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:weightSum="1">
+
+                    <ProgressBar
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/itemJob_pgrBar"
+                        android:max="100"
+                        android:progress="50"
+                        android:indeterminate="false"
+                        android:layout_marginRight="5dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/pid"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+</LinearLayout>

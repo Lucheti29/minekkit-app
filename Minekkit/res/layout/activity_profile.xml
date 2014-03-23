@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_640x960_3"
+    >
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:background="#80000000">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="321dp"
+            android:id="@+id/linearLayout">
+
+            <ar.com.overflowdt.minekkit.util.SquareImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/profile_avatar"
+                    android:src="@drawable/ic_mkapp"
+                    android:minWidth="150dp"
+                    android:maxWidth="150dp"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Usuario"
+                    android:id="@+id/profile_name"
+                    android:gravity="center_vertical|right"
+                    android:textColor="@color/mk_azul_2"
+                    android:textStyle="bold"
+                    android:textSize="30dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Recoplas: 0"
+                    android:id="@+id/profile_reco"
+                    android:gravity="center_vertical"
+                    android:textStyle="bold"
+                    android:textColor="@color/mk_amarillo_1" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/listJob_listview"
+            android:background="#8092c53e"
+            android:headerDividersEnabled="false"
+            android:layout_alignParentBottom="true"
+            android:layout_alignTop="@+id/linearLayout"
+            android:layout_marginTop="175dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
