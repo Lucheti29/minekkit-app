@@ -52,7 +52,8 @@ public class NewPMActivity extends Activity {
         setContentView(R.layout.activity_edit_new_pm);
 
         Bundle bundle = getIntent().getExtras();
-        id= bundle.getString(TAG_ID);
+        if(bundle!=null&&getIntent().hasExtra(TAG_ID))
+            id= bundle.getString(TAG_ID);
         contenido =(EditText) findViewById(R.id.edit_newpm_contenido);
         from =(EditText) findViewById(R.id.editnewpm_to);
         titulo=(EditText) findViewById(R.id.editnewpm_title);
