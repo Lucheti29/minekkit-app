@@ -38,7 +38,8 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:id="@+id/editnewpm_title"
-                    android:text="Titulo:" />
+                    android:text="Titulo:"
+                    android:textColor="@color/mk_amarillo_1" />
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -51,24 +52,27 @@
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Para:"
                         android:id="@+id/textView"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:textColor="@color/mk_azul_2" />
 
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/editnewpm_to"
                         android:layout_weight="0.66"
-                        android:text="Usuario" />
+                        android:text="Usuario"
+                        android:textColor="@color/mk_amarillo_1" />
                 </LinearLayout>
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="307dp"
+                    android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:ems="10"
                     android:id="@+id/edit_newpm_contenido"
-                    android:text="Contenido:"
-                    android:gravity="top" />
+                    android:text="Mensaje"
+                    android:gravity="top"
+                    android:textColor="@color/mk_blanco_1" />
 
             </LinearLayout>
         </ScrollView>
@@ -80,7 +84,8 @@
             android:id="@+id/btn_enviarPM"
             style="@style/Boton.Mkapp_style"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="15dp" />
+            android:layout_marginTop="15dp"
+            android:textSize="25dp" />
 
     </RelativeLayout>
 

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -64,8 +65,9 @@ public class NewPMActivity extends Activity {
         Typeface mecha_Condensed_Bold = Typeface.createFromAsset(getAssets(),
                 "fonts/Mecha_Condensed_Bold.ttf");
 
-       // TextView btn_responder = (TextView)findViewById(R.id.btn_enviarPM);
-       // btn_responder.setTypeface(mecha_Condensed_Bold);
+        Button btn_responder;
+        btn_responder = (Button)findViewById(R.id.btn_enviarPM);
+        btn_responder.setTypeface(mecha_Condensed_Bold);
 
 
     }
@@ -148,9 +150,9 @@ public class NewPMActivity extends Activity {
                             @Override
                             public void run()
                             {
-                                titulo.setText(message.titulo);
+                                titulo.setText("RE: "+message.titulo);
                                 from.setText( message.from );
-                               // contenido.setText(Html.fromHtml(BBCodeParser.bbcode(message.content)));
+                                contenido.setText("[quote='"+ message.from +"']" + message.content + "[/quote]");
                             }
                         });
                         break;
