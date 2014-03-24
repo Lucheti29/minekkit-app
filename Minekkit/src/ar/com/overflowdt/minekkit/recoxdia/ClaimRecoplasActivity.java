@@ -78,7 +78,7 @@ public class ClaimRecoplasActivity extends Activity{
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(ClaimRecoplasActivity.this);
-            pDialog.setMessage("Conectando con el servidor...");
+            pDialog.setMessage(getString(R.string.login_conectando));
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();
@@ -111,16 +111,16 @@ public class ClaimRecoplasActivity extends Activity{
 
                 switch (success){
                     case -1:
-                        showMessage("Tienes más de 50 Recoplas. Gasta unos cuantos en la tienda y volvé a solicitar tu Reco Gratis!");
+                        showMessage(getString(R.string.claimReco_error_exceso));
                         break;
                     case 0:
-                        showMessage("Ha habido un error en la solicitud.");
+                        showMessage(getString(R.string.claimReco_error_solicitud));
                         break;
                     case 1:
-                        showMessage("Has obtenido 1 Recoplas. Volvé mañana para pedir otro!");
+                        showMessage(getString(R.string.claimReco_ok_entregado));
                         break;
                     default:
-                        showMessage("Todavía no pasaron 24 horas. Volvé más tarde!");
+                        showMessage(getString(R.string.claimReco_error_regresaMasTarde));
                         if(segundosRestantes==0){
                             segundosRestantes=success;
                             final Timer T=new Timer();
