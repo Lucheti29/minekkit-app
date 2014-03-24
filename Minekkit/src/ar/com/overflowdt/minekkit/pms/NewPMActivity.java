@@ -156,9 +156,17 @@ public class NewPMActivity extends Activity {
                             @Override
                             public void run()
                             {
-                                titulo.setText("RE: "+message.titulo);
+                                titulo.setText("RE: " + message.titulo);
                                 from.setText(message.from);
-                                contenido.setText("[quote='"+ message.from +"']" + message.content + "[/quote]");
+                                contenido.setText("[quote='" + message.from + "']\n" + message.content + "\n[/quote]\n");
+
+                                //Movemos los cursores al final de cada texto insertado (Es necesario para la GUI)
+                                EditText mueveCursorTitulo = (EditText)findViewById(R.id.editnewpm_title);
+                                mueveCursorTitulo.setSelection(mueveCursorTitulo.getText().length());
+                                EditText mueveCursorFrom = (EditText)findViewById(R.id.editnewpm_to);
+                                mueveCursorFrom.setSelection(mueveCursorFrom.getText().length());
+                                EditText mueveCursorContenido = (EditText)findViewById(R.id.edit_newpm_contenido);
+                                mueveCursorContenido.setSelection(mueveCursorContenido.getText().length());
                             }
                         });
                         break;
