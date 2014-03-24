@@ -70,7 +70,10 @@
                     android:background="#92c53e"
                     android:padding="10dp"
                     android:maxLines="1"
-                    android:minLines="1">
+                    android:minLines="1"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext">
 
                     <requestFocus />
                 </EditText>
@@ -90,7 +93,9 @@
                     android:padding="10dp"
                     android:background="#92c53e"
                     android:minLines="1"
-                    android:maxLines="1" />
+                    android:maxLines="1"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true"/>
 
                 <Button
                     android:id="@+id/btn_aceptar_login"
@@ -99,11 +104,11 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:text="Iniciar sesión"
-                    android:background="#33b5e5"
                     android:textColor="@color/white"
                     android:padding="10dp"
                     android:textStyle="bold"
-                    android:shadowColor="#000000" />
+                    android:shadowColor="#000000"
+                    style="@style/Boton.Mkapp_style" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

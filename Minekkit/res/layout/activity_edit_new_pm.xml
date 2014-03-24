@@ -22,9 +22,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/scrollView"
             android:layout_alignParentStart="false"
-            android:paddingBottom="60dp"
             android:layout_above="@+id/btn_enviarPM"
-            android:layout_alignParentTop="true">
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="60dp">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -39,7 +39,9 @@
                     android:layout_alignParentStart="true"
                     android:id="@+id/editnewpm_title"
                     android:text="Titulo:"
-                    android:textColor="@color/mk_amarillo_1" />
+                    android:textColor="@color/mk_amarillo_1"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"/>
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -61,7 +63,9 @@
                         android:id="@+id/editnewpm_to"
                         android:layout_weight="0.66"
                         android:text="Usuario"
-                        android:textColor="@color/mk_amarillo_1" />
+                        android:textColor="@color/mk_amarillo_1"
+                        android:singleLine="true"
+                        android:imeOptions="actionNext"/>
                 </LinearLayout>
 
                 <EditText
@@ -72,7 +76,8 @@
                     android:id="@+id/edit_newpm_contenido"
                     android:text="Mensaje"
                     android:gravity="top"
-                    android:textColor="@color/mk_blanco_1" />
+                    android:textColor="@color/mk_blanco_1"
+                    android:minHeight="100dp" />
 
             </LinearLayout>
         </ScrollView>
