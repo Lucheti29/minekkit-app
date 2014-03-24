@@ -11,7 +11,7 @@ public class Job {
     public static int contJobs = 1;
 
     public long getXPMax(){
-        return 100 * ((long)(1.125 + (0.01 * (contJobs - 1))) ^ (level - 1));
+        return Math.round(100 * (Math.pow(1.115 , (level - 1))));
     }
 
     public int getProgessPercent(){

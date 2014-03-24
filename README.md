@@ -36,7 +36,7 @@
   <li>Canjear codigo: </li>
   <li>Inventario: [ICO] [CODIGO] [HALF-GUI]</li>
   <li>Listado de items e ID: </li>
-  <li>Perfil: avatar del foro, jobs, nick, cargo, dias restantes de donador, recoplas de la cuenta: </li>
+  <li>Perfil: avatar del foro, jobs, nick, cargo, dias restantes de donador, recoplas de la cuenta: [CODIGO] [HALF-GUI] </li>
   <li>Crear denuncias: [ICO]</li> 
   <li>Ver quien esta online / quien esta online de la faction: </li>
   <li>Consultar wiki: [ICO] [CODIGO]</li>
