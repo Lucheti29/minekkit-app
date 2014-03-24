@@ -72,7 +72,8 @@
                     android:id="@+id/edit_newpm_contenido"
                     android:text="Mensaje"
                     android:gravity="top"
-                    android:textColor="@color/mk_blanco_1" />
+                    android:textColor="@color/mk_blanco_1"
+                    android:minHeight="100dp" />
 
             </LinearLayout>
         </ScrollView>
