@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.acercade.AcercaDe;
 import ar.com.overflowdt.minekkit.login.LoginActivity;
+import ar.com.overflowdt.minekkit.onlineList.OnlineListActivity;
 import ar.com.overflowdt.minekkit.pms.AllPmsActivity;
 import ar.com.overflowdt.minekkit.pms.NewPMActivity;
 import ar.com.overflowdt.minekkit.profile.ProfileActivity;
@@ -35,6 +36,10 @@ public class MenuHandler {
                 break;
             case R.id.menu_salir:
                 activity.finish();
+                break;
+            case R.id.menu_players_on:
+                nuevaActivity = new Intent(activity, OnlineListActivity.class);
+                activity.startActivity(nuevaActivity);
                 break;
             case R.id.menu_perfil:
                 nuevaActivity = new Intent(activity, ProfileActivity.class);

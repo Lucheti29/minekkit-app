@@ -20,7 +20,11 @@
         android:orderInCategory="5" />
     <item
         android:id="@+id/menu_sendPM"
-        android:title="Enviar Mensaje"
+        android:title="@string/sendMP"
+        android:orderInCategory="1" />
+    <item
+        android:id="@+id/menu_players_on"
+        android:title="@string/playersON"
         android:orderInCategory="1" />
 
     <item

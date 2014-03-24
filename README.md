@@ -38,7 +38,7 @@
   <li>Listado de items e ID: </li>
   <li>Perfil: avatar del foro, jobs, nick, cargo, dias restantes de donador, recoplas de la cuenta: [CODIGO] [HALF-GUI] </li>
   <li>Crear denuncias: [ICO]</li> 
-  <li>Ver quien esta online / quien esta online de la faction: </li>
+  <li>Ver quien esta online / quien esta online de la faction: [CODIGO] [HALF-GUI] </li>
   <li>Consultar wiki: [ICO] [CODIGO]</li>
   <li>Acceder al canal de YouTube de Minekkit: [ICO][CODIGO][LISTO] </li>
   <li>Botones de acceso a la página de Facebook y a la cuenta de Twitter: [ICO][CODIGO][LISTO]</li>

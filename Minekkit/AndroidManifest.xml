@@ -32,6 +32,11 @@
             android:name="ar.com.overflowdt.minekkit.util.Browser"
             android:label="@string/label_wiki">
         </activity>
+        <activity
+            android:name="ar.com.overflowdt.minekkit.onlineList.OnlineListActivity"
+            android:label="@string/playersOnline">
+        </activity>
+
                 <!-- All Product Activity -->
         <activity
             android:name="ar.com.overflowdt.minekkit.recompensas.AllRecompensasActivity"
