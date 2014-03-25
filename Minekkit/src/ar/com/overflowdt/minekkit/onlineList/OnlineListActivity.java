@@ -222,6 +222,7 @@ public class OnlineListActivity extends ListActivity {
                      * Updating parsed JSON data into ListView
                      * */
                     OnlineListAdapter adapter = new OnlineListAdapter();
+                    setTitle(String.valueOf(playersOn.length())+" Players Online");
                     adapter.activity=OnlineListActivity.this;
                     adapter.playersOn= playerList;
                     // updating listview
