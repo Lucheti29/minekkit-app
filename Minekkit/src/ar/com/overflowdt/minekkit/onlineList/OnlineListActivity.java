@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +18,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -121,6 +123,8 @@ public class OnlineListActivity extends ListActivity {
      * */
     class LoadPlayersOnline extends AsyncTask<String, String, String> {
 
+
+        private ArrayList<Thread> threads=new ArrayList<Thread>();
         /**
          * Before starting background thread Show Progress Dialog
          * */
@@ -135,6 +139,22 @@ public class OnlineListActivity extends ListActivity {
         }
 
 
+
+        protected void listenResults() {
+            while (threads.size() > 0) {
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                for (int i = 0; i < threads.size(); ++i) {
+                    Thread thread = threads.get(i);
+                    if (!thread.isAlive()) {
+                        threads.remove(i);
+                    }
+                }
+            }
+        }
 
         /**
          * getting All playersOn from url
@@ -164,6 +184,7 @@ public class OnlineListActivity extends ListActivity {
                         // playersOn found
                         // Getting Array of Products
                         playersOn = json.getJSONArray(TAG_PLAYERS);
+                        threads.clear();
 
                         // looping through All Products
                         for (int i = 0; i < playersOn.length(); i++) {
@@ -172,17 +193,16 @@ public class OnlineListActivity extends ListActivity {
                             // Storing each json item in variable
                             OnlineListAdapter.Player item = new OnlineListAdapter.Player();
                             item.name = c;
-                            try {
-                                URL newurl = new URL("https://minotar.net/avatar/"+c+"/50");
-                                item.face = BitmapFactory.decodeStream(newurl.openConnection().getInputStream());
-                            } catch (IOException e) {
-                                item.face = BitmapFactory.decodeResource(getResources(),
-                                        R.drawable.steve);
+                            item.face = BitmapFactory.decodeResource(getResources(),
+                                    R.drawable.steve);
+                            String urlImage="https://minotar.net/avatar/"+c+"/50";
+                            Thread thread = new Thread(new LoadImageThread(urlImage,item), c);
+                            threads.add(thread);
+                            thread.start();
 
-                                e.printStackTrace();
-                            }
                             playerList.add(item);
                         }
+                        listenResults();
                         break;
                 }
 
