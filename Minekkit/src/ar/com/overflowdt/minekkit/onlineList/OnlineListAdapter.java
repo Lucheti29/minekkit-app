@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import ar.com.overflowdt.minekkit.R;
+import ar.com.overflowdt.minekkit.interfaces.ImageLoadable;
 import ar.com.overflowdt.minekkit.pms.AllPmsActivity;
 import ar.com.overflowdt.minekkit.pms.PM;
 
@@ -26,9 +27,19 @@ import ar.com.overflowdt.minekkit.pms.PM;
  */
 public class OnlineListAdapter extends BaseAdapter{
 
-    public static class Player{
+    public static class Player implements ImageLoadable{
         String name;
         Bitmap face;
+
+        @Override
+        public Bitmap getImage() {
+            return face;
+            }
+
+        @Override
+        public void setImage(Bitmap image) {
+             face=image;
+        }
     }
     public List<Player> playersOn;
     OnlineListActivity activity;

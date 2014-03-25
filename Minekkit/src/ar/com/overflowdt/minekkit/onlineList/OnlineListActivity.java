@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,15 +15,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
 import ar.com.overflowdt.minekkit.R;
-import ar.com.overflowdt.minekkit.pms.PmListAdapter;
 import ar.com.overflowdt.minekkit.util.HttpHandler;
+import ar.com.overflowdt.minekkit.util.LoadImageThread;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
 import ar.com.overflowdt.minekkit.util.Session;
 import ar.com.overflowdt.minekkit.util.ShowAlertMessage;

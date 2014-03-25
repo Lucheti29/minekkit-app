@@ -27,7 +27,9 @@ import java.util.List;
 
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.util.JSONParser;
+import ar.com.overflowdt.minekkit.util.LoadImageThread;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
+import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 
 //import android.widget.ListView;
 
@@ -127,7 +129,23 @@ public class AllRecompensasActivity extends ListActivity {
      * Background Async Task to Load all product by making HTTP Request
      * */
     class LoadAllProducts extends AsyncTask<String, String, String> {
- 
+        private ArrayList<Thread> threads=new ArrayList<Thread>();
+
+        protected void listenResults() {
+            while (threads.size() > 0) {
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                for (int i = 0; i < threads.size(); ++i) {
+                    Thread thread = threads.get(i);
+                    if (!thread.isAlive()) {
+                        threads.remove(i);
+                    }
+                }
+            }
+        }
         /**
          * Before starting background thread Show Progress Dialog
          * */
@@ -156,41 +174,41 @@ public class AllRecompensasActivity extends ListActivity {
             try {
                 // Checking for SUCCESS TAG
                 int success = json.getInt(TAG_SUCCESS);
- 
-                if (success == 1) {
-                    // products found
-                    // Getting Array of Products
-                    products = json.getJSONArray(TAG_PRODUCTS);
- 
-                    // looping through All Products
-                    for (int i = 0; i < products.length(); i++) {
-                        JSONObject c = products.getJSONObject(i);
- 
-                        // Storing each json item in variable
-                        PackRecompensas item = new PackRecompensas();
-                        item.Name = c.getString(TAG_NAME);
-                        item.Cost = c.getInt(TAG_COSTO);
-                        item.id = c.getInt(TAG_ID);
-                        item.descripcion = c.getString(TAG_DESC);
-                        try {
-		                    URL newurl = new URL(c.getString(TAG_LOGO));
-		        			item.logo = BitmapFactory.decodeStream(newurl.openConnection().getInputStream());
-                		} catch (IOException e) {
 
-                			e.printStackTrace();
-                		} 
-                        
-                        packRecompensasList.add(item);	
+                switch(success) {
+                    case -100:
+                        ShowAlertMessage.showMessage("No se puede conectar con el servidor. Intente más tarde.", AllRecompensasActivity.this);
+                        break;
+                    case 1:
+                        // products found
+                        // Getting Array of Products
+                        products = json.getJSONArray(TAG_PRODUCTS);
+                        threads.clear();
+                        // looping through All Products
+                        for (int i = 0; i < products.length(); i++) {
+                            JSONObject c = products.getJSONObject(i);
 
-                    }
-                } else {
-                    // no products found
-                    // Launch Add New product Activity
-//                    Intent i = new Intent(getApplicationContext(),
-//                            NewProductActivity.class);
-//                    // Closing all previous activities
-//                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                    startActivity(i);
+                            // Storing each json item in variable
+                            PackRecompensas item = new PackRecompensas();
+                            item.Name = c.getString(TAG_NAME);
+                            item.Cost = c.getInt(TAG_COSTO);
+                            item.id = c.getInt(TAG_ID);
+                            item.descripcion = c.getString(TAG_DESC);
+
+                            item.logo = BitmapFactory.decodeResource(getResources(),
+                                    R.drawable.img_chest);
+                            String urlImage=c.getString(TAG_LOGO);
+                            Thread thread = new Thread(new LoadImageThread(urlImage,item), item.Name);
+                            threads.add(thread);
+                            thread.start();
+                            packRecompensasList.add(item);
+
+                        }
+                        listenResults();
+                        break;
+                    default:
+                        ShowAlertMessage.showMessage("Hubo un error en la solicitud.", AllRecompensasActivity.this);
+                        break;
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
