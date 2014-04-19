@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,12 +25,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ar.com.overflowdt.minekkit.R;
+import ar.com.overflowdt.minekkit.util.HttpHandler;
 import ar.com.overflowdt.minekkit.util.JSONParser;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
+import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 
 public class SingleRecActivity extends Activity {
-	
-	// Progress Dialog
+
+    private static final String TAG_DESCUENTO = "descuento";
+    private static final String TAG_RECOPLAS = "recoplas";
+    // Progress Dialog
     private ProgressDialog pDialog;
  // Creating JSON Parser object
     JSONParser jParser = new JSONParser();
@@ -89,6 +94,9 @@ public class SingleRecActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         MenuHandler menuHandler = new MenuHandler();
         return menuHandler.bindearLogica(item, this);
+    }
+    public void buy (View view){
+        new BuyAProduct().execute();
     }
 
 	
@@ -171,4 +179,76 @@ public class SingleRecActivity extends Activity {
             logo.setImageBitmap(pack.logo);
         }
 	}
+
+    class BuyAProduct extends AsyncTask<String, String, String> {
+
+        private String url_buy_product= "http://minekkit.com/api/buyPack.php";
+
+        /**
+         * Before starting background thread Show Progress Dialog
+         * */
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(SingleRecActivity.this);
+            pDialog.setMessage("Comprando...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(false);
+            pDialog.show();
+        }
+
+        /**
+         * getting a products from url
+         * */
+        protected String doInBackground(String... args) {
+
+            JSONObject json=null;
+            try{
+                json = new HttpHandler().post(url_buy_product, pack);
+                Log.d("Buy", json.toString());
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+
+            try {
+                // Checking for SUCCESS TAG
+                int success = json.getInt(TAG_SUCCESS);
+
+                switch(success) {
+                    case -1:
+                        ShowAlertMessage.showMessage("No tienes Suficientes Recoplas.", SingleRecActivity.this);
+                        break;
+                    case 0:
+                        ShowAlertMessage.showMessage("Ha ocurrido un error.", SingleRecActivity.this);
+                        break;
+                    case 1:
+                        int desc = json.getInt(TAG_DESCUENTO);
+                        int recos = json.getInt(TAG_RECOPLAS);
+                        if (desc>0)
+                            ShowAlertMessage.showMessage("Has tenido un descuento del "+String.valueOf(desc)+"%", SingleRecActivity.this);
+                        ShowAlertMessage.showMessageAndFinishActivity("Tu compra ha sido realizada con exito. Por favor reloggea para obtener tus items. Tu saldo es "+String.valueOf(recos)+" Recoplas.", SingleRecActivity.this);
+                        break;
+
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        /**
+         * After completing background task Dismiss the progress dialog
+         * **/
+        protected void onPostExecute(String file_url) {
+            // dismiss the dialog after getting all products
+            pDialog.dismiss();
+            titulo.setText(pack.Name);
+            costo.setText(String.valueOf(pack.Cost) + " Recoplas");
+            desc.setText(pack.descripcion);
+            logo.setImageBitmap(pack.logo);
+        }
+    }
+
 }
