@@ -3,6 +3,7 @@ package ar.com.overflowdt.minekkit.recompensas;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import android.widget.TabHost;
 import android.widget.TextView;
 
 import org.apache.http.NameValuePair;
@@ -62,9 +64,47 @@ public class AllRecompensasActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.all_recompensas);
- 
+        setContentView(R.layout.activity_recompensas_tabs);
 
+        Resources res = getResources();
+
+        TabHost tabs=(TabHost)findViewById(android.R.id.tabhost);
+        tabs.setup();
+
+        //Setea la primer tab
+        TabHost.TabSpec spec=tabs.newTabSpec("mitab1");
+        spec.setContent(R.id.tab1_recompensas);
+        //Le pone un icono a la primer tab
+        spec.setIndicator("Packs",
+                res.getDrawable(android.R.drawable.ic_btn_speak_now));
+        tabs.addTab(spec);
+
+        //Setea la segunda tab
+        spec=tabs.newTabSpec("mitab2");
+        spec.setContent(R.id.tab2_recompensas);
+        //Le pone un icono a la segunda tab
+        spec.setIndicator("Armaduras",
+                res.getDrawable(android.R.drawable.ic_dialog_map));
+        tabs.addTab(spec);
+
+        //Setea la segunda tab
+        spec=tabs.newTabSpec("mitab3");
+        spec.setContent(R.id.tab3_recompensas);
+        //Le pone un icono a la segunda tab
+        spec.setIndicator("Community",
+                res.getDrawable(android.R.drawable.ic_dialog_map));
+        tabs.addTab(spec);
+
+        //Setea la segunda tab
+        spec=tabs.newTabSpec("mitab4");
+        spec.setContent(R.id.tab4_recompensas);
+        //Le pone un icono a la segunda tab
+        spec.setIndicator("Otros",
+                res.getDrawable(android.R.drawable.ic_dialog_map));
+        tabs.addTab(spec);
+
+        //Setea la primer tab como default
+        tabs.setCurrentTab(0);
         // Loading products in Background Thread
         new LoadAllProducts().execute();
  
