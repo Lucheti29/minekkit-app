@@ -35,7 +35,11 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" >
-
+                    <ListView
+                        android:id="@+id/list4_recompensas"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#8092c53e" />
 
                 </LinearLayout>
 
@@ -57,7 +61,11 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" >
-
+                    <ListView
+                        android:id="@+id/list2_recompensas"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#8092c53e" />
 
 
                 </LinearLayout>
@@ -66,7 +74,11 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" >
-
+                    <ListView
+                        android:id="@+id/list3_recompensas"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#8092c53e" />
 
                 </LinearLayout>
 

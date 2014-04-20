@@ -43,8 +43,7 @@ public class AllRecompensasActivity extends ListActivity {
  
     // Creating JSON Parser object
     JSONParser jParser = new JSONParser();
- 
-
+    private ArrayList<ListView> arrayListViews;
     List<PackRecompensas> packRecompensasList;
     // url to get all products list
     private static String url_all_products = "http://minekkit.com/api/listRecompensas.php";
@@ -58,8 +57,7 @@ public class AllRecompensasActivity extends ListActivity {
     private static final String TAG_ID = "Id";
     private static final String TAG_DESC = "Descripcion";
  
-    // products JSONArray
-    JSONArray products = null;
+
  
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -109,30 +107,35 @@ public class AllRecompensasActivity extends ListActivity {
         new LoadAllProducts().execute();
  
         // Get listview
+        arrayListViews= new ArrayList<ListView>();
         ListView lv = getListView();
- 
+        arrayListViews.add(lv);
+        arrayListViews.add((ListView) findViewById(R.id.list2_recompensas));
+        arrayListViews.add((ListView)findViewById(R.id.list3_recompensas));
+        arrayListViews.add((ListView)findViewById(R.id.list4_recompensas));
 //         on seleting single product
 //         launching Edit Product Screen
-        lv.setOnItemClickListener(new OnItemClickListener() {
- 
+        for(int j=0;j<4;j++){
+            arrayListViews.get(j).setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                    int position, long id) {
-                // getting values from selected ListItem
-                String pid = ((TextView) view.findViewById(R.id.pid)).getText()
-                        .toString();
- 
-                // Starting new intent
-                Intent in = new Intent(AllRecompensasActivity.this,
-                        SingleRecActivity.class);
-                // sending pid to next activity
-                in.putExtra(TAG_ID, pid);
- 
-                startActivity(in);
-                // starting new activity and expecting some response back
-//                startActivityForResult(in, 100);
-            }
-        });
+                public void onItemClick(AdapterView<?> parent, View view,
+                                        int position, long id) {
+                    // getting values from selected ListItem
+                    String pid = ((TextView) view.findViewById(R.id.pid)).getText()
+                            .toString();
+
+                    // Starting new intent
+                    Intent in = new Intent(AllRecompensasActivity.this,
+                            SingleRecActivity.class);
+                    // sending pid to next activity
+                    in.putExtra(TAG_ID, pid);
+
+                    startActivity(in);
+                    // starting new activity and expecting some response back
+                    //                startActivityForResult(in, 100);
+                }
+            });
+        }
  
     }
 
@@ -170,7 +173,10 @@ public class AllRecompensasActivity extends ListActivity {
      * */
     class LoadAllProducts extends AsyncTask<String, String, String> {
         private ArrayList<Thread> threads=new ArrayList<Thread>();
-
+        private ArrayList<List<PackRecompensas>> arrayPacks;
+        // products JSONArray
+        JSONArray products = null;
+        JSONArray prod = null;
         protected void listenResults() {
             while (threads.size() > 0) {
                 try {
@@ -196,7 +202,11 @@ public class AllRecompensasActivity extends ListActivity {
             pDialog.setMessage("Cargando recompensas. Por favor, espere...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
-            pDialog.show();
+            try{
+                pDialog.show();
+            }catch (Exception ex){
+                ex.printStackTrace();
+            }
         }
  
         /**
@@ -207,7 +217,8 @@ public class AllRecompensasActivity extends ListActivity {
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             // getting JSON string from URL
             JSONObject json = jParser.makeHttpRequest(url_all_products, "GET", params);
-            packRecompensasList= new ArrayList<PackRecompensas>();
+
+            arrayPacks = new ArrayList<List<PackRecompensas>>();
             // Check your log cat for JSON response
             Log.d("All Products: ", json.toString());
  
@@ -220,30 +231,36 @@ public class AllRecompensasActivity extends ListActivity {
                         ShowAlertMessage.showMessage("No se puede conectar con el servidor. Intente más tarde.", AllRecompensasActivity.this);
                         break;
                     case 1:
-                        // products found
-                        // Getting Array of Products
-                        products = json.getJSONArray(TAG_PRODUCTS);
                         threads.clear();
-                        // looping through All Products
-                        for (int i = 0; i < products.length(); i++) {
-                            JSONObject c = products.getJSONObject(i);
+                        JSONObject prod = json.getJSONObject(TAG_PRODUCTS);
+                        for(int j =1;j<=4;j++){
+                            // Getting Array of Products
 
-                            // Storing each json item in variable
-                            PackRecompensas item = new PackRecompensas();
-                            item.Name = c.getString(TAG_NAME);
-                            item.Cost = c.getInt(TAG_COSTO);
-                            item.id = c.getInt(TAG_ID);
-                            item.descripcion = c.getString(TAG_DESC);
+                            products = prod.getJSONArray(String.valueOf(j));
+                            // looping through All Products
+                            packRecompensasList= new ArrayList<PackRecompensas>();
+                            for (int i = 0; i < products.length(); i++) {
+                                JSONObject c = products.getJSONObject(i);
 
-                            item.logo = BitmapFactory.decodeResource(getResources(),
-                                    R.drawable.img_chest);
-                            String urlImage=c.getString(TAG_LOGO);
-                            Thread thread = new Thread(new LoadImageThread(urlImage,item), item.Name);
-                            threads.add(thread);
-                            thread.start();
-                            packRecompensasList.add(item);
+                                // Storing each json item in variable
+                                PackRecompensas item = new PackRecompensas();
+                                item.Name = c.getString(TAG_NAME);
+                                item.Cost = c.getInt(TAG_COSTO);
+                                item.id = c.getInt(TAG_ID);
+                                item.descripcion = c.getString(TAG_DESC);
 
+                                item.logo = BitmapFactory.decodeResource(getResources(),
+                                        R.drawable.img_chest);
+                                String urlImage=c.getString(TAG_LOGO);
+                                Thread thread = new Thread(new LoadImageThread(urlImage,item), item.Name);
+                                threads.add(thread);
+                                thread.start();
+                                packRecompensasList.add(item);
+
+                            }
+                            arrayPacks.add(packRecompensasList);
                         }
+                        // products found
                         listenResults();
                         break;
                     default:
@@ -262,18 +279,27 @@ public class AllRecompensasActivity extends ListActivity {
          * **/
         protected void onPostExecute(String file_url) {
             // dismiss the dialog after getting all products
-            pDialog.dismiss();
+            try{
+                pDialog.dismiss();
+            }catch (Exception ex){
+                ex.printStackTrace();
+            }
             // updating UI from Background Thread
             runOnUiThread(new Runnable() {
                 public void run() {
                     /**
                      * Updating parsed JSON data into ListView
                      * */
-                    RecompensasAdapter adapter = new RecompensasAdapter(); 
-                    adapter.aRA=AllRecompensasActivity.this;
-                    adapter.packRecompensasList=packRecompensasList;
-                    // updating listview
-                    setListAdapter(adapter);
+
+                    for(int j =0;j<4;j++){
+                        RecompensasAdapter adapter = new RecompensasAdapter();
+
+                        adapter.aRA=AllRecompensasActivity.this;
+                        adapter.packRecompensasList=arrayPacks.get(j);
+                        // updating listview
+                        arrayListViews.get(j).setAdapter(adapter);
+                        //setListAdapter(adapter);
+                    }
                 }
             });
  
