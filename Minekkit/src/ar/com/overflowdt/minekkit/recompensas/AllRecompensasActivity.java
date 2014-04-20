@@ -3,10 +3,13 @@ package ar.com.overflowdt.minekkit.recompensas;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -233,6 +236,8 @@ public class AllRecompensasActivity extends ListActivity {
                     case 1:
                         threads.clear();
                         JSONObject prod = json.getJSONObject(TAG_PRODUCTS);
+                        Bitmap logoChest=BitmapFactory.decodeResource(getResources(),
+                                R.drawable.img_chest);
                         for(int j =1;j<=4;j++){
                             // Getting Array of Products
 
@@ -249,12 +254,15 @@ public class AllRecompensasActivity extends ListActivity {
                                 item.id = c.getInt(TAG_ID);
                                 item.descripcion = c.getString(TAG_DESC);
 
-                                item.logo = BitmapFactory.decodeResource(getResources(),
-                                        R.drawable.img_chest);
+                                item.logo = logoChest;
                                 String urlImage=c.getString(TAG_LOGO);
-                                Thread thread = new Thread(new LoadImageThread(urlImage,item), item.Name);
-                                threads.add(thread);
-                                thread.start();
+                                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AllRecompensasActivity.this);
+                                boolean individualImagesEnabled = prefs.getBoolean("individualImagesEnabled", true);
+                                if(individualImagesEnabled){
+                                    Thread thread = new Thread(new LoadImageThread(urlImage,item), item.Name);
+                                    threads.add(thread);
+                                    thread.start();
+                                }
                                 packRecompensasList.add(item);
 
                             }

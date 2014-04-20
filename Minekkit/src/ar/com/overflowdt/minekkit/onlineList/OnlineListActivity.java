@@ -3,6 +3,7 @@ package ar.com.overflowdt.minekkit.onlineList;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -181,7 +182,8 @@ public class OnlineListActivity extends ListActivity {
                         // Getting Array of Products
                         playersOn = json.getJSONArray(TAG_PLAYERS);
                         threads.clear();
-
+                        Bitmap steveLogo=BitmapFactory.decodeResource(getResources(),
+                                R.drawable.steve);
                         // looping through All Products
                         for (int i = 0; i < playersOn.length(); i++) {
                             String c = playersOn.getString(i);
@@ -189,8 +191,7 @@ public class OnlineListActivity extends ListActivity {
                             // Storing each json item in variable
                             OnlineListAdapter.Player item = new OnlineListAdapter.Player();
                             item.name = c;
-                            item.face = BitmapFactory.decodeResource(getResources(),
-                                    R.drawable.steve);
+                            item.face = steveLogo;
                             String urlImage="https://minotar.net/avatar/"+c+"/50";
                             Thread thread = new Thread(new LoadImageThread(urlImage,item), c);
                             threads.add(thread);
