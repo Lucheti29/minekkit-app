@@ -1,61 +1,60 @@
-<h1>Minekkit App</h1>
+#Minekkit App
 
-<h3>Funcionalidades esperadas:</h3>
+###Funcionalidades esperadas:
 
-<ul>
-  <li>Login</li>
-  <li>Ruleta (2 o 3 veces al día) y contador de tiempo hasta que se puede volver a jugar (envía notificación cuando ya  puedas hacerlo)</li>
-  <li>Obtener un reco al día </li>
-  <li>PMs / Chat </li>
-  <li>Mapa </li>
-  <li>Comprar recompensas</li>
-  <li>Donar</li>
-  <li>Canjear codigo </li>
-  <li>Inventario </li>
-  <li>Listado de items e ID</li>
-  <li>Perfil: avatar del foro, jobs, nick, cargo, dias restantes de donador, recoplas de la cuenta, achivements del foro</li>
-  <li>Crear denuncias </li>
-  <li>Ver quien esta online / quien esta online de la faction </li>
-  <li>Consultar wiki </li>
-  <li>Acceder al canal de YouTube de Minekkit </li>
-  <li>Botones de acceso a la página de Facebook y a la cuenta de Twitter</li>
-</ul>
 
-============
+* Login
+* Ruleta (2 o 3 veces al día) y contador de tiempo hasta que se puede volver a jugar (envía notificación cuando ya  puedas hacerlo)
+* Obtener un reco al día
+* PMs / Chat
+* Mapa
+* Comprar recompensas
+* Donar
+* Canjear codigo
+* Inventario
+* Listado de items e ID
+* Perfil: avatar del foro, jobs, nick, cargo, dias restantes de donador, recoplas de la cuenta, achivements del foro
+* Crear denuncias
+* Ver quien esta online / quien esta online de la faction
+* Consultar wiki
+* Acceder al canal de YouTube de Minekkit
+* Botones de acceso a la página de Facebook y a la cuenta de Twitter
 
-<h3>Estado del proyecto:</h3>
-
-<ul>
-  <li>Login: [GUI] [CODIGO] [LISTO]</li>
-  <li>Ruleta (2 o 3 veces al día) y contador de tiempo hasta que se puede volver a jugar (envía notificación cuando ya  puedas hacerlo): </li>
-  <li>Obtener un reco al día: [ICO][CODIGO] [HALF-GUI]</li>
-  <li>PMs Leer/Responder/Enviar: [ICO] [CODIGO] [LISTO]</li>
-  <li>Mapa: [ICO] [CODIGO] [LISTO]</li> 
-  <li>Comprar recompensas: [ICO]</li> 
-  <li>Donar: [ICO]</li> 
-  <li>Canjear codigo: </li>
-  <li>Inventario: [ICO] [CODIGO] [HALF-GUI]</li>
-  <li>Listado de items e ID: </li>
-  <li>Perfil: avatar del foro, jobs, nick, cargo, dias restantes de donador, recoplas de la cuenta: [CODIGO] [HALF-GUI] </li>
-  <li>Crear denuncias: [ICO]</li> 
-  <li>Ver quien esta online / quien esta online de la faction: [CODIGO] [HALF-GUI] </li>
-  <li>Consultar wiki: [ICO] [CODIGO]</li>
-  <li>Acceder al canal de YouTube de Minekkit: [ICO][CODIGO][LISTO] </li>
-  <li>Botones de acceso a la página de Facebook y a la cuenta de Twitter: [ICO][CODIGO][LISTO]</li>
-</ul>
 
 ============
 
-<h3>TODOS:</h3>
+###Estado del proyecto:
 
-<ul>
-  <li><b>DONE</b>La App creashea al acceder a la sección recompensas cuando estas en modo avión</li>
-  <li>En la activity de ver recompensas, si la pantalla se pone horizontal vuelve a cargar todo</li>
-  <li><b>DONE</b> <s>En el logeo, el servidor tiene que comprobar que la app esta actualizada a la última versión. </s><br>
-      <s>Esto es así porque si en algún momento un update genera una vulnerabilidad, podemos evitar que los</s><br>
-      <s>usuarios sigan logeando con la versión insegura o usando un xploit</s></li>
-  <li>Hay que hacer una clase singleton para que no se puedan duplicar las activities de all PMs y perfil</li>
-  <li>Terminar GUI de Inventory.php en la api</li>
-  <li>Debuggear Servicio de notificaciones que crashea en momentos randoms.
-  <li>Desactivar notificaciones si el usuario no esta loggeado
-</ul>
+
+* ~~Login: [GUI] [CODIGO] [LISTO]~~
+* Ruleta (2 o 3 veces al día) y contador de tiempo hasta que se puede volver a jugar (envía notificación cuando ya  puedas hacerlo):
+* Obtener un reco al día: [ICO][CODIGO] [HALF-GUI] [BUGS]
+* PMs Leer/Responder/Enviar: [ICO] [GUI] [CODIGO]
+* ~~Mapa: [ICO] [CODIGO] [LISTO]~~
+* Comprar recompensas: [ICO] [GUI] [CODIGO]
+* Donar: [ICO]
+* Canjear codigo:
+* Inventario: [ICO] [CODIGO] [HALF-GUI]
+* Listado de items e ID:
+* Perfil: avatar del foro, jobs, nick, cargo, dias restantes de donador, recoplas de la cuenta: [CODIGO] [HALF-GUI]
+* ~~Crear denuncias: [ICO] [CODIGO]~~
+* ~~Ver quien esta online: [CODIGO] [GUI]~~
+* ~~Consultar wiki: [ICO] [CODIGO]~~
+* ~~Acceder al canal de YouTube de Minekkit: [ICO][CODIGO][LISTO]~~
+* ~~Botones de acceso a la página de Facebook y a la cuenta de Twitter: [ICO][CODIGO][LISTO]~~
+
+
+============
+
+###TODOS:
+
+
+* ~~La App creashea al acceder a la sección recompensas cuando estas en modo ,~~
+* ~~En la activity de ver recompensas, si la pantalla se pone horizontal vuelve a cargar todo.~~
+* ~~En el logeo, el servidor tiene que comprobar que la app esta actualizada a la última versión. Esto es así porque si en algún momento un update genera una vulnerabilidad, podemos evitar que los usuarios sigan logeando con la versión insegura o usando un xploit.~~
+* Hay que hacer una clase singleton para que no se puedan duplicar las activities de all PMs y perfil
+* Terminar GUI de Inventory.php en la api
+* Debuggear Servicio de notificaciones que crashea en momentos randoms.
+* Desactivar notificaciones si el usuario no esta loggeado
+* Agregar ver mensajes enviados
+* Agregar menu al mantener o tappear en el item de un pj online de la lista de onlines.
