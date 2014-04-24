@@ -10,8 +10,8 @@
     <string name="copyright">Minekkit - Todos los derechos reservados 2012-2014</string>
     
     <string name="recompensas">Recompensas</string>
-    <string name="versionComplete">Versi\u00f3n 0.7 Beta</string>
-    <string name="version">0.7Beta</string>
+    <string name="versionComplete">Versi\u00f3n 0.9 Beta</string>
+    <string name="version">0.9Beta</string>
     <string name="actionbar_perfil">Perfil</string>
     <string name="actionbar_pm">PM</string>
     <string name="actionbar_settings">Opciones</string>
@@ -64,6 +64,10 @@
     <string name="playersOnline">Players Online</string>
     <string name="sendMP">Enviar Mensaje</string>
     <string name="playersON">Players Online</string>
+    <string name="denunciaExito">La denuncia fue creada con éxito. Revisá el foro para ver el estado de la misma.</string>
+    <string name="denunciaFail">No se pudo crear la denuncia. Intentalo más tarde.</string>
+    <string name="enviandoDenuncia">Enviando denuncia. Por favor, espere...</string>
+    <string name="denunciaFailDatos">No se ha podido crear la Denuncia, verifique los datos ingresados.</string>
 
     <color name="black">#000000</color>
 	<color name="white">#FFFFFF</color>

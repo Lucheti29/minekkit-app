@@ -40,52 +40,52 @@ public class DenunciaInstance implements Enviable {
 		ArrayList<Parametro> arrayParametros = new ArrayList<Parametro>();
 
         Parametro parametroUser = new Parametro();
-        parametroUser.setValores(Session.getInstance().user, USER_VAR);
+        parametroUser.setValores(USER_VAR,Session.getInstance().user);
         arrayParametros.add(parametroUser);
 
         Parametro parametroPass = new Parametro();
-        parametroPass.setValores(Session.getInstance().pass64(), PASS_VAR);
+        parametroPass.setValores(PASS_VAR,Session.getInstance().pass64());
         arrayParametros.add(parametroPass);
 
 		Parametro parametroTitulo = new Parametro();
-		parametroTitulo.setValores(_titulo, TITULO_VAR);
+		parametroTitulo.setValores(TITULO_VAR,_titulo);
 		arrayParametros.add(parametroTitulo);
 		
 		Parametro parametroFecha = new Parametro();
-		parametroFecha.setValores(_fecha, FECHA_VAR);
+		parametroFecha.setValores(FECHA_VAR, _fecha);
 		arrayParametros.add(parametroFecha);
 		
 		Parametro parametroHorario = new Parametro();
-		parametroHorario.setValores(_hora, HORARIO_VAR);
+		parametroHorario.setValores(HORARIO_VAR,_hora );
 		arrayParametros.add(parametroHorario);
 		
 		Parametro parametroMundo = new Parametro();
-		parametroMundo.setValores(_mundo, MUNDO_VAR);
+		parametroMundo.setValores(MUNDO_VAR,_mundo );
 		arrayParametros.add(parametroMundo);
 		
 		Parametro parametroCiudad = new Parametro();
-		parametroCiudad.setValores(_ciudad, CIUDAD_VAR);
+		parametroCiudad.setValores(CIUDAD_VAR,_ciudad );
 		arrayParametros.add(parametroCiudad);
 		
 		Parametro parametroUsuarios = new Parametro();
-		parametroUsuarios.setValores(_usuarios_involucrados, USUARIOS_VAR);
+		parametroUsuarios.setValores(USUARIOS_VAR, _usuarios_involucrados);
 		arrayParametros.add(parametroUsuarios);
 		
 		Parametro parametroTipo = new Parametro();
-		parametroTipo.setValores(_tipo_denuncia, TIPO_VAR);
+		parametroTipo.setValores(TIPO_VAR, _tipo_denuncia);
 		arrayParametros.add(parametroTipo);
 		
 		Parametro parametroReglas = new Parametro();
-		parametroReglas.setValores(_normas_no_cumplidas, REGLAS_VAR);
+		parametroReglas.setValores(REGLAS_VAR, _normas_no_cumplidas);
 		arrayParametros.add(parametroReglas);
 		
 		Parametro parametroExplicacion = new Parametro();
-		parametroExplicacion.setValores(_explicacion, EXPLICACION_VAR);
+		parametroExplicacion.setValores(EXPLICACION_VAR, _explicacion);
 		arrayParametros.add(parametroExplicacion);
 		
 		Parametro parametroSolucion = new Parametro();
-		parametroSolucion.setValores(_solucion, SOLUCION_VAR);
-		arrayParametros.add(parametroCiudad);
+		parametroSolucion.setValores(SOLUCION_VAR, _solucion);
+		arrayParametros.add(parametroSolucion);
 		
 		return arrayParametros;
 	}

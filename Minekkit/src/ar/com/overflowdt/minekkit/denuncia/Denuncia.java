@@ -12,21 +12,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TabHost;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-
 import ar.com.overflowdt.minekkit.R;
-import ar.com.overflowdt.minekkit.pms.PM;
-import ar.com.overflowdt.minekkit.pms.PmListAdapter;
 import ar.com.overflowdt.minekkit.util.Browser;
 import ar.com.overflowdt.minekkit.util.HttpHandler;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
-import ar.com.overflowdt.minekkit.util.Session;
 import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 
 public class Denuncia extends Activity {
@@ -104,8 +98,7 @@ public class Denuncia extends Activity {
         rb_denuncia6=(RadioButton)findViewById(R.id.rb_denuncia6);
         rb_denuncia7=(RadioButton)findViewById(R.id.rb_denuncia7);
         et_normas=(EditText)findViewById(R.id.et_normas);
-        et_normas=(EditText)findViewById(R.id.et_solucion);
-        et_normas=(EditText)findViewById(R.id.et_explicacion);
+
 	}
 	
 	@Override
@@ -176,13 +169,13 @@ public class Denuncia extends Activity {
 
         denuncia.setTipoDenuncia(tipo);
         Log.d("INFO", "Paso 1");
-        new subirDenuncia().execute();
+        new SubirDenuncia().execute();
     }
 
     /**
      * Background Async Task to Load all product by making HTTP Request
      * */
-    class subirDenuncia extends AsyncTask<String, String, String> {
+    class SubirDenuncia extends AsyncTask<String, String, String> {
 
         /**
          * Before starting background thread Show Progress Dialog
@@ -191,7 +184,7 @@ public class Denuncia extends Activity {
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(Denuncia.this);
-            pDialog.setMessage("Enviando denuncia. Por favor, espere...");
+            pDialog.setMessage(getString(R.string.enviandoDenuncia));
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();
@@ -223,11 +216,13 @@ public class Denuncia extends Activity {
                         ShowAlertMessage.showMessage("No se puede conectar con el servidor. Intente más tarde.", Denuncia.this);
                         break;
                     case 0:
-                        ShowAlertMessage.showMessage("No se pudo crear la denuncia. Intentalo más tarde.", Denuncia.this);
+                        ShowAlertMessage.showMessage(getString(R.string.denunciaFail), Denuncia.this);
                         break;
                     case 1:
-                        ShowAlertMessage.showMessage("La denuncia fue creada con éxito. Revisá el foro para ver el estado de la misma.", Denuncia.this);
+                        ShowAlertMessage.showMessageAndFinishActivity(getString(R.string.denunciaExito), Denuncia.this);
                         break;
+                    case -1:
+                        ShowAlertMessage.showMessage(getString(R.string.denunciaFailDatos),Denuncia.this);
                 }
 
             } catch (JSONException e) {
