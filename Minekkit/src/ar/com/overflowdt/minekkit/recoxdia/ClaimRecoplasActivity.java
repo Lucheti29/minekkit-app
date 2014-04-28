@@ -24,6 +24,7 @@ import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.util.HttpHandler;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
 import ar.com.overflowdt.minekkit.util.Session;
+import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 
 /**
  * Created by Fede on 02/03/14.
@@ -31,6 +32,7 @@ import ar.com.overflowdt.minekkit.util.Session;
 public class ClaimRecoplasActivity extends Activity{
 
     private static final String TAG_SUCCESS = "success";
+    public static final int SEGUNDOS_ENTRE_CLAIM = 24 * 60 * 60;
     private static String url = "http://minekkit.com/api/claimRecoplas.php";
     private TextView tiempoRestante;
     private int segundosRestantes=0;
@@ -111,35 +113,23 @@ public class ClaimRecoplasActivity extends Activity{
 
                 switch (success){
                     case -1:
-                        showMessage(getString(R.string.claimReco_error_exceso));
+                        ShowAlertMessage.showMessage(getString(R.string.claimReco_error_exceso), ClaimRecoplasActivity.this);
+                        tiempoRestante.setText("Eres muy rico");//todo: agregar mensajes random
                         break;
-                    case 0:
-                        showMessage(getString(R.string.claimReco_error_solicitud));
+                    case 0:case -100:
+                        ShowAlertMessage.showMessage(getString(R.string.claimReco_error_solicitud),ClaimRecoplasActivity.this);
+                        tiempoRestante.setText("Error");
                         break;
                     case 1:
-                        showMessage(getString(R.string.claimReco_ok_entregado));
+                        ShowAlertMessage.showMessage(getString(R.string.claimReco_ok_entregado), ClaimRecoplasActivity.this);
+                        if(segundosRestantes==0){
+                            setTimer(SEGUNDOS_ENTRE_CLAIM);
+                        }
                         break;
                     default:
-                        showMessage(getString(R.string.claimReco_error_regresaMasTarde));
+                        ShowAlertMessage.showMessage(getString(R.string.claimReco_error_regresaMasTarde), ClaimRecoplasActivity.this);
                         if(segundosRestantes==0){
-                            segundosRestantes=success;
-                            final Timer T=new Timer();
-                            T.scheduleAtFixedRate(new TimerTask() {
-                                @Override
-                                public void run() {
-                                    runOnUiThread(new Runnable()
-                                    {
-                                        @Override
-                                        public void run()
-                                        {
-                                            tiempoRestante.setText(formatTime(segundosRestantes));
-                                            segundosRestantes--;
-                                            if(segundosRestantes==0)
-                                                T.cancel();
-                                        }
-                                    });
-                                }
-                            }, 1000, 1000);
+                            setTimer(success);
                         }
                         break;
                 }
@@ -147,6 +137,27 @@ public class ClaimRecoplasActivity extends Activity{
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+        }
+
+        private void setTimer(int segundos) {
+            final Timer T=new Timer();
+            segundosRestantes=segundos;
+            T.scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
+                    runOnUiThread(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            tiempoRestante.setText(formatTime(segundosRestantes));
+                            segundosRestantes--;
+                            if(segundosRestantes==0)
+                                T.cancel();
+                        }
+                    });
+                }
+            }, 1000, 1000);
         }
     }
 
@@ -158,15 +169,4 @@ public class ClaimRecoplasActivity extends Activity{
         return String.valueOf(horas) + " Hs " + String.valueOf(minutos) + " Min " + String.valueOf(segundos) + " Seg";
     }
 
-    public void showMessage(String message) {
-        AlertDialog.Builder alerta = new AlertDialog.Builder(this);
-        alerta.setTitle("Aviso");
-        alerta.setMessage(message);
-        alerta.setCancelable(false);
-        alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialogo1, int id) {
-            }
-        });
-        alerta.show();
-    }
 }

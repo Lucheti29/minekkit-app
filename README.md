@@ -58,3 +58,11 @@
 * Desactivar notificaciones si el usuario no esta loggeado
 * Agregar ver mensajes enviados
 * Agregar menu al mantener o tappear en el item de un pj online de la lista de onlines.
+
+
+============
+
+###BUGS:
+
+* crear Denuncia envia strings cortados.
+

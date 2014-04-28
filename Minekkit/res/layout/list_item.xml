@@ -64,7 +64,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/white" />
 
-            <TextView
+            <ar.com.overflowdt.minekkit.util.customView.RelativeTimeTextView
                 android:id="@+id/list_item_bottom_right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

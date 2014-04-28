@@ -68,6 +68,7 @@
     <string name="denunciaFail">No se pudo crear la denuncia. Intentalo más tarde.</string>
     <string name="enviandoDenuncia">Enviando denuncia. Por favor, espere...</string>
     <string name="denunciaFailDatos">No se ha podido crear la Denuncia, verifique los datos ingresados.</string>
+    <string name="just_now">Recién</string>
 
     <color name="black">#000000</color>
 	<color name="white">#FFFFFF</color>
