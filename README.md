@@ -63,6 +63,6 @@
 ============
 
 ###BUGS:
+####https://github.com/luksdlt92/minekkit-app/issues/
 
-* crear Denuncia envia strings cortados.
 
