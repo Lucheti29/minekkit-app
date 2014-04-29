@@ -33,9 +33,11 @@ import ar.com.overflowdt.minekkit.R;
  * @date 10/23/13.
  */
 public class RotationView extends View {
+    private static final double ROTATING_ACCELERATION = -3;
     private final String TAG = "RotationView";
-    private final int REFRESH_INTERVAL = 100;
-    private final int ROTATING_SPEED = 5;
+    private final int REFRESH_INTERVAL = 33;
+    private final int ROTATING_SPEED = 15;
+    private final int INITIAL_SPEED = 30;
     private Paint mPaint;
     private Context mContext;
     private Bitmap mRotateBackground;
@@ -46,7 +48,7 @@ public class RotationView extends View {
     private int mBitmapWidth;
     private int mBitmapHeight;
     private int mBitmapResourceId;
-    private RefreshProgressRunnable mRefreshRunnable;
+    private Runnable mRefreshRunnable;
     private RotateWorker mRotateWorker;
     private BitmapFactory.Options mOptions;
     private boolean mAutoRotate;
@@ -54,6 +56,7 @@ public class RotationView extends View {
     private boolean mRotating;
     private boolean mRotateable = true;
     private float mMaxProgress = 100.0f;
+    private float timeSpent = 0;
 
 
     public RotationView(Context context) {
@@ -79,7 +82,7 @@ public class RotationView extends View {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mPaint.setFilterBitmap(true);
-        mRefreshRunnable = new RefreshProgressRunnable();
+        mRefreshRunnable = new RefreshProgressDeceleratingRunnable();
     }
 
     @Override
@@ -131,6 +134,26 @@ public class RotationView extends View {
         }
     }
 
+    private class RefreshProgressDeceleratingRunnable implements Runnable {
+        public void run() {
+            synchronized (RotationView.this) {
+                timeSpent+=REFRESH_INTERVAL;
+                Log.d("Ruleta","TimeSpent: "+String.valueOf(timeSpent)+" GetSpeed: "+String.valueOf(getSpeedThroughTime(timeSpent/1000)));
+                mRotatedDegree += getSpeedThroughTime(timeSpent/1000);
+                if(getSpeedThroughTime(timeSpent/1000)<0) {
+                   stopAnimate();
+                }
+                if (mRotatedDegree > 360) mRotatedDegree -= 360;
+
+                invalidate();
+            }
+        }
+
+        public float getSpeedThroughTime(float time){
+            return (float) (ROTATING_SPEED * time + 0.5* ROTATING_ACCELERATION * time*time);
+        }
+    }
+
     private class RotateWorker extends Thread {
         private boolean cancelled;
 
@@ -170,6 +193,8 @@ public class RotationView extends View {
         if (mRotateWorker != null) mRotateWorker.cancel();
         mRotateWorker = null;
         mRotating = false;
+        timeSpent=0;
+
     }
 
     public void resetAnimate() {

@@ -22,36 +22,21 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/textView2"
             android:layout_alignTop="@+id/single_logo"
-            android:text="Paquete..."
+            android:text="Prueba tu Suerte!"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/mk_amarillo_1"
             android:layout_weight="5"
             android:layout_gravity="center"
-            android:textSize="40dp"
+            android:textSize="35dp"
             android:textStyle="bold" />
 
         <ar.com.overflowdt.minekkit.util.customView.RotationView
             android:id="@+id/ruleta_logo"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
             rotate:rotateBackground="@drawable/ruleta_mk"
-            />
+            android:layout_gravity="center_horizontal" />
 
-
-        <TextView
-            android:id="@+id/descripcion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/btn_compra"
-            android:layout_alignLeft="@+id/single_logo"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/single_logo"
-            android:text="Descripcion..."
-            android:textColor="@color/white"
-            android:layout_weight="5"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/cost"
@@ -60,11 +45,11 @@
             android:layout_alignBaseline="@+id/textView2"
             android:layout_alignBottom="@+id/textView2"
             android:layout_toRightOf="@+id/textView2"
-            android:text="Costo..."
+            android:text="Girando..."
             android:textColor="@color/white"
             android:layout_weight="5"
             android:layout_gravity="center"
-            android:textSize="40dp"
+            android:textSize="35dp"
             android:singleLine="false" />
 
         <Button
@@ -73,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:text="Comprar"
+            android:text="Girar"
             android:background="#33b5e5"
             android:textColor="#ffffff"
             android:padding="10dp"

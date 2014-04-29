@@ -74,6 +74,7 @@ public class RuletaActivity extends Activity {
 
     public void toggle(View view) {
         mRotateImage.toggle();
+
     }
 
 
