@@ -26,6 +26,11 @@
             android:label="@string/label_acercade" >
         </activity>
         <activity
+            android:name="ar.com.overflowdt.minekkit.ruleta.RuletaActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="Ruleta" >
+        </activity>
+        <activity
             android:name="ar.com.overflowdt.minekkit.pms.NewPMActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/newPM" >

@@ -31,6 +31,7 @@ import ar.com.overflowdt.minekkit.notification.NotificationService;
 import ar.com.overflowdt.minekkit.pms.AllPmsActivity;
 import ar.com.overflowdt.minekkit.recompensas.AllRecompensasActivity;
 import ar.com.overflowdt.minekkit.recoxdia.ClaimRecoplasActivity;
+import ar.com.overflowdt.minekkit.ruleta.RuletaActivity;
 import ar.com.overflowdt.minekkit.util.Browser;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
 import ar.com.overflowdt.minekkit.util.Session;
@@ -164,6 +165,11 @@ public class MainActivity extends Activity {
     public void verClaimCoin(View view)
     {
         Intent i = new Intent(this,ClaimRecoplasActivity.class);
+        startActivity(i);
+    }
+    public void verRuleta(View view)
+    {
+        Intent i = new Intent(this,RuletaActivity.class);
         startActivity(i);
     }
     public void verInventorio(View view) {

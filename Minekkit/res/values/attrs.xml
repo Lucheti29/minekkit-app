@@ -3,4 +3,8 @@
     <declare-styleable name="RelativeTimeTextView">
         <attr name="reference_time" format="string" />
     </declare-styleable>
+    <declare-styleable name="RotationView">
+        <attr name="rotateBackground" format="reference"/>
+        <attr name="autoRefresh" format="boolean"/>
+    </declare-styleable>
 </resources>
