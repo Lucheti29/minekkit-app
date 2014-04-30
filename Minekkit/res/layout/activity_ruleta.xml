@@ -17,7 +17,7 @@
         android:paddingTop="@dimen/activity_vertical_margin">
 
         <TextView
-            android:id="@+id/titulo"
+            android:id="@+id/ruleta_titulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/textView2"
@@ -40,7 +40,7 @@
 
 
         <TextView
-            android:id="@+id/cost"
+            android:id="@+id/ruleta_mensaje_inferior"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/textView2"
@@ -54,7 +54,7 @@
             android:singleLine="false" />
 
         <Button
-            android:id="@+id/btn_compra"
+            android:id="@+id/btn_girar"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

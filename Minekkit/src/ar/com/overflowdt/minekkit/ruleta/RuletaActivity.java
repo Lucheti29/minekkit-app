@@ -2,24 +2,25 @@ package ar.com.overflowdt.minekkit.ruleta;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.gesture.GestureOverlayView;
-import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
-import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import ar.com.overflowdt.minekkit.R;
 
+import ar.com.overflowdt.minekkit.util.HttpHandler;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
 
+import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 import ar.com.overflowdt.minekkit.util.customView.RotationView;
 
 /**
@@ -27,12 +28,19 @@ import ar.com.overflowdt.minekkit.util.customView.RotationView;
  */
 public class RuletaActivity extends Activity {
 
+    private static final String TAG_SUCCESS = "success";
+    private static final String TAG_INTENTS = "intentos";
+    private static final String TAG_PRIZE = "prize";
     RotationView logo;
     TextView titulo;
-    TextView costo;
+    TextView mensaje_inferior;
     TextView desc;
     String id;
+    ProgressDialog pDialog;
     private RotationView mRotateImage;
+    private int intents=0;
+    private int prize;
+    int[ ] prizes = {1000,2500,100000,25000,10000,5000,500,50000};
 
 
     @Override
@@ -41,9 +49,9 @@ public class RuletaActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ruleta);
 
-        desc = (TextView) findViewById(R.id.descripcion);
-        costo = (TextView) findViewById(R.id.cost);
-        titulo = (TextView) findViewById(R.id.titulo);
+
+        mensaje_inferior = (TextView) findViewById(R.id.ruleta_mensaje_inferior);
+        titulo = (TextView) findViewById(R.id.ruleta_titulo);
         mRotateImage = (RotationView) findViewById(R.id.ruleta_logo);
 
 
@@ -52,13 +60,13 @@ public class RuletaActivity extends Activity {
                 "fonts/Mecha_Condensed_Bold.ttf");
 
 
-        TextView titulo = (TextView) findViewById(R.id.titulo);
+
         titulo.setTypeface(mecha_Condensed_Bold);
-        TextView cost = (TextView) findViewById(R.id.cost);
-        cost.setTypeface(mecha_Condensed_Bold);
-        TextView btn_compra = (TextView) findViewById(R.id.btn_compra);
+        mensaje_inferior.setTypeface(mecha_Condensed_Bold);
+        TextView btn_compra = (TextView) findViewById(R.id.btn_girar);
         btn_compra.setTypeface(mecha_Condensed_Bold);
 
+        new GetIntents().execute();
     }
 
     @Override
@@ -75,12 +83,160 @@ public class RuletaActivity extends Activity {
     }
 
     public void toggle(View view) {
-        mRotateImage.toggle();
-
+        if(!mRotateImage.isRotating())
+            new GetPrize().execute();
     }
 
 
 
+    class GetIntents extends AsyncTask<String, String, String> {
 
+        private String url = "http://minekkit.com/api/girarRuleta.php";
+
+        /**
+         * Before starting background thread Show Progress Dialog
+         * */
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(RuletaActivity.this);
+            pDialog.setMessage("Cargando...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(false);
+            pDialog.show();
+        }
+
+        /**
+         * getting a products from url
+         * */
+        protected String doInBackground(String... args) {
+
+            JSONObject json=null;
+            try{
+                json = new HttpHandler().post(url,new RuletaActionEnviable("getIntents"));
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+
+            try {
+                // Checking for SUCCESS TAG
+                int success = json.getInt(TAG_SUCCESS);
+
+                switch(success) {
+/*                    case -1:
+                        ShowAlertMessage.showMessage("No tienes Suficientes Recoplas.", RuletaActivity.this);
+                        break;*/
+                    case 0:
+                        ShowAlertMessage.showMessage("Ha ocurrido un error.", RuletaActivity.this);
+                        break;
+                    case 1:
+                        intents = json.getInt(TAG_INTENTS);
+                        runOnUiThread(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                mensaje_inferior.setText(String.valueOf(intents) + " Intentos restantes");
+                            }
+                        });
+
+                        break;
+
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        /**
+         * After completing background task Dismiss the progress dialog
+         * **/
+        protected void onPostExecute(String file_url) {
+            // dismiss the dialog after getting all products
+            pDialog.dismiss();
+        }
+    }
+
+    class GetPrize extends AsyncTask<String, String, String> {
+
+        private String url = "http://minekkit.com/api/girarRuleta.php";
+
+        /**
+         * Before starting background thread Show Progress Dialog
+         * */
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(RuletaActivity.this);
+            pDialog.setMessage("Conectando con el Servidor...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(false);
+            pDialog.show();
+        }
+
+        /**
+         * getting a products from url
+         * */
+        protected String doInBackground(String... args) {
+
+            JSONObject json=null;
+            try{
+                json = new HttpHandler().post(url,new RuletaActionEnviable("getPrize"));
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+
+            try {
+                // Checking for SUCCESS TAG
+                int success = json.getInt(TAG_SUCCESS);
+
+                switch(success) {
+                    case -1:
+                        ShowAlertMessage.showMessage("No tienes más intentos.", RuletaActivity.this);
+                        break;
+                    case 0:
+                        ShowAlertMessage.showMessage("Ha ocurrido un error.", RuletaActivity.this);
+                        break;
+                    case 1:
+                        prize = json.getInt(TAG_PRIZE);
+                        mRotateImage.setFinishingAngle(prize*45);
+                        mRotateImage.setFinishMessage("¡Has ganado " + getRecoplas(prize) + " Recoplas!");
+                        intents--;
+                        mRotateImage.toggle();
+                        runOnUiThread(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                mensaje_inferior.setText(String.valueOf(intents) + " Intentos restantes");
+                            }
+                        });
+
+                        break;
+
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        /**
+         * After completing background task Dismiss the progress dialog
+         * **/
+        protected void onPostExecute(String file_url) {
+            // dismiss the dialog after getting all products
+            pDialog.dismiss();
+        }
+    }
+
+    private int getRecoplas(int prize) {
+       return prizes[prize];
+    }
 
 }

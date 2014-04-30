@@ -61,6 +61,7 @@ public class RotationView extends View{
     private float mMaxProgress = 100.0f;
     private float timeSpent = 0;
     private int mFinishingAngle=0;
+    private String mFinalMessage;
     private int mRandomAngle= 23;
 
 
@@ -130,6 +131,10 @@ public class RotationView extends View{
         Log.d(TAG, "mViewHeight =" + mViewHeight + ", mViewWidth =" + mViewWidth);
     }
 
+    public void setFinishMessage(String message) {
+        mFinalMessage=message;
+    }
+
     private class RefreshProgressRunnable implements Runnable {
         public void run() {
             synchronized (RotationView.this) {
@@ -176,7 +181,7 @@ public class RotationView extends View{
                 if(finishing && isBetween(mRotatedDegree , mFinishingAngle-45+mRandomAngle , mFinishingAngle)){
                     finishing=false;
                     stopAnimate();
-                    ShowAlertMessage.showMessage("Rotation Degree:" + String.valueOf(mRotatedDegree),(Activity) mContext);
+                    ShowAlertMessage.showMessage(mFinalMessage,(Activity) mContext);
                 }
                 if (mRotatedDegree > 360) mRotatedDegree -= 360;
 
@@ -261,5 +266,8 @@ public class RotationView extends View{
         mDetached = true;
         stopAnimate();
         if (mRefreshRunnable != null) removeCallbacks(mRefreshRunnable);
+    }
+    public boolean isRotating(){
+        return mRotating;
     }
 }
