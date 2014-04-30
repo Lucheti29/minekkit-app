@@ -2,11 +2,13 @@ package ar.com.overflowdt.minekkit.ruleta;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.gesture.GestureOverlayView;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;

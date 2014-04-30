@@ -34,6 +34,7 @@
             android:id="@+id/ruleta_logo"
             android:layout_width="300dp"
             android:layout_height="300dp"
+            android:layout_weight="0.8"
             rotate:rotateBackground="@drawable/ruleta_mk"
             android:layout_gravity="center_horizontal" />
 

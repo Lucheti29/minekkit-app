@@ -15,6 +15,7 @@ package ar.com.overflowdt.minekkit.util.customView;
  * limitations under the License.
  */
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -26,25 +27,27 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
+import java.util.Random;
+
 import ar.com.overflowdt.minekkit.R;
+import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 
 /**
  * @author chaobin
  * @date 10/23/13.
  */
-public class RotationView extends View {
+public class RotationView extends View{
     private static final double ROTATING_ACCELERATION = -3;
     private final String TAG = "RotationView";
     private final int REFRESH_INTERVAL = 33;
     private final int ROTATING_SPEED = 15;
-    private final int INITIAL_SPEED = 30;
     private Paint mPaint;
     private Context mContext;
     private Bitmap mRotateBackground;
     private Matrix mMatrix;
     private int mViewHeight;
     private int mViewWidth;
-    private int mRotatedDegree;
+    private double mRotatedDegree;
     private int mBitmapWidth;
     private int mBitmapHeight;
     private int mBitmapResourceId;
@@ -57,6 +60,8 @@ public class RotationView extends View {
     private boolean mRotateable = true;
     private float mMaxProgress = 100.0f;
     private float timeSpent = 0;
+    private int mFinishingAngle=0;
+    private int mRandomAngle= 23;
 
 
     public RotationView(Context context) {
@@ -83,6 +88,7 @@ public class RotationView extends View {
         mPaint.setAntiAlias(true);
         mPaint.setFilterBitmap(true);
         mRefreshRunnable = new RefreshProgressDeceleratingRunnable();
+        setFinishingAngle(180);
     }
 
     @Override
@@ -112,7 +118,7 @@ public class RotationView extends View {
         Log.d(TAG, "RotationView = " + mRotatedDegree);
         canvas.scale(( mViewHeight/ (float)mBitmapHeight ),mViewWidth / (float)mBitmapWidth );
         //canvas.translate(Math.abs((mViewWidth - mBitmapWidth) / 2), Math.abs((mViewHeight - mBitmapHeight) / 2));
-        mMatrix.setRotate(mRotatedDegree, mBitmapWidth / 2, mBitmapHeight / 2);
+        mMatrix.setRotate((int)mRotatedDegree, mBitmapWidth / 2, mBitmapHeight / 2);
         canvas.drawBitmap(mRotateBackground, mMatrix, mPaint);
     }
 
@@ -133,15 +139,44 @@ public class RotationView extends View {
             }
         }
     }
-
+    public boolean isBetween(double x, int lower, int upper) {
+        return lower <= x && x <= upper;
+    }
+    public int getDegreeLeftClockwise(int a, int b) {
+        return b>=a ? b-a : b-a+360;
+    }
+    public void setFinishingAngle(int angle){
+        mFinishingAngle=360-angle;
+    }
     private class RefreshProgressDeceleratingRunnable implements Runnable {
+        boolean finishing=false;
         public void run() {
             synchronized (RotationView.this) {
                 timeSpent+=REFRESH_INTERVAL;
-                Log.d("Ruleta","TimeSpent: "+String.valueOf(timeSpent)+" GetSpeed: "+String.valueOf(getSpeedThroughTime(timeSpent/1000)));
-                mRotatedDegree += getSpeedThroughTime(timeSpent/1000);
-                if(getSpeedThroughTime(timeSpent/1000)<0) {
-                   stopAnimate();
+                Log.d("Ruleta","TimeSpent: "+String.valueOf(timeSpent)+" GetSpeed: "+String.valueOf(getSpeedThroughTime(timeSpent / 1000)));
+                if(getAccelerationThroughTime(timeSpent/ 1000)<0 && getSpeedThroughTime(timeSpent/ 1000)<4){
+                    int degreeLeft= getDegreeLeftClockwise((int)mRotatedDegree,mFinishingAngle);
+                    if (isBetween(degreeLeft, 270, 360)) {
+                        mRotatedDegree += 4+ (double)((double)degreeLeft-270d)/(double)90d;
+                    } else if (isBetween(degreeLeft, 180, 270)) {
+                        mRotatedDegree += 3+ (double)((double)degreeLeft-180d)/(double)90d;
+                    }  else if (isBetween(degreeLeft, 90 , 180)) {
+                        mRotatedDegree += 2+ (double)((double)degreeLeft-90d)/(double)90d;
+                    }   else if (isBetween(degreeLeft, 0, 90)) {
+                        mRotatedDegree += 1+ (double)((double)degreeLeft)/(double)90d;
+                    }
+                    Log.d("Ruleta","DegreeLeft: "+String.valueOf(getDegreeLeftClockwise((int)mRotatedDegree,mFinishingAngle))+ "mRotatedDregree: " + String.valueOf(mRotatedDegree+"fini angle: "+String.valueOf(mFinishingAngle)));
+                    finishing=true;
+                }
+                else
+                    mRotatedDegree += getSpeedThroughTime(timeSpent / 1000);
+
+                //if(getSpeedThroughTime(timeSpent / 1000)<0) {
+
+                if(finishing && isBetween(mRotatedDegree , mFinishingAngle-45+mRandomAngle , mFinishingAngle)){
+                    finishing=false;
+                    stopAnimate();
+                    ShowAlertMessage.showMessage("Rotation Degree:" + String.valueOf(mRotatedDegree),(Activity) mContext);
                 }
                 if (mRotatedDegree > 360) mRotatedDegree -= 360;
 
@@ -149,8 +184,11 @@ public class RotationView extends View {
             }
         }
 
-        public float getSpeedThroughTime(float time){
+        public float getSpeedThroughTime(float time){//Duracion de la tirada -2 * ROTATING_SPEED / ROTATING_ACCELERATION
             return (float) (ROTATING_SPEED * time + 0.5* ROTATING_ACCELERATION * time*time);
+        }
+        public float getAccelerationThroughTime(float time){
+            return (float) (ROTATING_SPEED + ROTATING_ACCELERATION *time);
         }
     }
 
