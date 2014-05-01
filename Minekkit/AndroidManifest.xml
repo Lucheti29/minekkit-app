@@ -87,6 +87,11 @@
             android:configChanges="orientation|screenSize"
             android:label="@string/label_recoxdia">
         </activity>
+        <activity
+            android:name="ar.com.overflowdt.minekkit.configuracion.ConfigActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/label_config">
+        </activity>
         <activity 
             android:name="ar.com.overflowdt.minekkit.login.LoginActivity"
             android:configChanges="orientation|screenSize">
