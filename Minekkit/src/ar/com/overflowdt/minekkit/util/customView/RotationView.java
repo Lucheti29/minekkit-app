@@ -26,8 +26,7 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-
-import java.util.Random;
+import android.widget.ImageView;
 
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
@@ -36,7 +35,7 @@ import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
  * @author chaobin
  * @date 10/23/13.
  */
-public class RotationView extends View{
+public class RotationView extends ImageView {
     private static final double ROTATING_ACCELERATION = -3;
     private final String TAG = "RotationView";
     private final int REFRESH_INTERVAL = 33;
