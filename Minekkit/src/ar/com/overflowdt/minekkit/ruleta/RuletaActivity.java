@@ -84,7 +84,8 @@ public class RuletaActivity extends Activity {
 
     public void toggle(View view) {
         if(!mRotateImage.isRotating())
-            new GetPrize().execute();
+            //new GetPrize().execute();
+            mRotateImage.toggle();
     }
 
 

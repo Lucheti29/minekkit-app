@@ -59,9 +59,9 @@ public class RotationView extends ImageView {
     private boolean mRotateable = true;
     private float mMaxProgress = 100.0f;
     private float timeSpent = 0;
-    private int mFinishingAngle=0;
+    private int mFinishingAngle = 0;
     private String mFinalMessage;
-    private int mRandomAngle= 23;
+    private int mRandomAngle = 23;
 
 
     public RotationView(Context context) {
@@ -105,7 +105,7 @@ public class RotationView extends ImageView {
             if (imageHeight > mViewHeight || imageWidth > mViewWidth) {
                 final int heightRatio = Math.round(imageHeight / (float) mViewHeight);
                 final int widthRatio = Math.round(imageWidth / (float) mViewWidth);
-                inSampleSize = Math.max(heightRatio, widthRatio);
+                //inSampleSize = Math.max(heightRatio, widthRatio);
                 Log.d(TAG, "heightRatio =" + heightRatio + ", widthRatio =" + widthRatio + ", inSampleSize =" + inSampleSize);
             }
             mOptions.inSampleSize = inSampleSize;
@@ -115,11 +115,13 @@ public class RotationView extends ImageView {
             mBitmapHeight = mOptions.outHeight;
             if (mAutoRotate && mRotateable) startAnimate();
         }
-        Log.d(TAG, "RotationView = " + mRotatedDegree);
-        canvas.scale(( mViewHeight/ (float)mBitmapHeight ),mViewWidth / (float)mBitmapWidth );
-        //canvas.translate(Math.abs((mViewWidth - mBitmapWidth) / 2), Math.abs((mViewHeight - mBitmapHeight) / 2));
-        mMatrix.setRotate((int)mRotatedDegree, mBitmapWidth / 2, mBitmapHeight / 2);
-        canvas.drawBitmap(mRotateBackground, mMatrix, mPaint);
+        Log.d(TAG, "RotationView = " + mRotatedDegree + " ViewHeight= " + mViewHeight + " ViewWidth= " + mViewWidth);
+        float lower= mViewHeight>mViewWidth?mViewWidth:mViewHeight;
+        canvas.translate(Math.abs((mViewWidth-lower)/2), Math.abs((mViewHeight-lower)/2));//Translada al centro bien, no como el chino pajero q codeo esto
+        canvas.scale((lower / (float) mBitmapHeight), lower / (float) mBitmapWidth);//escala la iamgen al tamaño de la view
+        mMatrix.setRotate((int) mRotatedDegree, mBitmapWidth / 2, mBitmapHeight / 2);//rota
+        canvas.drawBitmap(mRotateBackground, mMatrix, mPaint);//dibuja
+
     }
 
     @Override
@@ -128,10 +130,30 @@ public class RotationView extends ImageView {
         mViewHeight = View.MeasureSpec.getSize(heightMeasureSpec);
         mViewWidth = View.MeasureSpec.getSize(widthMeasureSpec);
         Log.d(TAG, "mViewHeight =" + mViewHeight + ", mViewWidth =" + mViewWidth);
+
+            mOptions = new BitmapFactory.Options();
+            mOptions.inJustDecodeBounds = true;
+            BitmapFactory.decodeResource(mContext.getResources(), mBitmapResourceId, mOptions);
+            int imageWidth = mOptions.outWidth;
+            int imageHeight = mOptions.outHeight;
+            Log.d(TAG, "OnMeasure imageHeight = " + imageHeight + ", imageWidth =" + imageWidth);
+            int inSampleSize = 1;
+            if (imageHeight > mViewHeight || imageWidth > mViewWidth) {
+                final int heightRatio = Math.round(imageHeight / (float) mViewHeight);
+                final int widthRatio = Math.round(imageWidth / (float) mViewWidth);
+                inSampleSize = Math.max(heightRatio, widthRatio);
+                Log.d(TAG, "heightRatio =" + heightRatio + ", widthRatio =" + widthRatio + ", inSampleSize =" + inSampleSize);
+            }
+            mOptions.inSampleSize = inSampleSize;
+            mOptions.inJustDecodeBounds = false;
+            mRotateBackground = BitmapFactory.decodeResource(mContext.getResources(), mBitmapResourceId, mOptions);
+            mBitmapWidth = mOptions.outWidth;
+            mBitmapHeight = mOptions.outHeight;
+
     }
 
     public void setFinishMessage(String message) {
-        mFinalMessage=message;
+        mFinalMessage = message;
     }
 
     private class RefreshProgressRunnable implements Runnable {
@@ -143,44 +165,48 @@ public class RotationView extends ImageView {
             }
         }
     }
+
     public boolean isBetween(double x, int lower, int upper) {
         return lower <= x && x <= upper;
     }
+
     public int getDegreeLeftClockwise(int a, int b) {
-        return b>=a ? b-a : b-a+360;
+        return b >= a ? b - a : b - a + 360;
     }
-    public void setFinishingAngle(int angle){
-        mFinishingAngle=360-angle;
+
+    public void setFinishingAngle(int angle) {
+        mFinishingAngle = 360 - angle;
     }
+
     private class RefreshProgressDeceleratingRunnable implements Runnable {
-        boolean finishing=false;
+        boolean finishing = false;
+
         public void run() {
             synchronized (RotationView.this) {
-                timeSpent+=REFRESH_INTERVAL;
-                Log.d("Ruleta","TimeSpent: "+String.valueOf(timeSpent)+" GetSpeed: "+String.valueOf(getSpeedThroughTime(timeSpent / 1000)));
-                if(getAccelerationThroughTime(timeSpent/ 1000)<0 && getSpeedThroughTime(timeSpent/ 1000)<4){
-                    int degreeLeft= getDegreeLeftClockwise((int)mRotatedDegree,mFinishingAngle);
+                timeSpent += REFRESH_INTERVAL;
+                Log.d("Ruleta", "TimeSpent: " + String.valueOf(timeSpent) + " GetSpeed: " + String.valueOf(getSpeedThroughTime(timeSpent / 1000)));
+                if (getAccelerationThroughTime(timeSpent / 1000) < 0 && getSpeedThroughTime(timeSpent / 1000) < 4) {
+                    int degreeLeft = getDegreeLeftClockwise((int) mRotatedDegree, mFinishingAngle);
                     if (isBetween(degreeLeft, 270, 360)) {
-                        mRotatedDegree += 4+ (double)((double)degreeLeft-270d)/(double)90d;
+                        mRotatedDegree += 4 + (double) ((double) degreeLeft - 270d) / (double) 90d;
                     } else if (isBetween(degreeLeft, 180, 270)) {
-                        mRotatedDegree += 3+ (double)((double)degreeLeft-180d)/(double)90d;
-                    }  else if (isBetween(degreeLeft, 90 , 180)) {
-                        mRotatedDegree += 2+ (double)((double)degreeLeft-90d)/(double)90d;
-                    }   else if (isBetween(degreeLeft, 0, 90)) {
-                        mRotatedDegree += 1+ (double)((double)degreeLeft)/(double)90d;
+                        mRotatedDegree += 3 + (double) ((double) degreeLeft - 180d) / (double) 90d;
+                    } else if (isBetween(degreeLeft, 90, 180)) {
+                        mRotatedDegree += 2 + (double) ((double) degreeLeft - 90d) / (double) 90d;
+                    } else if (isBetween(degreeLeft, 0, 90)) {
+                        mRotatedDegree += 1 + (double) ((double) degreeLeft) / (double) 90d;
                     }
-                    Log.d("Ruleta","DegreeLeft: "+String.valueOf(getDegreeLeftClockwise((int)mRotatedDegree,mFinishingAngle))+ "mRotatedDregree: " + String.valueOf(mRotatedDegree+"fini angle: "+String.valueOf(mFinishingAngle)));
-                    finishing=true;
-                }
-                else
+                    Log.d("Ruleta", "DegreeLeft: " + String.valueOf(getDegreeLeftClockwise((int) mRotatedDegree, mFinishingAngle)) + "mRotatedDregree: " + String.valueOf(mRotatedDegree + "fini angle: " + String.valueOf(mFinishingAngle)));
+                    finishing = true;
+                } else
                     mRotatedDegree += getSpeedThroughTime(timeSpent / 1000);
 
                 //if(getSpeedThroughTime(timeSpent / 1000)<0) {
 
-                if(finishing && isBetween(mRotatedDegree , mFinishingAngle-45+mRandomAngle , mFinishingAngle)){
-                    finishing=false;
+                if (finishing && isBetween(mRotatedDegree, mFinishingAngle - 45 + mRandomAngle, mFinishingAngle)) {
+                    finishing = false;
                     stopAnimate();
-                    ShowAlertMessage.showMessage(mFinalMessage,(Activity) mContext);
+                    ShowAlertMessage.showMessage(mFinalMessage, (Activity) mContext);
                 }
                 if (mRotatedDegree > 360) mRotatedDegree -= 360;
 
@@ -188,11 +214,12 @@ public class RotationView extends ImageView {
             }
         }
 
-        public float getSpeedThroughTime(float time){//Duracion de la tirada -2 * ROTATING_SPEED / ROTATING_ACCELERATION
-            return (float) (ROTATING_SPEED * time + 0.5* ROTATING_ACCELERATION * time*time);
+        public float getSpeedThroughTime(float time) {//Duracion de la tirada -2 * ROTATING_SPEED / ROTATING_ACCELERATION
+            return (float) (ROTATING_SPEED * time + 0.5 * ROTATING_ACCELERATION * time * time);
         }
-        public float getAccelerationThroughTime(float time){
-            return (float) (ROTATING_SPEED + ROTATING_ACCELERATION *time);
+
+        public float getAccelerationThroughTime(float time) {
+            return (float) (ROTATING_SPEED + ROTATING_ACCELERATION * time);
         }
     }
 
@@ -235,7 +262,7 @@ public class RotationView extends ImageView {
         if (mRotateWorker != null) mRotateWorker.cancel();
         mRotateWorker = null;
         mRotating = false;
-        timeSpent=0;
+        timeSpent = 0;
 
     }
 
@@ -266,7 +293,8 @@ public class RotationView extends ImageView {
         stopAnimate();
         if (mRefreshRunnable != null) removeCallbacks(mRefreshRunnable);
     }
-    public boolean isRotating(){
+
+    public boolean isRotating() {
         return mRotating;
     }
 }
