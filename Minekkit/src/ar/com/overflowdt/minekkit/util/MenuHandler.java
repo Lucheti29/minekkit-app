@@ -8,6 +8,7 @@ import android.view.MenuItem;
 
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.acercade.AcercaDe;
+import ar.com.overflowdt.minekkit.configuracion.ConfigActivity;
 import ar.com.overflowdt.minekkit.login.LoginActivity;
 import ar.com.overflowdt.minekkit.onlineList.OnlineListActivity;
 import ar.com.overflowdt.minekkit.pms.AllPmsActivity;
@@ -30,6 +31,10 @@ public class MenuHandler {
                 nuevaActivity = new Intent(activity, AcercaDe.class);
                 activity.startActivity(nuevaActivity);
                 break;
+            case R.id.menu_opciones:
+                nuevaActivity = new Intent(activity, ConfigActivity.class);
+                activity.startActivity(nuevaActivity);
+                break;
             case R.id.menu_sendPM:
                 nuevaActivity = new Intent(activity, NewPMActivity.class);
                 activity.startActivity(nuevaActivity);
@@ -46,7 +51,6 @@ public class MenuHandler {
                 activity.startActivity(nuevaActivity);
                 break;
             case R.id.menu_logout:
-
                 SharedPreferences preferencias=activity.getSharedPreferences("logindata", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor=preferencias.edit();
                 editor.putString("user", "");
