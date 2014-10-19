@@ -45,6 +45,10 @@ public class MenuHandler {
             case R.id.menu_players_on:
                 nuevaActivity = new Intent(activity, OnlineListActivity.class);
                 activity.startActivity(nuevaActivity);
+                /*Intent i = new Intent(activity,Browser.class);
+                i.putExtra("title","Jugadores Online");
+                i.putExtra("direccion", "minekkit.com/WhosOnline/");
+                activity.startActivity(i);*/
                 break;
             case R.id.menu_perfil:
                 nuevaActivity = new Intent(activity, ProfileActivity.class);
@@ -56,8 +60,8 @@ public class MenuHandler {
                 editor.putString("user", "");
                 editor.putString("pass", "");
                 editor.commit();
-                Intent i = new Intent(activity.getApplicationContext(), LoginActivity.class);
-                activity.startActivity(i);
+                Intent i2 = new Intent(activity.getApplicationContext(), LoginActivity.class);
+                activity.startActivity(i2);
                 activity.finish();
                 break;
         }

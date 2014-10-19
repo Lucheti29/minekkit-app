@@ -192,7 +192,8 @@ public class OnlineListActivity extends ListActivity {
                             OnlineListAdapter.Player item = new OnlineListAdapter.Player();
                             item.name = c;
                             item.face = steveLogo;
-                            String urlImage="https://minotar.net/avatar/"+c+"/50";
+                            //String urlImage="https://minotar.net/avatar/"+c+"/50";
+                            String urlImage="http://belowaverage.ga/API/SKINHEAD/?player="+c+"&size=40";
                             Thread thread = new Thread(new LoadImageThread(urlImage,item), c);
                             threads.add(thread);
                             thread.start();

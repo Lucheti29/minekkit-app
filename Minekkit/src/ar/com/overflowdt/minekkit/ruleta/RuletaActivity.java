@@ -84,8 +84,8 @@ public class RuletaActivity extends Activity {
 
     public void toggle(View view) {
         if(!mRotateImage.isRotating())
-            //new GetPrize().execute();
-            mRotateImage.toggle();
+            new GetPrize().execute();
+            //mRotateImage.toggle();
     }
 
 
@@ -196,7 +196,7 @@ public class RuletaActivity extends Activity {
 
                 switch(success) {
                     case -1:
-                        ShowAlertMessage.showMessage("No tienes m·s intentos.", RuletaActivity.this);
+                        ShowAlertMessage.showMessage("No tienes m√°s intentos.", RuletaActivity.this);
                         break;
                     case 0:
                         ShowAlertMessage.showMessage("Ha ocurrido un error.", RuletaActivity.this);
@@ -204,7 +204,7 @@ public class RuletaActivity extends Activity {
                     case 1:
                         prize = json.getInt(TAG_PRIZE);
                         mRotateImage.setFinishingAngle(prize*45);
-                        mRotateImage.setFinishMessage("°Has ganado " + getRecoplas(prize) + " Recoplas!");
+                        mRotateImage.setFinishMessage("Has ganado " + getRecoplas(prize) + " Recoplas!");
                         intents--;
                         mRotateImage.toggle();
                         runOnUiThread(new Runnable()
