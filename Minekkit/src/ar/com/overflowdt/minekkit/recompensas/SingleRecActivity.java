@@ -182,7 +182,7 @@ public class SingleRecActivity extends Activity {
 
     class BuyAProduct extends AsyncTask<String, String, String> {
 
-        private String url_buy_product= "http://minekkit.com/api/buyPack.php";
+        private String url_buy_product= "http://minekkit.com/api/buyPackReloaded.php";
 
         /**
          * Before starting background thread Show Progress Dialog

@@ -376,88 +376,101 @@
 	              android:layout_height="match_parent"
                  android:weightSum="1">
 
-                 <TextView
-                     android:id="@+id/tv_usuarios"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:text="@string/denuncia_usuarios"
-                     android:layout_marginTop="15dp"
-                     android:textColor="@color/white" />
+                 <ScrollView
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:id="@+id/scrollView4" >
 
-                 <EditText
-                     android:id="@+id/et_usuarios"
-                     android:maxLength="50"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:ems="10"
-                     android:textColor="@color/white"
-                     android:padding="10dp"
-                     android:maxLines="1"
-                     android:minLines="1"
-                     android:layout_marginTop="3dp"
-                     style="@style/Campo.Verde.Mkapp_style">
+                     <LinearLayout
+                         android:orientation="vertical"
+                         android:layout_width="fill_parent"
+                         android:layout_height="fill_parent"
+                         android:id="@+id/linear">
 
-                     <requestFocus />
-                 </EditText>
+                         <TextView
+                             android:id="@+id/tv_usuarios"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="@string/denuncia_usuarios"
+                             android:layout_marginTop="15dp"
+                             android:textColor="@color/white" />
 
-                 <TextView
-                     android:id="@+id/tv_explicacion"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:text="@string/denuncia_explicacion"
-                     android:layout_marginTop="15dp"
-                     android:textColor="@color/white" />
+                         <EditText
+                             android:id="@+id/et_usuarios"
+                             android:maxLength="50"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:ems="10"
+                             android:textColor="@color/white"
+                             android:padding="10dp"
+                             android:maxLines="1"
+                             android:minLines="1"
+                             android:layout_marginTop="3dp"
+                             style="@style/Campo.Verde.Mkapp_style">
 
-                 <EditText
-                     android:id="@+id/et_explicacion"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:ems="10"
-                     android:textColor="@color/white"
-                     android:padding="10dp"
-                     android:maxLines="0"
-                     android:minLines="1"
-                     android:layout_marginTop="3dp"
-                     style="@style/Campo.Verde.Mkapp_style"
-                     android:inputType="textMultiLine"
-                     android:layout_weight="0.54">
+                             <requestFocus />
+                         </EditText>
 
-                     <requestFocus />
-                 </EditText>
+                         <TextView
+                             android:id="@+id/tv_explicacion"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="@string/denuncia_explicacion"
+                             android:layout_marginTop="15dp"
+                             android:textColor="@color/white" />
 
-                 <TextView
-                     android:id="@+id/tv_solucion"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:text="@string/denuncia_solucion"
-                     android:layout_marginTop="15dp"
-                     android:textColor="@color/white" />
+                         <EditText
+                             android:id="@+id/et_explicacion"
+                             android:layout_width="match_parent"
+                             android:layout_height="100dp"
+                             android:ems="10"
+                             android:textColor="@color/white"
+                             android:padding="10dp"
+                             android:maxLines="0"
+                             android:minLines="1"
+                             android:layout_marginTop="3dp"
+                             style="@style/Campo.Verde.Mkapp_style"
+                             android:inputType="textMultiLine"
+                             android:layout_weight="1.47">
 
-                 <EditText
-                     android:id="@+id/et_solucion"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:ems="10"
-                     android:textColor="@color/white"
-                     android:padding="10dp"
-                     android:maxLines="0"
-                     android:minLines="1"
-                     android:layout_marginTop="3dp"
-                     style="@style/Campo.Verde.Mkapp_style"
-                     android:inputType="textMultiLine"
-                     android:layout_weight="0.31">
+                             <requestFocus />
+                         </EditText>
 
-                     <requestFocus />
-                 </EditText>
+                         <TextView
+                             android:id="@+id/tv_solucion"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="@string/denuncia_solucion"
+                             android:layout_marginTop="15dp"
+                             android:textColor="@color/white" />
 
-	           <Button
-	               android:id="@+id/btn_aceptar_login"
-	               android:layout_width="wrap_content"
-	               android:layout_height="wrap_content"
-	               android:text="@string/boton_enviar"
-                   android:onClick="crearDenuncia"
-                   android:layout_gravity="right"
-                   android:layout_marginTop="10px" />
+                         <EditText
+                             android:id="@+id/et_solucion"
+                             android:layout_width="match_parent"
+                             android:layout_height="100dp"
+                             android:ems="10"
+                             android:textColor="@color/white"
+                             android:padding="10dp"
+                             android:maxLines="0"
+                             android:minLines="1"
+                             android:layout_marginTop="3dp"
+                             style="@style/Campo.Verde.Mkapp_style"
+                             android:inputType="textMultiLine"
+                             android:layout_weight="2.06">
+
+                             <requestFocus />
+                         </EditText>
+
+                         <Button
+                           android:id="@+id/btn_aceptar_login"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="@string/boton_enviar"
+                           android:onClick="crearDenuncia"
+                           android:layout_gravity="right"
+                           android:layout_marginTop="10px" />
+                     </LinearLayout>
+                 </ScrollView>
 
              </LinearLayout>
 
