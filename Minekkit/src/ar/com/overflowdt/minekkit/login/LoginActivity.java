@@ -17,6 +17,7 @@ import org.json.JSONObject;
 
 import ar.com.overflowdt.minekkit.MainActivity;
 import ar.com.overflowdt.minekkit.R;
+import ar.com.overflowdt.minekkit.updater.UpdateAppAsyncTask;
 import ar.com.overflowdt.minekkit.util.HttpHandler;
 import ar.com.overflowdt.minekkit.util.Session;
 import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
@@ -117,7 +118,8 @@ public class LoginActivity extends Activity {
                         break;
                     case -1:
                         if(!iniciado) iniciate();
-                        ShowAlertMessage.showMessage(getString(R.string.login_fallo_version),LoginActivity.this);
+                        //ShowAlertMessage.showMessage(getString(R.string.login_fallo_version),LoginActivity.this);
+                        new UpdateAppAsyncTask().setContext(LoginActivity.this).execute();
                         break;
                     case 0:
                         if(!iniciado) iniciate();

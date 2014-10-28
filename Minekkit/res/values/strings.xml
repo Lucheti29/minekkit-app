@@ -10,8 +10,8 @@
     <string name="copyright">Minekkit - Todos los derechos reservados 2012-2014</string>
     
     <string name="recompensas">Recompensas</string>
-    <string name="versionComplete">Versi\u00f3n 0.9 Beta</string>
-    <string name="version">0.9Beta</string>
+    <string name="versionComplete">Versi\u00f3n 0.11 Beta</string>
+    <string name="version">0.10Beta</string>
     <string name="actionbar_perfil">Perfil</string>
     <string name="actionbar_pm">PM</string>
     <string name="actionbar_settings">Opciones</string>
@@ -73,6 +73,7 @@
     <string name="quitar_imagen">Quitar Imagen</string>
     <string name="denuncia_pruebas">Añadir Prueba</string>
     <string name="agregar_imagen">Agregar Imagen</string>
+    <string name="login_actualizando">Actualizando Aplicación</string>
 
     <color name="black">#000000</color>
 	<color name="white">#FFFFFF</color>
