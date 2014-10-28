@@ -70,6 +70,9 @@
     <string name="denunciaFailDatos">No se ha podido crear la Denuncia, verifique los datos ingresados.</string>
     <string name="just_now">Recién</string>
     <string name="label_config">Configuracion</string>
+    <string name="quitar_imagen">Quitar Imagen</string>
+    <string name="denuncia_pruebas">Añadir Prueba</string>
+    <string name="agregar_imagen">Agregar Imagen</string>
 
     <color name="black">#000000</color>
 	<color name="white">#FFFFFF</color>

@@ -1,6 +1,10 @@
 package ar.com.overflowdt.minekkit.denuncia;
 
+import android.graphics.Bitmap;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import ar.com.overflowdt.minekkit.util.Parametro;
 import ar.com.overflowdt.minekkit.interfaces.Enviable;
@@ -19,6 +23,8 @@ public class DenunciaInstance implements Enviable {
 	private String _normas_no_cumplidas = "";
 	private String _explicacion = "";
 	private String _solucion = "";
+
+    public Map<String,Bitmap> attachments = new HashMap<String, Bitmap>();
 	
 	//Id de atributos que se envian por http
     private static String USER_VAR = "user";

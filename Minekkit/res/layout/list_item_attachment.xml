@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#b692c53e">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:id="@+id/img_list_attachment"
+            android:layout_margin="10dp"
+            android:src="@drawable/img_bloque_grass"
+            android:maxHeight="60dp"
+            android:maxWidth="80dp"
+            android:minHeight="60dp"
+            android:minWidth="80dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="file_192109821812089.jpg"
+                android:id="@+id/txt_list_attachment"
+                android:layout_gravity="center"
+                android:layout_marginBottom="3dp"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:layout_marginTop="5dp"
+                android:gravity="right"
+                android:layout_marginRight="10dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/quitar_imagen"
+                android:id="@+id/btn_list_attachment"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

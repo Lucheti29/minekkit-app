@@ -3,6 +3,7 @@ package ar.com.overflowdt.minekkit.recompensas;
 import java.util.List;
 
 
+import android.app.ListActivity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +16,7 @@ import ar.com.overflowdt.minekkit.R;
 public class RecompensasAdapter extends BaseAdapter {
 
 	public List<PackRecompensas> packRecompensasList;
-	AllRecompensasActivity aRA;
+	ListActivity aRA;
 
 	@Override
 	public int getCount() {

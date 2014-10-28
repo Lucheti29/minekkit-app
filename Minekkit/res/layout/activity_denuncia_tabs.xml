@@ -30,6 +30,49 @@
              android:paddingTop="@dimen/activity_vertical_margin">
 
 
+             <LinearLayout android:id="@+id/tab4"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                 android:weightSum="1">
+
+                 <TextView
+                     android:id="@+id/textView6"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/denuncia_pruebas"
+                     android:textAppearance="?android:attr/textAppearanceMedium"
+                     android:layout_gravity="center"
+                     android:textColor="@color/white"
+                     android:textSize="25dp"
+                     android:textStyle="bold" />
+
+                 <LinearLayout
+                     android:orientation="horizontal"
+                     android:layout_width="fill_parent"
+                     android:layout_height="wrap_content">
+
+                     <Button
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="@string/agregar_imagen"
+                         android:id="@+id/btn_add_img" />
+
+                     <Button
+                         android:layout_width="fill_parent"
+                         android:layout_height="wrap_content"
+                         android:text="Tomar Foto"
+                         android:id="@+id/btn_take_photo" />
+                 </LinearLayout>
+
+                 <ListView
+                     android:layout_width="match_parent"
+                     android:layout_height="fill_parent"
+                     android:id="@android:id/list"
+                     android:layout_gravity="center_horizontal" />
+
+             </LinearLayout>
+
              <LinearLayout
                  android:id="@+id/tab1"
                  android:layout_width="match_parent"
@@ -370,23 +413,32 @@
 
              </LinearLayout>
 
-             <LinearLayout android:id="@+id/tab4"
-	              android:orientation="vertical"
-	              android:layout_width="match_parent"
-	              android:layout_height="match_parent"
+             <LinearLayout android:id="@+id/tab5"
+                 android:orientation="vertical"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
                  android:weightSum="1">
 
                  <ScrollView
                      android:layout_width="fill_parent"
                      android:layout_height="fill_parent"
-                     android:id="@+id/scrollView4" >
+                     android:id="@+id/scrollView5" >
 
                      <LinearLayout
                          android:orientation="vertical"
                          android:layout_width="fill_parent"
                          android:layout_height="fill_parent"
                          android:id="@+id/linear">
-
+                         <TextView
+                             android:id="@+id/textView7"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="@string/denuncia_formulario"
+                             android:textAppearance="?android:attr/textAppearanceMedium"
+                             android:layout_gravity="center"
+                             android:textColor="@color/white"
+                             android:textSize="25dp"
+                             android:textStyle="bold" />
                          <TextView
                              android:id="@+id/tv_usuarios"
                              android:layout_width="wrap_content"
@@ -462,13 +514,13 @@
                          </EditText>
 
                          <Button
-                           android:id="@+id/btn_aceptar_login"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:text="@string/boton_enviar"
-                           android:onClick="crearDenuncia"
-                           android:layout_gravity="right"
-                           android:layout_marginTop="10px" />
+                             android:id="@+id/btn_aceptar_login"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="@string/boton_enviar"
+                             android:onClick="crearDenuncia"
+                             android:layout_marginTop="10px"
+                             android:layout_gravity="center_horizontal" />
                      </LinearLayout>
                  </ScrollView>
 

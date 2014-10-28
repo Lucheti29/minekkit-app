@@ -2,11 +2,18 @@ package ar.com.overflowdt.minekkit.util;
 
 import ar.com.overflowdt.minekkit.interfaces.Enviable;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 
 import org.apache.http.HttpEntity;
@@ -15,7 +22,12 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.entity.mime.HttpMultipartMode;
+import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
@@ -27,8 +39,68 @@ public class HttpHandler {
 	
 	private List<NameValuePair> params = new ArrayList<NameValuePair>();
 
-	//public String post(String posturl){
-	public JSONObject post(String posturl, Enviable instancia) throws IOException, JSONException {
+    public JSONObject postWithFile(String posturl, Enviable instancia, Collection<Bitmap> attachments) throws IOException, JSONException {
+        JSONObject result;
+        try {
+
+            HttpClient httpclient = new DefaultHttpClient();
+            HttpPost httppost = new HttpPost(posturl);
+
+            Log.d("SentPArams:", params.toString());
+
+            httppost.setEntity(getMultiPartEntity(instancia,attachments));
+            HttpResponse resp = httpclient.execute(httppost);
+            HttpEntity ent = resp.getEntity();
+
+            // Parsing JSON
+            String retSrc = EntityUtils.toString(ent);
+            Log.d("response",retSrc);
+            //Convertir String a JSON Object
+            result = new JSONObject(retSrc);
+
+            return  result;
+
+        }
+        catch (IOException e) {
+            result = new JSONObject();
+            result.put("success", -100);
+            return  result;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private HttpEntity getMultiPartEntity(Enviable instancia, Collection<Bitmap> attachments) {
+        MultipartEntityBuilder entityBuilder = MultipartEntityBuilder.create();
+        entityBuilder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
+
+        Iterator<Parametro> parametrosIterator = instancia.armarArrayDeParametros().iterator();
+        while(parametrosIterator.hasNext()){
+            Parametro parametroInstancia = parametrosIterator.next();
+            entityBuilder.addTextBody(parametroInstancia.getId(), parametroInstancia.getValor());
+        }
+        Iterator<Bitmap> attachmentsIterator = attachments.iterator();
+        int i=0;
+        while(attachmentsIterator.hasNext()){
+            Bitmap bitmap = attachmentsIterator.next();
+//            Bitmap bitmap= BitmapFactory.decodeFile(f);
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 90, stream); // convert Bitmap to ByteArrayOutputStream
+            InputStream in = new ByteArrayInputStream(stream.toByteArray()); // convert ByteArrayOutputStream to ByteArrayInputStream
+//            final File file = new File(f);
+//            FileBody fb = new FileBody(file, ContentType.create("image/jpeg"));
+            entityBuilder.addBinaryBody("File_" + (i),in,ContentType.create("image/png"),System.currentTimeMillis() + ".png");
+//            entityBuilder.addPart("File_" + (i),fb);
+            Log.d("Photo","File_"+(i));
+            i++;
+        }
+        return entityBuilder.build();
+    }
+
+    public JSONObject post(String posturl, Enviable instancia) throws IOException, JSONException {
         JSONObject result;
 	  try {
 
