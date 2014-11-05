@@ -1,27 +1,34 @@
 package ar.com.overflowdt.minekkit.configuracion;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
+import android.preference.PreferenceActivity;
 
 import ar.com.overflowdt.minekkit.R;
 
-/**
- * Created by Juan on 01/05/14.
- */
-public class ConfigActivity extends Activity {
+public class ConfigActivity extends PreferenceActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_configuracion);
+
+        addPreferencesFromResource(R.xml.settings);
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+//    @Override
+//    protected void onCreate(final Bundle savedInstanceState)
+//    {
+//        super.onCreate(savedInstanceState);
+//        getFragmentManager().beginTransaction().replace(android.R.id.content, new MyPreferenceFragment()).commit();
+//    }
+//
+//    public static class MyPreferenceFragment extends PreferenceFragment
+//    {
+//        @Override
+//        public void onCreate(final Bundle savedInstanceState)
+//        {
+//            super.onCreate(savedInstanceState);
+//            addPreferencesFromResource(R.xml.settings);
+//        }
+//    }
 }

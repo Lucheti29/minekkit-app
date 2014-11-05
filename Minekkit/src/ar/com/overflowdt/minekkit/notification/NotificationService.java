@@ -1,5 +1,6 @@
 package ar.com.overflowdt.minekkit.notification;
 
+import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -11,6 +12,7 @@ import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.IBinder;
 import android.os.PowerManager;
+import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
@@ -67,6 +69,25 @@ public class NotificationService extends Service {
 
         // do the actual work, in a separate thread
         new PollTask().execute();
+
+        setAlarmNotis();
+
+    }
+
+    private void setAlarmNotis() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        int minutes =  Integer.parseInt(prefs.getString("interval","5"));
+        AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
+        Intent i = new Intent(this, NotificationService.class);
+        PendingIntent pi = PendingIntent.getService(this, 0, i, 0);
+        am.cancel(pi);
+        // by my own convention, minutes <= 0 means notifications are disabled
+        if (minutes > 0) {
+            Log.d("Alarm", "Set");
+            am.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                    SystemClock.elapsedRealtime() + minutes*60*1000,
+                    minutes*60*1000, pi);
+        }
     }
 
     private class PollTask extends AsyncTask<Void, Void, Void> {

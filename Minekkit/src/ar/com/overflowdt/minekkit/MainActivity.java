@@ -26,6 +26,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import ar.com.overflowdt.minekkit.acercade.AcercaDe;
+import ar.com.overflowdt.minekkit.configuracion.ConfigActivity;
 import ar.com.overflowdt.minekkit.denuncia.Denuncia;
 import ar.com.overflowdt.minekkit.notification.NotificationService;
 import ar.com.overflowdt.minekkit.pms.AllPmsActivity;
@@ -81,14 +82,14 @@ public class MainActivity extends Activity {
 
     private void setAlarmNotis() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        int minutes = prefs.getInt("interval",5);
+        int minutes =  Integer.parseInt(prefs.getString("interval","5"));
         AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
         Intent i = new Intent(this, NotificationService.class);
         PendingIntent pi = PendingIntent.getService(this, 0, i, 0);
         am.cancel(pi);
         // by my own convention, minutes <= 0 means notifications are disabled
         if (minutes > 0) {
-            Log.d("Alarm", "Set");
+            Log.d("Alarm", "Set in " + String.valueOf(minutes));
             am.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
                     SystemClock.elapsedRealtime() + minutes*60*1000,
                     minutes*60*1000, pi);
@@ -156,6 +157,13 @@ public class MainActivity extends Activity {
 		Intent i = new Intent(this,Denuncia.class);
 		startActivity(i);
 	}
+
+    public void verSettings(View view)
+    {
+        Intent i = new Intent(this,ConfigActivity.class);
+        startActivity(i);
+    }
+
     public void verPms(View view)
     {
         Intent i = new Intent(this,AllPmsActivity.class);
