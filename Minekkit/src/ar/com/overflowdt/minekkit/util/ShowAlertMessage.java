@@ -8,6 +8,17 @@ import android.content.DialogInterface;
  * Created by Fede on 12/03/14.
  */
 public class ShowAlertMessage {
+
+    public static void showMessageWithOkAndCancel(String question, Activity act,DialogInterface.OnClickListener okListener, DialogInterface.OnClickListener cancelListener){
+        final AlertDialog.Builder notlogged = new AlertDialog.Builder(act);
+        notlogged.setTitle("Aviso");
+        notlogged.setMessage(question);
+        notlogged.setCancelable(false);
+        notlogged.setPositiveButton("OK", okListener);
+        notlogged.setNegativeButton("Cancelar",cancelListener);
+        show(act, notlogged);
+    }
+
     public static void showMessage(String message,Activity act) {
         final AlertDialog.Builder notlogged = new AlertDialog.Builder(act);
         notlogged.setTitle("Aviso");

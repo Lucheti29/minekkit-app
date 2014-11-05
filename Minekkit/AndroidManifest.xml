@@ -14,7 +14,7 @@
         android:icon="@drawable/ic_mkapp"
         android:label="@string/app_name"
         android:theme="@style/Theme.Mkapp_style">
-        <!-- theme original: @style/AppTheme-->
+
         <activity
             android:name="ar.com.overflowdt.minekkit.MainActivity"
             android:label="@string/app_name" >

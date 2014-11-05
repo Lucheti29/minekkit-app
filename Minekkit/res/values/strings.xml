@@ -7,11 +7,11 @@
     <string name="acercade1">
         Esta aplicaci\u00f3n fue diseñada, desarrollada y distribuida por droidkkit, un equipo de Overflow DT.
     </string>
-    <string name="copyright">Minekkit - Todos los derechos reservados 2012-2014</string>
+    <string name="copyright">Minekkit – Todos los derechos reservados 2012–2014</string>
     
     <string name="recompensas">Recompensas</string>
-    <string name="versionComplete">Versi\u00f3n 0.11 Beta</string>
-    <string name="version">0.10Beta</string>
+    <string name="versionComplete">Versión</string>
+    <string name="version">0.11Beta</string>
     <string name="actionbar_perfil">Perfil</string>
     <string name="actionbar_pm">PM</string>
     <string name="actionbar_settings">Opciones</string>

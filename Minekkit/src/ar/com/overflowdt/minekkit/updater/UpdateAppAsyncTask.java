@@ -74,6 +74,7 @@ public class UpdateAppAsyncTask extends AsyncTask<Object,String,String> {
         Intent i = new Intent();
         i.setAction(Intent.ACTION_VIEW);
         i.setDataAndType(Uri.fromFile(new File(path)), "application/vnd.android.package-archive" );
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         Log.d("Lofting", "About to install new .apk");
         this.context.startActivity(i);
     }

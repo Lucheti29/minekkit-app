@@ -3,6 +3,7 @@ package ar.com.overflowdt.minekkit.login;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -115,11 +116,25 @@ public class LoginActivity extends Activity {
                     case -100:
                         if(!iniciado) iniciate();
                         ShowAlertMessage.showMessage(getString(R.string.login_fallo_timeout),LoginActivity.this);
+                        user.setText(Session.getInstance().user);
+                        pass.setText(Session.getInstance().pass);
                         break;
                     case -1:
                         if(!iniciado) iniciate();
-                        //ShowAlertMessage.showMessage(getString(R.string.login_fallo_version),LoginActivity.this);
-                        new UpdateAppAsyncTask().setContext(LoginActivity.this).execute();
+                        user.setText(Session.getInstance().user);
+                        pass.setText(Session.getInstance().pass);
+                        ShowAlertMessage.showMessageWithOkAndCancel("Hay una nueva actualización para Minekkit App. ¿Desea instalarla?",LoginActivity.this,
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialogo1, int id) {
+                                        new UpdateAppAsyncTask().setContext(LoginActivity.this).execute();
+                                    }
+                                },
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialogo1, int id) {
+                                        LoginActivity.this.finish();
+                                    }
+                                });
+
                         break;
                     case 0:
                         if(!iniciado) iniciate();
