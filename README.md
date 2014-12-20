@@ -31,12 +31,12 @@
 * Obtener un reco al día: [ICO][CODIGO] [HALF-GUI] [BUGS]
 * PMs Leer/Responder/Enviar: [ICO] [GUI] [CODIGO]
 * ~~Mapa: [ICO] [CODIGO] [LISTO]~~
-* Comprar recompensas: [ICO] [GUI] [CODIGO]
+* ~~Comprar recompensas: [ICO] [GUI] [CODIGO]~~
 * Donar: [ICO]
 * Canjear codigo:
-* Inventario: [ICO] [CODIGO] [HALF-GUI]
+* ~~Inventario: [ICO] [CODIGO] [WEB]~~
 * Listado de items e ID:
-* Perfil: avatar del foro, jobs, nick, cargo, dias restantes de donador, recoplas de la cuenta: [CODIGO] [HALF-GUI]
+* Perfil: ~~avatar del foro, jobs, nick,~~ cargo, dias restantes de donador, ~~recoplas de la cuenta~~ [CODIGO] [HALF-GUI]
 * ~~Crear denuncias: [ICO] [CODIGO]~~
 * ~~Ver quien esta online: [CODIGO] [GUI]~~
 * ~~Consultar wiki: [ICO] [CODIGO]~~

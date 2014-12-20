@@ -2,6 +2,7 @@
 
 /.metadata
 /bin
+/.idea
 
 # Package Files #
 *.jar

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ar.com.overflowdt.minekkit"
+    android:versionCode="1"
+    android:versionName="@string/version">
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_mkapp"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Mkapp_style">
+
+        <activity
+            android:name="ar.com.overflowdt.minekkit.MainActivity"
+            android:label="@string/app_name">
+
+        </activity>
+        <activity
+            android:name="ar.com.overflowdt.minekkit.acercade.AcercaDe"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/label_acercade"></activity>
+        <activity
+            android:name="ar.com.overflowdt.minekkit.ruleta.RuletaActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="Ruleta"></activity>
+        <activity
+            android:name="ar.com.overflowdt.minekkit.pms.NewPMActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/newPM"></activity>
+        <activity
+            android:name="ar.com.overflowdt.minekkit.util.Browser"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/label_wiki"></activity>
+        <activity
+            android:name="ar.com.overflowdt.minekkit.onlineList.OnlineListActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/playersOnline"></activity>
+
+        <!-- All Product Activity -->
+        <activity
+            android:name="ar.com.overflowdt.minekkit.recompensas.AllRecompensasActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/label_recompensas"></activity>
+        <activity
+            android:name="ar.com.overflowdt.minekkit.recompensas.SingleRecActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/label_recompensas"></activity>
+        <activity
+            android:name="ar.com.overflowdt.minekkit.profile.ProfileActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/profile"></activity>
+        <activity
+            android:name="ar.com.overflowdt.minekkit.denuncia.Denuncia"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/label_denuncias"></activity>
+        <activity
+            android:name="ar.com.overflowdt.minekkit.wiki.WikiMain"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/label_wiki"></activity>
+        <activity
+            android:name="ar.com.overflowdt.minekkit.pms.AllPmsActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/label_pms"></activity>
+        <activity
+            android:name="ar.com.overflowdt.minekkit.pms.SinglePMActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/label_pms"></activity>
+        <activity
+            android:name="ar.com.overflowdt.minekkit.recoxdia.ClaimRecoplasActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/label_recoxdia"></activity>
+        <activity
+            android:name="ar.com.overflowdt.minekkit.configuracion.ConfigActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/label_config"></activity>
+        <activity
+            android:name="ar.com.overflowdt.minekkit.login.LoginActivity"
+            android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="ar.com.overflowdt.minekkit.notification.NotificationService"
+            android:enabled="true" />
+        <receiver android:name="ar.com.overflowdt.minekkit.notification.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+</manifest>
