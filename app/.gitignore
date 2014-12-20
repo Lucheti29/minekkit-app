@@ -1,8 +1,8 @@
 *.class
 
 /.metadata
-/bin
 /build
+/bin
 /.idea
 
 # Package Files #
