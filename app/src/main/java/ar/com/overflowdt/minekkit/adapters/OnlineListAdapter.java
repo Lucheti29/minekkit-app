@@ -22,8 +22,8 @@ import ar.com.overflowdt.minekkit.interfaces.ImageLoadable;
 public class OnlineListAdapter extends BaseAdapter {
 
     public static class Player implements ImageLoadable {
-        String name;
-        Bitmap face;
+        public String name;
+        public Bitmap face;
 
         @Override
         public Bitmap getImage() {
@@ -37,7 +37,7 @@ public class OnlineListAdapter extends BaseAdapter {
     }
 
     public List<Player> playersOn;
-    OnlineListActivity activity;
+    public OnlineListActivity activity;
 
     @Override
     public int getCount() {

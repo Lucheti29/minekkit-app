@@ -254,16 +254,15 @@ public class AllRecompensasActivity extends ListActivity {
                                 item.Cost = c.getInt(TAG_COSTO);
                                 item.id = c.getInt(TAG_ID);
                                 item.descripcion = c.getString(TAG_DESC);
-
                                 item.logo = logoChest;
-                                String urlImage = c.getString(TAG_LOGO);
-                                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AllRecompensasActivity.this);
+                                item.urlImage = c.getString(TAG_LOGO);
+/*                                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AllRecompensasActivity.this);
                                 boolean individualImagesEnabled = prefs.getBoolean("individualImagesEnabled", true);
                                 if (individualImagesEnabled) {
                                     Thread thread = new Thread(new LoadImageThread(urlImage, item), item.Name);
                                     threads.add(thread);
                                     thread.start();
-                                }
+                                }*/
                                 packRecompensasList.add(item);
 
                             }

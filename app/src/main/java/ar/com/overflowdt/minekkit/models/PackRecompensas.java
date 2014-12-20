@@ -7,19 +7,20 @@ import java.util.ArrayList;
 import ar.com.overflowdt.minekkit.interfaces.Enviable;
 import ar.com.overflowdt.minekkit.interfaces.ImageLoadable;
 
-public class PackRecompensas implements ImageLoadable, Enviable {
-    int id;
-    String Name;
-    int Cost;
-    Bitmap logo;
-    String descripcion;
+public class PackRecompensas implements Enviable {
+    public int id;
+    public String Name;
+    public int Cost;
+    public Bitmap logo;
+    public String descripcion;
+    public String urlImage;
 
-    @Override
+
     public Bitmap getImage() {
         return logo;
     }
 
-    @Override
+
     public void setImage(Bitmap image) {
         logo = image;
     }

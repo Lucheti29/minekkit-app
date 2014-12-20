@@ -19,7 +19,7 @@ import ar.com.overflowdt.minekkit.models.Job;
  */
 public class JobListAdapter extends BaseAdapter {
     public List<Job> listJobs;
-    ProfileActivity activity;
+    public ProfileActivity activity;
 
     @Override
     public int getCount() {

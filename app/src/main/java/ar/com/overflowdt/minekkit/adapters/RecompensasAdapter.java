@@ -12,13 +12,15 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.models.PackRecompensas;
 
 public class RecompensasAdapter extends BaseAdapter {
 
     public List<PackRecompensas> packRecompensasList;
-    ListActivity aRA;
+    public ListActivity aRA;
 
     @Override
     public int getCount() {
@@ -53,7 +55,7 @@ public class RecompensasAdapter extends BaseAdapter {
         String t = String.valueOf(p.Cost);
         t = t.concat(" Recoplas");
         cost.setText(t);
-        logo.setImageBitmap(p.logo);
+        Picasso.with(aRA).load(p.urlImage).into(logo);
         id.setText(String.valueOf(p.id));
         return arg1;
     }

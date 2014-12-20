@@ -8,12 +8,12 @@ import ar.com.overflowdt.minekkit.interfaces.Enviable;
  * Created by Fede on 01/03/14.
  */
 public class PM implements Enviable {
-    int idpm;
-    String titulo;
-    String from;
-    String to;
-    String content;
-    int read;
+    public int idpm;
+    public String titulo;
+    public String from;
+    public String to;
+    public String content;
+    public int read;
     public long date;
 
     @Override

@@ -4,9 +4,9 @@ package ar.com.overflowdt.minekkit.models;
  * Created by Fede on 23/03/14.
  */
 public class Job {
-    String name;
-    long xp;
-    int level;
+    public String name;
+    public long xp;
+    public int level;
 
     public static int contJobs = 1;
 

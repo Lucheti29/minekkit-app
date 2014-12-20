@@ -22,7 +22,7 @@ import ar.com.overflowdt.minekkit.views.RelativeTimeTextView;
  */
 public class PmListAdapter extends BaseAdapter {
     public List<PM> packPms;
-    AllPmsActivity activity;
+    public AllPmsActivity activity;
 
     @Override
     public int getCount() {
