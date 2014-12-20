@@ -10,7 +10,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
-        <ar.com.overflowdt.minekkit.util.SquareImageView
+        <ar.com.overflowdt.minekkit.views.SquareImageView
             android:id="@+id/logo"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -65,7 +65,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/white" />
 
-            <ar.com.overflowdt.minekkit.util.customView.RelativeTimeTextView
+            <ar.com.overflowdt.minekkit.views.RelativeTimeTextView
                 android:id="@+id/list_item_bottom_right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

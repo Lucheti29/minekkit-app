@@ -24,6 +24,7 @@ android {
 }
 
 dependencies {
+    compile 'com.mcxiaoke.volley:library:1.0.+'
     compile 'org.apache.james:apache-mime4j-core:0.7.2'
     compile 'org.apache.httpcomponents:httpcore:4.3.2'
     compile 'org.apache.httpcomponents:httpmime:4.3.5'

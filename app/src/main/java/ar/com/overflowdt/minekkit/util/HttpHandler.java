@@ -1,6 +1,7 @@
 package ar.com.overflowdt.minekkit.util;
 
 import ar.com.overflowdt.minekkit.interfaces.Enviable;
+import ar.com.overflowdt.minekkit.models.Parametro;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

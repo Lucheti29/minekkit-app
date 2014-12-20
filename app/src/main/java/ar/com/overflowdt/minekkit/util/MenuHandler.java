@@ -7,13 +7,13 @@ import android.content.SharedPreferences;
 import android.view.MenuItem;
 
 import ar.com.overflowdt.minekkit.R;
-import ar.com.overflowdt.minekkit.acercade.AcercaDe;
-import ar.com.overflowdt.minekkit.configuracion.ConfigActivity;
-import ar.com.overflowdt.minekkit.login.LoginActivity;
-import ar.com.overflowdt.minekkit.onlineList.OnlineListActivity;
-import ar.com.overflowdt.minekkit.pms.AllPmsActivity;
-import ar.com.overflowdt.minekkit.pms.NewPMActivity;
-import ar.com.overflowdt.minekkit.profile.ProfileActivity;
+import ar.com.overflowdt.minekkit.activities.AcercaDeActivity;
+import ar.com.overflowdt.minekkit.activities.ConfigActivity;
+import ar.com.overflowdt.minekkit.activities.LoginActivity;
+import ar.com.overflowdt.minekkit.activities.OnlineListActivity;
+import ar.com.overflowdt.minekkit.activities.AllPmsActivity;
+import ar.com.overflowdt.minekkit.activities.NewPMActivity;
+import ar.com.overflowdt.minekkit.activities.ProfileActivity;
 
 /**
  * Created by Juan on 23/02/14.
@@ -28,7 +28,7 @@ public class MenuHandler {
                 activity.startActivity(nuevaActivity);
                 break;
             case R.id.menu_acercaDe:
-                nuevaActivity = new Intent(activity, AcercaDe.class);
+                nuevaActivity = new Intent(activity, AcercaDeActivity.class);
                 activity.startActivity(nuevaActivity);
                 break;
             case R.id.menu_opciones:

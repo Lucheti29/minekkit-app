@@ -21,10 +21,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import ar.com.overflowdt.minekkit.R;
-import ar.com.overflowdt.minekkit.pms.AllPmsActivity;
-import ar.com.overflowdt.minekkit.recoxdia.ClaimRecoplasActivity;
+import ar.com.overflowdt.minekkit.activities.AllPmsActivity;
+import ar.com.overflowdt.minekkit.activities.ClaimRecoplasActivity;
 import ar.com.overflowdt.minekkit.util.HttpHandler;
-import ar.com.overflowdt.minekkit.util.Session;
+import ar.com.overflowdt.minekkit.models.Session;
 
 /**
  * Created by Fede on 20/03/14.

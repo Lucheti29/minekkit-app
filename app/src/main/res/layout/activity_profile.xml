@@ -28,7 +28,7 @@
             android:layout_marginBottom="321dp"
             android:id="@+id/linearLayout">
 
-            <ar.com.overflowdt.minekkit.util.SquareImageView
+            <ar.com.overflowdt.minekkit.views.SquareImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/profile_avatar"

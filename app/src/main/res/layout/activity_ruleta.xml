@@ -63,7 +63,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp" />
 
-        <ar.com.overflowdt.minekkit.util.customView.RotationView
+        <ar.com.overflowdt.minekkit.views.RotationView
             android:id="@+id/ruleta_logo"
             android:layout_width="0dp"
             android:layout_height="0dp"

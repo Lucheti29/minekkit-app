@@ -16,20 +16,20 @@
         android:theme="@style/Theme.Mkapp_style">
 
         <activity
-            android:name="ar.com.overflowdt.minekkit.MainActivity"
+            android:name=".activities.MainActivity"
             android:label="@string/app_name">
 
         </activity>
         <activity
-            android:name="ar.com.overflowdt.minekkit.acercade.AcercaDe"
+            android:name=".activities.AcercaDeActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/label_acercade"></activity>
         <activity
-            android:name="ar.com.overflowdt.minekkit.ruleta.RuletaActivity"
+            android:name=".activities.RuletaActivity"
             android:configChanges="orientation|screenSize"
             android:label="Ruleta"></activity>
         <activity
-            android:name="ar.com.overflowdt.minekkit.pms.NewPMActivity"
+            android:name=".activities.NewPMActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/newPM"></activity>
         <activity
@@ -37,49 +37,49 @@
             android:configChanges="orientation|screenSize"
             android:label="@string/label_wiki"></activity>
         <activity
-            android:name="ar.com.overflowdt.minekkit.onlineList.OnlineListActivity"
+            android:name=".activities.OnlineListActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/playersOnline"></activity>
 
         <!-- All Product Activity -->
         <activity
-            android:name="ar.com.overflowdt.minekkit.recompensas.AllRecompensasActivity"
+            android:name=".activities.AllRecompensasActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/label_recompensas"></activity>
         <activity
-            android:name="ar.com.overflowdt.minekkit.recompensas.SingleRecActivity"
+            android:name=".activities.SingleRecActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/label_recompensas"></activity>
         <activity
-            android:name="ar.com.overflowdt.minekkit.profile.ProfileActivity"
+            android:name=".activities.ProfileActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/profile"></activity>
         <activity
-            android:name="ar.com.overflowdt.minekkit.denuncia.Denuncia"
+            android:name=".activities.DenunciaActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/label_denuncias"></activity>
         <activity
-            android:name="ar.com.overflowdt.minekkit.wiki.WikiMain"
+            android:name=".activities.WikiMainActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/label_wiki"></activity>
         <activity
-            android:name="ar.com.overflowdt.minekkit.pms.AllPmsActivity"
+            android:name=".activities.AllPmsActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/label_pms"></activity>
         <activity
-            android:name="ar.com.overflowdt.minekkit.pms.SinglePMActivity"
+            android:name=".activities.SinglePMActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/label_pms"></activity>
         <activity
-            android:name="ar.com.overflowdt.minekkit.recoxdia.ClaimRecoplasActivity"
+            android:name=".activities.ClaimRecoplasActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/label_recoxdia"></activity>
         <activity
-            android:name="ar.com.overflowdt.minekkit.configuracion.ConfigActivity"
+            android:name=".activities.ConfigActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/label_config"></activity>
         <activity
-            android:name="ar.com.overflowdt.minekkit.login.LoginActivity"
+            android:name=".activities.LoginActivity"
             android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

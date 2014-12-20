@@ -2,7 +2,7 @@ package ar.com.overflowdt.minekkit.interfaces;
 
 import java.util.ArrayList;
 
-import ar.com.overflowdt.minekkit.util.Parametro;
+import ar.com.overflowdt.minekkit.models.Parametro;
 
 public interface Enviable {
 
