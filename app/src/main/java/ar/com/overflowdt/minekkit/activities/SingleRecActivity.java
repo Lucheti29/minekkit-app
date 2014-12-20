@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
@@ -149,13 +151,7 @@ public class SingleRecActivity extends Activity {
                     pack.Name = c.getString(TAG_NAME);
                     pack.Cost = c.getInt(TAG_COSTO);
                     pack.descripcion = c.getString(TAG_DESC);
-                    try {
-                        URL newurl = new URL(c.getString(TAG_LOGO));
-                        pack.logo = (BitmapFactory.decodeStream(newurl.openConnection().getInputStream()));
-                    } catch (IOException e) {
-
-                        e.printStackTrace();
-                    }
+                    pack.urlImage = c.getString(TAG_LOGO);
 
 
                 }
@@ -177,7 +173,7 @@ public class SingleRecActivity extends Activity {
             titulo.setText(pack.Name);
             costo.setText(String.valueOf(pack.Cost) + " Recoplas");
             desc.setText(pack.descripcion);
-            logo.setImageBitmap(pack.logo);
+            Picasso.with(SingleRecActivity.this).load(pack.urlImage).into(logo);
         }
     }
 

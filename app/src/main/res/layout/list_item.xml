@@ -1,59 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical">
-    <!-- Product id (pid) - will be HIDDEN - used to pass to other activity -->
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
 
-        <ar.com.overflowdt.minekkit.views.SquareImageView
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="8dp">
+
+        <ImageView
             android:id="@+id/logo"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:minWidth="50dp"
-            android:minHeight="50dp"
+            android:layout_alignParentTop="false"
             android:adjustViewBounds="true"
             android:src="@drawable/ic_launcher" />
 
+
         <LinearLayout
-            android:orientation="vertical"
+            android:id="@+id/name_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="5dp">
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/logo"
+            android:layout_toEndOf="@+id/logo">
 
             <TextView
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/logo"
                 android:text="CodeLearn Chapter 1"
+                android:lines="1"
+                android:ellipsize="end"
+                android:textColor="@color/white"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/white" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/costo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/logo"
                 android:layout_alignLeft="@+id/name"
-                android:text="Description"
                 android:paddingTop="2dp"
+                android:text="Description"
                 android:textColor="@color/white" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:gravity="right"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp"
+            android:gravity="center_vertical|right"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/list_item_upper_right"
@@ -61,26 +70,27 @@
                 android:layout_height="wrap_content"
                 android:gravity="right"
                 android:text=""
+                android:textColor="@color/white"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/white" />
+                android:textStyle="bold" />
 
             <ar.com.overflowdt.minekkit.views.RelativeTimeTextView
                 android:id="@+id/list_item_bottom_right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:text=""
                 android:paddingTop="2dp"
-                android:textColor="@color/white" />
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="12sp" />
         </LinearLayout>
 
-    </LinearLayout>
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/pid"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:visibility="gone" />
-
 </LinearLayout>
