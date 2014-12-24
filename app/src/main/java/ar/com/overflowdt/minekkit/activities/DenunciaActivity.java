@@ -13,6 +13,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -39,7 +41,7 @@ import ar.com.overflowdt.minekkit.util.HttpHandler;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
 import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 
-public class DenunciaActivity extends ListActivity {
+public class DenunciaActivity extends ActionBarActivity {
     // url to get all pms list
     private static String url = "http://minekkit.com/api/crearDenuncia.php";
     // JSON Node names
@@ -128,7 +130,7 @@ public class DenunciaActivity extends ListActivity {
         et_normas = (EditText) findViewById(R.id.et_normas);
         btn_photo = (Button) findViewById(R.id.btn_take_photo);
         btn_add_img = (Button) findViewById(R.id.btn_add_img);
-        ListView list_attachments = getListView();
+        ListView list_attachments = (ListView) findViewById(R.id.denuncia_list);
         adapter = new AttachmentsAdapter(denuncia.attachments, DenunciaActivity.this);
         list_attachments.setAdapter(adapter);
         btn_photo.setOnClickListener(new View.OnClickListener() {
@@ -172,6 +174,7 @@ public class DenunciaActivity extends ListActivity {
             }
         });
 
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
     }
 
     private File createImageFile() throws IOException {
@@ -241,11 +244,12 @@ public class DenunciaActivity extends ListActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return true;
     }
 
     @Override
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         MenuHandler menuHandler = new MenuHandler();
         return menuHandler.bindearLogica(item, this);
     }

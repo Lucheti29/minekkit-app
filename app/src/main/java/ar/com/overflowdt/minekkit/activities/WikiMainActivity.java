@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,7 +16,7 @@ import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.util.Browser;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
 
-public class WikiMainActivity extends Activity {
+public class WikiMainActivity extends ActionBarActivity {
 
     private EditText etWiki;
     private static final String WIKI_URL_PART_1 = "minekkit.com/wiki/index.php?title=Especial%3ABuscar&profile=default&search=";
@@ -38,12 +40,14 @@ public class WikiMainActivity extends Activity {
         TextView buttonWiki = (TextView) findViewById(R.id.buttonWiki);
         buttonWiki.setTypeface(mecha_Condensed_Bold);
 
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return true;
     }
 

@@ -18,78 +18,79 @@
 
 <resources>
 
-    <style name="Theme.Mkapp_style" parent="@android:style/Theme.Holo.Light.DarkActionBar">
-        <item name="android:actionBarItemBackground">@drawable/selectable_background_mkapp_style
+    <style name="Theme.Mkapp_style" parent="@style/Theme.AppCompat">
+        <item name="actionBarItemBackground">@drawable/selectable_background_mkapp_style
         </item>
-        <item name="android:popupMenuStyle">@style/PopupMenu.Mkapp_style</item>
+        <item name="popupMenuStyle">@style/PopupMenu.Mkapp_style</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Mkapp_style</item>
-        <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Mkapp_style</item>
-        <item name="android:actionDropDownStyle">@style/DropDownNav.Mkapp_style</item>
-        <item name="android:actionBarStyle">@style/ActionBar.Solid.Mkapp_style</item>
-        <item name="android:actionModeBackground">@drawable/cab_background_top_mkapp_style</item>
-        <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_mkapp_style
+        <item name="actionBarTabStyle">@style/ActionBarTabStyle.Mkapp_style</item>
+        <item name="actionDropDownStyle">@style/DropDownNav.Mkapp_style</item>
+        <item name="windowActionBar">false</item>
+        <item name="actionBarStyle">@style/ActionBar.Solid.Mkapp_style</item>
+        <item name="actionModeBackground">@drawable/cab_background_top_mkapp_style</item>
+        <item name="actionModeSplitBackground">@drawable/cab_background_bottom_mkapp_style
         </item>
-        <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Mkapp_style
+        <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Mkapp_style
         </item>
 
         <!-- Light.DarkActionBar specific -->
-        <item name="android:actionBarWidgetTheme">@style/Theme.Mkapp_style.Widget</item>
+        <item name="actionBarWidgetTheme">@style/Theme.Mkapp_style.Widget</item>
 
     </style>
 
-    <style name="ActionBar.Solid.Mkapp_style" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+    <style name="ActionBar.Solid.Mkapp_style" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@drawable/ab_solid_mkapp_style</item>
-        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_mkapp_style</item>
-        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_mkapp_style</item>
+        <item name="backgroundStacked">@drawable/ab_stacked_solid_mkapp_style</item>
+        <item name="backgroundSplit">@drawable/ab_bottom_solid_mkapp_style</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Mkapp_style</item>
     </style>
 
-    <style name="ActionBar.Transparent.Mkapp_style" parent="@android:style/Widget.Holo.ActionBar">
+    <style name="ActionBar.Transparent.Mkapp_style" parent="@style/Widget.AppCompat.ActionBar">
         <item name="android:background">@drawable/ab_transparent_mkapp_style</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Mkapp_style</item>
     </style>
 
-    <style name="PopupMenu.Mkapp_style" parent="@android:style/Widget.Holo.ListPopupWindow">
+    <style name="PopupMenu.Mkapp_style" parent="@style/Widget.AppCompat.ListPopupWindow">
         <item name="android:popupBackground">@drawable/menu_dropdown_panel_mkapp_style</item>
     </style>
 
-    <style name="DropDownListView.Mkapp_style" parent="@android:style/Widget.Holo.ListView.DropDown">
+    <style name="DropDownListView.Mkapp_style" parent="@style/Widget.AppCompat.ListView.DropDown">
         <item name="android:listSelector">@drawable/selectable_background_mkapp_style</item>
     </style>
 
-    <style name="ActionBarTabStyle.Mkapp_style" parent="@android:style/Widget.Holo.ActionBar.TabView">
+    <style name="ActionBarTabStyle.Mkapp_style" parent="@style/Widget.AppCompat.ActionBar.TabView">
         <item name="android:background">@drawable/tab_indicator_ab_mkapp_style</item>
     </style>
 
-    <style name="DropDownNav.Mkapp_style" parent="@android:style/Widget.Holo.Spinner">
+    <style name="DropDownNav.Mkapp_style" parent="@style/Widget.AppCompat.Spinner">
         <item name="android:background">@drawable/spinner_background_ab_mkapp_style</item>
         <item name="android:popupBackground">@drawable/menu_dropdown_panel_mkapp_style</item>
         <item name="android:dropDownSelector">@drawable/selectable_background_mkapp_style</item>
     </style>
 
-    <style name="ProgressBar.Mkapp_style" parent="@android:style/Widget.Holo.ProgressBar.Horizontal">
+    <style name="ProgressBar.Mkapp_style" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
         <item name="android:progressDrawable">@drawable/progress_horizontal_mkapp_style</item>
     </style>
 
-    <style name="ActionButton.CloseMode.Mkapp_style" parent="@android:style/Widget.Holo.ActionButton.CloseMode">
+    <style name="ActionButton.CloseMode.Mkapp_style" parent="@style/Widget.AppCompat.ActionButton.CloseMode">
         <item name="android:background">@drawable/btn_cab_done_mkapp_style</item>
     </style>
 
     <!-- this style is only referenced in a Light.DarkActionBar based theme -->
-    <style name="Theme.Mkapp_style.Widget" parent="@android:style/Theme.Holo">
-        <item name="android:popupMenuStyle">@style/PopupMenu.Mkapp_style</item>
+    <style name="Theme.Mkapp_style.Widget" parent="@style/Theme.AppCompat">
+        <item name="popupMenuStyle">@style/PopupMenu.Mkapp_style</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Mkapp_style</item>
     </style>
 
     <!-- Estilos custom de Minekkit-->
-    <style name="Boton.Mkapp_style" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+    <style name="Boton.Mkapp_style" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/mk_azul_1</item>
         <item name="android:textColor">@color/mk_blanco_1</item>
         <item name="android:textStyle">bold</item>
         <item name="android:padding">10dp</item>
     </style>
 
-    <style name="Campo.Verde.Mkapp_style" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+    <style name="Campo.Verde.Mkapp_style" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/mk_verde_1</item>
         <item name="android:textColor">@color/mk_blanco_1</item>
         <item name="android:padding">10dp</item>

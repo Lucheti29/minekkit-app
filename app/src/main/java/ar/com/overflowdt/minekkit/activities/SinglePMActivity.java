@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
@@ -27,7 +29,7 @@ import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 /**
  * Created by Fede on 01/03/14.
  */
-public class SinglePMActivity extends Activity {
+public class SinglePMActivity extends ActionBarActivity {
 
     TextView titulo;
     TextView from;
@@ -68,13 +70,14 @@ public class SinglePMActivity extends Activity {
         TextView btn_responder = (TextView) findViewById(R.id.btn_responder);
         btn_responder.setTypeface(mecha_Condensed_Bold);
 
-
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return true;
     }
 

@@ -5,6 +5,8 @@ import android.app.ProgressDialog;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,7 +28,7 @@ import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 /**
  * Created by Fede on 21/03/14.
  */
-public class NewPMActivity extends Activity {
+public class NewPMActivity extends ActionBarActivity {
 
     TextView titulo;
     TextView from;
@@ -72,7 +74,7 @@ public class NewPMActivity extends Activity {
         btn_responder = (Button) findViewById(R.id.btn_enviarPM);
         btn_responder.setTypeface(mecha_Condensed_Bold);
 
-
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
     }
 
     public void enviarMensaje(View view) {
@@ -83,6 +85,7 @@ public class NewPMActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return true;
     }
 

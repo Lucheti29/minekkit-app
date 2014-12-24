@@ -79,6 +79,8 @@
     <string name="pref_sync_frequency">Frecuencia de Sincronización</string>
     <string name="pref_sync_frequency_summary">Elegir la frecuencia</string>
     <string name="pref_update_setting">Configuración de PMs</string>
+    <string name="drawer_open">Abierto</string>
+    <string name="drawer_close">Cerrado</string>
 
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>

@@ -4,6 +4,10 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
     <TabHost
         android:id="@android:id/tabhost"
         android:layout_width="match_parent"
@@ -258,7 +262,7 @@
                     <ListView
                         android:layout_width="match_parent"
                         android:layout_height="fill_parent"
-                        android:id="@android:id/list"
+                        android:id="@+id/denuncia_list"
                         android:layout_gravity="center_horizontal" />
 
                 </LinearLayout>

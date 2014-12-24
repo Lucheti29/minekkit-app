@@ -1,5 +1,6 @@
 package ar.com.overflowdt.minekkit.activities;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -7,6 +8,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,7 +37,7 @@ import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 /**
  * Created by Fede on 23/03/14.
  */
-public class ProfileActivity extends Activity {
+public class ProfileActivity extends ActionBarActivity {
 
 
     // Progress Dialog
@@ -70,13 +73,14 @@ public class ProfileActivity extends Activity {
         // Get listview
         lv = (ListView) findViewById(R.id.listJob_listview);
 
-
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return true;
     }
 

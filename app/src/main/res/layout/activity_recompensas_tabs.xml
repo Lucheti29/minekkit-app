@@ -5,6 +5,10 @@
     android:layout_width="match_parent"
     android:background="@drawable/bg_640x960_3">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
     <TabHost
         android:id="@android:id/tabhost"
         android:layout_width="match_parent"
@@ -54,7 +58,7 @@
                     android:orientation="vertical">
 
                     <ListView
-                        android:id="@android:id/list"
+                        android:id="@+id/list1_recompensas"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:background="#8092c53e" />

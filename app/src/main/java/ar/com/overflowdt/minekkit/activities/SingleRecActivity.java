@@ -6,6 +6,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,7 +35,7 @@ import ar.com.overflowdt.minekkit.util.JSONParser;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
 import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 
-public class SingleRecActivity extends Activity {
+public class SingleRecActivity extends ActionBarActivity {
 
     private static final String TAG_DESCUENTO = "descuento";
     private static final String TAG_RECOPLAS = "recoplas";
@@ -84,12 +86,14 @@ public class SingleRecActivity extends Activity {
         TextView btn_compra = (TextView) findViewById(R.id.btn_compra);
         btn_compra.setTypeface(mecha_Condensed_Bold);
 
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return true;
     }
 

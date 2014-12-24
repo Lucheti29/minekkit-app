@@ -1,15 +1,14 @@
 package ar.com.overflowdt.minekkit.activities;
 
-import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,14 +31,13 @@ import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.models.PackRecompensas;
 import ar.com.overflowdt.minekkit.adapters.RecompensasAdapter;
 import ar.com.overflowdt.minekkit.util.JSONParser;
-import ar.com.overflowdt.minekkit.util.LoadImageThread;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
 import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 
 //import android.widget.ListView;
 
 
-public class AllRecompensasActivity extends ListActivity {
+public class AllRecompensasActivity extends ActionBarActivity {
 
     // Progress Dialog
     private ProgressDialog pDialog;
@@ -65,6 +63,7 @@ public class AllRecompensasActivity extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recompensas_tabs);
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
 
         Resources res = getResources();
 
@@ -110,8 +109,7 @@ public class AllRecompensasActivity extends ListActivity {
 
         // Get listview
         arrayListViews = new ArrayList<ListView>();
-        ListView lv = getListView();
-        arrayListViews.add(lv);
+        arrayListViews.add((ListView) findViewById(R.id.list1_recompensas));
         arrayListViews.add((ListView) findViewById(R.id.list2_recompensas));
         arrayListViews.add((ListView) findViewById(R.id.list3_recompensas));
         arrayListViews.add((ListView) findViewById(R.id.list4_recompensas));
@@ -145,6 +143,7 @@ public class AllRecompensasActivity extends ListActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return true;
     }
 
@@ -303,7 +302,7 @@ public class AllRecompensasActivity extends ListActivity {
                     for (int j = 0; j < 4; j++) {
                         RecompensasAdapter adapter = new RecompensasAdapter();
 
-                        adapter.aRA = AllRecompensasActivity.this;
+                        adapter.context = AllRecompensasActivity.this;
                         adapter.packRecompensasList = arrayPacks.get(j);
                         // updating listview
                         arrayListViews.get(j).setAdapter(adapter);

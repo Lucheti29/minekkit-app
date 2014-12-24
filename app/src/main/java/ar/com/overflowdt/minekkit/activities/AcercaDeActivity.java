@@ -3,13 +3,15 @@ package ar.com.overflowdt.minekkit.activities;
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 
 import ar.com.overflowdt.minekkit.R;
 
-public class AcercaDeActivity extends Activity {
+public class AcercaDeActivity extends ActionBarActivity {
 
     private Button btn_volver;
 
@@ -27,12 +29,14 @@ public class AcercaDeActivity extends Activity {
 
         btn_volver.setTypeface(mecha_Condensed_Bold);
 
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return true;
     }
 

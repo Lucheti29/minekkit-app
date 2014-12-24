@@ -141,30 +141,6 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent">
-
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/imageButton"
-                        android:src="@drawable/btn_inventario" />
-
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/imageButton2"
-                        android:src="@drawable/btn_inventario" />
-
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/imageButton3"
-                        android:src="@drawable/btn_inventario" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:layout_marginTop="15dp">
 

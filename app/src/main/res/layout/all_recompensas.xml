@@ -7,6 +7,10 @@
     <!-- Main ListView
          Always give id value as list(@android:id/list)
     -->
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
     <ListView
         android:id="@android:id/list"
         android:layout_width="fill_parent"

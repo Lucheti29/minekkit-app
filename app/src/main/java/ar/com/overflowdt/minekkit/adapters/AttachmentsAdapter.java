@@ -1,5 +1,6 @@
 package ar.com.overflowdt.minekkit.adapters;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -24,9 +25,9 @@ import ar.com.overflowdt.minekkit.R;
 public class AttachmentsAdapter extends BaseAdapter {
 
     public Map<String, Bitmap> attachments;
-    ListActivity activity;
+    Activity activity;
 
-    public AttachmentsAdapter(Map<String, Bitmap> data, ListActivity act) {
+    public AttachmentsAdapter(Map<String, Bitmap> data, Activity act) {
         activity = act;
         attachments = data;
     }

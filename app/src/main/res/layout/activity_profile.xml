@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_640x960_3">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
     <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"

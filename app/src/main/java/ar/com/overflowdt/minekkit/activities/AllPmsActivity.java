@@ -1,10 +1,11 @@
 package ar.com.overflowdt.minekkit.activities;
 
-import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -31,11 +32,10 @@ import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 /**
  * Created by Fede on 01/03/14.
  */
-public class AllPmsActivity extends ListActivity {
+public class AllPmsActivity extends ActionBarActivity {
     // Progress Dialog
     private ProgressDialog pDialog;
-
-
+    ListView lv;
     List<PM> packPMs;
     // url to get all pms list
     private static String url = "http://minekkit.com/api/listPms.php";
@@ -64,7 +64,7 @@ public class AllPmsActivity extends ListActivity {
         new LoadAllPms().execute();
 
         // Get listview
-        ListView lv = getListView();
+        lv = (ListView) findViewById(R.id.list_pms);
 
 //         on seleting single product
 //         launching Edit Product Screen
@@ -87,13 +87,14 @@ public class AllPmsActivity extends ListActivity {
 //                startActivityForResult(in, 100);
             }
         });
-
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return true;
     }
 
@@ -209,7 +210,7 @@ public class AllPmsActivity extends ListActivity {
                     adapter.activity = AllPmsActivity.this;
                     adapter.packPms = packPMs;
                     // updating listview
-                    setListAdapter(adapter);
+                    lv.setAdapter(adapter);
                 }
             });
 

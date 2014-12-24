@@ -10,6 +10,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import ar.com.overflowdt.minekkit.R;
@@ -24,6 +26,7 @@ public class OnlineListAdapter extends BaseAdapter {
     public static class Player implements ImageLoadable {
         public String name;
         public Bitmap face;
+        public String urlImage;
 
         @Override
         public Bitmap getImage() {
@@ -73,6 +76,7 @@ public class OnlineListAdapter extends BaseAdapter {
         title.setTypeface(null, Typeface.BOLD);
 
         from.setText("Online");
+        Picasso.with(activity).load(p.urlImage).into(logo);
         logo.setImageBitmap(p.face);
         //idpm.setText(String.valueOf(p.idpm));
         //DateFormat dateFormat = new SimpleDateFormat("HH:mm dd-MM");

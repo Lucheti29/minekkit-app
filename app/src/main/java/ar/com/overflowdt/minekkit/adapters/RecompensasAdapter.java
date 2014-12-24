@@ -3,7 +3,7 @@ package ar.com.overflowdt.minekkit.adapters;
 import java.util.List;
 
 
-import android.app.ListActivity;
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +20,7 @@ import ar.com.overflowdt.minekkit.models.PackRecompensas;
 public class RecompensasAdapter extends BaseAdapter {
 
     public List<PackRecompensas> packRecompensasList;
-    public ListActivity aRA;
+    public Activity context;
 
     @Override
     public int getCount() {
@@ -42,7 +42,7 @@ public class RecompensasAdapter extends BaseAdapter {
     @Override
     public View getView(int arg0, View arg1, ViewGroup arg2) {
         if (arg1 == null) {
-            LayoutInflater inflater = (LayoutInflater) aRA.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             arg1 = inflater.inflate(R.layout.list_item, arg2, false);
         }
         TextView name = (TextView) arg1.findViewById(R.id.name);
@@ -55,7 +55,7 @@ public class RecompensasAdapter extends BaseAdapter {
         String t = String.valueOf(p.Cost);
         t = t.concat(" Recoplas");
         cost.setText(t);
-        Picasso.with(aRA).load(p.urlImage).into(logo);
+        Picasso.with(context).load(p.urlImage).into(logo);
         id.setText(String.valueOf(p.id));
         return arg1;
     }

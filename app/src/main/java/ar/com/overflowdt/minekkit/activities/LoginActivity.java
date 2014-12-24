@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +24,7 @@ import ar.com.overflowdt.minekkit.util.HttpHandler;
 import ar.com.overflowdt.minekkit.models.Session;
 import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends ActionBarActivity {
 
     EditText user;
     EditText pass;
@@ -46,11 +48,12 @@ public class LoginActivity extends Activity {
             iniciado = true;
             iniciate();
         }
+
     }
 
     private void iniciate() {
         setContentView(R.layout.login_activity);
-
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         user = (EditText) findViewById(R.id.login_user);
         pass = (EditText) findViewById(R.id.login_pass);
         aceptar = (Button) findViewById(R.id.btn_aceptar_login);

@@ -6,6 +6,8 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,7 +29,7 @@ import ar.com.overflowdt.minekkit.views.RotationView;
 /**
  * Created by Fede on 29/04/14.
  */
-public class RuletaActivity extends Activity {
+public class RuletaActivity extends ActionBarActivity {
 
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_INTENTS = "intentos";
@@ -67,12 +69,15 @@ public class RuletaActivity extends Activity {
         btn_compra.setTypeface(mecha_Condensed_Bold);
 
         new GetIntents().execute();
+
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return true;
     }
 

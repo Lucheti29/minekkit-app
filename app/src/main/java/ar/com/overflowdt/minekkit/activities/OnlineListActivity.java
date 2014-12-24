@@ -1,5 +1,6 @@
 package ar.com.overflowdt.minekkit.activities;
 
+import android.app.ActionBar;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -7,6 +8,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,7 +33,7 @@ import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 /**
  * Created by Fede on 23/03/14.
  */
-public class OnlineListActivity extends ListActivity {
+public class OnlineListActivity extends ActionBarActivity {
     // Progress Dialog
     private ProgressDialog pDialog;
 
@@ -60,30 +63,7 @@ public class OnlineListActivity extends ListActivity {
         // Loading playersOn in Background Thread
         new LoadPlayersOnline().execute();
 
-        // Get listview
-        ListView lv = getListView();
-
-//         on seleting single product
-//         launching Edit Product Screen
-//        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view,
-//                                    int position, long id) {
-//                // getting values from selected ListItem
-//                String pid = ((TextView) view.findViewById(R.id.pid)).getText().toString();
-//
-//                // Starting new intent
-//                Intent in = new Intent(OnlineListActivity.this, SinglePMActivity.class);
-//                // sending pid to next activity
-//                in.putExtra(TAG_ID, pid);
-//
-//
-//                startActivityForResult(in, 100);
-//                // starting new activity and expecting some response back
-////                startActivityForResult(in, 100);
-//            }
-//        });
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
 
     }
 
@@ -91,6 +71,7 @@ public class OnlineListActivity extends ListActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return true;
     }
 
@@ -194,10 +175,8 @@ public class OnlineListActivity extends ListActivity {
                             item.name = c;
                             item.face = steveLogo;
                             //String urlImage="https://minotar.net/avatar/"+c+"/50";
-                            String urlImage = "http://belowaverage.ga/API/SKINHEAD/?player=" + c + "&size=40";
-                            Thread thread = new Thread(new LoadImageThread(urlImage, item), c);
-                            threads.add(thread);
-                            thread.start();
+                            item.urlImage = "http://belowaverage.ga/API/SKINHEAD/?player=" + c + "&size=40";
+
 
                             playerList.add(item);
                         }
@@ -230,7 +209,8 @@ public class OnlineListActivity extends ListActivity {
                     adapter.activity = OnlineListActivity.this;
                     adapter.playersOn = playerList;
                     // updating listview
-                    setListAdapter(adapter);
+                    ListView list = (ListView) findViewById(R.id.online_list);
+                    list.setAdapter(adapter);
                 }
             });
 
