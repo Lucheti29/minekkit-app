@@ -38,6 +38,10 @@
 
     </style>
 
+    <style name="Theme.Mkapp_style.Drawer" parent="Theme.Mkapp_style">
+        <item name="windowActionBar">true</item>
+    </style>
+
     <style name="ActionBar.Solid.Mkapp_style" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@drawable/ab_solid_mkapp_style</item>
         <item name="backgroundStacked">@drawable/ab_stacked_solid_mkapp_style</item>

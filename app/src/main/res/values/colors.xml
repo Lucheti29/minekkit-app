@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="red">#FF0000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="light_gray">#A0A0A0</color>
+    <color name="lighter_gray">#D0D0D0</color>
+    <color name="lightest_gray">#F0F0F0</color>
+    <color name="dark_gray">#696969</color>
+    <color name="bluish_gray">#41575E</color>
+    <color name="translucent_bluish_gray">#6041575E</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="translucent_black">#60000000</color>
+    <color name="translucent_white">#60FFFFFF</color>
+
+
+    <color name="button_option_border">#aaaaaa</color>
+    <color name="button_option_pressed">#a9a9a9</color>
+
+    <color name="navdrawer_option_text">#696969</color>
+
+    <color name="text_secondary">#ffb5b5b5</color>
+    <color name="text_primary">#ff6a6a6a</color>
+
+    <color name="mk_azul_1">#33b5e5</color>
+    <color name="mk_azul_2">#0099cc</color>
+    <color name="mk_verde_1">#92c53e</color>
+    <color name="mk_verde_2">#669900</color>
+    <color name="mk_amarillo_1">#f6e737</color>
+    <color name="mk_naranja_1">#ffbb33</color>
+    <color name="mk_naranja_2">#ff8800</color>
+    <color name="mk_blanco_1">#FFFFFF</color>
+    <color name="mk_rojo_1">#cc0000</color>
+    <color name="mk_rojo_2">#ff4444</color>
+    <color name="mk_violeta_1">#aa66cc</color>
+    <color name="mk_violeta_2">#9933cc</color>
+    <color name="mk_negro_50p">#80000000</color>
+</resources>

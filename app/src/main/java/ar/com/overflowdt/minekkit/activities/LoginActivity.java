@@ -1,6 +1,6 @@
 package ar.com.overflowdt.minekkit.activities;
 
-import android.app.Activity;
+
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -148,7 +148,7 @@ public class LoginActivity extends ActionBarActivity {
                         editor.putString("user", Session.getInstance().user);
                         editor.putString("pass", Session.getInstance().pass);
                         editor.commit();
-                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent i = new Intent(getApplicationContext(), DrawerActivity.class);
                         startActivity(i);
                         finish();
                         break;
