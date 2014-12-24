@@ -7,6 +7,8 @@ import ar.com.overflowdt.minekkit.R;
 
 public class ConfigActivity extends PreferenceActivity {
 
+    public static final String TAG = "Config";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

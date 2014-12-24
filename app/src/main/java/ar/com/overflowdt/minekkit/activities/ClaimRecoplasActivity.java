@@ -31,6 +31,7 @@ public class ClaimRecoplasActivity extends ActionBarActivity {
 
     private static final String TAG_SUCCESS = "success";
     public static final int SEGUNDOS_ENTRE_CLAIM = 24 * 60 * 60;
+    public static final String TAG = "Recoplas";
     private static String url = "http://minekkit.com/api/claimRecoplas.php";
     private TextView tiempoRestante;
     private int segundosRestantes = 0;

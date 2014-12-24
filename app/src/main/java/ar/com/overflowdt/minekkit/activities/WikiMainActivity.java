@@ -18,6 +18,7 @@ import ar.com.overflowdt.minekkit.util.MenuHandler;
 
 public class WikiMainActivity extends ActionBarActivity {
 
+    public static final String TAG = "Wiki";
     private EditText etWiki;
     private static final String WIKI_URL_PART_1 = "minekkit.com/wiki/index.php?title=Especial%3ABuscar&profile=default&search=";
     private static final String WIKI_URL_PART_2 = "&fulltext=Search";

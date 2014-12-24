@@ -34,6 +34,7 @@ public class RuletaActivity extends ActionBarActivity {
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_INTENTS = "intentos";
     private static final String TAG_PRIZE = "prize";
+    public static final String TAG = "Ruleta";
     RotationView logo;
     TextView titulo;
     TextView mensaje_inferior;

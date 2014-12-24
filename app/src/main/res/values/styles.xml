@@ -17,4 +17,73 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <!-- NAVIGATION DRAWER -->
+    <style name="NavDrawerOptionContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="NavDrawerProfileContainer" parent="NavDrawerOptionContainer">
+        <item name="android:paddingTop">15dp</item>
+    </style>
+
+    <style name="NavDrawerGenericContainer" parent="NavDrawerOptionContainer">
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+    </style>
+
+    <style name="NavDrawerOptionIcon">
+        <item name="android:layout_width">25dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">25dp</item>
+        <item name="android:layout_marginLeft">@dimen/drawer_left_margin</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="NavDrawerOptionTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="NavDrawerItemCount" parent="NavDrawerOptionTitle">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:gravity">end</item>
+        <item name="android:layout_marginRight">@dimen/drawer_right_margin</item>
+    </style>
+
+    <style name="NavDrawerUserName" parent="NavDrawerOptionTitle">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_centerVertical">false</item>
+    </style>
+
+    <style name="NavDrawerPublishedProducts" parent="NavDrawerOptionTitle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/light_gray</item>
+        <item name="android:gravity">left</item>
+        <item name="android:layout_centerVertical">false</item>
+    </style>
+
+    <style name="NavDrawerUserPicture">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_marginLeft">@dimen/drawer_left_margin</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="NavDrawerOptionDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">@color/lighter_gray</item>
+    </style>
+
+    <!-- !NAVIGATION DRAWER -->
+
+
 </resources>

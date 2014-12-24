@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/NavDrawerOptionContainer">
+
+    <ImageView
+        android:id="@+id/navDrawer_option_icon"
+        style="@style/NavDrawerOptionIcon" />
+
+    <TextView
+        android:id="@+id/navDrawer_option_title"
+        android:layout_toRightOf="@id/navDrawer_option_icon"
+        style="@style/NavDrawerOptionTitle"
+        android:textColor="@color/white" />
+</RelativeLayout>

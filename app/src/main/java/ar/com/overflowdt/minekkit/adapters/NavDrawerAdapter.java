@@ -45,21 +45,12 @@ public class NavDrawerAdapter extends BaseAdapter {
             case 0:
                 itemType = PROFILE_ITEM;
                 break;
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 6:
-                itemType = GENERIC_WITH_ICON_ITEM;
-                break;
-            case 7:
+            case 10:
                 itemType = DIVIDER;
                 break;
             default:
-                itemType = GENERIC_WITHOUT_ICON_ITEM;
+                itemType = GENERIC_WITH_ICON_ITEM;
         }
-
         return itemType;
     }
 
@@ -85,9 +76,9 @@ public class NavDrawerAdapter extends BaseAdapter {
             case PROFILE_ITEM:
                 currentView = inflateAsProfileItem(position, currentView, container);
                 break;
-        /*case MESSAGES_ITEM:
-			currentView = inflateAsMessagesItem(position, currentView, container);
-			break;*/
+//             case MESSAGES_ITEM:
+//			currentView = inflateAsMessagesItem(position, currentView, container);
+//			break;
             case GENERIC_WITHOUT_ICON_ITEM:
                 currentView = inflateAsGenericWithoutIcon(position, currentView, container);
                 break;
@@ -155,7 +146,7 @@ public class NavDrawerAdapter extends BaseAdapter {
         ((TextView) currentView.findViewById(R.id.navdrawer_option_title)).setText(currentOption.getTitle());
 
 
-        CharSequence publishedProducts = "*at Adoos*";
+        CharSequence publishedProducts = "";
 
         //cargo user guardado
 

@@ -39,6 +39,7 @@ import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 
 public class AllRecompensasActivity extends ActionBarActivity {
 
+    public static final String TAG = "Shop";
     // Progress Dialog
     private ProgressDialog pDialog;
 

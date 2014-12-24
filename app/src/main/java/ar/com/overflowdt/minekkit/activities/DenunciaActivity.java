@@ -42,6 +42,7 @@ import ar.com.overflowdt.minekkit.util.MenuHandler;
 import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 
 public class DenunciaActivity extends ActionBarActivity {
+    public static final String TAG = "Denuncia";
     // url to get all pms list
     private static String url = "http://minekkit.com/api/crearDenuncia.php";
     // JSON Node names

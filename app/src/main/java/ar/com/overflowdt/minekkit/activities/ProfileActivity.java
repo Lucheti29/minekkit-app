@@ -40,6 +40,7 @@ import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 public class ProfileActivity extends ActionBarActivity {
 
 
+    public static final String TAG = "Perfil";
     // Progress Dialog
     private ProgressDialog pDialog;
 

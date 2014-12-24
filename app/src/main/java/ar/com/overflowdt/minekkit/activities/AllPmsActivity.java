@@ -33,6 +33,7 @@ import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
  * Created by Fede on 01/03/14.
  */
 public class AllPmsActivity extends ActionBarActivity {
+    public static final String TAG = "Mensajes";
     // Progress Dialog
     private ProgressDialog pDialog;
     ListView lv;

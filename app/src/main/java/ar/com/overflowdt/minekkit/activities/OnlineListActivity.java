@@ -34,6 +34,7 @@ import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
  * Created by Fede on 23/03/14.
  */
 public class OnlineListActivity extends ActionBarActivity {
+    public static final String TAG = "JugadoresOnline";
     // Progress Dialog
     private ProgressDialog pDialog;
 

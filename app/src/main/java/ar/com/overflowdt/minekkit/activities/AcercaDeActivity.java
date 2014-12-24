@@ -13,6 +13,7 @@ import ar.com.overflowdt.minekkit.R;
 
 public class AcercaDeActivity extends ActionBarActivity {
 
+    public static final String TAG = "AcercaDe";
     private Button btn_volver;
 
     @Override
