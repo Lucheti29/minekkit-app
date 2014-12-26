@@ -1,7 +1,6 @@
 package ar.com.overflowdt.minekkit.activities;
 
 import android.app.Activity;
-import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -36,7 +35,6 @@ import java.util.Date;
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.adapters.AttachmentsAdapter;
 import ar.com.overflowdt.minekkit.models.Denuncia;
-import ar.com.overflowdt.minekkit.util.Browser;
 import ar.com.overflowdt.minekkit.util.HttpHandler;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
 import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
@@ -256,7 +254,7 @@ public class DenunciaActivity extends ActionBarActivity {
     }
 
     public void verReglas(View view) {
-        Intent i = new Intent(this, Browser.class);
+        Intent i = new Intent(this, BrowserActivity.class);
         i.putExtra("title", "Reglas");
         i.putExtra("direccion", "minekkit.com/foro/showthread.php?tid=2371");
         startActivity(i);

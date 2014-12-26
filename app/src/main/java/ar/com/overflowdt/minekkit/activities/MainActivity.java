@@ -24,18 +24,9 @@ import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import ar.com.overflowdt.minekkit.R;
-import ar.com.overflowdt.minekkit.activities.AcercaDeActivity;
-import ar.com.overflowdt.minekkit.activities.ConfigActivity;
-import ar.com.overflowdt.minekkit.activities.DenunciaActivity;
 import ar.com.overflowdt.minekkit.notification.NotificationService;
-import ar.com.overflowdt.minekkit.activities.AllPmsActivity;
-import ar.com.overflowdt.minekkit.activities.AllRecompensasActivity;
-import ar.com.overflowdt.minekkit.activities.ClaimRecoplasActivity;
-import ar.com.overflowdt.minekkit.activities.RuletaActivity;
-import ar.com.overflowdt.minekkit.util.Browser;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
 import ar.com.overflowdt.minekkit.models.Session;
-import ar.com.overflowdt.minekkit.activities.WikiMainActivity;
 
 public class MainActivity extends Activity {
 
@@ -174,7 +165,7 @@ public class MainActivity extends Activity {
     }
 
     public void verInventorio(View view) {
-        Intent i = new Intent(this, Browser.class);
+        Intent i = new Intent(this, BrowserActivity.class);
         i.putExtra("title", "Inventory");
         String encodedPass = "";
         try {
@@ -191,7 +182,7 @@ public class MainActivity extends Activity {
     }
 
     private void verMapa() {
-        Intent i = new Intent(this, Browser.class);
+        Intent i = new Intent(this, BrowserActivity.class);
         i.putExtra("title", "Mapa");
         i.putExtra("direccion", "minekkit.com:8123");
         startActivity(i);

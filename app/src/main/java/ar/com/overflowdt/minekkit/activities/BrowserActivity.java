@@ -1,10 +1,12 @@
-package ar.com.overflowdt.minekkit.util;
+package ar.com.overflowdt.minekkit.activities;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
@@ -12,8 +14,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import ar.com.overflowdt.minekkit.R;
+import ar.com.overflowdt.minekkit.util.MenuHandler;
 
-public class Browser extends Activity {
+public class BrowserActivity extends ActionBarActivity {
 
     private WebView webView;
     private static final String TAG = "Minekkit APP:";
@@ -34,13 +37,14 @@ public class Browser extends Activity {
         Bundle bundle = getIntent().getExtras();
         setTitle(bundle.getString("title"));
         webView.loadUrl("http://" + bundle.getString("direccion"));
-
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return true;
     }
 

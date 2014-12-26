@@ -4,7 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,9 +13,7 @@ import android.util.Base64;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -23,8 +21,8 @@ import java.util.List;
 
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.adapters.NavDrawerAdapter;
+import ar.com.overflowdt.minekkit.fragments.NewsFragment;
 import ar.com.overflowdt.minekkit.models.Session;
-import ar.com.overflowdt.minekkit.util.Browser;
 import ar.com.overflowdt.minekkit.util.NavDrawerOption;
 
 public class DrawerActivity extends ActionBarActivity {
@@ -56,6 +54,13 @@ public class DrawerActivity extends ActionBarActivity {
 
         initializeToolbar();
         initializeDrawer();
+
+        if (savedInstanceState == null) {
+            //cargo el fragmento principal
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.main_frame_container, new NewsFragment(), NewsFragment.TAG);
+            ft.commit();
+        }
     }
 
     private void initializeToolbar() {
@@ -159,7 +164,7 @@ public class DrawerActivity extends ActionBarActivity {
                 dialogo1.setCancelable(false);
                 dialogo1.setPositiveButton("Entendido!", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogo1, int id) {
-                        Intent i = new Intent(DrawerActivity.this, Browser.class);
+                        Intent i = new Intent(DrawerActivity.this, BrowserActivity.class);
                         i.putExtra("title", "Mapa");
                         i.putExtra("direccion", "minekkit.com:8123");
                         startActivity(i);
@@ -169,13 +174,14 @@ public class DrawerActivity extends ActionBarActivity {
                     public void onClick(DialogInterface dialogo1, int id) {
                     }
                 });
+                dialogo1.show();
                 break;
             case OPTION_MESSAGES:
                 intent = new Intent(this, AllPmsActivity.class);
                 startActivity(intent);
                 break;
             case OPTION_INVENTORY:
-                intent = new Intent(this, Browser.class);
+                intent = new Intent(this, BrowserActivity.class);
                 intent.putExtra("title", "Inventory");
                 String encodedPass = "";
                 try {

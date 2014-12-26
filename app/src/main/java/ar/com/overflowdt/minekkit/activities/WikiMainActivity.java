@@ -1,6 +1,5 @@
 package ar.com.overflowdt.minekkit.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -13,7 +12,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import ar.com.overflowdt.minekkit.R;
-import ar.com.overflowdt.minekkit.util.Browser;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
 
 public class WikiMainActivity extends ActionBarActivity {
@@ -59,7 +57,7 @@ public class WikiMainActivity extends ActionBarActivity {
     }
 
     public void buscarEnWiki(View view) {
-        Intent i = new Intent(this, Browser.class);
+        Intent i = new Intent(this, BrowserActivity.class);
         i.putExtra("title", "Wiki");
         i.putExtra("direccion", WIKI_URL_PART_1 + etWiki.getText() + WIKI_URL_PART_2);
         startActivity(i);
