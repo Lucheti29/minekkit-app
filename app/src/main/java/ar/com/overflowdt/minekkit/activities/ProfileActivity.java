@@ -17,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -108,7 +110,7 @@ public class ProfileActivity extends ActionBarActivity {
     class LoadProfile extends AsyncTask<String, String, String> {
 
         int recoplas;
-        Bitmap logo;
+        String logo;
 
         /**
          * Before starting background thread Show Progress Dialog
@@ -152,16 +154,8 @@ public class ProfileActivity extends ActionBarActivity {
                         // pms found
                         // Getting Array of Products
                         jobs = json.getJSONArray(TAG_JOBS);
-
                         recoplas = json.getInt(TAG_RECOPLAS);
-
-                        try {
-                            URL newurl = new URL(json.getString(TAG_AVATAR));
-                            logo = BitmapFactory.decodeStream(newurl.openConnection().getInputStream());
-                        } catch (IOException e) {
-
-                            e.printStackTrace();
-                        }
+                        logo = json.getString(TAG_AVATAR);
 
 
                         // looping through All Products
@@ -200,7 +194,7 @@ public class ProfileActivity extends ActionBarActivity {
                      * Updating parsed JSON data into ListView
                      * */
                     ImageView avatar = (ImageView) findViewById(R.id.profile_avatar);
-                    avatar.setImageBitmap(logo);
+                    Picasso.with(ProfileActivity.this).load(logo).into(avatar);
                     TextView name = (TextView) findViewById(R.id.profile_name);
                     name.setText(Session.getInstance().user);
                     TextView reco = (TextView) findViewById(R.id.profile_reco);
