@@ -6,7 +6,7 @@
     android:background="@drawable/bg_640x960_3">
 
     <ListView
-        android:background="#8092c53e"
+        android:background="@color/transparent_mk_green"
         android:id="@+id/news_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

@@ -2,6 +2,7 @@ package ar.com.overflowdt.minekkit.adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import java.util.List;
 
 import ar.com.overflowdt.minekkit.R;
+import ar.com.overflowdt.minekkit.activities.ShowNewsActivity;
 import ar.com.overflowdt.minekkit.models.News;
 import ar.com.overflowdt.minekkit.util.BBCodeParser;
 
@@ -64,7 +66,10 @@ public class NewsAdapter extends BaseAdapter {
         arg1.findViewById(R.id.news_layout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, n.getTid(), Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(context, ShowNewsActivity.class);
+                i.putExtra("tid", n.getTid());
+                context.startActivity(i);
+//                Toast.makeText(context, n.getTid(), Toast.LENGTH_SHORT).show();
             }
         });
         return arg1;

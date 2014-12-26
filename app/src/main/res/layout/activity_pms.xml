@@ -4,9 +4,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:background="@drawable/bg_640x960_3">
-    <!-- Main ListView
-         Always give id value as list(@android:id/list)
-    -->
+
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
