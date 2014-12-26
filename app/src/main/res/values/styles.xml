@@ -83,6 +83,16 @@
         <item name="android:background">@color/lighter_gray</item>
     </style>
 
+    <style name="button_mk_light_blue">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#33b5e5</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
     <!-- !NAVIGATION DRAWER -->
 
 

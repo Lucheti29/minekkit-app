@@ -23,6 +23,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -71,40 +72,35 @@ public class DenunciaActivity extends ActionBarActivity {
         TabHost.TabSpec spec = tabs.newTabSpec("mitab1");
         spec.setContent(R.id.tab1);
         //Le pone un icono a la primer tab
-        spec.setIndicator("1°",
-                res.getDrawable(android.R.drawable.ic_input_add));
+        spec.setIndicator("1°");
         tabs.addTab(spec);
 
         //Setea la segunda tab
         spec = tabs.newTabSpec("mitab2");
         spec.setContent(R.id.tab2);
         //Le pone un icono a la segunda tab
-        spec.setIndicator("2°",
-                res.getDrawable(android.R.drawable.ic_input_add));
+        spec.setIndicator("2°");
         tabs.addTab(spec);
 
         //Setea la segunda tab
         spec = tabs.newTabSpec("mitab3");
         spec.setContent(R.id.tab3);
         //Le pone un icono a la segunda tab
-        spec.setIndicator("3°",
-                res.getDrawable(android.R.drawable.ic_input_add));
+        spec.setIndicator("3°");
         tabs.addTab(spec);
 
         //Setea la segunda tab
         spec = tabs.newTabSpec("mitab4");
         spec.setContent(R.id.tab4);
         //Le pone un icono a la segunda tab
-        spec.setIndicator("4°",
-                res.getDrawable(android.R.drawable.ic_menu_camera));
+        spec.setIndicator("4°");
         tabs.addTab(spec);
 
         //Setea la quinta tab
         spec = tabs.newTabSpec("mitab5");
         spec.setContent(R.id.tab5);
         //Le pone un icono a la segunda tab
-        spec.setIndicator("5°",
-                res.getDrawable(android.R.drawable.ic_input_add));
+        spec.setIndicator("5°");
         tabs.addTab(spec);
 
         //Setea la primer tab como default
@@ -285,8 +281,14 @@ public class DenunciaActivity extends ActionBarActivity {
         } else {
             tipo = "Sin tipo";
         }
-
         denuncia.setTipoDenuncia(tipo);
+
+        if (denuncia.getTitulo().isEmpty()) //todo agregar checkeos de los demas
+        {
+            Toast.makeText(this, "Te faltan llenar datos", Toast.LENGTH_LONG).show();
+            return;
+        }
+        
         Log.d("INFO", "Paso 1");
         new SubirDenuncia().execute();
     }

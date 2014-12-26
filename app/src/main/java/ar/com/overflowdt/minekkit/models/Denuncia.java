@@ -142,4 +142,7 @@ public class Denuncia implements Enviable {
         _solucion = solucion;
     }
 
+    public String getTitulo() {
+        return _titulo;
+    }
 }

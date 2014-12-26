@@ -11,7 +11,7 @@ android {
     }
     defaultConfig {
         applicationId "ar.com.overflowdt.minekkit"
-        minSdkVersion 8
+        minSdkVersion 9
         targetSdkVersion 21
     }
 
