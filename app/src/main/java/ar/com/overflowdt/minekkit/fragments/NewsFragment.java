@@ -60,7 +60,7 @@ public class NewsFragment extends Fragment {
                 Type type = new TypeToken<List<News>>() {
                 }.getType();
                 news = new Gson().fromJson(response.getAsJsonArray("posts"), type);
-                if (loadFirstNews)
+                if (loadFirstNews && getActivity() != null)
                     ((NewsListenerInterface) getActivity()).OnNewsSelected(news.get(0).getTid());
                 newslist.setAdapter(new NewsAdapter(getActivity(), news));
             }

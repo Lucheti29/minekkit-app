@@ -47,6 +47,7 @@ public class DrawerActivity extends ActionBarActivity implements NewsListenerInt
     private ListView mDrawerList;
     private ArrayList<NavDrawerOption> optionsList;
     private String currentTid;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -273,7 +274,6 @@ public class DrawerActivity extends ActionBarActivity implements NewsListenerInt
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-
         currentTid = savedInstanceState.getString("tid");
         if (currentTid != null) {
             NewsFragment newsFragment = (NewsFragment) getSupportFragmentManager().findFragmentById(R.id.newslist_fragment);

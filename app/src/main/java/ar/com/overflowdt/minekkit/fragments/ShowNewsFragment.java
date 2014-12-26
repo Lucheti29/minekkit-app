@@ -21,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.squareup.picasso.Picasso;
 
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.models.News;
@@ -89,7 +90,7 @@ public class ShowNewsFragment extends Fragment {
         ((TextView) rootView.findViewById(R.id.shownews_message)).setMovementMethod(LinkMovementMethod.getInstance());
         ((TextView) rootView.findViewById(R.id.shownews_byuser)).setText("Por " + news.getUsername());
         ((TextView) rootView.findViewById(R.id.shownews_time)).setText(news.getDateline());
-        ((ImageView) rootView.findViewById(R.id.shownews_userpic)).setImageResource(R.drawable.steve);
+        Picasso.with(getActivity()).load(news.getAvatar()).placeholder(R.drawable.steve).into((ImageView) rootView.findViewById(R.id.shownews_userpic));
     }
 
     public void updateNewsView(String tid) {

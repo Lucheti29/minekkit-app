@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@android:id/tabs"
-                android:background="#74a841"
+                android:background="@color/mk_verde_1"
                 android:tabStripEnabled="false" />
 
             <FrameLayout

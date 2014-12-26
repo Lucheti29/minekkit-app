@@ -13,6 +13,7 @@ public class News {
     private String username;
     private String message;
     private String dateline;
+    private String avatar;
 
     public String getTid() {
         return tid;
@@ -33,5 +34,9 @@ public class News {
     public String getDateline() {
         DateFormat df = new SimpleDateFormat("dd MMM yyyy HH:mm");
         return df.format(new Date(Long.parseLong(dateline, 10) * 1000));
+    }
+
+    public String getAvatar() {
+        return avatar;
     }
 }
