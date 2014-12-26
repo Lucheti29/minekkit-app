@@ -238,9 +238,19 @@ public class DenunciaActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        //getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.menu_edit, menu);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_save:
+                crearDenuncia(null);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
@@ -283,9 +293,12 @@ public class DenunciaActivity extends ActionBarActivity {
         }
         denuncia.setTipoDenuncia(tipo);
 
-        if (denuncia.getTitulo().isEmpty()) //todo agregar checkeos de los demas
+        if (denuncia.isMissingFields())
         {
             Toast.makeText(this, "Te faltan llenar datos", Toast.LENGTH_LONG).show();
+            return;
+        } else if (denuncia.isMissingEvidence()) {
+            Toast.makeText(this, "Te falta agregar alguna prueba", Toast.LENGTH_LONG).show();
             return;
         }
         

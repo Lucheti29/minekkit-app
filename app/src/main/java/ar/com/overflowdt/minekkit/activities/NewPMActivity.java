@@ -13,12 +13,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import ar.com.overflowdt.minekkit.R;
+import ar.com.overflowdt.minekkit.models.News;
 import ar.com.overflowdt.minekkit.models.PM;
 import ar.com.overflowdt.minekkit.util.HttpHandler;
 import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
@@ -88,7 +90,7 @@ public class NewPMActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        //getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.menu_edit, menu);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return true;
     }
@@ -99,6 +101,9 @@ public class NewPMActivity extends ActionBarActivity {
             case android.R.id.home:
                 onBackPressed();
                 return (true);
+            case R.id.action_save:
+                enviarMensaje(null);
+                return true;
         }
         return (super.onOptionsItemSelected(item));
     }
@@ -231,6 +236,14 @@ public class NewPMActivity extends ActionBarActivity {
             pm.to = (String) String.valueOf(to.getText());
             pm.content = (String) String.valueOf(contenido.getText());
 
+            if (pm.isMissingFields()) {
+                NewPMActivity.this.runOnUiThread(new Runnable() {
+                    public void run() {
+                        Toast.makeText(NewPMActivity.this, "Te faltan completar campos", Toast.LENGTH_LONG).show();
+                    }
+                });
+                return null;
+            }
             JSONObject json = null;
             try {
                 json = new HttpHandler().post(urlSend, pm);

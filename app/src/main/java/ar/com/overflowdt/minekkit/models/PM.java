@@ -28,4 +28,10 @@ public class PM implements Enviable {
         list.add(new Parametro().setValores("content", String.valueOf(content)));//Send Message
         return list;
     }
+
+    public boolean isMissingFields() {
+        if (titulo.isEmpty() || to.isEmpty() || content.isEmpty())
+            return true;
+        return false;
+    }
 }

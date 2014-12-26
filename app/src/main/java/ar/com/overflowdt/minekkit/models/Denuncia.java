@@ -145,4 +145,16 @@ public class Denuncia implements Enviable {
     public String getTitulo() {
         return _titulo;
     }
+
+    public boolean isMissingFields() {
+        if (_titulo.isEmpty() || _explicacion.isEmpty() || _solucion.isEmpty() || _fecha.isEmpty() || _hora.isEmpty() || _normas_no_cumplidas.isEmpty() || _usuarios_involucrados.isEmpty())
+            return true;
+        return false;
+    }
+
+    public boolean isMissingEvidence() {
+        if (attachments.isEmpty())
+            return true;
+        return false;
+    }
 }
