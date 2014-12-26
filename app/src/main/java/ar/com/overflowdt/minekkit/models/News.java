@@ -31,7 +31,7 @@ public class News {
     }
 
     public String getDateline() {
-        DateFormat df = new SimpleDateFormat("MMM dd yyyy HH:mm");
-        return df.format(new Date(Long.decode(dateline)));
+        DateFormat df = new SimpleDateFormat("dd MMM yyyy HH:mm");
+        return df.format(new Date(Long.parseLong(dateline, 10) * 1000));
     }
 }

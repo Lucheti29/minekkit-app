@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -94,16 +95,11 @@ public class AllPmsActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        //getMenuInflater().inflate(R.menu.main, menu);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        MenuHandler menuHandler = new MenuHandler();
-        return menuHandler.bindearLogica(item, this);
-    }
 
     // Response from Edit Product Activity
     @Override
@@ -218,4 +214,5 @@ public class AllPmsActivity extends ActionBarActivity {
         }
 
     }
+
 }

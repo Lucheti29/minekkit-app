@@ -77,16 +77,11 @@ public class RuletaActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        //getMenuInflater().inflate(R.menu.main, menu);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        MenuHandler menuHandler = new MenuHandler();
-        return menuHandler.bindearLogica(item, this);
-    }
 
     public void toggle(View view) {
         if (!mRotateImage.isRotating())

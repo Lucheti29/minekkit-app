@@ -2,6 +2,7 @@ package ar.com.overflowdt.minekkit.adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import java.util.List;
 
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.models.News;
+import ar.com.overflowdt.minekkit.util.BBCodeParser;
 
 /**
  * Created by Fede on 26/12/2014.
@@ -57,7 +59,7 @@ public class NewsAdapter extends BaseAdapter {
 
         title.setText(n.getSubject());
         date.setText(n.getDateline());
-        message.setText(n.getMessage().replace("\n", "").replace("\r", ""));
+        message.setText(Html.fromHtml(BBCodeParser.bbcode(n.getMessage().replace("\n", "").replace("\r", ""))));
 
         arg1.findViewById(R.id.news_layout).setOnClickListener(new View.OnClickListener() {
             @Override

@@ -34,7 +34,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Entregado Exitosamente a: fede5, QuesoJr, caca27, SUB3001, KattyCat, SlendermanProHD, Rantanen, cabezon04, Kenny1973, lion13, roddry1928, Elian1203, Tomas10000, Mauricio12, TheBoyMagician, Santy500, ebil, ArcoIrisMr, Rodan, jon36, Eric55, NiicoMC, tegamer2145, EpicSight, Ivangonz999, luky100, Started95, Fer777, lesgamer, emiliano321321, ZeuzPvP, ositoletal, alan12345, Dex02, eduloco, fede1608, BeastModeOG, jacuzzi_, Elemis, RIPVanRyuk, MinecraftOn, FAIT,"
             android:id="@+id/news_message"
-            android:lines="3"
+            android:lines="2"
             android:ellipsize="end"
             android:layout_marginTop="5dp" />
 

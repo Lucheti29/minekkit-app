@@ -41,8 +41,6 @@ public class DrawerActivity extends ActionBarActivity {
     private static final String OPTION_DENUNCIA = DenunciaActivity.TAG;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
-    private CharSequence mDrawerTitle;
-    private CharSequence mTitle;
     private Toolbar toolbar;
     private ListView mDrawerList;
     private ArrayList<NavDrawerOption> optionsList;
@@ -67,13 +65,12 @@ public class DrawerActivity extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setLogo(R.drawable.ic_mkapp);
+
     }
 
     private void initializeDrawer() {
-        mTitle = mDrawerTitle = getTitle();
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
-        String[] mPlanetTitles = new String[]{"Mensajes", "Recompensas", "Ruleta", "Donar", "Foro", "Log Out"};
         mDrawerList.setAdapter(new NavDrawerAdapter(this, navigationDrawerOptions()));
         mDrawerList.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
@@ -87,14 +84,12 @@ public class DrawerActivity extends ActionBarActivity {
             /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
-                getSupportActionBar().setTitle(mTitle);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
 
             /** Called when a drawer has settled in a completely open state. */
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                getSupportActionBar().setTitle(mDrawerTitle);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };
@@ -223,7 +218,7 @@ public class DrawerActivity extends ActionBarActivity {
         }
         supportInvalidateOptionsMenu();
     }
-    
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.simple_menu, menu);
