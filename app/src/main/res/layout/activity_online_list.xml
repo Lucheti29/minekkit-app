@@ -15,7 +15,7 @@
         android:id="@+id/online_list"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#8092c53e"
+        android:background="@color/mk_negro_50p"
         android:headerDividersEnabled="false" />
 
 </LinearLayout>

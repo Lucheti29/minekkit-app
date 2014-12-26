@@ -55,7 +55,7 @@ public class RecompensasAdapter extends BaseAdapter {
         String t = String.valueOf(p.Cost);
         t = t.concat(" Recoplas");
         cost.setText(t);
-        Picasso.with(context).load(p.urlImage).into(logo);
+        Picasso.with(context).load(p.urlImage).placeholder(R.drawable.img_chest).into(logo);
         id.setText(String.valueOf(p.id));
         return arg1;
     }
