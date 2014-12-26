@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import ar.com.overflowdt.minekkit.R;
 
@@ -18,12 +19,12 @@ public class AcercaDeActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acercade);
 
+        ((TextView) findViewById(R.id.tv_version)).setText("Versión: " + getString(R.string.version));
+        
         btn_volver = (Button) findViewById(R.id.btn_volver);
-
         //Fuentes custom
         Typeface mecha_Condensed_Bold = Typeface.createFromAsset(getAssets(),
                 "fonts/Mecha_Condensed_Bold.ttf");

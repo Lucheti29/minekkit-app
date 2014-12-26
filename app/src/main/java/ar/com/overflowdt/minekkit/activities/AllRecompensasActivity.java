@@ -75,32 +75,28 @@ public class AllRecompensasActivity extends ActionBarActivity {
         TabHost.TabSpec spec = tabs.newTabSpec("mitab1");
         spec.setContent(R.id.tab1_recompensas);
         //Le pone un icono a la primer tab
-        spec.setIndicator("Packs",
-                res.getDrawable(android.R.drawable.ic_btn_speak_now));
+        spec.setIndicator("Packs");
         tabs.addTab(spec);
 
         //Setea la segunda tab
         spec = tabs.newTabSpec("mitab2");
         spec.setContent(R.id.tab2_recompensas);
         //Le pone un icono a la segunda tab
-        spec.setIndicator("Armaduras",
-                res.getDrawable(android.R.drawable.ic_dialog_map));
+        spec.setIndicator("Armor");
         tabs.addTab(spec);
 
         //Setea la segunda tab
         spec = tabs.newTabSpec("mitab3");
         spec.setContent(R.id.tab3_recompensas);
         //Le pone un icono a la segunda tab
-        spec.setIndicator("Community",
-                res.getDrawable(android.R.drawable.ic_dialog_map));
+        spec.setIndicator("Event");
         tabs.addTab(spec);
 
         //Setea la segunda tab
         spec = tabs.newTabSpec("mitab4");
         spec.setContent(R.id.tab4_recompensas);
         //Le pone un icono a la segunda tab
-        spec.setIndicator("Otros",
-                res.getDrawable(android.R.drawable.ic_dialog_map));
+        spec.setIndicator("Otros");
         tabs.addTab(spec);
 
         //Setea la primer tab como default
