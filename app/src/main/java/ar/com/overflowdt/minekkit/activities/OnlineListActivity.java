@@ -47,9 +47,6 @@ public class OnlineListActivity extends ActionBarActivity {
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_PLAYERS = "players";
     private static final String TAG_NAME = "";
-    private static final String TAG_DATE = "date";
-    private static final String TAG_LOGO = "Logo";
-    private static final String TAG_FROM = "from";
     private static final String TAG_ID = "pmid";
 
     // playersOn JSONArray
@@ -59,11 +56,8 @@ public class OnlineListActivity extends ActionBarActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_online_list);
-
-
         // Loading playersOn in Background Thread
         new LoadPlayersOnline().execute();
-
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
 
     }
@@ -77,29 +71,13 @@ public class OnlineListActivity extends ActionBarActivity {
     }
 
 
-    // Response from Edit Product Activity
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        // if result code 100
-        if (requestCode == 100) {
-            // if result code 100 is received
-            // means user edited/deleted product
-            // reload this screen again
-            Intent intent = getIntent();
-            finish();
-            startActivity(intent);
-        }
-
-    }
-
     /**
      * Background Async Task to Load all product by making HTTP Request
      */
     class LoadPlayersOnline extends AsyncTask<String, String, String> {
 
 
-        private ArrayList<Thread> threads = new ArrayList<Thread>();
+//        private ArrayList<Thread> threads = new ArrayList<Thread>();
 
         /**
          * Before starting background thread Show Progress Dialog
@@ -115,21 +93,21 @@ public class OnlineListActivity extends ActionBarActivity {
         }
 
 
-        protected void listenResults() {
-            while (threads.size() > 0) {
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                for (int i = 0; i < threads.size(); ++i) {
-                    Thread thread = threads.get(i);
-                    if (!thread.isAlive()) {
-                        threads.remove(i);
-                    }
-                }
-            }
-        }
+//        protected void listenResults() {
+//            while (threads.size() > 0) {
+//                try {
+//                    Thread.sleep(500);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//                for (int i = 0; i < threads.size(); ++i) {
+//                    Thread thread = threads.get(i);
+//                    if (!thread.isAlive()) {
+//                        threads.remove(i);
+//                    }
+//                }
+//            }
+//        }
 
         /**
          * getting All playersOn from url
@@ -159,7 +137,7 @@ public class OnlineListActivity extends ActionBarActivity {
                         // playersOn found
                         // Getting Array of Products
                         playersOn = json.getJSONArray(TAG_PLAYERS);
-                        threads.clear();
+//                        threads.clear();
                         Bitmap steveLogo = BitmapFactory.decodeResource(getResources(),
                                 R.drawable.steve);
                         // looping through All Products
@@ -176,7 +154,7 @@ public class OnlineListActivity extends ActionBarActivity {
 
                             playerList.add(item);
                         }
-                        listenResults();
+//                        listenResults();
                         break;
                 }
 

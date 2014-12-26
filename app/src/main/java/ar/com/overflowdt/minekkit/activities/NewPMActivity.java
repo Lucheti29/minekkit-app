@@ -1,6 +1,5 @@
 package ar.com.overflowdt.minekkit.activities;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
@@ -9,7 +8,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,7 +20,6 @@ import org.json.JSONObject;
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.models.PM;
 import ar.com.overflowdt.minekkit.util.HttpHandler;
-import ar.com.overflowdt.minekkit.util.MenuHandler;
 import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 
 /**
@@ -31,9 +28,10 @@ import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 public class NewPMActivity extends ActionBarActivity {
 
     TextView titulo;
-    TextView from;
+    TextView to;
     TextView contenido;
     String id;
+    String toPlayer;
     PM message;
     private static String url = "http://minekkit.com/api/listPms.php";
     private static String urlSend = "http://minekkit.com/api/enviarPM.php";
@@ -42,7 +40,8 @@ public class NewPMActivity extends ActionBarActivity {
     private static final String TAG_PRODUCTS = "pms";
     private static final String TAG_TITLE = "title";
     private static final String TAG_FROM = "from";
-    private static final String TAG_ID = "pmid";
+    public static final String TAG_ID = "pmid";
+    public static final String TAG_TO = "toPlayer";
     private static final String TAG_DATE = "date";
     private static final String TAG_READ = "read";
     private static final String TAG_CONTENIDO = "content";
@@ -58,13 +57,17 @@ public class NewPMActivity extends ActionBarActivity {
         if (bundle != null && getIntent().hasExtra(TAG_ID))
             id = bundle.getString(TAG_ID);
         contenido = (EditText) findViewById(R.id.edit_newpm_contenido);
-        from = (EditText) findViewById(R.id.editnewpm_to);
+        to = (EditText) findViewById(R.id.editnewpm_to);
         titulo = (EditText) findViewById(R.id.editnewpm_title);
         setTitle("Enviar PM");
         if (id != null) {
             setTitle("Responder PM");
             Log.d("PMID", id);
             new LoadAPM().execute();
+        } else {
+            toPlayer = getIntent().getStringExtra(TAG_TO);
+            if (toPlayer != null)
+                to.setText(toPlayer);
         }
         //Fuentes custom
         Typeface mecha_Condensed_Bold = Typeface.createFromAsset(getAssets(),
@@ -154,7 +157,7 @@ public class NewPMActivity extends ActionBarActivity {
                             @Override
                             public void run() {
                                 titulo.setText("RE: " + message.titulo);
-                                from.setText(message.from);
+                                to.setText(message.from);
                                 contenido.setText("[quote='" + message.from + "']\n" + message.content + "\n[/quote]\n");
 
                                 //Movemos los cursores al final de cada texto insertado (Es necesario para la GUI)
@@ -215,7 +218,7 @@ public class NewPMActivity extends ActionBarActivity {
             PM pm = new PM();
             //pm.idpm= Integer.parseInt(id);
             pm.titulo = (String) String.valueOf(titulo.getText());
-            pm.to = (String) String.valueOf(from.getText());
+            pm.to = (String) String.valueOf(to.getText());
             pm.content = (String) String.valueOf(contenido.getText());
 
             JSONObject json = null;

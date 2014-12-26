@@ -22,26 +22,30 @@
         </activity>
         <activity
             android:name=".activities.AcercaDeActivity"
-            android:launchMode="singleTop"
-            android:label="@string/label_acercade">
-            <meta-data
+            android:label="@string/label_acercade"
+            android:launchMode="singleTop">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ar.com.overflowdt.minekkit.activities.DrawerActivity" />
         </activity>
         <activity
             android:name=".activities.RuletaActivity"
             android:configChanges="orientation|screenSize"
-            android:launchMode="singleTop"
-            android:label="Ruleta">
-            <meta-data
+            android:label="Ruleta"
+            android:launchMode="singleTop">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ar.com.overflowdt.minekkit.activities.DrawerActivity" />
         </activity>
         <activity
             android:name=".activities.NewPMActivity"
             android:configChanges="orientation|screenSize"
-            android:launchMode="singleTop"
-            android:label="@string/newPM" />
+            android:label="@string/newPM"
+            android:launchMode="singleTop">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ar.com.overflowdt.minekkit.activities.DrawerActivity" />
+        </activity>
         <activity
             android:name=".activities.BrowserActivity"
             android:configChanges="orientation|screenSize"
@@ -53,9 +57,9 @@
         <activity
             android:name=".activities.OnlineListActivity"
             android:configChanges="orientation|screenSize"
-            android:launchMode="singleTop"
-            android:label="@string/playersOnline">
-            <meta-data
+            android:label="@string/playersOnline"
+            android:launchMode="singleTop">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ar.com.overflowdt.minekkit.activities.DrawerActivity" />
         </activity>
@@ -64,93 +68,92 @@
         <activity
             android:name=".activities.AllRecompensasActivity"
             android:configChanges="orientation|screenSize"
-            android:launchMode="singleTop"
-            android:label="@string/label_recompensas">
-            <meta-data
+            android:label="@string/label_recompensas"
+            android:launchMode="singleTop">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ar.com.overflowdt.minekkit.activities.DrawerActivity" />
         </activity>
         <activity
             android:name=".activities.SingleRecActivity"
             android:configChanges="orientation|screenSize"
-            android:launchMode="singleTop"
-            android:label="@string/label_recompensas">
-            <meta-data
+            android:label="@string/label_recompensas"
+            android:launchMode="singleTop">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ar.com.overflowdt.minekkit.activities.DrawerActivity" />
         </activity>
         <activity
             android:name=".activities.ProfileActivity"
             android:configChanges="orientation|screenSize"
-            android:launchMode="singleTop"
-            android:label="@string/profile">
-            <meta-data
+            android:label="@string/profile"
+            android:launchMode="singleTop">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ar.com.overflowdt.minekkit.activities.DrawerActivity" />
         </activity>
         <activity
             android:name=".activities.DenunciaActivity"
-            android:launchMode="singleTop"
             android:configChanges="orientation|screenSize"
-            android:label="@string/label_denuncias">
-            <meta-data
+            android:label="@string/label_denuncias"
+            android:launchMode="singleTop">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ar.com.overflowdt.minekkit.activities.DrawerActivity" />
         </activity>
         <activity
             android:name=".activities.WikiMainActivity"
             android:configChanges="orientation|screenSize"
-            android:launchMode="singleTop"
-            android:label="@string/label_wiki">
-            <meta-data
+            android:label="@string/label_wiki"
+            android:launchMode="singleTop">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ar.com.overflowdt.minekkit.activities.DrawerActivity" />
         </activity>
         <activity
             android:name=".activities.AllPmsActivity"
             android:configChanges="orientation|screenSize"
-            android:launchMode="singleTop"
-            android:label="@string/label_pms">
-            <meta-data
+            android:label="@string/label_pms"
+            android:launchMode="singleTop">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ar.com.overflowdt.minekkit.activities.DrawerActivity" />
         </activity>
         <activity
             android:name=".activities.SinglePMActivity"
             android:configChanges="orientation|screenSize"
-            android:launchMode="singleTop"
-            android:label="@string/label_pms">
-            <meta-data
+            android:label="@string/label_pms"
+            android:launchMode="singleTop">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ar.com.overflowdt.minekkit.activities.DrawerActivity" />
         </activity>
         <activity
             android:name=".activities.ClaimRecoplasActivity"
-            android:configChanges="orientation|screenSize"
-            android:launchMode="singleTop"
-            android:label="@string/label_recoxdia">
-            <meta-data
+            android:label="@string/label_recoxdia"
+            android:launchMode="singleTop">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ar.com.overflowdt.minekkit.activities.DrawerActivity" />
         </activity>
         <activity
             android:name=".activities.ConfigActivity"
             android:configChanges="orientation|screenSize"
-            android:launchMode="singleTop"
-            android:label="@string/label_config">
-            <meta-data
+            android:label="@string/label_config"
+            android:launchMode="singleTop">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ar.com.overflowdt.minekkit.activities.DrawerActivity" />
         </activity>
         <activity
             android:name=".activities.DrawerActivity"
-            android:launchMode="singleTop"
-            android:label="Noticias" />
+            android:label="Noticias"
+            android:launchMode="singleTop" />
         <activity
             android:name=".activities.LoginActivity"
-            android:launchMode="singleTop"
-            android:configChanges="orientation|screenSize">
-            <intent-filter>
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTop">
+        <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />

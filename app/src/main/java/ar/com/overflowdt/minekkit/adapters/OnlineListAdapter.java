@@ -16,6 +16,7 @@ import java.util.List;
 
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.activities.OnlineListActivity;
+import ar.com.overflowdt.minekkit.fragments.PlayerOptionsDialog;
 import ar.com.overflowdt.minekkit.interfaces.ImageLoadable;
 
 /**
@@ -70,7 +71,7 @@ public class OnlineListAdapter extends BaseAdapter {
         TextView idpm = (TextView) arg1.findViewById(R.id.pid);
         TextView date = (TextView) arg1.findViewById(R.id.list_item_bottom_right);
         ImageView logo = (ImageView) arg1.findViewById(R.id.logo);
-        Player p = playersOn.get(arg0);
+        final Player p = playersOn.get(arg0);
 
         title.setText(p.name);
         title.setTypeface(null, Typeface.BOLD);
@@ -78,6 +79,14 @@ public class OnlineListAdapter extends BaseAdapter {
         from.setText("Online");
         Picasso.with(activity).load(p.urlImage).into(logo);
         logo.setImageBitmap(p.face);
+        arg1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PlayerOptionsDialog dialog = new PlayerOptionsDialog();
+                dialog.setPlayerName(p.name);
+                dialog.show(activity.getSupportFragmentManager(), "playerOptions");
+            }
+        });
         //idpm.setText(String.valueOf(p.idpm));
         //DateFormat dateFormat = new SimpleDateFormat("HH:mm dd-MM");
         //date.setText(dateFormat.format(new Date((p.date) * 1000)));

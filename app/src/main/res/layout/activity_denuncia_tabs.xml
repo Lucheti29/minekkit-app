@@ -92,7 +92,7 @@
                                 android:padding="10dp"
                                 android:textColor="@color/white">
 
-                            <requestFocus />
+                                <requestFocus />
                             </EditText>
 
                         </LinearLayout>
@@ -263,6 +263,7 @@
 
                     <ListView
                         android:id="@+id/denuncia_list"
+                        android:layout_marginTop="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="fill_parent"
                         android:layout_gravity="center_horizontal" />
@@ -317,7 +318,7 @@
                                 android:padding="10dp"
                                 android:textColor="@color/white">
 
-                            <requestFocus />
+                                <requestFocus />
                             </EditText>
 
                             <TextView
@@ -477,7 +478,7 @@
                                 android:padding="10dp"
                                 android:textColor="@color/white">
 
-                            <requestFocus />
+                                <requestFocus />
                             </EditText>
 
                             <TextView
@@ -502,7 +503,7 @@
                                 android:padding="10dp"
                                 android:textColor="@color/white">
 
-                            <requestFocus />
+                                <requestFocus />
                             </EditText>
 
                             <TextView
@@ -527,7 +528,7 @@
                                 android:padding="10dp"
                                 android:textColor="@color/white">
 
-                            <requestFocus />
+                                <requestFocus />
                             </EditText>
 
                             <Button

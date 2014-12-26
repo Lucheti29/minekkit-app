@@ -14,5 +14,8 @@
         <item name="30">30</item>
         <item name="-1">-1</item>
     </string-array>
+    <string-array name="players_options_array">
+        <item>Enviar Mensaje Privado</item>
+    </string-array>
 
 </resources>

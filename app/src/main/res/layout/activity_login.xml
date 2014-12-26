@@ -112,7 +112,7 @@
                     android:padding="10dp"
                     android:textStyle="bold"
                     android:shadowColor="#000000"
-                    style="@style/Boton.Mkapp_style" />
+                    style="@style/button_mk_light_blue" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

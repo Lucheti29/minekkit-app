@@ -52,7 +52,7 @@ public class LoginActivity extends ActionBarActivity {
     }
 
     private void iniciate() {
-        setContentView(R.layout.login_activity);
+        setContentView(R.layout.activity_login);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         user = (EditText) findViewById(R.id.login_user);
         pass = (EditText) findViewById(R.id.login_pass);
