@@ -144,17 +144,7 @@
                 android:value="ar.com.overflowdt.minekkit.activities.DrawerActivity" />
         </activity>
         <activity
-            android:name=".activities.ShowNewsActivity"
-            android:configChanges="orientation|screenSize"
-            android:launchMode="singleTop"
-            android:label="Noticias">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ar.com.overflowdt.minekkit.activities.DrawerActivity" />
-        </activity>
-        <activity
             android:name=".activities.DrawerActivity"
-            android:configChanges="orientation|screenSize"
             android:launchMode="singleTop"
             android:label="Noticias" />
         <activity

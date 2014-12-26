@@ -22,10 +22,12 @@ import java.util.List;
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.adapters.NavDrawerAdapter;
 import ar.com.overflowdt.minekkit.fragments.NewsFragment;
+import ar.com.overflowdt.minekkit.fragments.ShowNewsFragment;
+import ar.com.overflowdt.minekkit.interfaces.NewsListenerInterface;
 import ar.com.overflowdt.minekkit.models.Session;
 import ar.com.overflowdt.minekkit.util.NavDrawerOption;
 
-public class DrawerActivity extends ActionBarActivity {
+public class DrawerActivity extends ActionBarActivity implements NewsListenerInterface {
     private static final String OPTION_PROFILE = ProfileActivity.TAG;
     private static final String OPTION_MESSAGES = AllPmsActivity.TAG;
     private static final String OPTION_SHOP = AllRecompensasActivity.TAG;
@@ -44,7 +46,7 @@ public class DrawerActivity extends ActionBarActivity {
     private Toolbar toolbar;
     private ListView mDrawerList;
     private ArrayList<NavDrawerOption> optionsList;
-
+    private String currentTid;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,12 +55,21 @@ public class DrawerActivity extends ActionBarActivity {
         initializeToolbar();
         initializeDrawer();
 
-        if (savedInstanceState == null) {
+        if (findViewById(R.id.main_frame_container) != null) {
+
+            // However, if we're being restored from a previous state,
+            // then we don't need to do anything and should return or else
+            // we could end up with overlapping fragments.
+//            if (savedInstanceState != null) {
+//                return;
+//            }
+
             //cargo el fragmento principal
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction()
                     .replace(R.id.main_frame_container, new NewsFragment(), NewsFragment.TAG);
             ft.commit();
         }
+
     }
 
     private void initializeToolbar() {
@@ -130,7 +141,7 @@ public class DrawerActivity extends ActionBarActivity {
 
         optionsList.add(new NavDrawerOption(OPTION_DIVIDER, "Divider", 0));
 
-        optionsList.add(new NavDrawerOption(OPTION_ABOUT, "Sobre Nosotros", R.drawable.icon_about));
+        optionsList.add(new NavDrawerOption(OPTION_ABOUT, "Nosotros", R.drawable.icon_about));
         optionsList.add(new NavDrawerOption(OPTION_SETTINGS, "Opciones", R.drawable.icon_settings));
 
         return optionsList;
@@ -223,5 +234,51 @@ public class DrawerActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.simple_menu, menu);
         return true;
+    }
+
+    @Override
+    public void OnNewsSelected(String tid) {
+        ShowNewsFragment newsFragment = (ShowNewsFragment) getSupportFragmentManager().findFragmentById(R.id.news_fragment);
+
+        if (findViewById(R.id.main_frame_container) == null) {
+            // If article frag is available, we're in two-pane layout...
+            // Call a method  to update its content
+            newsFragment.updateNewsView(tid);
+        } else if (!(this.currentTid == null) && this.currentTid == tid) {
+
+            // Otherwise, we're in the one-pane layout and must swap frags...
+
+            // Create fragment and give it an argument for the selected article
+            ShowNewsFragment newFragment = new ShowNewsFragment(tid);
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+            // Replace whatever is in the fragment_container view with this fragment,
+            // and add the transaction to the back stack so the user can navigate back
+            transaction.replace(R.id.main_frame_container, newFragment);
+            transaction.addToBackStack(null);
+
+            // Commit the transaction
+            transaction.commit();
+        }
+        this.currentTid = tid;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putString("tid", currentTid);
+        // etc.
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        currentTid = savedInstanceState.getString("tid");
+        if (currentTid != null) {
+            NewsFragment newsFragment = (NewsFragment) getSupportFragmentManager().findFragmentById(R.id.newslist_fragment);
+            if (newsFragment != null) newsFragment.setLoadFirstNews(false);
+            OnNewsSelected(currentTid);
+        }
     }
 }

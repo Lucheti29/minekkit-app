@@ -1,20 +1,17 @@
 package ar.com.overflowdt.minekkit.adapters;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
 import ar.com.overflowdt.minekkit.R;
-import ar.com.overflowdt.minekkit.activities.ShowNewsActivity;
+import ar.com.overflowdt.minekkit.interfaces.NewsListenerInterface;
 import ar.com.overflowdt.minekkit.models.News;
 import ar.com.overflowdt.minekkit.util.BBCodeParser;
 
@@ -25,9 +22,11 @@ public class NewsAdapter extends BaseAdapter {
 
     public List<News> news;
     public Context context;
+    public NewsListenerInterface mCallback;
 
     public NewsAdapter(Context context1, List<News> news) {
         this.context = context1;
+        this.mCallback = (NewsListenerInterface) context1;
         this.news = news;
     }
 
@@ -66,10 +65,7 @@ public class NewsAdapter extends BaseAdapter {
         arg1.findViewById(R.id.news_layout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(context, ShowNewsActivity.class);
-                i.putExtra("tid", n.getTid());
-                context.startActivity(i);
-//                Toast.makeText(context, n.getTid(), Toast.LENGTH_SHORT).show();
+                mCallback.OnNewsSelected(n.getTid());
             }
         });
         return arg1;

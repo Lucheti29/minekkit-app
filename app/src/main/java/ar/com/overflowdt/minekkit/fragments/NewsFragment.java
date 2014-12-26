@@ -24,6 +24,7 @@ import java.util.List;
 
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.adapters.NewsAdapter;
+import ar.com.overflowdt.minekkit.interfaces.NewsListenerInterface;
 import ar.com.overflowdt.minekkit.models.News;
 import ar.com.overflowdt.minekkit.sync.JsonRequest;
 import ar.com.overflowdt.minekkit.util.ApiUrls;
@@ -34,6 +35,12 @@ public class NewsFragment extends Fragment {
     View rootView;
     private ListView newslist;
     private ArrayList<News> news;
+
+    private boolean loadFirstNews = true;
+
+    public void setLoadFirstNews(boolean loadFirstNews) {
+        this.loadFirstNews = loadFirstNews;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -53,6 +60,8 @@ public class NewsFragment extends Fragment {
                 Type type = new TypeToken<List<News>>() {
                 }.getType();
                 news = new Gson().fromJson(response.getAsJsonArray("posts"), type);
+                if (loadFirstNews)
+                    ((NewsListenerInterface) getActivity()).OnNewsSelected(news.get(0).getTid());
                 newslist.setAdapter(new NewsAdapter(getActivity(), news));
             }
         }, new Response.ErrorListener() {
