@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -73,6 +74,7 @@ public class ShowNewsActivity extends ActionBarActivity {
     private void loadData() {
         ((TextView) findViewById(R.id.shownews_title)).setText(news.getSubject());
         ((TextView) findViewById(R.id.shownews_message)).setText(Html.fromHtml(BBCodeParser.bbcode(news.getMessage())));
+        ((TextView) findViewById(R.id.shownews_message)).setMovementMethod(LinkMovementMethod.getInstance());
         ((TextView) findViewById(R.id.shownews_byuser)).setText("Por " + news.getUsername());
         ((TextView) findViewById(R.id.shownews_time)).setText(news.getDateline());
         ((ImageView) findViewById(R.id.shownews_userpic)).setImageResource(R.drawable.steve);
