@@ -126,7 +126,7 @@
             android:launchMode="singleTop">
         <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ar.com.overflowdt.minekkit.activities.DrawerActivity" />
+            android:value="ar.com.overflowdt.minekkit.activities.AllPmsActivity" />
         </activity>
         <activity
             android:name=".activities.ClaimRecoplasActivity"

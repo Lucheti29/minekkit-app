@@ -128,7 +128,7 @@ public class LoginActivity extends ActionBarActivity {
                         ShowAlertMessage.showMessageWithOkAndCancel("Hay una nueva actualización para Minekkit App. ¿Desea instalarla?", LoginActivity.this,
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialogo1, int id) {
-                                        new UpdateAppAsyncTask().setContext(LoginActivity.this).execute();
+                                        new UpdateAppAsyncTask().withContext(LoginActivity.this).execute();
                                     }
                                 },
                                 new DialogInterface.OnClickListener() {

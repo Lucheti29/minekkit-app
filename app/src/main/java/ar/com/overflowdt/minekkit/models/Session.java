@@ -11,6 +11,8 @@ public class Session implements Enviable {
 
     public String user;
     public String pass;
+    private String avatar;
+    private String recoplas;
     static Session instance;
     public String ver;
 

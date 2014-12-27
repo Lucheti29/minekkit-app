@@ -43,9 +43,18 @@ public class BrowserActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        //getMenuInflater().inflate(R.menu.main, menu);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return (true);
+        }
+        return (super.onOptionsItemSelected(item));
     }
 
 
@@ -55,7 +64,7 @@ public class BrowserActivity extends ActionBarActivity {
             //Matchea si la url contiene la palabra youtube.com
             //En caso de que si, permite elegir abrirla con la app de Youtube
             //En caso que no, abre el url en el WebView
-            if (url.indexOf("youtube.com") > -1) {
+            if (url.contains("youtube.com")) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(url));
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);

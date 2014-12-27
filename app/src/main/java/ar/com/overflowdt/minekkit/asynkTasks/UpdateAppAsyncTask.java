@@ -85,7 +85,7 @@ public class UpdateAppAsyncTask extends AsyncTask<Object, String, String> {
         pDialog.setMessage(progress[0]);
     }
 
-    public AsyncTask setContext(Context con) {
+    public AsyncTask withContext(Context con) {
         context = con;
         return this;
     }
