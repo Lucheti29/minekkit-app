@@ -72,13 +72,13 @@ public class NewPMActivity extends ActionBarActivity {
             if (toPlayer != null)
                 to.setText(toPlayer);
         }
-        //Fuentes custom
-        Typeface mecha_Condensed_Bold = Typeface.createFromAsset(getAssets(),
-                "fonts/Mecha_Condensed_Bold.ttf");
-
-        Button btn_responder;
-        btn_responder = (Button) findViewById(R.id.btn_enviarPM);
-        btn_responder.setTypeface(mecha_Condensed_Bold);
+//        //Fuentes custom
+//        Typeface mecha_Condensed_Bold = Typeface.createFromAsset(getAssets(),
+//                "fonts/Mecha_Condensed_Bold.ttf");
+//
+//        Button btn_responder;
+//        btn_responder = (Button) findViewById(R.id.btn_enviarPM);
+//        btn_responder.setTypeface(mecha_Condensed_Bold);
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
     }
@@ -90,7 +90,7 @@ public class NewPMActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_edit, menu);
+        getMenuInflater().inflate(R.menu.menu_send, menu);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return true;
     }
@@ -101,7 +101,7 @@ public class NewPMActivity extends ActionBarActivity {
             case android.R.id.home:
                 onBackPressed();
                 return (true);
-            case R.id.action_save:
+            case R.id.action_send:
                 enviarMensaje(null);
                 return true;
         }

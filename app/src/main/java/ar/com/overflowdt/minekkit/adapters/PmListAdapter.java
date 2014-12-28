@@ -1,6 +1,7 @@
 package ar.com.overflowdt.minekkit.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
@@ -59,17 +60,18 @@ public class PmListAdapter extends BaseAdapter {
         String t = "De: ";
         t = t.concat(p.from);
         from.setText(t);
-        logo.setImageDrawable(arg1.getResources().getDrawable(R.drawable.ic_pms));
+
         idpm.setText(String.valueOf(p.idpm));
         //DateFormat dateFormat = new SimpleDateFormat("HH:mm dd-MM");
         date.setReferenceTime((p.date) * 1000);
         if (p.read == 1) {
+            logo.setImageDrawable(arg1.getResources().getDrawable(R.drawable.mail_open));
             title.setTypeface(null, Typeface.NORMAL);
-            logo.setColorFilter(R.color.black, PorterDuff.Mode.MULTIPLY);
+            logo.setColorFilter(Color.argb(180, 255, 255, 255));
         } else {
+            logo.setImageDrawable(arg1.getResources().getDrawable(R.drawable.mail_close));
             title.setTypeface(null, Typeface.BOLD);
-            logo.clearColorFilter();
-            //logo.setColorFilter(R.color.mk_azul_1, PorterDuff.Mode.MULTIPLY);
+            logo.setColorFilter(Color.argb(240, 255, 255, 255));
         }
 
 

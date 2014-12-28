@@ -40,7 +40,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:id="@+id/editnewpm_title"
-                    android:hint="Titulo:"
+                    android:hint="Título"
                     android:textColor="@color/mk_amarillo_1"
                     android:singleLine="true"
                     android:imeOptions="actionNext" />
@@ -85,16 +85,16 @@
             </LinearLayout>
         </ScrollView>
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/editnewpm_enviar"
-            android:id="@+id/btn_enviarPM"
-            style="@style/Boton.Mkapp_style"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="15dp"
-            android:textSize="25dp"
-            android:onClick="enviarMensaje" />
+        <!--<Button-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/editnewpm_enviar"-->
+        <!--android:id="@+id/btn_enviarPM"-->
+        <!--style="@style/Boton.Mkapp_style"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--android:textSize="25dp"-->
+        <!--android:onClick="enviarMensaje" />-->
 
     </RelativeLayout>
 

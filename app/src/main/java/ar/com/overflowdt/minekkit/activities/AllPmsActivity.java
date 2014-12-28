@@ -89,6 +89,15 @@ public class AllPmsActivity extends ActionBarActivity {
 //                startActivityForResult(in, 100);
             }
         });
+
+        findViewById(R.id.pms_newpmbutton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(AllPmsActivity.this, NewPMActivity.class);
+                startActivity(i);
+            }
+        });
+        
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
     }
 

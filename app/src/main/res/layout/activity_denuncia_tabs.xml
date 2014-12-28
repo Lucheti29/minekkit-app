@@ -530,13 +530,13 @@
                                 <requestFocus />
                             </EditText>
 
-                            <Button
-                                android:id="@+id/btn_aceptar_login"
-                                style="@style/button_mk_light_blue"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="16dp"
-                                android:onClick="crearDenuncia"
-                                android:text="@string/boton_enviar" />
+                            <!--<Button-->
+                            <!--android:id="@+id/btn_aceptar_login"-->
+                            <!--style="@style/button_mk_light_blue"-->
+                            <!--android:layout_gravity="center_horizontal"-->
+                            <!--android:layout_marginTop="16dp"-->
+                            <!--android:onClick="crearDenuncia"-->
+                            <!--android:text="@string/boton_enviar" />-->
                         </LinearLayout>
                     </ScrollView>
 
