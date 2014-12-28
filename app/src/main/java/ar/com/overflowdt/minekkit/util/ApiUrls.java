@@ -17,4 +17,8 @@ public class ApiUrls {
         return API_URL + "news.php";
 
     }
+
+    public String getProfileURL() {
+        return API_URL + "profile.php";
+    }
 }

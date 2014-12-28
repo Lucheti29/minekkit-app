@@ -7,12 +7,29 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
+import com.squareup.picasso.Picasso;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import ar.com.overflowdt.minekkit.R;
+import ar.com.overflowdt.minekkit.interfaces.NewsListenerInterface;
+import ar.com.overflowdt.minekkit.models.News;
 import ar.com.overflowdt.minekkit.models.Session;
+import ar.com.overflowdt.minekkit.sync.JsonRequest;
+import ar.com.overflowdt.minekkit.util.ApiUrls;
 import ar.com.overflowdt.minekkit.util.NavDrawerOption;
 import ar.com.overflowdt.minekkit.views.RoundedImageView;
 
@@ -130,7 +147,7 @@ public class NavDrawerAdapter extends BaseAdapter {
         return currentView;
     }
 
-    private View inflateAsProfileItem(int position, View currentView, ViewGroup container) {
+    private View inflateAsProfileItem(int position, View currentView, final ViewGroup container) {
         if (currentView == null) {
             currentView = ((LayoutInflater) currentActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.navbardrawer_profile, null, false);
         }
@@ -139,12 +156,12 @@ public class NavDrawerAdapter extends BaseAdapter {
         NavDrawerOption currentOption = navDrawerOptions.get(position);
 
         //cargo el icono
-        RoundedImageView userpic = (RoundedImageView) currentView.findViewById(R.id.navdrawer_user_picture);
+        final RoundedImageView userpic = (RoundedImageView) currentView.findViewById(R.id.navdrawer_user_picture);
         userpic.setImageResource(R.drawable.steve);
 
         //cargo el titulo
         ((TextView) currentView.findViewById(R.id.navdrawer_option_title)).setText(currentOption.getTitle());
-
+        final TextView recos = (TextView) currentView.findViewById(R.id.navdrawer_published_products);
 
         CharSequence publishedProducts = "";
 
@@ -153,15 +170,40 @@ public class NavDrawerAdapter extends BaseAdapter {
         if (Session.getInstance().user != null) {//hay user guardado
             ((TextView) currentView.findViewById(R.id.navdrawer_option_title)).setText(Session.getInstance().user);
             publishedProducts = "0 Recoplas";
+            Map<String, String> mParams = new HashMap<String, String>();
+            mParams.put("user", Session.getInstance().user);
+            mParams.put("pass", Session.getInstance().pass64());
+            JsonRequest postRequest = new JsonRequest(Request.Method.POST, ApiUrls.getInstance().getProfileURL(), new Response.Listener<JsonObject>() {
+
+                @Override
+                public void onResponse(JsonObject response) {
+                    Picasso.with(currentActivity).load(response.get("avatar").getAsString()).placeholder(R.drawable.steve).into(userpic);
+                    recos.setText(response.get("recoplas").getAsString() + " Recoplas");
+                }
+            }, new Response.ErrorListener() {
+
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(currentActivity, error.getMessage(), Toast.LENGTH_LONG).show();
+                }
+
+            });
+
+            postRequest.setParams(mParams);
+            Volley.newRequestQueue(currentActivity).add(postRequest);
+            
         } else {
             ((TextView) currentView.findViewById(R.id.navdrawer_option_title)).setTextSize(15);
         }
+
+
 //        if (user.getPhotoUrl() != null) {
 //            Picasso.with(currentActivity).load(user.getPhotoUrl()).into(userpic);
 //        }
 
         //cargo la cantidad de avisos publicados
-        ((TextView) currentView.findViewById(R.id.navdrawer_published_products)).setText(publishedProducts);
+
+        recos.setText(publishedProducts);
 
         return currentView;
     }

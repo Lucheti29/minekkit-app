@@ -38,9 +38,9 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#8092c53e">
+                    android:background="@color/mk_negro_50p">
 
-                    <ListView
+                <ListView
                         android:id="@+id/list4_recompensas"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content" />
@@ -52,9 +52,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:background="#8092c53e">
+                    android:background="@color/mk_negro_50p">
 
-                    <ListView
+                <ListView
                         android:id="@+id/list1_recompensas"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content" />
@@ -66,9 +66,9 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#8092c53e">
+                    android:background="@color/mk_negro_50p">
 
-                    <ListView
+                <ListView
                         android:id="@+id/list2_recompensas"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content" />
@@ -81,9 +81,9 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#8092c53e">
+                    android:background="@color/mk_negro_50p">
 
-                    <ListView
+                <ListView
                         android:id="@+id/list3_recompensas"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content" />

@@ -77,7 +77,7 @@ public class OnlineListAdapter extends BaseAdapter {
         title.setTypeface(null, Typeface.BOLD);
 
         from.setText("Online");
-        Picasso.with(activity).load(p.urlImage).into(logo);
+        Picasso.with(activity).load(p.urlImage).placeholder(R.drawable.steve).into(logo);
         arg1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
