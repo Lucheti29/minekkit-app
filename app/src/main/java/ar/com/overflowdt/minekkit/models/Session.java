@@ -1,5 +1,7 @@
 package ar.com.overflowdt.minekkit.models;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Base64;
 
 import java.io.UnsupportedEncodingException;
@@ -40,4 +42,20 @@ public class Session implements Enviable {
         list.add(new Parametro().setValores("version", ver));
         return list;
     }
+
+    public void logout(Context context) {
+        SharedPreferences preferencias = context.getSharedPreferences("logindata", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferencias.edit();
+        editor.clear().apply();
+    }
+
+    public void saveUserData(Context context) {
+        SharedPreferences preferencias = context.getSharedPreferences("logindata", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferencias.edit();
+        editor.putString("user", Session.getInstance().user);
+        editor.putString("pass", Session.getInstance().pass);
+        editor.commit();
+    }
+
+
 }

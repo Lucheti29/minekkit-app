@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 import ar.com.overflowdt.minekkit.R;
+import ar.com.overflowdt.minekkit.activities.DrawerActivity;
 import ar.com.overflowdt.minekkit.interfaces.NewsListenerInterface;
 import ar.com.overflowdt.minekkit.models.News;
 import ar.com.overflowdt.minekkit.models.Session;
@@ -58,11 +59,12 @@ public class NavDrawerAdapter extends BaseAdapter {
 
     @Override
     public int getItemViewType(int position) {
-        switch (position) {
-            case 0:
+        NavDrawerOption option = navDrawerOptions.get(position);
+        switch (option.getOptionID()) {
+            case DrawerActivity.OPTION_PROFILE:
                 itemType = PROFILE_ITEM;
                 break;
-            case 10:
+            case DrawerActivity.OPTION_DIVIDER:
                 itemType = DIVIDER;
                 break;
             default:

@@ -143,11 +143,7 @@ public class LoginActivity extends ActionBarActivity {
                         ShowAlertMessage.showMessage(getString(R.string.login_fallo_auth), LoginActivity.this);
                         break;
                     case 1:
-                        SharedPreferences preferencias = getSharedPreferences("logindata", Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = preferencias.edit();
-                        editor.putString("user", Session.getInstance().user);
-                        editor.putString("pass", Session.getInstance().pass);
-                        editor.commit();
+                        Session.getInstance().saveUserData(LoginActivity.this);
                         Intent i = new Intent(getApplicationContext(), DrawerActivity.class);
                         startActivity(i);
                         finish();

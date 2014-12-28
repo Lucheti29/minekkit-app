@@ -28,7 +28,7 @@ import ar.com.overflowdt.minekkit.models.Session;
 import ar.com.overflowdt.minekkit.util.NavDrawerOption;
 
 public class DrawerActivity extends ActionBarActivity implements NewsListenerInterface {
-    private static final String OPTION_PROFILE = ProfileActivity.TAG;
+    public static final String OPTION_PROFILE = ProfileActivity.TAG;
     private static final String OPTION_MESSAGES = AllPmsActivity.TAG;
     private static final String OPTION_SHOP = AllRecompensasActivity.TAG;
     private static final String OPTION_RECOPLAS = ClaimRecoplasActivity.TAG;
@@ -36,11 +36,12 @@ public class DrawerActivity extends ActionBarActivity implements NewsListenerInt
     private static final String OPTION_ROULETTE = RuletaActivity.TAG;
     private static final String OPTION_WIKI = WikiMainActivity.TAG;
     private static final String OPTION_ONLINE = OnlineListActivity.TAG;
-    private static final String OPTION_DIVIDER = "DIVIDER";
+    public static final String OPTION_DIVIDER = "DIVIDER";
     private static final String OPTION_ABOUT = AcercaDeActivity.TAG;
     private static final String OPTION_SETTINGS = ConfigActivity.TAG;
     private static final String OPTION_INVENTORY = "INVENTORY";
     private static final String OPTION_DENUNCIA = DenunciaActivity.TAG;
+    private static final String OPTION_LOGOUT = "Logout";
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private Toolbar toolbar;
@@ -144,6 +145,7 @@ public class DrawerActivity extends ActionBarActivity implements NewsListenerInt
 
         optionsList.add(new NavDrawerOption(OPTION_ABOUT, "Nosotros", R.drawable.icon_about));
         optionsList.add(new NavDrawerOption(OPTION_SETTINGS, "Opciones", R.drawable.icon_settings));
+        optionsList.add(new NavDrawerOption(OPTION_LOGOUT, "Logout", R.drawable.icon_logout));
 
         return optionsList;
     }
@@ -226,6 +228,12 @@ public class DrawerActivity extends ActionBarActivity implements NewsListenerInt
             case OPTION_DENUNCIA:
                 intent = new Intent(this, DenunciaActivity.class);
                 startActivity(intent);
+                break;
+            case OPTION_LOGOUT:
+                Session.getInstance().logout(this);
+                intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+                finish();
                 break;
         }
         supportInvalidateOptionsMenu();
