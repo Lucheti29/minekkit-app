@@ -21,4 +21,8 @@ public class ApiUrls {
     public String getProfileURL() {
         return API_URL + "profile.php";
     }
+
+    public String getLoginURL() {
+        return API_URL + "login.php";
+    }
 }

@@ -81,6 +81,7 @@
     <string name="pref_update_setting">Configuración de PMs</string>
     <string name="drawer_open">Abierto</string>
     <string name="drawer_close">Cerrado</string>
+    <string name="actualizacion">Hay una nueva actualización para Minekkit App. ¿Desea instalarla?</string>
 
 
 </resources>

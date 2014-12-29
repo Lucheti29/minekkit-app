@@ -171,29 +171,8 @@ public class NavDrawerAdapter extends BaseAdapter {
 
         if (Session.getInstance().user != null) {//hay user guardado
             ((TextView) currentView.findViewById(R.id.navdrawer_option_title)).setText(Session.getInstance().user);
-            publishedProducts = "0 Recoplas";
-            Map<String, String> mParams = new HashMap<String, String>();
-            mParams.put("user", Session.getInstance().user);
-            mParams.put("pass", Session.getInstance().pass64());
-            JsonRequest postRequest = new JsonRequest(Request.Method.POST, ApiUrls.getInstance().getProfileURL(), new Response.Listener<JsonObject>() {
-
-                @Override
-                public void onResponse(JsonObject response) {
-                    Picasso.with(currentActivity).load(response.get("avatar").getAsString()).placeholder(R.drawable.steve).into(userpic);
-                    recos.setText(response.get("recoplas").getAsString() + " Recoplas");
-                }
-            }, new Response.ErrorListener() {
-
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(currentActivity, error.getMessage(), Toast.LENGTH_LONG).show();
-                }
-
-            });
-
-            postRequest.setParams(mParams);
-            Volley.newRequestQueue(currentActivity).add(postRequest);
-            
+            publishedProducts = Session.getInstance().recoplas + " Recoplas";
+            Picasso.with(currentActivity).load(Session.getInstance().avatar).placeholder(R.drawable.steve).into(userpic);
         } else {
             ((TextView) currentView.findViewById(R.id.navdrawer_option_title)).setTextSize(15);
         }

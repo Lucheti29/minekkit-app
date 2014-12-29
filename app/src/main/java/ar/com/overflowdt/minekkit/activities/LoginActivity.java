@@ -20,6 +20,7 @@ import org.json.JSONObject;
 
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.asynkTasks.UpdateAppAsyncTask;
+import ar.com.overflowdt.minekkit.util.ApiUrls;
 import ar.com.overflowdt.minekkit.util.HttpHandler;
 import ar.com.overflowdt.minekkit.models.Session;
 import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
@@ -30,7 +31,6 @@ public class LoginActivity extends ActionBarActivity {
     EditText pass;
     Button aceptar;
     Boolean iniciado = false;
-    String url = "http://minekkit.com/api/login.php";
     JSONObject resp;
     ProgressDialog pDialog;
 
@@ -94,7 +94,7 @@ public class LoginActivity extends ActionBarActivity {
 
 
             try {
-                resp = handler.post(url, Session.getInstance());
+                resp = handler.post(ApiUrls.getInstance().getLoginURL(), Session.getInstance());
 
                 Log.d("Login", resp.toString());
 
@@ -125,7 +125,7 @@ public class LoginActivity extends ActionBarActivity {
                         if (!iniciado) iniciate();
                         user.setText(Session.getInstance().user);
                         pass.setText(Session.getInstance().pass);
-                        ShowAlertMessage.showMessageWithOkAndCancel("Hay una nueva actualización para Minekkit App. ¿Desea instalarla?", LoginActivity.this,
+                        ShowAlertMessage.showMessageWithOkAndCancel(getString(R.string.actualizacion), LoginActivity.this,
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialogo1, int id) {
                                         new UpdateAppAsyncTask().withContext(LoginActivity.this).execute();
@@ -143,6 +143,8 @@ public class LoginActivity extends ActionBarActivity {
                         ShowAlertMessage.showMessage(getString(R.string.login_fallo_auth), LoginActivity.this);
                         break;
                     case 1:
+                        Session.getInstance().avatar = resp.getString("avatar");
+                        Session.getInstance().recoplas = resp.getString("recoplas");
                         Session.getInstance().saveUserData(LoginActivity.this);
                         Intent i = new Intent(getApplicationContext(), DrawerActivity.class);
                         startActivity(i);
