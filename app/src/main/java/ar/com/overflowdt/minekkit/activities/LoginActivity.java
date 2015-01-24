@@ -15,6 +15,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.crashlytics.android.Crashlytics;
+
+import io.fabric.sdk.android.Fabric;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -37,6 +41,7 @@ public class LoginActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         Session.getInstance().ver = this.getString(R.string.version);
         SharedPreferences prefe = getSharedPreferences("logindata", Context.MODE_PRIVATE);
         if (!prefe.getString("user", "").equals("") && !prefe.getString("pass", "").equals("")) {

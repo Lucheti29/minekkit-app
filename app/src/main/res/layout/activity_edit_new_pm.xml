@@ -25,10 +25,9 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/scrollView"
-            android:layout_alignParentTop="true"
-            android:layout_above="@+id/btn_enviarPM">
+            android:layout_alignParentTop="true">
 
-            <LinearLayout
+        <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
