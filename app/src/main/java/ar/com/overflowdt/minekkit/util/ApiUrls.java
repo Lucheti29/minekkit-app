@@ -1,5 +1,8 @@
 package ar.com.overflowdt.minekkit.util;
 
+import java.util.Iterator;
+import java.util.Map;
+
 /**
  * Created by Fede on 26/12/2014.
  */
@@ -24,5 +27,16 @@ public class ApiUrls {
 
     public String getLoginURL() {
         return API_URL + "login.php";
+    }
+
+    public String loadParams(String url, Map<String, String> params) {
+        Iterator<String> paramsKeys = params.keySet().iterator();
+        url += "?";
+        while (paramsKeys.hasNext()) {
+            String paramName = paramsKeys.next();
+            url += "&" + paramName + "=" + params.get(paramName);
+        }
+
+        return url;
     }
 }

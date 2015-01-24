@@ -3,6 +3,7 @@ package ar.com.overflowdt.minekkit.models;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Base64;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -10,6 +11,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.JsonObject;
+import com.parse.LogInCallback;
+import com.parse.ParseException;
+import com.parse.ParseInstallation;
+import com.parse.ParsePush;
+import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 import com.squareup.picasso.Picasso;
 
 import java.io.UnsupportedEncodingException;
@@ -24,13 +31,15 @@ import ar.com.overflowdt.minekkit.util.ApiUrls;
 
 public class Session implements Enviable {
 
+    private static final String TAG = "Session";
     public String user;
     public String pass;
     public String avatar;
     public String recoplas = "0";
     static Session instance;
     public String ver;
-
+    public User userData;
+    
     public static Session getInstance() {
         if (instance == null)
             instance = new Session();
@@ -93,6 +102,58 @@ public class Session implements Enviable {
         mParams.put("user", Session.getInstance().user);
         mParams.put("pass", Session.getInstance().pass64());
         return mParams;
+    }
+
+    public void addUserToParse(final User user) {
+        //Parse push notifications subscribe user data
+        ParsePush.subscribeInBackground("users");
+        ParseInstallation installation = ParseInstallation.getCurrentInstallation();
+        Log.d(TAG, "User registered: " + user.getUserID());
+        ParseUser userp = new ParseUser();
+        userp.setUsername(String.valueOf(user.getUserID()));
+        userp.setPassword("minekkit");
+        userp.setEmail(user.getEmail());
+
+
+        userp.put("usernameForo", user.getUser());
+
+        userp.signUpInBackground(new SignUpCallback() {
+
+            @Override
+            public void done(ParseException e) {
+                if (e == null) {
+                    // Hooray! Let them use the app now.
+                } else {
+                    parseLogin(user);
+                }
+            }
+        });
+        installation.put("userId", user.getUserID());
+        installation.saveInBackground();
+    }
+
+    public void parseLogin(final User user) {
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if (currentUser != null) {
+            //if is logged in do not do anything
+            return;
+        } else {
+            //parse login
+            if (user.getUserID() != 0)
+                ParseUser.logInInBackground(String.valueOf(user.getUserID()), "minekkit", new LogInCallback() {
+
+
+                    @Override
+                    public void done(ParseUser userp, ParseException e) {
+                        if (userp != null) {
+                            userData = user;
+                        } else {
+                            // Signup failed. Look at the ParseException to see what happened.
+                        }
+                    }
+
+                });
+        }
     }
 
 

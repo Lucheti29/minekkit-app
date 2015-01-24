@@ -15,9 +15,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.Volley;
 import com.crashlytics.android.Crashlytics;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import ar.com.overflowdt.minekkit.MinekkitApplication;
+import ar.com.overflowdt.minekkit.models.User;
+import ar.com.overflowdt.minekkit.sync.JsonRequest;
 import io.fabric.sdk.android.Fabric;
 
 import org.json.JSONException;
@@ -32,6 +41,7 @@ import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 
 public class LoginActivity extends ActionBarActivity {
 
+    private static final String TAG = "Login";
     EditText user;
     EditText pass;
     Button aceptar;
@@ -154,6 +164,24 @@ public class LoginActivity extends ActionBarActivity {
                         Session.getInstance().avatar = resp.getString("avatar");
                         Session.getInstance().recoplas = resp.getString("recoplas");
                         Session.getInstance().saveUserData(LoginActivity.this);
+                        JsonRequest postRequest = new JsonRequest(Request.Method.POST, ApiUrls.getInstance().getProfileURL(), new Response.Listener<JsonObject>() {
+                            @Override
+                            public void onResponse(JsonObject response) {
+                                //muestro el aviso
+                                User user = new Gson().fromJson(response, User.class);
+                                Session.getInstance().addUserToParse(user);
+                            }
+                        }, new Response.ErrorListener() {
+
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Log.e(TAG, "Error: " + error.getMessage());
+                            }
+
+                        });
+                        postRequest.setParams(Session.getInstance().getAuthParams());
+                        Volley.newRequestQueue(LoginActivity.this).add(postRequest);
+                        
                         Intent i = new Intent(getApplicationContext(), DrawerActivity.class);
                         startActivity(i);
                         finish();
