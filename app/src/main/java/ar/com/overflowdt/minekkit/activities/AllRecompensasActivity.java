@@ -27,6 +27,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.com.overflowdt.minekkit.MinekkitApplication;
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.models.PackRecompensas;
 import ar.com.overflowdt.minekkit.adapters.RecompensasAdapter;
@@ -134,6 +135,8 @@ public class AllRecompensasActivity extends ActionBarActivity {
             });
         }
 
+        //Google Analytics
+        ((MinekkitApplication) getApplication()).getTracker(MinekkitApplication.TrackerName.APP_TRACKER);
     }
 
     @Override

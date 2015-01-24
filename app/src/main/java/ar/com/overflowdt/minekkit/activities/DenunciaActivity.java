@@ -33,6 +33,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import ar.com.overflowdt.minekkit.MinekkitApplication;
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.adapters.AttachmentsAdapter;
 import ar.com.overflowdt.minekkit.models.Denuncia;
@@ -170,6 +171,9 @@ public class DenunciaActivity extends ActionBarActivity {
         });
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+
+        //Google Analytics
+        ((MinekkitApplication) getApplication()).getTracker(MinekkitApplication.TrackerName.APP_TRACKER);
     }
 
     private File createImageFile() throws IOException {
@@ -293,15 +297,14 @@ public class DenunciaActivity extends ActionBarActivity {
         }
         denuncia.setTipoDenuncia(tipo);
 
-        if (denuncia.isMissingFields())
-        {
+        if (denuncia.isMissingFields()) {
             Toast.makeText(this, "Te faltan llenar datos", Toast.LENGTH_LONG).show();
             return;
         } else if (denuncia.isMissingEvidence()) {
             Toast.makeText(this, "Te falta agregar alguna prueba", Toast.LENGTH_LONG).show();
             return;
         }
-        
+
         Log.d("INFO", "Paso 1");
         new SubirDenuncia().execute();
     }

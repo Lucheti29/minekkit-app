@@ -14,9 +14,12 @@ import android.view.View;
 import android.widget.TextView;
 
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ar.com.overflowdt.minekkit.MinekkitApplication;
 import ar.com.overflowdt.minekkit.R;
 
 import ar.com.overflowdt.minekkit.models.RuletaAction;
@@ -72,6 +75,23 @@ public class RuletaActivity extends ActionBarActivity {
         new GetIntents().execute();
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        //Google Analytics
+        ((MinekkitApplication) getApplication()).getTracker(MinekkitApplication.TrackerName.APP_TRACKER);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //Get an Analytics tracker to report app starts and uncaught exceptions etc.
+        GoogleAnalytics.getInstance(this).reportActivityStart(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        //Stop the analytics tracking
+        GoogleAnalytics.getInstance(this).reportActivityStop(this);
+
     }
 
     @Override

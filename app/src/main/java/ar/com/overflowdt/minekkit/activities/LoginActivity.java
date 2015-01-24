@@ -17,6 +17,7 @@ import android.widget.EditText;
 
 import com.crashlytics.android.Crashlytics;
 
+import ar.com.overflowdt.minekkit.MinekkitApplication;
 import io.fabric.sdk.android.Fabric;
 
 import org.json.JSONException;
@@ -54,6 +55,8 @@ public class LoginActivity extends ActionBarActivity {
             iniciate();
         }
 
+        //Google Analytics
+        ((MinekkitApplication) getApplication()).getTracker(MinekkitApplication.TrackerName.APP_TRACKER);
     }
 
     private void iniciate() {

@@ -18,6 +18,7 @@ import org.json.JSONObject;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import ar.com.overflowdt.minekkit.MinekkitApplication;
 import ar.com.overflowdt.minekkit.R;
 import ar.com.overflowdt.minekkit.util.HttpHandler;
 import ar.com.overflowdt.minekkit.util.MenuHandler;
@@ -51,6 +52,9 @@ public class ClaimRecoplasActivity extends ActionBarActivity {
         TextView btn_obtenerReco = (TextView) findViewById(R.id.btn_obtenerReco);
         btn_obtenerReco.setTypeface(mecha_Condensed_Bold);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+
+        //Google Analytics
+        ((MinekkitApplication) getApplication()).getTracker(MinekkitApplication.TrackerName.APP_TRACKER);
     }
 
     @Override
