@@ -81,6 +81,16 @@ public class Session implements Enviable {
         SharedPreferences preferencias = context.getSharedPreferences("logindata", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferencias.edit();
         editor.clear().apply();
+        removeUserFromParse();
+    }
+
+    private void removeUserFromParse() {
+        ParseUser.logOut();
+        //Parse push notifications unsubscribe user data
+        ParsePush.unsubscribeInBackground("users");
+        ParseInstallation installation = ParseInstallation.getCurrentInstallation();
+        installation.put("userId", "");
+        installation.saveInBackground();
     }
 
     public void saveUserData(final Context context) {
