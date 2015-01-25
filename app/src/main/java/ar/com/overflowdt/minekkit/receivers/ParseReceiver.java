@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.parse.ParseAnalytics;
 import com.parse.ParsePushBroadcastReceiver;
 
 import ar.com.overflowdt.minekkit.activities.AllPmsActivity;
@@ -15,6 +16,7 @@ public class ParseReceiver extends ParsePushBroadcastReceiver {
 
     @Override
     public void onPushOpen(Context context, Intent intent) {
+        ParseAnalytics.trackAppOpened(intent);
         Log.e("Push", "Clicked");
 
         Log.d("Parse", intent.getStringExtra("com.parse.Data"));

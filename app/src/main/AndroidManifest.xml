@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ar.com.overflowdt.minekkit"
-    android:versionCode="2"
+    android:versionCode="3"
     android:versionName="@string/version">
 
     <uses-sdk
@@ -137,9 +137,8 @@
         <activity
             android:name=".activities.SinglePMActivity"
             android:configChanges="orientation|screenSize"
-            android:label="@string/label_pms"
-            android:launchMode="singleTop">
-            <meta-data
+            android:label="@string/label_pms">
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ar.com.overflowdt.minekkit.activities.AllPmsActivity" />
         </activity>
@@ -175,17 +174,19 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name="ar.com.overflowdt.minekkit.notification.NotificationService"
-            android:enabled="true" />
-        <receiver android:name="ar.com.overflowdt.minekkit.notification.BootReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
+        <!--<service-->
+        <!--android:name="ar.com.overflowdt.minekkit.notification.NotificationService"-->
+        <!--android:enabled="true" />-->
+        <!--<receiver android:name="ar.com.overflowdt.minekkit.notification.BootReceiver">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.BOOT_COMPLETED" />-->
+        <!--</intent-filter>-->
+        <!--</receiver>-->
+
         <meta-data
             android:name="com.crashlytics.ApiKey"
             android:value="234da82ecda116b91b4dcb453a02b1ce4b6887b5" />
+
         <service android:name="com.parse.PushService" />
 
         <receiver android:name="com.parse.ParseBroadcastReceiver">

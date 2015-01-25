@@ -43,6 +43,117 @@
 
 
                     <LinearLayout
+                        android:id="@+id/tab2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ScrollView
+                            android:id="@+id/scrollView2"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/textView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="@string/denuncia_formulario"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:textColor="@color/white"
+                                    android:textSize="25dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/textView2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
+                                    android:text="Tipo de denuncia"
+                                    android:textColor="@color/white"
+                                    android:textIsSelectable="false"
+                                    android:textSize="20sp" />
+
+                                <RadioGroup
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginTop="15dp">
+
+                                    <RadioButton
+                                        android:id="@+id/rb_denuncia1"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:background="#92c53e"
+                                        android:text="Griefing"
+                                        android:textColor="@color/white" />
+
+                                    <RadioButton
+                                        android:id="@+id/rb_denuncia2"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:background="#92c53e"
+                                        android:text="Robo"
+                                        android:textColor="@color/white" />
+
+                                    <RadioButton
+                                        android:id="@+id/rb_denuncia3"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:background="#92c53e"
+                                        android:text="LAG"
+                                        android:textColor="@color/white" />
+
+                                    <RadioButton
+                                        android:id="@+id/rb_denuncia4"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:background="#92c53e"
+                                        android:text="Estafa en el comercio"
+                                        android:textColor="@color/white" />
+
+                                    <RadioButton
+                                        android:id="@+id/rb_denuncia5"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:background="#92c53e"
+                                        android:text="Destrucción en plot"
+                                        android:textColor="@color/white" />
+
+                                    <RadioButton
+                                        android:id="@+id/rb_denuncia6"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:background="#92c53e"
+                                        android:text="Ciudad"
+                                        android:textColor="@color/white" />
+
+                                    <RadioButton
+                                        android:id="@+id/rb_denuncia7"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:background="#92c53e"
+                                        android:text="Otro tipo"
+                                        android:textColor="@color/white" />
+
+                                </RadioGroup>
+                            </LinearLayout>
+                        </ScrollView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:id="@+id/tab3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -107,124 +218,6 @@
                         <TableLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"></TableLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/tab2"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <ScrollView
-                            android:id="@+id/scrollView2"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content">
-
-                            <LinearLayout
-                                android:layout_width="fill_parent"
-                                android:layout_height="fill_parent"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:id="@+id/textView"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:text="@string/denuncia_formulario"
-                                    android:textAppearance="?android:attr/textAppearanceMedium"
-                                    android:textColor="@color/white"
-                                    android:textSize="25dp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:id="@+id/textView2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="15dp"
-                                    android:text="Tipo de denuncia"
-                                    android:textColor="@color/white"
-                                    android:textIsSelectable="false"
-                                    android:textSize="20sp" />
-
-                                <RadioGroup
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="fill_parent"
-                                    android:layout_marginTop="15dp">
-
-                                    <RadioButton
-                                        android:id="@+id/rb_denuncia1"
-                                        android:layout_width="fill_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="3dp"
-                                        android:background="#92c53e"
-                                        android:padding="10dp"
-                                        android:text="Griefing"
-                                        android:textColor="@color/white" />
-
-                                    <RadioButton
-                                        android:id="@+id/rb_denuncia2"
-                                        android:layout_width="fill_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="3dp"
-                                        android:background="#92c53e"
-                                        android:padding="10dp"
-                                        android:text="Robo"
-                                        android:textColor="@color/white" />
-
-                                    <RadioButton
-                                        android:id="@+id/rb_denuncia3"
-                                        android:layout_width="fill_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="3dp"
-                                        android:background="#92c53e"
-                                        android:padding="10dp"
-                                        android:text="LAG"
-                                        android:textColor="@color/white" />
-
-                                    <RadioButton
-                                        android:id="@+id/rb_denuncia4"
-                                        android:layout_width="fill_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="3dp"
-                                        android:background="#92c53e"
-                                        android:padding="10dp"
-                                        android:text="Estafa en el comercio"
-                                        android:textColor="@color/white" />
-
-                                    <RadioButton
-                                        android:id="@+id/rb_denuncia5"
-                                        android:layout_width="fill_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="3dp"
-                                        android:background="#92c53e"
-                                        android:padding="10dp"
-                                        android:text="Destrucción en plot"
-                                        android:textColor="@color/white" />
-
-                                    <RadioButton
-                                        android:id="@+id/rb_denuncia6"
-                                        android:layout_width="fill_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="3dp"
-                                        android:background="#92c53e"
-                                        android:padding="10dp"
-                                        android:text="Ciudad"
-                                        android:textColor="@color/white" />
-
-                                    <RadioButton
-                                        android:id="@+id/rb_denuncia7"
-                                        android:layout_width="fill_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="3dp"
-                                        android:background="#92c53e"
-                                        android:padding="10dp"
-                                        android:text="Otro tipo"
-                                        android:textColor="@color/white" />
-
-                                </RadioGroup>
-                            </LinearLayout>
-                        </ScrollView>
 
                     </LinearLayout>
 
