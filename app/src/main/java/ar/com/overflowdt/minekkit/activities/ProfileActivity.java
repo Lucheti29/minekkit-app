@@ -213,7 +213,7 @@ public class ProfileActivity extends ActionBarActivity {
                      * Updating parsed JSON data into ListView
                      * */
                     ImageView avatar = (ImageView) findViewById(R.id.profile_avatar);
-                    Picasso.with(ProfileActivity.this).load(logo).into(avatar);
+                    Picasso.with(ProfileActivity.this).load(logo).placeholder(R.drawable.steve).into(avatar);
                     TextView name = (TextView) findViewById(R.id.profile_name);
                     name.setText(Session.getInstance().user);
                     TextView reco = (TextView) findViewById(R.id.profile_reco);

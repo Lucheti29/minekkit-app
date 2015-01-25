@@ -10,6 +10,8 @@ import com.google.android.gms.analytics.Tracker;
 
 import java.util.HashMap;
 
+import ar.com.overflowdt.minekkit.models.Session;
+
 
 public class MinekkitApplication extends Application {
     //Google Analytics
@@ -21,6 +23,7 @@ public class MinekkitApplication extends Application {
     
     public void onCreate() {
         Log.d("App", "onCreate");
+        Session.setContext(this);
         Parse.initialize(this, "ZENTAQLhrOXwye0ZqvNJRonB3Tx9kwDeGyPKxadL", "ZTEKcJlyc8SOcxNnDvEJXxYdCP1lBDF1hDC6aDxe");
     }
 

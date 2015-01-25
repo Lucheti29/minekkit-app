@@ -39,11 +39,23 @@ public class Session implements Enviable {
     static Session instance;
     public String ver;
     public User userData;
-    
+    private static Context context;
+
+    public Session() {
+        SharedPreferences prefe = context.getSharedPreferences("logindata", Context.MODE_PRIVATE);
+        if (!prefe.getString("user", "").equals("") && !prefe.getString("pass", "").equals("")) {
+            this.user = prefe.getString("user", "");
+            this.pass = prefe.getString("pass", "");
+        }
+    }
     public static Session getInstance() {
         if (instance == null)
             instance = new Session();
         return instance;
+    }
+
+    public static void setContext(Context context) {
+        Session.context = context;
     }
 
     public String pass64() {
