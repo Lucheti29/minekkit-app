@@ -218,6 +218,8 @@ public class AllRecompensasActivity extends ActionBarActivity {
 
             arrayPacks = new ArrayList<List<PackRecompensas>>();
             // Check your log cat for JSON response
+            if (json == null)
+                return null;
             Log.d("All Products: ", json.toString());
 
             try {

@@ -180,6 +180,8 @@ public class OnlineListActivity extends ActionBarActivity {
 
             } catch (JSONException e) {
                 e.printStackTrace();
+            } catch (Exception e) {
+                return null;
             }
 
             return null;
@@ -199,7 +201,8 @@ public class OnlineListActivity extends ActionBarActivity {
                      * Updating parsed JSON data into ListView
                      * */
                     OnlineListAdapter adapter = new OnlineListAdapter();
-                    setTitle(String.valueOf(playersOn.length()) + " Players Online");
+                    if (playersOn != null)
+                        setTitle(String.valueOf(playersOn.length()) + " Players Online");
                     adapter.activity = OnlineListActivity.this;
                     adapter.playersOn = playerList;
                     // updating listview

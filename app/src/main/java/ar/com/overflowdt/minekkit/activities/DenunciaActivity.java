@@ -343,7 +343,11 @@ public class DenunciaActivity extends ActionBarActivity {
 
             try {
                 // Checking for SUCCESS TAG
-                int success = json.getInt(TAG_SUCCESS);
+                int success;
+                if (json != null) {
+                    success = json.getInt(TAG_SUCCESS);
+                } else
+                    return null;
 
                 switch (success) {
                     case -100:
@@ -361,7 +365,7 @@ public class DenunciaActivity extends ActionBarActivity {
 
             } catch (JSONException e) {
                 e.printStackTrace();
-            }
+            } 
 
             return null;
         }

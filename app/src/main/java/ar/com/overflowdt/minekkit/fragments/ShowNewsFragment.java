@@ -72,7 +72,8 @@ public class ShowNewsFragment extends Fragment {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
+                if (error != null && error.getMessage() != null)
+                    Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
 
         });

@@ -187,7 +187,11 @@ public class SingleRecActivity extends ActionBarActivity {
          */
         protected void onPostExecute(String file_url) {
             // dismiss the dialog after getting all products
-            pDialog.dismiss();
+            try {
+                pDialog.dismiss();
+            } catch (IllegalArgumentException e) {
+                return;
+            }
             titulo.setText(pack.Name);
             costo.setText(String.valueOf(pack.Cost) + " Recoplas");
             desc.setText(pack.descripcion);

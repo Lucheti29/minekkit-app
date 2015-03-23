@@ -139,23 +139,23 @@ public class LoginActivity extends ActionBarActivity {
                         user.setText(Session.getInstance().user);
                         pass.setText(Session.getInstance().pass);
                         break;
-                    case -1:
-                        if (!iniciado) iniciate();
-                        user.setText(Session.getInstance().user);
-                        pass.setText(Session.getInstance().pass);
-                        ShowAlertMessage.showMessageWithOkAndCancel(getString(R.string.actualizacion), LoginActivity.this,
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialogo1, int id) {
-                                        new UpdateAppAsyncTask().withContext(LoginActivity.this).execute();
-                                    }
-                                },
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialogo1, int id) {
-                                        LoginActivity.this.finish();
-                                    }
-                                });
-
-                        break;
+//                    case -1:
+//                        if (!iniciado) iniciate();
+//                        user.setText(Session.getInstance().user);
+//                        pass.setText(Session.getInstance().pass);
+//                        ShowAlertMessage.showMessageWithOkAndCancel(getString(R.string.actualizacion), LoginActivity.this,
+//                                new DialogInterface.OnClickListener() {
+//                                    public void onClick(DialogInterface dialogo1, int id) {
+//                                        new UpdateAppAsyncTask().withContext(LoginActivity.this).execute();
+//                                    }
+//                                },
+//                                new DialogInterface.OnClickListener() {
+//                                    public void onClick(DialogInterface dialogo1, int id) {
+//                                        LoginActivity.this.finish();
+//                                    }
+//                                });
+//
+//                        break;
                     case 0:
                         if (!iniciado) iniciate();
                         ShowAlertMessage.showMessage(getString(R.string.login_fallo_auth), LoginActivity.this);
@@ -188,7 +188,7 @@ public class LoginActivity extends ActionBarActivity {
                         break;
                 }
                 pDialog.dismiss();
-            } catch (JSONException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

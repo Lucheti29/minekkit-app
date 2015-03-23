@@ -163,7 +163,11 @@ public class ProfileActivity extends ActionBarActivity {
 
             try {
                 // Checking for SUCCESS TAG
-                int success = json.getInt(TAG_SUCCESS);
+                int success = 0;
+                if (json != null) {
+                    success = json.getInt(TAG_SUCCESS);
+                } else
+                    return null;
 
                 switch (success) {
                     case -100:

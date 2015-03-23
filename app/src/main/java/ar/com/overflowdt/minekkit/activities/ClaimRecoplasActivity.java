@@ -1,14 +1,13 @@
 package ar.com.overflowdt.minekkit.activities;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -20,9 +19,8 @@ import java.util.TimerTask;
 
 import ar.com.overflowdt.minekkit.MinekkitApplication;
 import ar.com.overflowdt.minekkit.R;
-import ar.com.overflowdt.minekkit.util.HttpHandler;
-import ar.com.overflowdt.minekkit.util.MenuHandler;
 import ar.com.overflowdt.minekkit.models.Session;
+import ar.com.overflowdt.minekkit.util.HttpHandler;
 import ar.com.overflowdt.minekkit.util.ShowAlertMessage;
 
 /**
@@ -109,8 +107,9 @@ public class ClaimRecoplasActivity extends ActionBarActivity {
          */
         protected void onPostExecute(String file_url) {
             // dismiss the dialog after getting all products
-            pDialog.dismiss();
+
             try {
+                pDialog.dismiss();
                 // Checking for SUCCESS TAG
                 int success = json.getInt(TAG_SUCCESS);
 
@@ -140,7 +139,11 @@ public class ClaimRecoplasActivity extends ActionBarActivity {
 
             } catch (JSONException e) {
                 e.printStackTrace();
+            } catch (IllegalArgumentException e) {
+                Log.d("Error", "Error dismiss");
+                return;
             }
+
         }
 
         private void setTimer(int segundos) {

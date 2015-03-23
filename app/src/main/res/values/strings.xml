@@ -56,7 +56,7 @@
     <string name="reco_x_dia_cargando">Cargando...</string>
     <string name="reco_x_dia_obtenerReco">Obtener Recoplas</string>
     <string name="claimReco_error_solicitud">Ha ocurrido un error en la solicitud</string>
-    <string name="claimReco_error_exceso">Tienes m\u00e1s de 50 Recoplas. Gasta unos cuantos en la tienda y volv\u00e9 a solicitar tu Reco Gratis!</string>
+    <string name="claimReco_error_exceso">Tienes m\u00e1s de 35 Recoplas o 50 si eres Veterano. Gasta unos cuantos en la tienda y volv\u00e9 a solicitar tu Reco Gratis!</string>
     <string name="claimReco_ok_entregado">Has obtenido 1 Recoplas. Regresa ma\u00f1ana para pedir otro!</string>
     <string name="claimReco_error_regresaMasTarde">Todav\u00eda no pasaron 24 horas. Regres\u00e1 m\u00e1s tarde!</string>
     <string name="newPM">Nuevo PM</string>

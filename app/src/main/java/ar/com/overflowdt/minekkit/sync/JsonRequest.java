@@ -64,8 +64,10 @@ public class JsonRequest extends Request<JsonObject> {
         try {
             jsonResponse = new String(error.networkResponse.data, HttpHeaderParser.parseCharset(error.networkResponse.headers));
             Log.d("Error Response Body", jsonResponse);
+
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            Log.d("Error Response Body", "Exception");
         }
     }
 

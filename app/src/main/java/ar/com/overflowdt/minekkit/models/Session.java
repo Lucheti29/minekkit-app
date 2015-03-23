@@ -48,6 +48,7 @@ public class Session implements Enviable {
             this.pass = prefe.getString("pass", "");
         }
     }
+
     public static Session getInstance() {
         if (instance == null)
             instance = new Session();
@@ -134,8 +135,10 @@ public class Session implements Enviable {
         ParseUser userp = new ParseUser();
         userp.setUsername(String.valueOf(user.getUserID()));
         userp.setPassword("minekkit");
-        userp.setEmail(user.getEmail());
-
+        if (user.getEmail() != null)
+            userp.setEmail(user.getEmail());
+        else
+            userp.setEmail("");
 
         userp.put("usernameForo", user.getUser());
 
