@@ -6,10 +6,6 @@
     android:background="@drawable/bg_640x960_3"
     android:weightSum="1">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"

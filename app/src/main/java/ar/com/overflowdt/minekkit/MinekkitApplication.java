@@ -19,7 +19,7 @@ public class MinekkitApplication extends Application {
         APP_TRACKER, // Tracker used only in this app.
     }
 
-    HashMap<TrackerName, Tracker> mTrackers = new HashMap<TrackerName, Tracker>();
+    HashMap<TrackerName, Tracker> mTrackers = new HashMap<>();
     
     public void onCreate() {
         Log.d("App", "onCreate");
@@ -29,12 +29,10 @@ public class MinekkitApplication extends Application {
 
     public synchronized Tracker getTracker(TrackerName trackerId) {
         if (!mTrackers.containsKey(trackerId)) {
-
             GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
             Tracker t = (trackerId == TrackerName.APP_TRACKER) ? analytics.newTracker(R.xml.app_tracker)
                     : null;
             mTrackers.put(trackerId, t);
-
         }
         return mTrackers.get(trackerId);
     }
