@@ -16,8 +16,9 @@ repositories {
 
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+    useLibrary  'org.apache.http.legacy'
 
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
@@ -26,8 +27,8 @@ android {
     }
     defaultConfig {
         applicationId "ar.com.overflowdt.minekkit"
-        minSdkVersion 9
-        targetSdkVersion 21
+        minSdkVersion 15
+        targetSdkVersion 24
     }
 
     buildTypes {
@@ -44,13 +45,13 @@ dependencies {
     compile 'org.apache.httpcomponents:httpcore:4.3.2'
     compile 'org.apache.httpcomponents:httpmime:4.3.5'
     compile 'com.squareup.picasso:picasso:2.4.0'
-    compile 'com.google.code.gson:gson:2.3.1'
-    compile 'com.android.support:appcompat-v7:21.0.3'
-    compile 'com.android.support:support-v4:21.0.3'
+    compile 'com.google.code.gson:gson:2.4'
+    compile 'com.android.support:appcompat-v7:24.2.0'
+    compile 'com.android.support:support-v4:24.2.0'
     compile 'com.parse.bolts:bolts-android:1.+'
-    compile 'com.google.android.gms:play-services-base:6.5.+'
+    compile 'com.google.android.gms:play-services-base:9.2.0'
     compile fileTree(dir: 'libs', include: 'Parse-*.jar')
-    compile('com.crashlytics.sdk.android:crashlytics:2.2.0@aar') {
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.2@aar') {
         transitive = true;
     }
 }

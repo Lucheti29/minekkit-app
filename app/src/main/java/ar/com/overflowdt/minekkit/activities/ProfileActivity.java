@@ -17,7 +17,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.android.gms.analytics.GoogleAnalytics;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -79,22 +78,6 @@ public class ProfileActivity extends ActionBarActivity {
         lv = (ListView) findViewById(R.id.listJob_listview);
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-        //Google Analytics
-        ((MinekkitApplication) getApplication()).getTracker(MinekkitApplication.TrackerName.APP_TRACKER);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        //Get an Analytics tracker to report app starts and uncaught exceptions etc.
-        GoogleAnalytics.getInstance(this).reportActivityStart(this);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        //Stop the analytics tracking
-        GoogleAnalytics.getInstance(this).reportActivityStop(this);
 
     }
 

@@ -20,8 +20,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.google.android.gms.analytics.GoogleAnalytics;
-
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
@@ -58,21 +56,6 @@ public class MainActivity extends Activity {
         });
 
         setearAlertDialog();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        //Get an Analytics tracker to report app starts and uncaught exceptions etc.
-        GoogleAnalytics.getInstance(this).reportActivityStart(this);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        //Stop the analytics tracking
-        GoogleAnalytics.getInstance(this).reportActivityStop(this);
-
     }
 
     @Override

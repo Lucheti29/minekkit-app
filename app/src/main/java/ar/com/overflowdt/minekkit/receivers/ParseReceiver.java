@@ -16,7 +16,7 @@ public class ParseReceiver extends ParsePushBroadcastReceiver {
 
     @Override
     public void onPushOpen(Context context, Intent intent) {
-        ParseAnalytics.trackAppOpened(intent);
+        ParseAnalytics.trackAppOpenedInBackground(intent);
         Log.e("Push", "Clicked");
 
         Log.d("Parse", intent.getStringExtra("com.parse.Data"));
@@ -30,20 +30,20 @@ public class ParseReceiver extends ParsePushBroadcastReceiver {
                     Intent in = new Intent(context, SinglePMActivity.class);
                     // sending pid to next activity
                     in.putExtra("pmid", id);
-                    in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     context.startActivity(in);
                     return;
                 }
             }
             Intent i = new Intent(context, AllPmsActivity.class);
             i.putExtras(intent.getExtras());
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             context.startActivity(i);
         } catch (Exception e) {
             e.printStackTrace();
             Intent i = new Intent(context, AllPmsActivity.class);
             i.putExtras(intent.getExtras());
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             context.startActivity(i);
 
         }

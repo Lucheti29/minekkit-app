@@ -14,8 +14,6 @@ import android.view.View;
 import android.widget.TextView;
 
 
-import com.google.android.gms.analytics.GoogleAnalytics;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -75,22 +73,6 @@ public class RuletaActivity extends ActionBarActivity {
         new GetIntents().execute();
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-        //Google Analytics
-        ((MinekkitApplication) getApplication()).getTracker(MinekkitApplication.TrackerName.APP_TRACKER);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        //Get an Analytics tracker to report app starts and uncaught exceptions etc.
-        GoogleAnalytics.getInstance(this).reportActivityStart(this);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        //Stop the analytics tracking
-        GoogleAnalytics.getInstance(this).reportActivityStop(this);
 
     }
 
@@ -222,13 +204,13 @@ public class RuletaActivity extends ActionBarActivity {
                         break;
                     case 1:
                         prize = json.getInt(TAG_PRIZE);
-                        mRotateImage.setFinishingAngle(prize * 45);
-                        mRotateImage.setFinishMessage("Has ganado " + getRecoplas(prize) + " Recoplas!");
-                        intents--;
-                        mRotateImage.toggle();
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
+                                mRotateImage.setFinishingAngle(prize * 45);
+                                mRotateImage.setFinishMessage("Has ganado " + getRecoplas(prize) + " Recoplas!");
+                                intents--;
+                                mRotateImage.toggle();
                                 mensaje_inferior.setText(String.valueOf(intents) + " Intentos restantes");
                             }
                         });

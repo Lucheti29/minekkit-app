@@ -51,6 +51,13 @@ public class LoginActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+            View decorView = getWindow().getDecorView();
+            // Hide the status bar.
+            int uiOptions = 0;
+            uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+            decorView.setSystemUiVisibility(uiOptions);
+        }
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
         Session.getInstance().ver = this.getString(R.string.version);
@@ -65,13 +72,12 @@ public class LoginActivity extends ActionBarActivity {
             iniciate();
         }
 
-        //Google Analytics
-        ((MinekkitApplication) getApplication()).getTracker(MinekkitApplication.TrackerName.APP_TRACKER);
+
     }
 
     private void iniciate() {
         setContentView(R.layout.activity_login);
-        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+//        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         user = (EditText) findViewById(R.id.login_user);
         pass = (EditText) findViewById(R.id.login_pass);
         aceptar = (Button) findViewById(R.id.btn_aceptar_login);

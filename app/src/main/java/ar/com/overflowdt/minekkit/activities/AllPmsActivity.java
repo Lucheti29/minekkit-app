@@ -15,7 +15,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.android.gms.analytics.GoogleAnalytics;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -102,23 +101,6 @@ public class AllPmsActivity extends ActionBarActivity {
         });
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-
-        //Google Analytics
-        ((MinekkitApplication) getApplication()).getTracker(MinekkitApplication.TrackerName.APP_TRACKER);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        //Get an Analytics tracker to report app starts and uncaught exceptions etc.
-        GoogleAnalytics.getInstance(this).reportActivityStart(this);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        //Stop the analytics tracking
-        GoogleAnalytics.getInstance(this).reportActivityStop(this);
 
     }
 

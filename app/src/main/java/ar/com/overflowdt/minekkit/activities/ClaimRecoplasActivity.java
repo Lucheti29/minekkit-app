@@ -51,8 +51,7 @@ public class ClaimRecoplasActivity extends ActionBarActivity {
         btn_obtenerReco.setTypeface(mecha_Condensed_Bold);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
 
-        //Google Analytics
-        ((MinekkitApplication) getApplication()).getTracker(MinekkitApplication.TrackerName.APP_TRACKER);
+
     }
 
     @Override

@@ -135,8 +135,6 @@ public class AllRecompensasActivity extends ActionBarActivity {
             });
         }
 
-        //Google Analytics
-        ((MinekkitApplication) getApplication()).getTracker(MinekkitApplication.TrackerName.APP_TRACKER);
     }
 
     @Override
