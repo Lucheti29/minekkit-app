@@ -136,10 +136,10 @@ public class DrawerActivity extends ActionBarActivity implements NewsListenerInt
         optionsList.add(new NavDrawerOption(OPTION_MESSAGES, "Mensajes", R.drawable.icon_messages));
         optionsList.add(new NavDrawerOption(OPTION_SHOP, "Shop de Recompensas", R.drawable.icon_shop2));
         optionsList.add(new NavDrawerOption(OPTION_INVENTORY, "Inventario", R.drawable.icon_inventory));
-        optionsList.add(new NavDrawerOption(OPTION_RECOPLAS, "Recoplas Gratis", R.drawable.icon_recoplas));
+//        optionsList.add(new NavDrawerOption(OPTION_RECOPLAS, "Recoplas Gratis", R.drawable.icon_recoplas));
         optionsList.add(new NavDrawerOption(OPTION_ROULETTE, "Ruleta", R.drawable.icon_roulette));
-        optionsList.add(new NavDrawerOption(OPTION_MAP, "Mapa", R.drawable.icon_map));
-        optionsList.add(new NavDrawerOption(OPTION_WIKI, "Wiki", R.drawable.icon_wiki));
+//        optionsList.add(new NavDrawerOption(OPTION_MAP, "Mapa", R.drawable.icon_map));
+//        optionsList.add(new NavDrawerOption(OPTION_WIKI, "Wiki", R.drawable.icon_wiki));
         optionsList.add(new NavDrawerOption(OPTION_ONLINE, "Jugadores Online", R.drawable.icon_peopleonline));
         optionsList.add(new NavDrawerOption(OPTION_DENUNCIA, "Denunciar", R.drawable.icon_justice));
 
